@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salmon Audit | Document. Connect. Reckon.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #1d4ed8 100%);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .testimony-card {
+            transition: all 0.3s ease;
+        }
+        .testimony-card:hover {
+            background-color: #f8fafc;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .animated-underline {
+            position: relative;
+            display: inline-block;
+        }
+        .animated-underline::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #3b82f6;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+        .animated-underline:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        .blur-effect {
+            filter: blur(8px);
+            transition: filter 0.3s ease;
+        }
+        .blur-effect:hover {
+            filter: blur(0);
+        }
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <svg class="h-8 w-8 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L4 12L12 22L20 12L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 6L7 12L12 18L17 12L12 6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="ml-2 text-xl font-bold text-gray-900">Salmon Audit</span>
+                        <span class="ml-2 text-sm font-medium text-gray-500">Document. Connect. Reckon.</span>
+                    </div>
+                    <div class="hidden md:ml-10 md:flex md:space-x-8">
+                        <a href="#home" class="nav-link text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">Home</a>
+                        <div class="dropdown relative">
+                            <button class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                                Campaigns <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                            </button>
+                            <div class="dropdown-menu absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 z-50">
+                                <a href="#campaigns" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Active Campaigns</a>
+                                <a href="#featured" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Featured Case</a>
+                                <a href="#join" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Join a Campaign</a>
+                            </div>
+                        </div>
+                        <a href="#legal-tools" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">Legal Tools (Beta)</a>
+                        <a href="#upload" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">Upload Your Story</a>
+                        <a href="#ledger" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">Audit Ledger</a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#mission" class="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Our Mission</a>
+                    <a href="#donate" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium">Donate</a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="pt-2 pb-3 space-y-1">
+                <a href="#home" class="block pl-3 pr-4 py-2 border-l-4 border-blue-500 text-base font-medium text-blue-700 bg-blue-50">Home</a>
+                <a href="#campaigns" class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300">Campaigns</a>
+                <a href="#legal-tools" class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300">Legal Tools</a>
+                <a href="#upload" class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300">Upload Story</a>
+                <a href="#ledger" class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300">Audit Ledger</a>
+                <a href="#mission" class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300">Our Mission</a>
+                <a href="#donate" class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300">Donate</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
+                <div class="mb-12 lg:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
+                        Exposing Institutional Misconduct—One Verified Voice at a Time
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 opacity-90">
+                        Our AI systems tailor legal literacy to your jurisdiction, letting you stand up, speak out, and strike back.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#upload" class="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-md text-lg font-semibold text-center transition duration-300">
+                            Join the Audit <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="#campaigns" class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 px-6 py-3 rounded-md text-lg font-semibold text-center transition duration-300">
+                            View Active Investigations
+                        </a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg rounded-xl p-6 shadow-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="h-10 w-10 rounded-full bg-blue-400 flex items-center justify-center mr-3">
+                                <i class="fas fa-user-shield text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">Anonymous Testimony</h3>
+                                <p class="text-blue-100 text-sm">Case #AUD-2023-4872</p>
+                            </div>
+                        </div>
+                        <div class="bg-white bg-opacity-30 rounded-lg p-4 mb-4">
+                            <p class="italic">"The system failed my family. Through Salmon Audit, I found others with similar experiences and the legal tools to fight back."</p>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="bg-blue-500 text-white px-2 py-1 rounded">Verified</span>
+                            <div class="flex space-x-2">
+                                <span class="bg-white bg-opacity-20 px-2 py-1 rounded">Family Court</span>
+                                <span class="bg-white bg-opacity-20 px-2 py-1 rounded">CA</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 bg-blue-500 rounded-xl p-4 shadow-lg w-2/3">
+                        <div class="flex items-center">
+                            <div class="bg-blue-600 p-2 rounded-lg mr-3">
+                                <i class="fas fa-robot text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">AI Legal Assistant</h4>
+                                <p class="text-sm opacity-90">Jurisdiction-aware analysis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Snapshot -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Our Tools for Accountability</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-gray-50 rounded-xl p-6 card-hover transition duration-300">
+                    <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-database text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Offline AI Training</h3>
+                    <p class="text-gray-600">Tailored to your state's specific laws and procedures, ensuring relevant legal guidance.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-gray-50 rounded-xl p-6 card-hover transition duration-300">
+                    <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-clipboard-check text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Evidence-Based Audit Ledger</h3>
+                    <p class="text-gray-600">Immutable record of institutional misconduct patterns with verifiable documentation.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-gray-50 rounded-xl p-6 card-hover transition duration-300">
+                    <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-eye text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Public Civic Watchdogs</h3>
+                    <p class="text-gray-600">Community-powered monitoring of systemic abuse across institutions.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="bg-gray-50 rounded-xl p-6 card-hover transition duration-300">
+                    <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-user-secret text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Anonymous or Public</h3>
+                    <p class="text-gray-600">Choose your level of visibility while contributing to systemic accountability.</p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="bg-gray-50 rounded-xl p-6 card-hover transition duration-300">
+                    <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-link text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Blockchain-Ready Framework</h3>
+                    <p class="text-gray-600">Transparent recordkeeping with cryptographic verification capabilities.</p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="bg-gray-50 rounded-xl p-6 card-hover transition duration-300">
+                    <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-hands-helping text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Peer Support Matching</h3>
+                    <p class="text-gray-600">Connect with others who've faced similar institutional challenges.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Campaign -->
+    <section id="campaigns" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold mb-2">Active Campaign</span>
+                <h2 class="text-3xl font-bold">When Churches & Courts Collude</h2>
+                <p class="text-xl text-gray-600 mt-4 max-w-3xl mx-auto">
+                    Documenting Hidden Custody Crimes in Christ Connect Church's Layne Project
+                </p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md overflow-hidden mb-12">
+                <div class="md:flex">
+                    <div class="md:flex-shrink-0 md:w-1/3 bg-gray-100 flex items-center justify-center p-8">
+                        <div class="text-center">
+                            <i class="fas fa-church text-5xl text-gray-400 mb-4"></i>
+                            <h3 class="text-xl font-semibold text-gray-800">Christ Connect Church</h3>
+                            <p class="text-gray-600">x</p>
+                            <h3 class="text-xl font-semibold text-gray-800">The Layne Project</h3>
+                        </div>
+                    </div>
+                    <div class="p-8 md:w-2/3">
+                        <div class="uppercase tracking-wide text-sm text-blue-600 font-semibold mb-1">Systemic Abuse Investigation</div>
+                        <p class="mt-2 text-gray-600">
+                            This audit investigates systemic abuse and trauma inflicted through Christ Connect Church's involvement in court-referred custody cases via The Layne Project. We're seeking others silenced by "faith-based" organizations operating without oversight.
+                        </p>
+                        <div class="mt-6">
+                            <a href="#join" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium inline-flex items-center">
+                                Share Your Experience <i class="fas fa-plus ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Summary -->
+                <div class="bg-white rounded-lg shadow-sm p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-2 rounded-lg mr-3">
+                            <i class="fas fa-file-alt text-blue-600"></i>
+                        </div>
+                        <h3 class="font-semibold">Summary of Allegations</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>Coercive custody evaluations</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>Religious bias in court reports</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>Undisclosed financial ties</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="mt-4 inline-flex items-center text-sm text-blue-600 font-medium">
+                        Read Full Summary <i class="fas fa-chevron-right ml-1"></i>
+                    </a>
+                </div>
+
+                <!-- Testimonies -->
+                <div class="bg-white rounded-lg shadow-sm p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-2 rounded-lg mr-3">
+                            <i class="fas fa-comments text-blue-600"></i>
+                        </div>
+                        <h3 class="font-semibold">Testimonies</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="testimony-card p-3 bg-gray-50 rounded cursor-pointer">
+                            <div class="flex items-center mb-2">
+                                <div class="blur-effect bg-gray-300 rounded-full w-8 h-8 flex items-center justify-center mr-2">
+                                    <i class="fas fa-user text-gray-500 text-sm"></i>
+                                </div>
+                                <span class="text-sm font-medium">Case #LC-482</span>
+                            </div>
+                            <p class="text-sm text-gray-600 italic">"They used my religious beliefs against me in court..."</p>
+                        </div>
+                        <div class="testimony-card p-3 bg-gray-50 rounded cursor-pointer">
+                            <div class="flex items-center mb-2">
+                                <div class="blur-effect bg-gray-300 rounded-full w-8 h-8 flex items-center justify-center mr-2">
+                                    <i class="fas fa-user text-gray-500 text-sm"></i>
+                                </div>
+                                <span class="text-sm font-medium">Case #LC-519</span>
+                            </div>
+                            <p class="text-sm text-gray-600 italic">"The evaluator never disclosed their church affiliation..."</p>
+                        </div>
+                    </div>
+                    <a href="#" class="mt-4 inline-flex items-center text-sm text-blue-600 font-medium">
+                        View All Testimonies <i class="fas fa-chevron-right ml-1"></i>
+                    </a>
+                </div>
+
+                <!-- Legal Filings -->
+                <div class="bg-white rounded-lg shadow-sm p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-2 rounded-lg mr-3">
+                            <i class="fas fa-file-pdf text-blue-600"></i>
+                        </div>
+                        <h3 class="font-semibold">Legal Filings + Evidence</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center text-sm text-gray-600">
+                            <i class="fas fa-file-pdf text-red-500 mr-2"></i>
+                            <span>Motion_to_Disqualify_LC.pdf</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600">
+                            <i class="fas fa-link text-blue-500 mr-2"></i>
+                            <span>Transcript_Excerpts_2022</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600">
+                            <i class="fas fa-file-contract text-green-500 mr-2"></i>
+                            <span>Contract_Disclosure</span>
+                        </div>
+                    </div>
+                    <a href="#" class="mt-4 inline-flex items-center text-sm text-blue-600 font-medium">
+                        Access Evidence Vault <i class="fas fa-chevron-right ml-1"></i>
+                    </a>
+                </div>
+
+                <!-- Patterns -->
+                <div class="bg-white rounded-lg shadow-sm p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-2 rounded-lg mr-3">
+                            <i class="fas fa-project-diagram text-blue-600"></i>
+                        </div>
+                        <h3 class="font-semibold">Patterns of Abuse</h3>
+                    </div>
+                    <div class="bg-gray-100 rounded-lg p-3 mb-3">
+                        <div class="flex justify-between text-xs text-gray-500 mb-1">
+                            <span>Judicial Circuits</span>
+                            <span>87% correlation</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full" style="width: 87%"></div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-100 rounded-lg p-3">
+                        <div class="flex justify-between text-xs text-gray-500 mb-1">
+                            <span>Evaluator Bias</span>
+                            <span>92% correlation</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full" style="width: 92%"></div>
+                        </div>
+                    </div>
+                    <a href="#" class="mt-4 inline-flex items-center text-sm text-blue-600 font-medium">
+                        View AI Analysis <i class="fas fa-chevron-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal Tools -->
+    <section id="legal-tools" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold mb-2">Beta Tools</span>
+                <h2 class="text-3xl font-bold">AI-Powered Legal Assistance</h2>
+                <p class="text-xl text-gray-600 mt-4 max-w-3xl mx-auto">
+                    State-specific legal tools designed to help you navigate complex systems
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <!-- Legal Bot -->
+                <div class="bg-gray-50 rounded-xl p-8 card-hover border border-gray-200">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-600 text-white p-3 rounded-lg mr-4">
+                            <i class="fas fa-robot text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Jurisdiction-Aware Legal Bot</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        Our 1B parameter mini-model provides tailored guidance based on your state's family/civil law, suggesting filings, statutes, and defenses.
+                    </p>
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Select Your State</label>
+                        <select class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                            <option>California</option>
+                            <option>Texas</option>
+                            <option>New York</option>
+                            <option>Florida</option>
+                            <option>Illinois</option>
+                        </select>
+                    </div>
+                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-medium flex items-center justify-center">
+                        Start Legal Chat <i class="fas fa-comment-dots ml-2"></i>
+                    </button>
+                </div>
+
+                <!-- Motion Builder -->
+                <div class="bg-gray-50 rounded-xl p-8 card-hover border border-gray-200">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-600 text-white p-3 rounded-lg mr-4">
+                            <i class="fas fa-file-signature text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Motion Builder</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        Drag-and-drop motion builder with autofill citation tools that prompts for key facts and generates pro se pleadings.
+                    </p>
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-1 rounded mr-3">
+                                <i class="fas fa-check text-blue-600 text-xs"></i>
+                            </div>
+                            <span class="text-sm">One-click local court formatting</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-1 rounded mr-3">
+                                <i class="fas fa-check text-blue-600 text-xs"></i>
+                            </div>
+                            <span class="text-sm">Statute auto-completion</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-1 rounded mr-3">
+                                <i class="fas fa-check text-blue-600 text-xs"></i>
+                            </div>
+                            <span class="text-sm">Procedural requirement checks</span>
+                        </div>
+                    </div>
+                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-medium flex items-center justify-center">
+                        Build Your Motion <i class="fas fa-magic ml-2"></i>
+                    </button>
+                </div>
+
+                <!-- Record Tracker -->
+                <div class="bg-gray-50 rounded-xl p-8 card-hover border border-gray-200">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-600 text-white p-3 rounded-lg mr-4">
+                            <i class="fas fa-clipboard-list text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Record Tracker</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        Link court cases to our AI audit system to automatically highlight perjury, procedural errors, or judicial bias patterns.
+                    </p>
+                    <div class="bg-white p-4 rounded-lg border border-gray-200 mb-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm font-medium">Case #JC-2022-4587</span>
+                            <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">3 Anomalies</span>
+                        </div>
+                        <div class="text-xs text-gray-500 mb-1">Last updated: 2 days ago</div>
+                        <div class="w-full bg-gray-200 rounded-full h-1">
+                            <div class="bg-blue-600 h-1 rounded-full" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-medium flex items-center justify-center">
+                        Track Your Case <i class="fas fa-search ml-2"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-blue-50 rounded-xl p-8 border border-blue-100">
+                <div class="md:flex items-center">
+                    <div class="md:w-2/3 mb-6 md:mb-0">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-2">"Explain This to Me Like I'm in Court"</h3>
+                        <p class="text-blue-700">
+                            Our specialized translator breaks down complex legal language into plain English you can use in hearings.
+                        </p>
+                    </div>
+                    <div class="md:w-1/3 text-right">
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-md font-medium inline-flex items-center">
+                            Try Translator <i class="fas fa-exchange-alt ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upload Your Story -->
+    <section id="upload" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold">Upload Your Story</h2>
+                <p class="text-xl text-gray-600 mt-4 max-w-3xl mx-auto">
+                    Contribute to systemic accountability while maintaining control of your privacy
+                </p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md overflow-hidden max-w-4xl mx-auto">
+                <div class="md:flex">
+                    <div class="md:w-1/3 bg-blue-600 p-8 text-white">
+                        <h3 class="text-xl font-semibold mb-4">Your Privacy Options</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="bg-blue-500 p-1 rounded mr-3 mt-1">
+                                    <i class="fas fa-check text-white text-xs"></i>
+                                </div>
+                                <span>Anonymous Public Display</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-blue-500 p-1 rounded mr-3 mt-1">
+                                    <i class="fas fa-check text-white text-xs"></i>
+                                </div>
+                                <span>Private Archive for Legal Matching</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-blue-500 p-1 rounded mr-3 mt-1">
+                                    <i class="fas fa-check text-white text-xs"></i>
+                                </div>
+                                <span>Publish in Next Campaign</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-blue-500 p-1 rounded mr-3 mt-1">
+                                    <i class="fas fa-check text-white text-xs"></i>
+                                </div>
+                                <span>Auto-Generated Case #ID</span>
+                            </li>
+                        </ul>
+                        <div class="mt-8 pt-4 border-t border-blue-400">
+                            <p class="text-sm opacity-90">
+                                All files stored offline in your personal JSON profile. Data never sold.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3 p-8">
+                        <form>
+                            <div class="mb-6">
+                                <label class="block text-gray-700 font-medium mb-2">Case/Incident Summary</label>
+                                <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" rows="4" placeholder="Describe what happened..."></textarea>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-gray-700 font-medium mb-2">Entity Involved</label>
+                                <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <option>Select an entity type</option>
+                                    <option>Court/Judge</option>
+                                    <option>Church/Religious Org</option>
+                                    <option>School/University</option>
+                                    <option>Government Agency</option>
+                                    <option>Healthcare Provider</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-gray-700 font-medium mb-2">Supporting Files</label>
+                                <div class="border-2 border-dashed border-gray-300 rounded-md p-6 text-center">
+                                    <i class="fas fa-cloud-upload-alt text-gray-400 text-3xl mb-2"></i>
+                                    <p class="text-gray-500 mb-2">Drag & drop files here or click to browse</p>
+                                    <p class="text-xs text-gray-400">PDF, TXT, Audio, Video (max 25MB each)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-gray-700 font-medium mb-3">Consent Options</label>
+                                <div class="space-y-3">
+                                    <div class="flex items-start">
+                                        <input type="checkbox" class="mt-1 h-4 w-4 text-blue-600" checked>
+                                        <label class="ml-2 block text-gray-700">Generate Audit Case #ID</label>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <input type="checkbox" class="mt-1 h-4 w-4 text-blue-600">
+                                        <label class="ml-2 block text-gray-700">Request Legal Bot to Draft a Motion</label>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <input type="checkbox" class="mt-1 h-4 w-4 text-blue-600" checked>
+                                        <label class="ml-2 block text-gray-700">Request Peer Support Matching</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <input type="checkbox" class="h-4 w-4 text-blue-600" required>
+                                    <label class="ml-2 block text-sm text-gray-700">
+                                        I agree to the <a href="#" class="text-blue-600">Terms</a> and <a href="#" class="text-blue-600">Data Policy</a>
+                                    </label>
+                                </div>
+                                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-md font-medium">
+                                    Submit Story <i class="fas fa-paper-plane ml-2"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audit Ledger -->
+    <section id="ledger" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold">Audit Ledger</h2>
+                <p class="text-xl text-gray-600 mt-4 max-w-3xl mx-auto">
+                    The public-facing evidence vault of institutional misconduct
+                </p>
+            </div>
+
+            <div class="bg-gray-50 rounded-xl p-6 mb-8">
+                <div class="md:flex items-center justify-between">
+                    <div class="mb-4 md:mb-0">
+                        <h3 class="font-semibold text-lg mb-2">Filter Cases</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="bg-white border border-gray-300 px-3 py-1 rounded-full text-sm hover:bg-gray-100">All</button>
+                            <button class="bg-white border border-gray-300 px-3 py-1 rounded-full text-sm hover:bg-gray-100">Family Court</button>
+                            <button class="bg-white border border-gray-300 px-3 py-1 rounded-full text-sm hover:bg-gray-100">Religious Orgs</button>
+                            <button class="bg-white border border-gray-300 px-3 py-1 rounded-full text-sm hover:bg-gray-100">Education</button>
+                            <button class="bg-white border border-gray-300 px-3 py-1 rounded-full text-sm hover:bg-gray-100">Healthcare</button>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="relative">
+                            <input type="text" placeholder="Search entities or case numbers..." class="pl-10 pr-4 py-2 border border-gray-300 rounded-md w-full md:w-64 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Case ID</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Entity</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Allegation Type</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Jurisdiction</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <!-- Row 1 -->
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#AUD-2023-4821</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Christ Connect Church</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">Custody Interference</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">CA, USA</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Verified</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                <a href="#" class="text-blue-600 hover:text-blue-900 mr-3">View</a>
+                                <a href="#" class="text-blue-600 hover:text-blue-900">Upvote</a>
+                            </td>
+                        </tr>
+                        
+                        <!-- Row 2 -->
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#AUD-2023-4756</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Family Court #42</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-purple-100 text-purple-800">Judicial Bias</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">TX, USA</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Pending Review</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                <a href="#" class="text-blue-600 hover:text-blue-900 mr-3">View</a>
+                                <a href="#" class="text-blue-600 hover:text-blue-900">Upvote</a>
+                            </td>
+                        </tr>
+                        
+                        <!-- Row 3 -->
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#AUD-2023-4692</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Layne Project</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">Fraud</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">FL, USA</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Verified</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                <a href="#" class="text-blue-600 hover:text-blue-900 mr-3">View</a>
+                                <a href="#" class="text-blue-600 hover:text-blue-900">Upvote</a>
+                            </td>
+                        </tr>
+                        
+                        <!-- Row 4 -->
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#AUD-2023-4583</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Hope Academy</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-orange-100 text-orange-800">Coercion</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">NY, USA</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Verified</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                <a href="#" class="text-blue-600 hover:text-blue-900 mr-3">View</a>
+                                <a href="#" class="text-blue-600 hover:text-blue-900">Upvote</a>
+                            </td>
+                        </tr>
+                        
+                        <!-- Row 5 -->
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#AUD-2023-4491</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Family Court #17</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-pink-100 text-pink-800">Procedural Error</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">IL, USA</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Pending Review</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                <a href="#" class="text-blue-600 hover:text-blue-900 mr-3">View</a>
+                                <a href="#" class="text-blue-600 hover:text-blue-900">Upvote</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-8 flex justify-center">
+                <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                    <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                        <span class="sr-only">Previous</span>
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                    <a href="#" aria-current="page" class="z-10 bg-blue-50 border-blue-500 text-blue-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                        1
+                    </a>
+                    <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                        2
+                    </a>
+                    <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                        3
+                    </a>
+                    <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">
+                        ...
+                    </span>
+                    <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                        8
+                    </a>
+                    <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                        <span class="sr-only">Next</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </nav>
+            </div>
+
+            <div class="mt-12 bg-blue-50 rounded-xl p-8 border border-blue-100">
+                <div class="md:flex items-center">
+                    <div class="md:w-2/3 mb-6 md:mb-0">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-2">Timeline Mode</h3>
+                        <p class="text-blue-700">
+                            Visualize sequences of institutional abuse across multiple cases to identify systemic patterns.
+                        </p>
+                    </div>
+                    <div class="md:w-1/3 text-right">
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-md font-medium inline-flex items-center">
+                            View Timeline <i class="fas fa-project-diagram ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Mission -->
+    <section id="mission" class="py-16 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                <div class="mb-12 lg:mb-0">
+                    <h2 class="text-3xl font-bold mb-8">Our Mission</h2>
+                    <div class="space-y-8">
+                        <div class="flex items-start">
+                            <div class="bg-blue-600 p-2 rounded-lg mr-4 flex-shrink-0">
+                                <i class="fas fa-balance-scale text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">The Law Should Serve People</h3>
+                                <p class="text-gray-300">
+                                    We believe legal systems should empower, not control. Our tools dismantle systemic gatekeeping through transparency and accessibility.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-blue-600 p-2 rounded-lg mr-4 flex-shrink-0">
+                                <i class="fas fa-brain text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">AI for Public Defense</h3>
+                                <p class="text-gray-300">
+                                    We're building the public's defense infrastructure—jurisdiction-aware AI trained to recognize and counter institutional abuse patterns.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-blue-600 p-2 rounded-lg mr-4 flex-shrink-0">
+                                <i class="fas fa-shield-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Data Ethics</h3>
+                                <p class="text-gray-300">
+                                    All files stored offline in personal JSON profiles. User data is never sold. Our future UBI integration will compensate contributors.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="bg-gray-800 rounded-xl p-6">
+                        <h3 class="text-xl font-semibold mb-4">Roadmap to Justice</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-1 flex-shrink-0">1</div>
+                                <div>
+                                    <h4 class="font-medium">Model Training</h4>
+                                    <p class="text-sm text-gray-400">State-specific legal pattern recognition</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-1 flex-shrink-0">2</div>
+                                <div>
+                                    <h4 class="font-medium">Legal Empowerment</h4>
+                                    <p class="text-sm text-gray-400">Tools for pro se litigants and advocates</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-1 flex-shrink-0">3</div>
+                                <div>
+                                    <h4 class="font-medium">Systemic Change</h4>
+                                    <p class="text-sm text-gray-400">Accountability through collective evidence</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-1 flex-shrink-0">4</div>
+                                <div>
+                                    <h4 class="font-medium">UBI Integration</h4>
+                                    <p class="text-sm text-gray-400">Compensating data contributions</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8 pt-6 border-t border-gray-700">
+                            <div class="flex items-center">
+                                <div class="bg-blue-600 p-2 rounded-lg mr-4">
+                                    <i class="fas fa-hand-holding-heart"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Salmon Fund 501(c)(3)</h4>
+                                    <p class="text-sm text-gray-400">Fiscal sponsor ensuring tax-deductible donations</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donate -->
+    <section id="donate" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold">Fund Justice Tools</h2>
+                <p class="text-xl text-gray-600 mt-4 max-w-3xl mx-auto">
+                    Your tax-deductible donation develops legal AI trained on local statutes
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-blue-50 rounded-xl p-8 mb-12 border border-blue-100">
+                    <div class="md:flex items-center">
+                        <div class="md:w-2/3 mb-6 md:mb-0">
+                            <h3 class="text-xl font-semibold text-blue-800 mb-2">Why Donate?</h3>
+                            <p class="text-blue-700">
+                                Help build independent systems that hold power accountable and give people access to real justice.
+                            </p>
+                        </div>
+                        <div class="md:w-1/3 text-right">
+                            <a href="#mission" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
+                                Learn About Our Mission <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6 mb-12">
+                    <!-- Tier 1 -->
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 card-hover">
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Family Defender</h3>
+                            <p class="text-3xl font-bold text-blue-600 mb-4">$10<span class="text-lg font-normal text-gray-500">/month</span></p>
+                            <p class="text-gray-600 mb-6">Keeps 1 family trained and ready with legal tools</p>
+                            <ul class="space-y-3 mb-6">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span class="text-gray-700">Basic legal bot access</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span class="text-gray-700">Case tracking for 1 user</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span class="text-gray-700">Monthly impact report</span>
+                                </li>
+                            </ul>
+                            <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-medium">
+                                Donate $10
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Tier 2 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-blue-500 transform scale-105 z-10 card-hover">
+                        <div class="bg-blue-500 text-white text-center py-2">
+                            <p class="text-sm font-semibold">MOST POPULAR</p>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Community Advocate</h3>
+                            <p class="text-3xl font-bold text-blue-600 mb-4">$25<span class="text-lg font-normal text-gray-500">/month</span></p>
+                            <p class="text-gray-600 mb-6">Trains 3 AI profiles on local law</p>
+                            <ul class="space-y-3 mb-6">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span class="text-gray-700">All Family Defender benefits</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span class="text-gray-700">Motion builder access</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span class="text-gray-700">Priority support</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span class="text-gray-700">Quarterly donor call</span>
+                                </li>
+                            </ul>
+                            <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-medium">
+                                Donate $25
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Tier 3 -->
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 card-hover">
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">System Challenger</h3>
+                            <p class="text-3xl font-bold text-blue-600 mb-4">$100<span class="text-lg font-normal text-gray-500">/month</span></p>
+                            <p class="text-gray-600 mb-6">Supports full regional audit campaigns</p>
+                            <ul class="space-y-3 mb-6">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span class="text-gray-700">All Community Advocate benefits</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span class="text-gray-700">Early access to new tools</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span class="text-gray-700">Name in annual report</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span class="text-gray-700">VIP event invitations</span>
+                                </li>
+                            </ul>
+                            <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-medium">
+                                Donate $100
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-8 border border-gray-200">
+                    <h3 class="text-xl font-semibold text-center mb-6">One-Time Donation</h3>
+                    <div class="max-w-md mx-auto">
+                        <div class="grid grid-cols-4 gap-3 mb-6">
+                            <button class="bg-white border border-gray-300 py-2 rounded-md font-medium hover:bg-gray-50">$50</button>
+                            <button class="bg-white border border-gray-300 py-2 rounded-md font-medium hover:bg-gray-50">$100</button>
+                            <button class="bg-white border border-gray-300 py-2 rounded-md font-medium hover:bg-gray-50">$250</button>
+                            <button class="bg-white border border-gray-300 py-2 rounded-md font-medium hover:bg-gray-50">$500</button>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Custom Amount</label>
+                            <div class="relative rounded-md shadow-sm">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <span class="text-gray-500 sm:text-sm">$</span>
+                                </div>
+                                <input type="text" name="price" id="price" class="focus:ring-blue-500 focus:border-blue-500 block w-full pl-7 pr-12 py-2 sm:text-sm border-gray-300 rounded-md" placeholder="0.00">
+                                <div class="absolute inset-y-0 right-0 flex items-center">
+                                    <label for="currency" class="sr-only">Currency</label>
+                                    <select id="currency" name="currency" class="focus:ring-blue-500 focus:border-blue-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md">
+                                        <option>USD</option>
+                                        <option>CAD</option>
+                                        <option>EUR</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-medium">
+                            Donate Now
+                        </button>
+                        <p class="text-center text-sm text-gray-500 mt-4">
+                            All donations are tax-deductible through our fiscal sponsor Salmon Fund 501(c)(3)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Behind -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold">Technology Behind the AI</h2>
+                <p class="text-xl text-gray-600 mt-4 max-w-3xl mx-auto">
+                    Secure, transparent systems designed for accountability
+                </p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md overflow-hidden max-w-4xl mx-auto">
+                <div class="md:flex">
+                    <div class="md:w-1/2 p-8">
+                        <h3 class="text-xl font-semibold mb-4">Developer Priorities</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="bg-blue-100 p-1 rounded mr-3 mt-1">
+                                    <i class="fas fa-check text-blue-600 text-xs"></i>
+                                </div>
+                                <span>Modular site architecture</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-blue-100 p-1 rounded mr-3 mt-1">
+                                    <i class="fas fa-check text-blue-600 text-xs"></i>
+                                </div>
+                                <span>AI backend hooks to user JSON profiles</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-blue-100 p-1 rounded mr-3 mt-1">
+                                    <i class="fas fa-check text-blue-600 text-xs"></i>
+                                </div>
+                                <span>Secure local file storage with user control</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-blue-100 p-1 rounded mr-3 mt-1">
+                                    <i class="fas fa-check text-blue-600 text-xs"></i>
+                                </div>
+                                <span>Form systems for evidence submission</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-blue-100 p-1 rounded mr-3 mt-1">
+                                    <i class="fas fa-check text-blue-600 text-xs"></i>
+                                </div>
+                                <span>Admin dashboard for campaign curation</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2 bg-gray-900 text-white p-8">
+                        <h3 class="text-xl font-semibold mb-4">System Architecture</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-medium mb-2">Daily JSON Profile Updates</h4>
+                                <p class="text-gray-400 text-sm">Intrinsic motivation tracking and behavioral patterns</p>
+                            </div>
+                            <div>
+                                <h4 class="font-medium mb-2">State-by-State Law Engine</h4>
+                                <p class="text-gray-400 text-sm">Parsing and analysis tailored to local jurisdictions</p>
+                            </div>
+                            <div>
+                                <h4 class="font-medium mb-2">Public API Access</h4>
+                                <p class="text-gray-400 text-sm">Government and researcher endpoints</p>
+                            </div>
+                            <div>
+                                <h4 class="font-medium mb-2">Data Sandbox</h4>
+                                <p class="text-gray-400 text-sm">Secure environment for auditor training</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-blue-50 rounded-xl p-8 border border-blue-100 max-w-4xl mx-auto">
+                <h3 class="text-xl font-semibold text-center text-blue-800 mb-4">Future System Goals</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-blue-100 p-2 rounded-lg mr-3">
+                                <i class="fas fa-hand-holding-usd text-blue-600"></i>
+                            </div>
+                            <h4 class="font-semibold">UBI Integration</h4>
+                        </div>
+                        <p class="text-gray-600 text-sm">
+                            Partner with government to allow opt-in UBI via civic data contributions, compensating users for their verified experiences.
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-blue-100 p-2 rounded-lg mr-3">
+                                <i class="fas fa-gavel text-blue-600"></i>
+                            </div>
+                            <h4 class="font-semibold">Court Accountability</h4>
+                        </div>
+                        <p class="text-gray-600 text-sm">
+                            Build an open, transparent system for litigation assistance and judicial pattern recognition to highlight systemic issues.
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-blue-100 p-2 rounded-lg mr-
+</html>
