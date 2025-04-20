@@ -3,89 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salmon Audit | Document. Connect. Reckon.</title>
+    <title>Salmon Audit</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .gradient-bg {
-            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #1d4ed8 100%);
-        }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        .testimony-card {
-            transition: all 0.3s ease;
-        }
-        .testimony-card:hover {
-            background-color: #f8fafc;
-        }
-        .nav-link {
-            position: relative;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #3b82f6;
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        .dropdown-menu {
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-        }
-        .dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        .animated-underline {
-            position: relative;
-            display: inline-block;
-        }
-        .animated-underline::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: #3b82f6;
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.3s ease;
-        }
-        .animated-underline:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-        }
-        .blur-effect {
-            filter: blur(8px);
-            transition: filter 0.3s ease;
-        }
-        .blur-effect:hover {
-            filter: blur(0);
-        }
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.5;
-            }
-        }
-        .animate-pulse {
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="font-sans bg-gray-50 text-gray-800">
     <!-- Navigation -->
@@ -98,8 +19,8 @@
                             <path d="M12 2L4 12L12 22L20 12L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M12 6L7 12L12 18L17 12L12 6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        <span class="ml-2 text-xl font-bold text-gray-900">Salmon Audit</span>
-                        <span class="ml-2 text-sm font-medium text-gray-500">Document. Connect. Reckon.</span>
+                        <span class="ml-2 text-xl font-bold text-gray-900">Salmon</span>
+                        <span class="ml-2 text-sm font-medium text-gray-500">Audit.info</span>
                     </div>
                     <div class="hidden md:ml-10 md:flex md:space-x-8">
                         <a href="#home" class="nav-link text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">Home</a>
