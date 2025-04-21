@@ -1,95 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSON Conversation Uploader</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .chat-message {
-            animation: fadeIn 0.3s ease-in-out;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salmon - Audit.info</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <META NAME="KEYWORDS" CONTENT="Data, Data School, DataSchool, DataSchools, Data Schools, School, Education, AI, Artificial Intelligence, Politics, Democrat, Republican, Conservative, Progressive">
+  <META NAME="ROBOTS" CONTENT="ALL,FOLLOW">
+      <meta name="description" content="Next World Learning Lounge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="apple-touch-icon" sizes="180x180" href="pics/lumie.png">
+          <link rel="icon" type="image/png" href="pics/lumie.png" sizes="32x32">
+          <link rel="icon" type="image/png" href="pics/lumie.png" sizes="16x16">
+          <link rel="mask-icon" href="pics/lumie.png" color="#fff">
+          <link rel="shortcut icon" href="pics/lumie.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              100: '#E3F2FD',
+              200: '#BBDEFB',
+              300: '#90CAF9',
+              400: '#e65c32',
+              500: '#e65c32',
+              600: '#e65c32',
+              700: '#e65c32',
+              800: '#e65c32',
+              900: '#e65c32',
+            },
+            secondary: {
+              100: '#F5F5F5',
+              200: '#EEEEEE',
+              300: '#E0E0E0',
+              400: '#BDBDBD',
+              500: '#9E9E9E',
+              600: '#757575',
+              700: '#616161',
+              800: '#424242',
+              900: '#212121',
+            },
+            accent: {
+              100: '#FFECB3',
+              200: '#FFE082',
+              300: '#FFD54F',
+              400: '#FFCA28',
+              500: '#FFC107',
+              600: '#FFB300',
+              700: '#FFA000',
+              800: '#FF8F00',
+              900: '#FF6F00',
+            }
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            }
+          }
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .file-upload {
-            position: relative;
-            overflow: hidden;
-            display: inline-block;
-        }
-        .file-upload input[type="file"] {
-            position: absolute;
-            left: 0;
-            top: 0;
-            opacity: 0;
-            width: 100%;
-            height: 100%;
-            cursor: pointer;
-        }
-        .json-display {
-            font-family: 'Courier New', monospace;
-            white-space: pre-wrap;
-            background-color: #1e293b;
-            color: #f8fafc;
-            border-radius: 0.5rem;
-            padding: 1rem;
-            max-height: 200px;
-            overflow-y: auto;
-        }
-    </style>
+      }
+    }
+  </script>
+  <style>
+    .gradient-bg {
+      background: linear-gradient(135deg, #181717 0%, #e65c32 100%);
+    }
+    .card-hover {
+      transition: all 0.3s ease;
+      transform: translateY(0);
+    }
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    .feature-icon {
+      transition: all 0.3s ease;
+    }
+    .feature-card:hover .feature-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .glow {
+      box-shadow: 0 0 15px rgba(66, 165, 245, 0.5);
+    }
+    .tooltip {
+      position: relative;
+    }
+    .tooltip-text {
+      visibility: hidden;
+      width: 200px;
+      background-color: #424242;
+      color: #000000;
+      text-align: center;
+      border-radius: 6px;
+      padding: 10px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .tooltip:hover .tooltip-text {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
 </head>
-<body class="bg-gray-100 min-h-screen">
-    <div class="container mx-auto px-4 py-8 max-w-4xl">
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-            <!-- Header -->
-            <div class="bg-indigo-600 px-6 py-4">
-                <div class="flex items-center justify-between">
-                    <h1 class="text-2xl font-bold text-white">Upload JSON File</h1>
-                    <div class="flex items-center space-x-2">
-                        <span id="userBadge" class="bg-indigo-800 text-white px-3 py-1 rounded-full text-sm">Guest</span>
-                    </div>
-                </div>
+<body class="bg-secondary-100 text-secondary-900 font-sans">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0 flex items-center">
+            <image style="height: 50px;" src="pics/lumie.png"></image>
+            <span class="text-xl font-bold text-primary-800">AUDIT.info</span>
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-4">
+              <a href="#home" class="px-3 py-2 rounded-md text-sm font-medium text-primary-700 bg-primary-100">Home</a>
+              <a href="#features" class="px-3 py-2 rounded-md text-sm font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">Features</a>
+              <a href="#ideology" class="px-3 py-2 rounded-md text-sm font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">Ideology</a>
+              <a href="#pricing" class="px-3 py-2 rounded-md text-sm font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">Pricing</a>
+              <a href="#faq" class="px-3 py-2 rounded-md text-sm font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">FAQ</a>
             </div>
-            
-            <!-- Main Content -->
-            <div class="p-6">
-                <!-- File Upload Section -->
-                <div class="mb-8">
-                    <div class="file-upload bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg p-8 text-center transition-colors hover:border-indigo-400">
-                        <div class="flex flex-col items-center justify-center space-y-3">
-                            <i class="fas fa-file-upload text-4xl text-indigo-500"></i>
-                            <p class="text-gray-600">Drag & drop your JSON file here or click to browse</p>
-                            <input type="file" id="jsonFileInput" accept=".json" class="hidden">
-                            <button id="uploadBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">
-                                Select File
-                            </button>
+          </div>
+        </div>
+        <div class="hidden md:block">
+          <a href="#signup" class="px-4 py-2 rounded-md text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 transition duration-300">Get Started</a>
+        </div>
+        <div class="-mr-2 flex md:hidden">
+          <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-secondary-600 hover:text-secondary-900 hover:bg-secondary-200 focus:outline-none">
+            <span class="sr-only">Open main menu</span>
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="md:hidden hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-primary-700 bg-primary-100">Home</a>
+        <a href="#features" class="block px-3 py-2 rounded-md text-base font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">Features</a>
+        <a href="#ideology" class="block px-3 py-2 rounded-md text-base font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">Ideology</a>
+        <a href="#pricing" class="block px-3 py-2 rounded-md text-base font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">Pricing</a>
+        <a href="#faq" class="block px-3 py-2 rounded-md text-base font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">FAQ</a>
+        <a href="#signup" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-primary-600 hover:bg-primary-700">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="gradient-bg text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
+        <div class="mb-12 lg:mb-0">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6">Your Personalized <span class="text-accent-400">AI Life Adjuvant</span></h1>
+          <p class="text-xl mb-8">Salmon is a 1GB lightweight AI model that autonomizes your life, serving as both a personal assistant and legal aid, perfectly aligned with your ideology.</p>
+          <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+            <a href="#" id="downloadGuest" class="bg-accent-500 hover:bg-accent-600 text-white font-bold py-3 px-6 rounded-lg text-center transition duration-300 transform hover:scale-105">
+              Download Guest.json <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+            <a href="#demo" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
+              <i class="fas fa-play-circle mr-2"></i> Watch Demo
+            </a>
+          </div>
+          <div class="mt-8 flex items-center">
+            <div class="flex -space-x-2">
+              <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://randomuser.me/api/portraits/women/12.jpg" alt="">
+              <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://randomuser.me/api/portraits/men/33.jpg" alt="">
+              <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://randomuser.me/api/portraits/women/45.jpg" alt="">
+            </div>
+            <p class="ml-4 text-primary-200">
+              <span class="font-semibold text-white">10,000+</span> users trust Salmon
+            </p>
+          </div>
+        </div>
+
+
+        <div class="relative">
+          <div class="relative mx-auto w-full max-w-md">
+
+            <div class="container mx-auto px-4 py-8 max-w-4xl">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                                    <div class="bg-indigo-600 px-6 py-4">
+                    <div class="flex items-center justify-between">
+                        <h1 class="text-2xl font-bold text-white">Upload JSON File</h1>
+                        <div class="flex items-center space-x-2">
+                            <span id="userBadge" class="bg-indigo-800 text-white px-3 py-1 rounded-full text-sm">Guest</span>
                         </div>
-                    </div>
-                    <div id="fileInfo" class="mt-3 text-sm text-gray-600 hidden">
-                        <i class="fas fa-check-circle text-green-500 mr-1"></i>
-                        <span id="fileName">No file selected</span>
                     </div>
                 </div>
                 
-                <!-- Conversation Section -->
-                <div class="mb-8">
-                    <h2 class="text-xl font-semibold mb-4 text-gray-800">Conversation</h2>
-                    <div id="chatWindow" class="bg-gray-50 rounded-lg p-4 h-64 overflow-y-auto mb-4 space-y-3">
-                        <p class="text-gray-500 italic">No conversation data yet. Upload a JSON file or start typing below.</p>
+                <!-- Main Content -->
+                <div class="p-6">
+                    <!-- File Upload Section -->
+                    <div class="mb-8">
+                        <div class="file-upload bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg p-8 text-center transition-colors hover:border-indigo-400">
+                            <div class="flex flex-col items-center justify-center space-y-3">
+                                <i class="fas fa-file-upload text-4xl text-indigo-500"></i>
+                                <p class="text-gray-600">Drag & drop your JSON file here or click to browse</p>
+                                <input type="file" id="jsonFileInput" accept=".json" class="hidden">
+                                <button id="uploadBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">
+                                    Select File
+                                </button>
+                            </div>
+                        </div>
+                        <div id="fileInfo" class="mt-3 text-sm text-gray-600 hidden">
+                            <i class="fas fa-check-circle text-green-500 mr-1"></i>
+                            <span id="fileName">No file selected</span>
+                        </div>
+                        <div id="uploadStatus" class="hidden text-sm mt-2"></div>
                     </div>
                     
-                    <div class="flex space-x-2">
-                        <input type="text" id="userInput" placeholder="Type your message..." 
-                               class="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                        <button id="sendBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">
-                            Send
-                        </button>
+                    <!-- Conversation Section -->
+                    <div class="mb-8">
+                        <h2 class="text-xl font-semibold mb-4 text-gray-800">Conversation</h2>
+                        <div id="chatWindow" class="bg-gray-50 rounded-lg p-4 h-64 overflow-y-auto mb-4 space-y-3">
+                            <p class="text-gray-500 italic">No conversation data yet. Upload a JSON file or start typing below.</p>
+                        </div>
+                        
+                        <div class="flex space-x-2 text-black">
+                            <input type="text" id="userInput" placeholder="Type your message..." 
+                                   class="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <button id="sendBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">
+                                Send
+                            </button>
+                        </div>
                     </div>
                 </div>
+            
+
+
+
+
             </div>
+            </div>
+
+
+
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Trusted By -->
+  <section class="bg-white py-12">
+    <div class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
+        <a href="#" id="downloadGuest" class="bg-white text-salmon-dark hover:bg-gray-100 px-8 py-4 rounded-md font-medium text-lg transition duration-300">
+            Download Guest.json
+        </a>
+        <a href="mailto:luminafieldsnz@gmail.com?subject=Connect%20with%20Micheal%20Salmon&body=Let's%20get%20connected!%20Tell%20me%20why%20you%20need%20AI%20assistance%20or%20help%2C%20and%20I'll%20get%20back%20to%20you%20ASAP." class="bg-transparent border-2 border-white hover:bg-white hover:bg-opacity-10 px-8 py-4 rounded-md font-medium text-lg transition duration-300">
+            Talk to an Expert
+        </a>
+    </div>
+
 
             <!-- New JSON Data Explorer Section -->
             <div class="mt-8 bg-gray-800 text-gray-200 rounded-lg p-6">
@@ -150,939 +346,968 @@
                     </div>
                 </div>
             </div>
+
+
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-20 bg-secondary-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-secondary-900 mb-4">Autonomize Your Life with Salmon</h2>
+        <p class="text-xl text-secondary-600 max-w-3xl mx-auto">Salmon combines legal expertise, community intelligence, and personalized AI to transform how you navigate daily life.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Feature 1 -->
+        <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden card-hover">
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <div class="feature-icon bg-primary-100 rounded-lg p-3 text-primary-600 mr-4">
+                <i class="fas fa-gavel text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-secondary-900">Legal Audit & Automation</h3>
+            </div>
+            <p class="text-secondary-600 mb-4">All your court documents archived, searchable, and live so you can edit and file motions autonomously, changing the role of lawyers.</p>
+            <ul class="space-y-2 text-secondary-600">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+                <span>Automated document analysis</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+                <span>Motion drafting assistance</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+                <span>Deadline tracking</span>
+              </li>
+            </ul>
+          </div>
         </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden card-hover">
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <div class="feature-icon bg-primary-100 rounded-lg p-3 text-primary-600 mr-4">
+                <i class="fas fa-shield-alt text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-secondary-900">Community Policing</h3>
+            </div>
+            <p class="text-secondary-600 mb-4">Submit real-time data logs with video evidence based on geofenced hotspots for community safety and social credit.</p>
+            <ul class="space-y-2 text-secondary-600">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+                <span>Geofenced incident reporting</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+                <span>Verified video evidence</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+                <span>Community trust scoring</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden card-hover">
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <div class="feature-icon bg-primary-100 rounded-lg p-3 text-primary-600 mr-4">
+                <i class="fas fa-brain text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-secondary-900">Ideology Alignment</h3>
+            </div>
+            <p class="text-secondary-600 mb-4">Salmon bonds with your personal ideology to filter information and make recommendations aligned with your worldview.</p>
+            <ul class="space-y-2 text-secondary-600">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+                <span>Personalized content curation</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+                <span>Ideological consistency checks</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+                <span>Bias-aware decision support</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden card-hover">
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <div class="feature-icon bg-primary-100 rounded-lg p-3 text-primary-600 mr-4">
+                <i class="fas fa-file-contract text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-secondary-900">Smart Contracts</h3>
+            </div>
+            <p class="text-secondary-600 mb-4">Create, analyze, and execute smart contracts that automatically enforce terms based on real-world conditions.</p>
+            <ul class="space-y-2 text-secondary-600">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+                <span>Template library</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+                <span>Clause analysis</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+                <span>Automated enforcement</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden card-hover">
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <div class="feature-icon bg-primary-100 rounded-lg p-3 text-primary-600 mr-4">
+                <i class="fas fa-balance-scale text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-secondary-900">Dispute Resolution</h3>
+            </div>
+            <p class="text-secondary-600 mb-4">AI-mediated conflict resolution that considers all perspectives and suggests fair outcomes based on precedent.</p>
+            <ul class="space-y-2 text-secondary-600">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+                <span>Neutral mediation</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+                <span>Precedent analysis</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+                <span>Solution optimization</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden card-hover">
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <div class="feature-icon bg-primary-100 rounded-lg p-3 text-primary-600 mr-4">
+                <i class="fas fa-network-wired text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-secondary-900">Network Effects</h3>
+            </div>
+            <p class="text-secondary-600 mb-4">Salmon learns from the collective intelligence of all users while maintaining individual privacy and data sovereignty.</p>
+            <ul class="space-y-2 text-secondary-600">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+                <span>Federated learning</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+                <span>Privacy-preserving analytics</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+                <span>Community wisdom</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ideology Section -->
+  <section id="ideology" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+        <div class="mb-12 lg:mb-0">
+          <h2 class="text-3xl font-bold text-secondary-900 mb-6">Personalized to Your <span class="text-primary-600">Ideology</span></h2>
+          <p class="text-secondary-600 mb-6">Salmon uses a sophisticated framework of archetypes and ideological populations to understand your worldview and adapt its behavior accordingly.</p>
+          
+          <div class="mb-8">
+            <div class="flex items-start mb-4">
+              <div class="flex-shrink-0">
+                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
+                  <i class="fas fa-user-tie"></i>
+                </div>
+              </div>
+              <div class="ml-4">
+                <h4 class="text-lg font-medium text-secondary-900">Main Archetype</h4>
+                <p class="text-secondary-600">How you interact with the world (like a personality role). Everyone has 1 primary archetype.</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <div class="flex-shrink-0">
+                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
+                  <i class="fas fa-users"></i>
+                </div>
+              </div>
+              <div class="ml-4">
+                <h4 class="text-lg font-medium text-secondary-900">Ideological Population</h4>
+                <p class="text-secondary-600">What you believe in or prioritize (like a political or philosophical stance). Can have multiple with different weights.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-secondary-50 rounded-lg p-6 border border-secondary-200">
+            <h4 class="font-medium text-secondary-900 mb-3">Example Combinations:</h4>
+            <div class="space-y-3">
+              <div class="flex items-center">
+                <span class="bg-primary-100 text-primary-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-3">Captain + Populist</span>
+                <span class="text-sm text-secondary-600">Acts decisively to protect "the people"</span>
+              </div>
+              <div class="flex items-center">
+                <span class="bg-primary-100 text-primary-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-3">Smuggler + Globalist</span>
+                <span class="text-sm text-secondary-600">Quietly manipulates networks to support global causes</span>
+              </div>
+              <div class="flex items-center">
+                <span class="bg-primary-100 text-primary-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-3">Arbiter + Idealist</span>
+                <span class="text-sm text-secondary-600">Champions fairness based on philosophical principles</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div class="bg-secondary-800 p-4">
+              <h3 class="text-lg font-medium text-white text-center">Discover Your Salmon Profile</h3>
+            </div>
+            <div class="p-6">
+              <div class="mb-6">
+                <label class="block text-sm font-medium text-secondary-700 mb-2">What's your approach to new information?</label>
+                <div class="space-y-2">
+                  <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                      <input id="approach-1" name="approach" type="radio" class="focus:ring-primary-500 h-4 w-4 text-primary-600 border-secondary-300">
+                    </div>
+                    <div class="ml-3 text-sm">
+                      <label for="approach-1" class="font-medium text-secondary-700">I seek diverse perspectives before forming opinions</label>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                      <input id="approach-2" name="approach" type="radio" class="focus:ring-primary-500 h-4 w-4 text-primary-600 border-secondary-300">
+                    </div>
+                    <div class="ml-3 text-sm">
+                      <label for="approach-2" class="font-medium text-secondary-700">I trust my instincts and first impressions</label>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                      <input id="approach-3" name="approach" type="radio" class="focus:ring-primary-500 h-4 w-4 text-primary-600 border-secondary-300">
+                    </div>
+                    <div class="ml-3 text-sm">
+                      <label for="approach-3" class="font-medium text-secondary-700">I rely on data and evidence-based conclusions</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-6">
+                <label class="block text-sm font-medium text-secondary-700 mb-2">When facing a complex problem, you:</label>
+                <div class="space-y-2">
+                  <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                      <input id="problem-1" name="problem" type="radio" class="focus:ring-primary-500 h-4 w-4 text-primary-600 border-secondary-300">
+                    </div>
+                    <div class="ml-3 text-sm">
+                      <label for="problem-1" class="font-medium text-secondary-700">Break it down systematically</label>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                      <input id="problem-2" name="problem" type="radio" class="focus:ring-primary-500 h-4 w-4 text-primary-600 border-secondary-300">
+                    </div>
+                    <div class="ml-3 text-sm">
+                      <label for="problem-2" class="font-medium text-secondary-700">Consult with others for diverse input</label>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                      <input id="problem-3" name="problem" type="radio" class="focus:ring-primary-500 h-4 w-4 text-primary-600 border-secondary-300">
+                    </div>
+                    <div class="ml-3 text-sm">
+                      <label for="problem-3" class="font-medium text-secondary-700">Look for innovative or unconventional solutions</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-6">
+                <label class="block text-sm font-medium text-secondary-700 mb-2">Your view on social change:</label>
+                <div class="space-y-2">
+                  <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                      <input id="change-1" name="change" type="radio" class="focus:ring-primary-500 h-4 w-4 text-primary-600 border-secondary-300">
+                    </div>
+                    <div class="ml-3 text-sm">
+                      <label for="change-1" class="font-medium text-secondary-700">Should be rapid and transformative</label>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                      <input id="change-2" name="change" type="radio" class="focus:ring-primary-500 h-4 w-4 text-primary-600 border-secondary-300">
+                    </div>
+                    <div class="ml-3 text-sm">
+                      <label for="change-2" class="font-medium text-secondary-700">Should be gradual and respect traditions</label>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                      <input id="change-3" name="change" type="radio" class="focus:ring-primary-500 h-4 w-4 text-primary-600 border-secondary-300">
+                    </div>
+                    <div class="ml-3 text-sm">
+                      <label for="change-3" class="font-medium text-secondary-700">Should be evidence-based and practical</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-md transition duration-300">
+                Analyze My Profile
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo Video -->
+  <section id="demo" class="py-20 bg-secondary-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">See Salmon in Action</h2>
+        <p class="text-xl text-secondary-300 max-w-3xl mx-auto">Watch how Salmon transforms legal processes and daily decision-making through personalized AI assistance.</p>
+      </div>
+      
+      <div class="relative pt-[56.25%] rounded-xl overflow-hidden shadow-2xl bg-secondary-800">
+        <div class="absolute inset-0 flex items-center justify-center">
+          <button class="bg-accent-500 hover:bg-accent-600 text-white rounded-full p-6 shadow-lg transform transition duration-300 hover:scale-110">
+            <i class="fas fa-play text-2xl"></i>
+          </button>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-32 flex items-end p-6">
+          <div>
+            <h3 class="text-xl font-bold">Salmon Product Demo</h3>
+            <p class="text-secondary-300">See how Salmon handles legal document review, community reporting, and ideological filtering</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-secondary-900 mb-4">Simple, Transparent Pricing</h2>
+        <p class="text-xl text-secondary-600 max-w-3xl mx-auto">Choose the plan that fits your needs. All plans include our core features with varying levels of access.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <!-- Basic Plan -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-secondary-200 card-hover">
+          <div class="p-6">
+            <h3 class="text-lg font-medium text-secondary-900 mb-1">Basic</h3>
+            <p class="text-secondary-600 text-sm mb-6">For individuals getting started with Salmon</p>
+            <div class="mb-6">
+              <span class="text-4xl font-bold text-secondary-900">$0</span>
+              <span class="text-secondary-600">/month</span>
+            </div>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-start">
+                <i class="fas fa-check text-accent-500 mt-1 mr-2"></i>
+                <span>Legal document storage (up to 100)</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-accent-500 mt-1 mr-2"></i>
+                <span>Basic legal audit features</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-accent-500 mt-1 mr-2"></i>
+                <span>Community reporting</span>
+              </li>
+              <li class="flex items-start text-secondary-400">
+                <i class="fas fa-times mt-1 mr-2"></i>
+                <span>Advanced legal automation</span>
+              </li>
+              <li class="flex items-start text-secondary-400">
+                <i class="fas fa-times mt-1 mr-2"></i>
+                <span>Priority support</span>
+              </li>
+            </ul>
+            <button class="w-full bg-secondary-100 hover:bg-secondary-200 text-secondary-800 font-medium py-2 px-4 rounded-md transition duration-300">
+              Get Started
+            </button>
+          </div>
+        </div>
+
+        <!-- Pro Plan -->
+        <div class="bg-white rounded-xl shadow-2xl overflow-hidden border-2 border-primary-500 card-hover transform scale-105 z-10 glow">
+          <div class="bg-primary-500 text-white text-center py-2">
+            <p class="text-sm font-medium">MOST POPULAR</p>
+          </div>
+          <div class="p-6">
+            <h3 class="text-lg font-medium text-secondary-900 mb-1">Professional</h3>
+            <p class="text-secondary-600 text-sm mb-6">For professionals and small businesses</p>
+            <div class="mb-6">
+              <span class="text-4xl font-bold text-secondary-900">$29</span>
+              <span class="text-secondary-600">/month</span>
+            </div>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-start">
+                <i class="fas fa-check text-accent-500 mt-1 mr-2"></i>
+                <span>Unlimited document storage</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-accent-500 mt-1 mr-2"></i>
+                <span>Advanced legal audit & automation</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-accent-500 mt-1 mr-2"></i>
+                <span>Community reporting with verification</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-accent-500 mt-1 mr-2"></i>
+                <span>Smart contract templates</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-accent-500 mt-1 mr-2"></i>
+                <span>Priority support</span>
+              </li>
+            </ul>
+            <button class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-md transition duration-300">
+              Get Started
+            </button>
+          </div>
+        </div>
+
+        <!-- Enterprise Plan -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-secondary-200 card-hover">
+          <div class="p-6">
+            <h3 class="text-lg font-medium text-secondary-900 mb-1">Enterprise</h3>
+            <p class="text-secondary-600 text-sm mb-6">For organizations needing custom solutions</p>
+            <div class="mb-6">
+              <span class="text-4xl font-bold text-secondary-900">$99</span>
+              <span class="text-secondary-600">/month</span>
+            </div>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-start">
+                <i class="fas fa-check text-accent-500 mt-1 mr-2"></i>
+                <span>All Professional features</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-accent-500 mt-1 mr-2"></i>
+                <span>Custom legal workflows</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-accent-500 mt-1 mr-2"></i>
+                <span>Team collaboration tools</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-accent-500 mt-1 mr-2"></i>
+                <span>API access</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-accent-500 mt-1 mr-2"></i>
+                <span>Dedicated account manager</span>
+              </li>
+            </ul>
+            <button class="w-full bg-secondary-100 hover:bg-secondary-200 text-secondary-800 font-medium py-2 px-4 rounded-md transition duration-300">
+              Contact Sales
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 text-center">
+        <p class="text-secondary-600">Need something different? <a href="#" class="text-primary-600 hover:text-primary-800 font-medium">Contact us</a> for custom solutions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-20 bg-secondary-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-secondary-900 mb-4">What Our Users Say</h2>
+        <p class="text-xl text-secondary-600 max-w-3xl mx-auto">Hear from people who have transformed their lives with Salmon.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden p-6 card-hover">
+          <div class="flex items-center mb-4">
+            <div class="flex-shrink-0">
+              <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah J.">
+            </div>
+            <div class="ml-4">
+              <h4 class="text-lg font-medium text-secondary-900">Sarah J.</h4>
+              <p class="text-secondary-600 text-sm">Small Business Owner</p>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="flex text-accent-500">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <p class="text-secondary-600 italic">"Salmon saved me thousands in legal fees by helping me draft contracts and navigate regulations myself. The AI understood my business needs perfectly."</p>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden p-6 card-hover">
+          <div class="flex items-center mb-4">
+            <div class="flex-shrink-0">
+              <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/men/54.jpg" alt="Michael T.">
+            </div>
+            <div class="ml-4">
+              <h4 class="text-lg font-medium text-secondary-900">Michael T.</h4>
+              <p class="text-secondary-600 text-sm">Community Organizer</p>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="flex text-accent-500">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <p class="text-secondary-600 italic">"The community policing features have transformed how we address local issues. Verified reports with video evidence make accountability real."</p>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden p-6 card-hover">
+          <div class="flex items-center mb-4">
+            <div class="flex-shrink-0">
+              <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya K.">
+            </div>
+            <div class="ml-4">
+              <h4 class="text-lg font-medium text-secondary-900">Priya K.</h4>
+              <p class="text-secondary-600 text-sm">Legal Consultant</p>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="flex text-accent-500">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+          <p class="text-secondary-600 italic">"As a legal professional, I was skeptical at first, but Salmon's document analysis is incredibly accurate. It's changed how I work with clients."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-secondary-900 mb-4">Frequently Asked Questions</h2>
+        <p class="text-xl text-secondary-600">Everything you need to know about Salmon.</p>
+      </div>
+
+      <div class="space-y-4">
+        <!-- FAQ 1 -->
+        <div class="border border-secondary-200 rounded-lg overflow-hidden">
+          <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
+            <span class="text-lg font-medium text-secondary-900">How does Salmon personalize to my ideology?</span>
+            <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-4 pb-4 pt-0 text-secondary-600">
+            <p>Salmon uses a sophisticated framework of archetypes and ideological populations to understand your worldview. Through initial assessments and ongoing interactions, it adapts its recommendations, information filtering, and communication style to align with your values while maintaining factual accuracy.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="border border-secondary-200 rounded-lg overflow-hidden">
+          <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
+            <span class="text-lg font-medium text-secondary-900">Is my legal data secure with Salmon?</span>
+            <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-4 pb-4 pt-0 text-secondary-600">
+            <p>Absolutely. Salmon uses end-to-end encryption for all your documents and communications. Your data is stored securely and never shared without your explicit permission. We use blockchain-based verification to ensure document integrity and employ the highest security standards in the industry.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="border border-secondary-200 rounded-lg overflow-hidden">
+          <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
+            <span class="text-lg font-medium text-secondary-900">How does the community policing feature work?</span>
+            <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-4 pb-4 pt-0 text-secondary-600">
+            <p>The community policing system allows users to submit geofenced reports with video evidence of incidents. These reports are verified through multiple methods including timestamp verification, geolocation confirmation, and cross-referencing with other users' reports. The system builds a trust score for reporters and creates heatmaps of community concerns that can be addressed collectively.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="border border-secondary-200 rounded-lg overflow-hidden">
+          <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
+            <span class="text-lg font-medium text-secondary-900">Can Salmon completely replace lawyers?</span>
+            <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-4 pb-4 pt-0 text-secondary-600">
+            <p>While Salmon can handle many routine legal tasks autonomously, complex cases may still benefit from human legal expertise. Salmon is designed to augment and democratize legal services, not necessarily replace lawyers entirely. It can prepare documents, file motions, and provide guidance, but for high-stakes litigation or nuanced legal strategy, consulting with a qualified attorney may still be advisable.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="border border-secondary-200 rounded-lg overflow-hidden">
+          <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
+            <span class="text-lg font-medium text-secondary-900">How does the 1GB model size affect functionality?</span>
+            <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-4 pb-4 pt-0 text-secondary-600">
+            <p>The 1GB size is carefully optimized to include all core functionalities while remaining lightweight enough to run efficiently on most devices. While larger models might have more general knowledge, Salmon's specialized training in legal and ideological domains means it performs exceptionally well within its designed scope. The compact size also enhances privacy by allowing local processing of sensitive data.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 text-center">
+        <p class="text-secondary-600">Still have questions? <a href="#" class="text-primary-600 hover:text-primary-800 font-medium">Contact our support team</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="signup" class="py-20 gradient-bg text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold mb-6">Ready to Transform Your Life with Salmon?</h2>
+      <p class="text-xl mb-8 max-w-3xl mx-auto">Join thousands of users who are taking control of their legal affairs and daily decisions with personalized AI assistance.</p>
+      
+    <!-- Submission Form Section -->
+    <div id="formSection" class="card bg-white p-6 mb-6 rounded-lg opacity-50 pointer-events-none transition-all duration-300">
+        <h2 class="text-lg font-semibold text-gray-800 mb-4">Positive Police Interaction</h2>
+        
+        <form id="tapForm" class="space-y-6 text-black">
+          <!-- Personal Information Section -->
+          <div class="border-b border-gray-200 pb-4">
+            <h3 class="text-md font-medium text-gray-700 mb-3">Your Information</h3>
+            
+            <div class="input-container">
+              <label for="name" class="floating-label">Name</label>
+              <input type="text" id="name" name="name" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+            </div>
+            
+            <div class="input-container">
+              <label for="vehicle" class="floating-label">Vehicle Description</label>
+              <input type="text" id="vehicle" name="vehicle" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            
+            <div class="input-container">
+              <label for="insurance" class="floating-label">Insurance Provider</label>
+              <input type="text" id="insurance" name="insurance" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+          </div>
+  
+          <!-- Officer Information Section -->
+          <div class="border-b border-gray-200 pb-4">
+            <h3 class="text-md font-medium text-gray-700 mb-3">Officer Information</h3>
+            
+            <div class="input-container">
+              <label for="officer" class="floating-label">Officer Name (if known)</label>
+              <input type="text" id="officer" name="officer" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            
+            <div class="input-container">
+              <label for="badge" class="floating-label">Badge/Vehicle ID</label>
+              <input type="text" id="badge" name="badge" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+          </div>
+  
+          <!-- Interaction Details Section -->
+          <div class="border-b border-gray-200 pb-4">
+            <h3 class="text-md font-medium text-gray-700 mb-3">Interaction Details</h3>
+            
+            <div class="input-container">
+              <label for="location" class="floating-label">Location of Interaction <span class="text-red-500">*</span></label>
+              <input type="text" id="location" name="location" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+            </div>
+            
+            <div class="input-container">
+              <label for="datetime" class="floating-label">Date & Time <span class="text-red-500">*</span></label>
+              <input type="datetime-local" id="datetime" name="datetime" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+            </div>
+            
+            <div class="input-container">
+              <label for="bodycam" class="floating-label">Was Bodycam Used?</label>
+              <select id="bodycam" name="bodycam" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="Unknown" selected>Unknown</option>
+              </select>
+            </div>
+          </div>
+  
+          <!-- Experience Details Section -->
+          <div>
+            <div class="input-container">
+              <label for="summary" class="floating-label">Brief Summary <span class="text-red-500">*</span></label>
+              <textarea id="summary" name="summary" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required></textarea>
+            </div>
+            
+            <div class="input-container">
+              <label for="impact" class="floating-label">Why was it positive? <span class="text-red-500">*</span></label>
+              <textarea id="impact" name="impact" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required></textarea>
+            </div>
+            
+            <div class="input-container">
+              <label for="followup" class="floating-label">Willing to be contacted?</label>
+              <select id="followup" name="followup" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                <option value="Yes">Yes</option>
+                <option value="No" selected>No</option>
+              </select>
+            </div>
+            
+            <div id="contactContainer" class="input-container hidden">
+              <label for="contact" class="floating-label">Contact Info</label>
+              <input type="text" id="contact" name="contact" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+          </div>
+  
+          <!-- Submit Button -->
+          <div class="pt-4">
+            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+              Submit to Discord
+            </button>
+          </div>
+        </form>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-secondary-900 text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+        <div class="col-span-2">
+          <div class="flex items-center mb-4">
+            <image style="height: 50px;" src="pics/lumie.png"></image>
+            <span class="text-xl font-bold">AUDIT.info</span>
+          </div>
+          <p class="text-secondary-300 mb-4">Your personalized AI life adjuvant and legal aid, aligned with your ideology.</p>
+          <div class="flex space-x-4">
+            <a href="https://x.com/LuminaFields" class="text-secondary-300 hover:text-white">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.facebook.com/woodandmortar" class="text-secondary-300 hover:text-white">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/woodandmortar/" class="text-secondary-300 hover:text-white">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/mfglife" class="text-secondary-300 hover:text-white">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-sm font-semibold uppercase tracking-wider mb-4">Product</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-secondary-300 hover:text-white">Features</a></li>
+            <li><a href="#" class="text-secondary-300 hover:text-white">Pricing</a></li>
+            <li><a href="#" class="text-secondary-300 hover:text-white">Demo</a></li>
+            <li><a href="#" class="text-secondary-300 hover:text-white">Updates</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-sm font-semibold uppercase tracking-wider mb-4">Company</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-secondary-300 hover:text-white">About</a></li>
+            <li><a href="#" class="text-secondary-300 hover:text-white">Careers</a></li>
+            <li><a href="#" class="text-secondary-300 hover:text-white">Privacy</a></li>
+            <li><a href="#" class="text-secondary-300 hover:text-white">Terms</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-sm font-semibold uppercase tracking-wider mb-4">Support</h4>
+          <ul class="space-y-2">
+            <li><a href="https://discord.gg/FC7uzeQU" class="text-secondary-300 hover:text-white">Help Center</a></li>
+            <li><a href="https://discord.gg/FC7uzeQU" class="text-secondary-300 hover:text-white">Community</a></li>
+            <li><a href="https://discord.gg/FC7uzeQU" class="text-secondary-300 hover:text-white">Contact</a></li>
+            <li><a href="https://discord.gg/FC7uzeQU" class="text-secondary-300 hover:text-white">Status</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-12 pt-8 border-t border-secondary-800 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-secondary-400 text-sm">© 2025 SalmonAUDIT.info & Salmon.Fund All rights reserved.</p>
+        <div class="mt-4 md:mt-0 flex space-x-6">
+          <a href="#" class="text-secondary-400 hover:text-white text-sm">Privacy Policy</a>
+          <a href="#" class="text-secondary-400 hover:text-white text-sm">Terms of Service</a>
+          <a href="#" class="text-secondary-400 hover:text-white text-sm">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+      <!-- Privacy Notice -->
+      <div class="card bg-white p-6 rounded-lg">
+        <p class="text-sm text-gray-600">
+          <center><span class="font-medium">Privacy Notice:</span> Your data never leaves your browser unless you submit it. All profiles are stored by you, and your submission is only shared to the audit.info Discord ledger.</span></center>
+        </p>
+      </div>
+    </div>
+  
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+      <div class="bg-white p-6 rounded-lg max-w-sm mx-4">
+        <div class="flex items-center justify-center mb-4">
+          <div class="bg-green-100 p-2 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+        </div>
+        <h3 class="text-lg font-medium text-gray-800 text-center mb-2">Submission Successful!</h3>
+        <p class="text-gray-600 text-sm text-center mb-4">Thank you! Your submission has been sent to our community moderation team.</p>
+        <button id="closeModal" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+          Close
+        </button>
+      </div>
     </div>
 
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-    <script>
-        // Base conversation data - will be extended with uploaded data
-        let baseData = [
-            ["hello", "Hi there!", ""],
-            ["how old is the earth", "The Earth is approximately 4.54 billion years old.", ""],
-            ["what is your name", "I'm Lumies AI assistant!", ""],
-            ["goodbye", "Goodbye! Have a great day!", ""]
-        ];
+    mobileMenuButton.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+    });
 
-        // Global variables
-        let userId = "Guest";
-        let conversationData = [];
-        let loadedData = [];
-        let jsonData = null;
+    // FAQ toggle functionality
+    const faqToggles = document.querySelectorAll('.faq-toggle');
 
-        // Emotion and political mappings
-        const similarityThreshold = 2;
-        const emotionScores = { happiness: 0, sadness: 0, anger: 0, fear: 0, surprise: 0 };
-        const populations = { progressive: 0, socialist: 0, idealist: 0, globalist: 0, conservative: 0, economist: 0, realist: 0, nationalist: 0, populist: 0 };
-        const mainHeading = { explorer: 0, voyager: 0, captain: 0, merchant: 0, shipwright: 0, fisherman: 0, smuggler: 0, arbiter: 0, sailor: 0 };
+    faqToggles.forEach(toggle => {
+      toggle.addEventListener('click', function() {
+        const content = this.nextElementSibling;
+        const icon = this.querySelector('i');
+        
+        content.classList.toggle('hidden');
+        icon.classList.toggle('rotate-180');
+      });
+    });
 
-// Define emotion words and their weights
-const emotionWords = {
-    happiness: {
-      "ecstasy": 4,
-      "delight": 4,
-      "cheerful": 3,
-      "happy": 3,
-      "content": 3,
-      "elated": 4,
-      "blissful": 5,
-      "jubilant": 5,
-      "excited": 4,
-      "joyful": 5,        
-      "radiant": 4,       
-      "gleeful": 4,       
-      "thrilled": 5,      
-      "overjoyed": 5,     
-      "buoyant": 3,       
-      "playful": 3,       
-      "gratified": 4,     
-      "contented": 3,    
-      "upbeat": 4,        
-      "cheery": 4,        
-      "jovial": 5,        
-      "merry": 3,         
-      "elation": 5,       
-      "satisfied": 4,     
-      "radiance": 5,      
-      "euphoric": 5,      
-      "spirited": 4,      
-      "happy": 4, 
-      "exultant": 5,      
-      "exuberant": 5,     
-      "vivacious": 4      
-    },
-    sadness: {
-      "sorrow": 5,
-      "grief": 5,
-      "depressed": 4,
-      "mournful": 4,
-      "unhappy": 3,
-      "melancholy": 4,
-      "heartbroken": 5,
-      "desolate": 4,
-      "dismal": 3,
-      "gloomy": 3,
-      "woeful": 5,       
-      "downcast": 4,     
-      "distressed": 5,   
-      "bleak": 4,        
-      "forlorn": 5,      
-      "miserable": 5,    
-      "sullen": 4,       
-      "pessimistic": 4,  
-      "troubled": 4,     
-      "blue": 3,         
-      "woe": 5,          
-      "doleful": 4,      
-      "dejected": 4,     
-      "crestfallen": 5, 
-      "heavyhearted": 5, 
-      "morose": 4,       
-      "sad": 3,          
-      "lonely": 5,       
-      "anguished": 5,    
-      "painful": 5,      
-      "saddened": 4      
-    },
-    anger: {
-      "furious": 5,
-      "angry": 4,
-      "enraged": 5,
-      "irritated": 4,
-      "annoyed": 3,
-      "frustrated": 4,
-      "infuriated": 5,
-      "outraged": 5,
-      "hostile": 4,
-      "agitated": 3,
-      "livid": 5,
-      "exasperated": 4,
-      "incensed": 5,
-      "enraged": 5,
-      "seething": 5,
-      "cross": 3,
-      "fuming": 5,
-      "irate": 5,
-      "vexed": 4,
-      "peeved": 3,
-      "wrathful": 5,
-      "boiling": 5,
-      "inflamed": 5,
-      "displeased": 4,
-      "riled": 4,
-      "mad": 4,
-      "irritated": 4,
-      "hot-tempered": 5,
-      "vehement": 5,
-      "exasperated": 4,
-      "outraged": 5,
-      "infuriating": 5,
-      "tense": 4,
-      "wrath": 5,
-      "resentful": 4,
-      "choleric": 5,
-      "worked-up": 5,
-      "provoked": 4,
-      "disgruntled": 4,
-      "belligerent": 5
-    },
-    fear: {
-      "terrified": 5,
-      "scared": 4,
-      "frightened": 4,
-      "nervous": 3,
-      "anxious": 3,
-      "panicked": 5,
-      "apprehensive": 4,
-      "alarmed": 4,
-      "worried": 3,
-      "fearful": 5,
-      "horrified": 5,
-      "dismayed": 4,
-      "spooked": 4,
-      "shaken": 4,
-      "jittery": 3,
-      "nervousness": 4,
-      "petrified": 5,
-      "startled": 4,
-      "uneasy": 4,
-      "terrorized": 5,
-      "disturbed": 4,
-      "afraid": 4,
-      "apprehension": 4,
-      "trembling": 4,
-      "worried": 3,
-      "freaked": 4,
-      "shuddering": 4,
-      "scary": 4,
-      "panicky": 5,
-      "horrific": 5,
-      "shaky": 4,
-      "dreadful": 5,
-      "spooky": 4,
-      "fright": 4,
-      "trepidation": 4,
-      "alarmed": 4,
-      "skittish": 3,
-      "terrifying": 5,
-      "fearsome": 5,
-      "troubled": 4
-    },    
-    surprise: {
-      "amazed": 5,
-      "astonished": 5,
-      "shocked": 4,
-      "startled": 4,
-      "dumbfounded": 5,
-      "unexpected": 4,
-      "bewildered": 4,
-      "stunned": 5,
-      "astounded": 5,
-      "flabbergasted": 5,
-      "incredulous": 5,
-      "overwhelmed": 5,
-      "shaking": 4,
-      "baffled": 5,
-      "staggered": 5,
-      "taken aback": 5,
-      "confounded": 5,
-      "surprised": 5,
-      "disbelieving": 5,
-      "amazing": 5,
-      "unexpectedly": 4,
-      "unexpectedness": 4,
-      "startling": 4,
-      "jolted": 4,
-      "unbelievable": 5,
-      "stunning": 5,
-      "marveled": 5,
-      "speechless": 5,
-      "disconcerted": 4,
-      "wonderstruck": 5,
-      "awed": 5,
-      "exhilarated": 5,
-      "in awe": 5,
-      "flummoxed": 5,
-      "thrilled": 5,
-      "surprised": 5,
-      "shaken up": 4,
-      "unsettled": 4,
-      "gobsmacked": 5,
-      "dazed": 4,
-      "perplexed": 4,
-      "shocked": 5
-    }
-    
-  };
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth'
+          });
+          
+          // Close mobile menu if open
+          if (!mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+          }
+        }
+      });
+    });
 
-// Political keywords with weighted values
-const politicalKeywords = {
-    progressive: {
-      "equality": 5,
-      "social": 4,
-      "reform": 4,
-      "inclusivity": 3,
-      "liberal": 3,
-      "activism": 5,
-    "gender": 4,
-    "Reformer": 250,
-    "Welfare": 4,
-    "minority": 4,
-    "green": 3,
-    "Reform": 4,
-    "Justice": 5
-    },
-    socialist: {
-      "collectivism": 5,
-      "redistribution": 4,
-      "equality": 4,
-      "welfare": 3,
-      "workers": 4,
-      "Helper": 250,
-      "public": 5,
-    "social": 4,
-    "collective": 4,
-    "Equality": 5,
-    "Ownership": 4,
-    "proletariat": 5,
-    "universal": 5
-    },
-    idealist: {
-      "utopian": 5,
-      "dreamer": 4,
-      "visionary": 4,
-      "hopeful": 3,
-      "ideal": 3,
-      "fix": 2,
-      "improve": 3,
-      "change": 4,
-      "system": 3,
-      "efficient": 3,
-      "principles": 2,
-      "ethics": 4,
-      "morality": 2,
-      "right": 3,
-      "Individualist": 250,
-      "wrong": 3,
-      "Potential": 5,
-    "Vision": 4,
-    "philanthropy": 4,
-    "justice": 3,
-    "future": 4,
-    "Idealism": 4,
-    "transformative": 4
-    },
-    globalist: {
-      "international": 5,
-      "global": 5,
-      "cooperation": 4,
-      "integration": 4,
-      "world": 4,
-      "trans": 5,
-      "Border": 4,
-    "Peacemaker": 250,
-    "universal": 5,
-    "global": 4,
-    "multi": 5,
-    "Peace": 5,
-    "Solidarity": 4
-    },
-    conservative: {
-      "tradition": 5,
-      "stability": 4,
-      "order": 4,
-      "authority": 3,
-      "preservation": 4,
-      "heritage": 5,
-    "Loyalist": 250,
-    "Stability": 4,
-    "socialOrder": 4,
-    "cultural": 4,
-    "Values": 5,
-    "Preservation": 4,
-    "familyValues": 4
-    },
-    economist: {
-      "capitalism": 5,
-      "market": 5,
-      "freeTrade": 4,
-      "efficiency": 4,
-      "investment": 3,
-      "economic": 5,
-    "Investigator": 250, 
-    "Capitalists": 4,
-    "Capital": 4,
-    "money": 4,
-    "cash": 4,
-    "crypto": 4,
-    "bitcoin": 4,
-    "entrepreneur": 4,
-    "fiscal": 4,
-    "supply": 5,
-    "Formation": 4,
-    "labor": 4
-    },
-    realist: {
-      "pragmatic": 5,
-      "practical": 4,
-      "realistic": 5,
-      "Earth": 4,
-      "rational": 4,
-      "feasibility": 5,
-    "tactical": 4,
-    "Based": 5,
-    "Achiever": 250,
-    "Solutions": 4,
-    "real": 4,
-    "Effectiveness": 4,
-    "risk": 4
-    },
-    nationalist: {
-      "patriotism": 5,
-      "sovereignty": 5,
-      "national": 4,
-      "identity": 4,
-      "independence": 4,
-      "nationalUnity": 5,
-      "Challenger": 250,
-    "sovereignRights": 5,
-    "culturalPride": 4,
-    "nationalDevelopment": 4,
-    "Priority": 4,
-    "Integrity": 5,
-    "patriotic": 4
-    },
-    populist: {
-      "Establishment": 5,
-      "peoplePower": 4,
-      "commonMan": 4,
-      "grassroots": 4,
-      "revolt": 3,
-      "direct": 5,
-    "popular": 4,
-    "Enthusiast": 250,
-    "Elite": 4,
-    "Participation": 4,
-    "Reform": 4,
-    "social": 4,
-    "Centric": 4,
-    "Accountability": 4
-    }
-  };
+    // Tab functionality for ideology section
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
 
-        const emotionToHeading = {
-    happiness: {
-      explorer: 150,
-      voyager: 100,
-      captain: 90,
-      merchant: 40,
-      shipwright: 40,
-      fisherman: 80,
-      smuggler: 30,
-      arbiter: 10,
-      sailor: 80
-    },
-    sadness: {
-      explorer: 20,
-      voyager: 150,
-      captain: 50,
-      merchant: 90,
-      shipwright: 20,
-      fisherman: 60,
-      smuggler: 60,
-      arbiter: 100,
-      sailor: 50
-    },
-    anger: {
-      explorer: 50,
-      voyager: 90,
-      captain: 150,
-      merchant: 50,
-      shipwright: 30,
-      fisherman: 10,
-      smuggler: 80,
-      arbiter: 100,
-      sailor: 50
-    },
-    fear: {
-      explorer: 10,
-      voyager: 80,
-      captain: 100,
-      merchant: 150,
-      shipwright: 60,
-      fisherman: 90,
-      smuggler: 10,
-      arbiter: 10,
-      sailor: 90
-    },
-    surprise: {
-      explorer: 50,
-      voyager: 100,
-      captain: 30,
-      merchant: 30,
-      shipwright: 150,
-      fisherman: 100,
-      smuggler: 10,
-      arbiter: 10,
-      sailor: 50
-    }
-  };
-
-        // DOM elements
-        const jsonFileInput = document.getElementById('jsonFileInput');
-        const uploadBtn = document.getElementById('uploadBtn');
-        const fileInfo = document.getElementById('fileInfo');
-        const fileName = document.getElementById('fileName');
-        const chatWindow = document.getElementById('chatWindow');
-        const userInput = document.getElementById('userInput');
-        const sendBtn = document.getElementById('sendBtn');
-        const userBadge = document.getElementById('userBadge');
-
-        // Initialize the app
-        document.addEventListener('DOMContentLoaded', () => {
-            loadedData = [...baseData];
-            initCharts(); // Initialize charts
-            updateJSONDisplay();
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const tabId = button.getAttribute('data-tab');
+        
+        // Update active tab button
+        tabButtons.forEach(btn => {
+          btn.classList.remove('bg-primary-100', 'text-primary-700');
+          btn.classList.add('text-secondary-600', 'hover:text-primary-700', 'hover:bg-primary-50');
         });
-
-        // File upload handling
-        uploadBtn.addEventListener('click', () => {
-            jsonFileInput.click();
-        });
-
-        jsonFileInput.addEventListener('change', (event) => {
-            if (event.target.files.length > 0) {
-                const file = event.target.files[0];
-                fileName.textContent = file.name;
-                fileInfo.classList.remove('hidden');
-
-                // Read the file
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    try {
-                        const data = JSON.parse(e.target.result);
-                        if (isValidDataFormat(data)) {
-                            // Update global variables
-                            loadedData = [...baseData, ...data.conversationData];
-                            conversationData = [...data.conversationData];
-                            userId = data.userData.id || "Guest";
-                            jsonData = data; // Store the uploaded JSON data
-
-                            // Process data for charts
-                            processConversationData();
-                            updateJSONDisplay();
-                            updateVisualizations(); // Update charts
-
-                            // Hide upload section
-                            document.querySelector('.file-upload').classList.add('hidden');
-                            fileInfo.classList.add('hidden');
-
-                            // Update user badge
-                            userBadge.textContent = userId;
-
-                            // Change title to "Validated"
-                            document.querySelector('.bg-indigo-600 h1').textContent = "Validated";
-
-                            // Show success message
-                            addSystemMessage(`Loaded ${data.conversationData.length} new conversation pairs from file.`);
-                        } else {
-                            addSystemMessage("Invalid data format. Please upload a valid JSON file.", true);
-                        }
-                    } catch (error) {
-                        addSystemMessage(`Error parsing JSON: ${error.message}`, true);
-                    }
-                };
-                reader.readAsText(file);
-            }
-        });
-
-        // Send message handling
-        sendBtn.addEventListener('click', sendMessage);
-        userInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
-        });
-
-        function sendMessage() {
-            const message = userInput.value.trim();
-            if (!message) return;
-
-            userInput.value = '';
-
-            // Add user message to chat
-            addUserMessage(message);
-
-            // Add to conversation data
-            const timestamp = new Date().toISOString();
-            const newEntry = [message, "", timestamp];
-            conversationData.push(newEntry);
-
-            // Update jsonData with the new conversationData
-            if (jsonData) {
-                jsonData.conversationData = [...conversationData];
-            }
-
-            // Update JSON display
-            updateJSONDisplay();
-
-            // Get and display response after a short delay
-            setTimeout(() => {
-                const response = getResponse(message);
-                newEntry[1] = response;
-
-                // Update jsonData with the updated conversationData
-                if (jsonData) {
-                    jsonData.conversationData = [...conversationData];
-                }
-
-                processConversationData();
-                updateJSONDisplay();
-                addSystemMessage(response);
-            }, 500);
-        }
-
-        function addUserMessage(message) {
-            const chatWindow = document.getElementById('chatWindow');
-            const userMessage = document.createElement('div');
-            userMessage.className = 'chat-message text-left text-gray-800 bg-gray-200 rounded-lg p-2 mb-2';
-            userMessage.textContent = `User: ${message}`;
-            chatWindow.appendChild(userMessage);
-            chatWindow.scrollTop = chatWindow.scrollHeight; // Scroll to the bottom
-        }
-
-        function processConversationData() {
-            // Reset emotion scores and populations
-            for (const key in emotionScores) emotionScores[key] = 0;
-            for (const key in populations) populations[key] = 0;
-
-            // Process each conversation entry
-            conversationData.forEach(([message]) => {
-                const words = message.toLowerCase().split(/\s+/).map(word => word.replace(/[^\w\s]/g, ''));
-
-                // Calculate emotion scores
-                for (const [emotion, wordsMap] of Object.entries(emotionWords)) {
-                    for (const [word, weight] of Object.entries(wordsMap)) {
-                        words.forEach(contentWord => {
-                            if (distance(word, contentWord) <= similarityThreshold) {
-                                emotionScores[emotion] += weight;
-                            }
-                        });
-                    }
-                }
-
-                // Calculate political scores
-                for (const [political, keywords] of Object.entries(politicalKeywords)) {
-                    for (const [keyword, weight] of Object.entries(keywords)) {
-                        words.forEach(contentWord => {
-                            if (distance(keyword, contentWord) <= similarityThreshold) {
-                                populations[political] += weight;
-                            }
-                        });
-                    }
-                }
-            });
-
-            // Update mainHeading based on emotion scores
-            updateHeadingsBasedOnEmotions(emotionScores);
-
-            // Update charts
-            updateVisualizations();
-        }
-
-        function updateHeadingsBasedOnEmotions(emotionScores) {
-            // Reset headings
-            for (const key in mainHeading) mainHeading[key] = 0;
-
-            // Allocate emotions to headings
-            for (const [emotion, score] of Object.entries(emotionScores)) {
-                if (score > 0) {
-                    const headings = emotionToHeading[emotion] || {};
-                    for (const [heading, value] of Object.entries(headings)) {
-                        mainHeading[heading] += value * score;
-                    }
-                }
-            }
-        }
-
-        function updateJSONDisplay() {
-            if (!jsonData || !jsonData.userData) {
-                console.warn("jsonData or userData is missing. Skipping JSON display update.");
-                const jsonViewer = document.getElementById('jsonViewer');
-                jsonViewer.innerHTML = '<p class="text-gray-500 italic">No JSON data available. Upload a file to view and edit the structure.</p>';
-                return;
-            }
-
-            // Update jsonData with live data
-            jsonData.userData.mainHeading = { ...mainHeading };
-            jsonData.userData.populations = { ...populations };
-
-            const combinedData = {
-                conversationData: conversationData,
-                userData: jsonData.userData,
-            };
-
-            const jsonViewer = document.getElementById('jsonViewer');
-            renderJSON(combinedData, jsonViewer);
-        }
-
-        function renderJSON(data, parentElement) {
-            parentElement.innerHTML = '';
-            if (typeof data === 'object' && data !== null) {
-                const collapsible = document.createElement('div');
-                const collapser = document.createElement('span');
-                collapser.className = 'json-collapser';
-                collapser.textContent = '▶';
-                collapser.addEventListener('click', function () {
-                    const content = this.parentNode.querySelector('.json-content');
-                    content.style.display = content.style.display === 'none' ? 'block' : 'none';
-                    this.textContent = content.style.display === 'none' ? '▶' : '▼';
-                });
-
-                collapsible.appendChild(collapser);
-
-                const type = Array.isArray(data) ? 'array' : 'object';
-                const typeSpan = document.createElement('span');
-                typeSpan.className = 'json-key';
-                typeSpan.textContent = type === 'array' ? '[' : '{';
-                collapsible.appendChild(typeSpan);
-
-                const content = document.createElement('div');
-                content.className = 'json-content ml-4';
-                content.style.display = 'block';
-
-                for (const key in data) {
-                    const itemDiv = document.createElement('div');
-                    if (type === 'object') {
-                        const keySpan = document.createElement('span');
-                        keySpan.className = 'json-key';
-                        keySpan.textContent = `"${key}": `;
-                        itemDiv.appendChild(keySpan);
-                    }
-
-                    if (typeof data[key] === 'object' && data[key] !== null) {
-                        renderJSON(data[key], itemDiv);
-                    } else {
-                        const valueSpan = document.createElement('span');
-                        valueSpan.className = getTypeClass(data[key]);
-                        valueSpan.textContent = typeof data[key] === 'string' ? `"${data[key]}"` : data[key];
-                        valueSpan.classList.add('json-editable');
-                        valueSpan.setAttribute('contenteditable', 'true');
-                        valueSpan.addEventListener('blur', function () {
-                            try {
-                                const newValue = parseValue(this.textContent);
-                                data[key] = newValue;
-                                updateVisualizations();
-                            } catch (e) {
-                                this.textContent = data[key];
-                                alert('Invalid value');
-                            }
-                        });
-                        itemDiv.appendChild(valueSpan);
-                    }
-
-                    content.appendChild(itemDiv);
-                }
-
-                const closingBracket = document.createElement('span');
-                closingBracket.className = 'json-key';
-                closingBracket.textContent = type === 'array' ? ']' : '}';
-                collapsible.appendChild(content);
-                collapsible.appendChild(closingBracket);
-                parentElement.appendChild(collapsible);
-            }
-        }
-
-        function getTypeClass(value) {
-            if (typeof value === 'string') return 'json-string';
-            if (typeof value === 'number') return 'json-number';
-            if (typeof value === 'boolean') return 'json-boolean';
-            if (value === null) return 'json-null';
-            return '';
-        }
-
-        function parseValue(value) {
-            if (value === 'null') return null;
-            if (value === 'true') return true;
-            if (value === 'false') return false;
-            if (!isNaN(value) && value.trim() !== '') return Number(value);
-            return value;
-        }
-
-        function distance(a, b) {
-            const aLen = a.length;
-            const bLen = b.length;
-            const dist = Array(aLen + 1).fill(null).map(() => Array(bLen + 1).fill(null));
-
-            for (let i = 0; i <= aLen; i++) dist[i][0] = i;
-            for (let j = 0; j <= bLen; j++) dist[0][j] = j;
-
-            for (let i = 1; i <= aLen; i++) {
-                for (let j = 1; j <= bLen; j++) {
-                    const cost = a[i - 1] === b[j - 1] ? 0 : 1;
-                    dist[i][j] = Math.min(
-                        dist[i - 1][j] + 1,
-                        dist[i][j - 1] + 1,
-                        dist[i - 1][j - 1] + cost
-                    );
-                }
-            }
-            return dist[aLen][bLen];
-        }
-
-        function getResponse(message) {
-            const lowerMsg = message.toLowerCase().trim();
-            let bestMatch = null;
-            let bestDistance = Infinity;
-
-            for (const [question, answer] of loadedData) {
-                const dist = distance(lowerMsg, question.toLowerCase());
-                if (dist < bestDistance) {
-                    bestDistance = dist;
-                    bestMatch = [question, answer];
-                }
-            }
-
-            if (bestDistance <= 5 && bestMatch) return bestMatch[1];
-            return "I'm not sure how to respond to that. Can you try asking something else?";
-        }
-
-        function initCharts() {
-            // Main Headings Chart
-            const mainHeadingCtx = document.getElementById('mainHeadingChart').getContext('2d');
-            window.mainHeadingChart = new Chart(mainHeadingCtx, {
-                type: 'bar',
-                data: {
-                    labels: [], // Empty initially
-                    datasets: [{
-                        label: 'Main Headings',
-                        data: [], // Empty initially
-                        backgroundColor: 'rgba(54, 162, 235, 0.7)',
-                        borderColor: 'rgba(54, 162, 235, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
-
-            // Populations Chart
-            const populationsCtx = document.getElementById('populationsChart').getContext('2d');
-            window.populationsChart = new Chart(populationsCtx, {
-                type: 'pie',
-                data: {
-                    labels: [], // Empty initially
-                    datasets: [{
-                        data: [], // Empty initially
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.7)',
-                            'rgba(54, 162, 235, 0.7)',
-                            'rgba(255, 206, 86, 0.7)',
-                            'rgba(75, 192, 192, 0.7)',
-                            'rgba(153, 102, 255, 0.7)',
-                            'rgba(255, 159, 64, 0.7)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true
-                }
-            });
-        }
-
-        function updateVisualizations() {
-            if (!jsonData || !jsonData.userData) return;
-
-            // Update main headings chart
-            if (jsonData.userData.mainHeading && window.mainHeadingChart) {
-                const mainHeadings = Object.entries(jsonData.userData.mainHeading);
-                if (mainHeadings.length > 0) {
-                    window.mainHeadingChart.data.labels = mainHeadings.map(([key]) => key);
-                    window.mainHeadingChart.data.datasets[0].data = mainHeadings.map(([, value]) => value);
-                } else {
-                    window.mainHeadingChart.data.labels = [];
-                    window.mainHeadingChart.data.datasets[0].data = [];
-                }
-                window.mainHeadingChart.update();
-            }
-
-            // Update populations chart
-            if (jsonData.userData.populations && window.populationsChart) {
-                const populations = Object.entries(jsonData.userData.populations);
-                if (populations.length > 0) {
-                    window.populationsChart.data.labels = populations.map(([key]) => key);
-                    window.populationsChart.data.datasets[0].data = populations.map(([, value]) => value);
-                } else {
-                    window.populationsChart.data.labels = [];
-                    window.populationsChart.data.datasets[0].data = [];
-                }
-                window.populationsChart.update();
-            }
-
-            // Update projects list
-            if (jsonData.userData.completedProjects) {
-                const projectsList = document.getElementById('projectsList');
-                projectsList.innerHTML = ''; // Clear the existing list
-
-                jsonData.userData.completedProjects.forEach((project) => {
-                    const projectBadge = document.createElement('div');
-                    projectBadge.className = 'px-3 py-1 bg-purple-600 rounded-full text-sm text-white';
-                    projectBadge.textContent = `Project ${project}`;
-                    projectsList.appendChild(projectBadge);
-                });
-            }
-        }
-
-        function addSystemMessage(message, isError = false) {
-            const chatWindow = document.getElementById('chatWindow');
-            const systemMessage = document.createElement('p');
-            systemMessage.className = `text-sm ${isError ? 'text-red-500' : 'text-green-500'} italic`;
-            systemMessage.textContent = message;
-
-            chatWindow.appendChild(systemMessage);
-            chatWindow.scrollTop = chatWindow.scrollHeight; // Scroll to the bottom
-        }
-
-        function isValidDataFormat(data) {
-            if (!data || !data.conversationData || !Array.isArray(data.conversationData)) {
-                return false;
-            }
-            for (const entry of data.conversationData) {
-                if (!Array.isArray(entry) || entry.length !== 3 || typeof entry[0] !== 'string' || typeof entry[1] !== 'string' || typeof entry[2] !== 'string') {
-                    return false;
-                }
-            }
-            if (!data.userData || typeof data.userData.id !== 'string') {
-                return false;
-            }
-            if (!data.userData.mainHeading || typeof data.userData.mainHeading !== 'object') {
-                return false;
-            }
-            if (!data.userData.populations || typeof data.userData.populations !== 'object') {
-                return false;
-            }
-            return true;
-        }
-
-        function updateChatWindow() {
-            const chatWindow = document.getElementById('chatWindow');
-            chatWindow.innerHTML = ''; // Clear the chat window
-
-            if (conversationData.length === 0) {
-                chatWindow.innerHTML = '<p class="text-gray-500 italic">No conversation data yet. Start typing below.</p>';
-                return;
-            }
-
-            // Only display messages added during the session
-            conversationData.forEach(([message, response, timestamp]) => {
-                if (!timestamp.startsWith('2025-04-18')) { // Example: Skip messages with specific timestamps
-                    // Add user message
-                    const userMessage = document.createElement('div');
-                    userMessage.className = 'chat-message text-left text-gray-800 bg-gray-200 rounded-lg p-2 mb-2';
-                    userMessage.textContent = `User: ${message}`;
-                    chatWindow.appendChild(userMessage);
-
-                    // Add system response
-                    if (response) {
-                        const systemMessage = document.createElement('div');
-                        systemMessage.className = 'chat-message text-right text-white bg-indigo-600 rounded-lg p-2 mb-2';
-                        systemMessage.textContent = `System: ${response}`;
-                        chatWindow.appendChild(systemMessage);
-                    }
-                }
-            });
-
-            chatWindow.scrollTop = chatWindow.scrollHeight; // Scroll to the bottom
-        }
-
-        document.getElementById('saveBtn').addEventListener('click', () => {
-            if (!jsonData) {
-                addSystemMessage("No data to save. Please upload a JSON file first.", true);
-                return;
-            }
-
-            // Serialize the updated JSON data
-            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(jsonData, null, 2));
-            const exportFileName = `${userId}_${new Date().toISOString().slice(0, 10)}.json`;
-
-            // Create a temporary anchor element to trigger the download
-            const downloadAnchorNode = document.createElement('a');
-            downloadAnchorNode.setAttribute("href", dataStr);
-            downloadAnchorNode.setAttribute("download", exportFileName);
-            document.body.appendChild(downloadAnchorNode);
-            downloadAnchorNode.click();
-            downloadAnchorNode.remove();
-
-            addSystemMessage(`File saved as ${exportFileName}.`);
-        });
-    </script>
-
+        button.classList.add('bg-primary-100', 'text-primary-700');
+        button.classList.remove('text-secondary-600', 'hover:text-primary-700', 'hover:bg-primary-50');
+        
+        // Show selected tab content
+        tabContents.forEach(content => content.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+      });
+    });
+
+    // Tooltip functionality
+    const tooltips = document.querySelectorAll('.tooltip');
+    tooltips.forEach(tooltip => {
+      tooltip.addEventListener('mouseenter', function() {
+        const tooltipText = this.querySelector('.tooltip-text');
+        tooltipText.style.visibility = 'visible';
+        tooltipText.style.opacity = '1';
+      });
+      tooltip.addEventListener('mouseleave', function() {
+        const tooltipText = this.querySelector('.tooltip-text');
+        tooltipText.style.visibility = 'hidden';
+        tooltipText.style.opacity = '0';
+      });
+    });
+
+    // Animation for feature cards
+    const featureCards = document.querySelectorAll('.feature-card');
+    featureCards.forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.classList.add('shadow-lg');
+      });
+      card.addEventListener('mouseleave', function() {
+        this.classList.remove('shadow-lg');
+      });
+    });
+
+
+
+document.getElementById('downloadGuest').addEventListener('click', function (e) {
+e.preventDefault();
+
+// Load the file as text
+fetch('Guest.json')
+    .then(response => response.text())
+    .then(data => {
+        const blob = new Blob([data], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Guest.json';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    })
+    .catch(err => {
+        console.error('Download error:', err);
+    });
+});
+
+
+
+</script>
+
+<script src="script.js"></script>
 
 <script src="base.js"></script>
 <script src="black.js"></script>
