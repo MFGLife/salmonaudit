@@ -53,8 +53,8 @@
               100: '#FFECB3',
               200: '#FFE082',
               300: '#FFD54F',
-              400: '#FFCA28',
-              500: '#FFC107',
+              400: 'green',
+              500: 'green',
               600: '#FFB300',
               700: '#FFA000',
               800: '#FF8F00',
@@ -153,7 +153,7 @@
           </div>
         </div>
         <div class="hidden md:block">
-          <a href="#signup" class="px-4 py-2 rounded-md text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 transition duration-300">Get Started</a>
+          <a href="#signup" class="px-4 py-2 rounded-md text-sm font-medium text-white bg-indigo-600 hover:bg-primary-700 transition duration-300">TAP$</a>
         </div>
         <div class="-mr-2 flex md:hidden">
           <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-secondary-600 hover:text-secondary-900 hover:bg-secondary-200 focus:outline-none">
@@ -172,7 +172,7 @@
         <a href="#ideology" class="block px-3 py-2 rounded-md text-base font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">Ideology</a>
         <a href="#pricing" class="block px-3 py-2 rounded-md text-base font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">Pricing</a>
         <a href="#faq" class="block px-3 py-2 rounded-md text-base font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">FAQ</a>
-        <a href="#signup" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-primary-600 hover:bg-primary-700">Get Started</a>
+        <a href="#signup" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">TAP$</a>
       </div>
     </div>
   </nav>
@@ -185,12 +185,19 @@
           <h1 class="text-4xl md:text-5xl font-bold mb-6">Your Personalized <span class="text-accent-400">AI Life Adjuvant</span></h1>
           <p class="text-xl mb-8">Salmon is a 1GB lightweight AI model that autonomizes your life, serving as both a personal assistant and legal aid, perfectly aligned with your ideology.</p>
           <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-            <a href="#" id="downloadGuest" class="bg-accent-500 hover:bg-accent-600 text-white font-bold py-3 px-6 rounded-lg text-center transition duration-300 transform hover:scale-105">
-              Download Guest.json <i class="fas fa-arrow-right ml-2"></i>
-            </a>
-            <a href="#demo" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
-              <i class="fas fa-play-circle mr-2"></i> Watch Demo
-            </a>
+            <div class="bg-white rounded-xl shadow-md overflow-hidden p-6 card-hover">
+                <div class="flex items-center mb-4">
+                  <div class="flex-shrink-0">
+                    <img class="h-12 w-12 rounded-full" src="pics/micheal.png" alt="Michael T.">
+                  </div>
+                  <div class="ml-4">
+                    <a href="#" data-filename="Micheal" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
+                        <i class="fas fa-download mr-2"></i>Micheal.json
+                      </a>
+                  </div>
+                </div>
+                <p class="text-secondary-600">Micheal - Strategic, stoic, principled, relentless; a truth-seeker who values logic over emotion, champions justice, and empowers others through self-discipline.</p>
+              </div> 
           </div>
           <div class="mt-8 flex items-center">
             <div class="flex -space-x-2">
@@ -210,11 +217,11 @@
 
             <div class="container mx-auto px-4 py-8 max-w-4xl">
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                                    <div class="bg-indigo-600 px-6 py-4">
+                                    <div class="bg-green-600 px-6 py-4">
                     <div class="flex items-center justify-between">
                         <h1 class="text-2xl font-bold text-white">Upload JSON File</h1>
                         <div class="flex items-center space-x-2">
-                            <span id="userBadge" class="bg-indigo-800 text-white px-3 py-1 rounded-full text-sm">Guest</span>
+                            <span id="userBadge" class="bg-green-800 text-white px-3 py-1 rounded-full text-sm">Guest</span>
                         </div>
                     </div>
                 </div>
@@ -223,12 +230,12 @@
                 <div class="p-6">
                     <!-- File Upload Section -->
                     <div class="mb-8">
-                        <div class="file-upload bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg p-8 text-center transition-colors hover:border-indigo-400">
+                        <div class="file-upload bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg p-8 text-center transition-colors hover:border-green-400">
                             <div class="flex flex-col items-center justify-center space-y-3">
-                                <i class="fas fa-file-upload text-4xl text-indigo-500"></i>
+                                <i class="fas fa-file-upload text-4xl text-green-500"></i>
                                 <p class="text-gray-600">Drag & drop your JSON file here or click to browse</p>
                                 <input type="file" id="jsonFileInput" accept=".json" class="hidden">
-                                <button id="uploadBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">
+                                <button id="uploadBtn" class="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">
                                     Select File
                                 </button>
                             </div>
@@ -249,8 +256,8 @@
                         
                         <div class="flex space-x-2 text-black">
                             <input type="text" id="userInput" placeholder="Type your message..." 
-                                   class="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                            <button id="sendBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">
+                                   class="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                            <button id="sendBtn" class="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">
                                 Send
                             </button>
                         </div>
@@ -278,12 +285,51 @@
   <!-- Trusted By -->
   <section class="bg-white py-12">
     <div class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
-        <a href="#" id="downloadGuest" class="bg-white text-salmon-dark hover:bg-gray-100 px-8 py-4 rounded-md font-medium text-lg transition duration-300">
-            Download Guest.json
-        </a>
-        <a href="mailto:luminafieldsnz@gmail.com?subject=Connect%20with%20Micheal%20Salmon&body=Let's%20get%20connected!%20Tell%20me%20why%20you%20need%20AI%20assistance%20or%20help%2C%20and%20I'll%20get%20back%20to%20you%20ASAP." class="bg-transparent border-2 border-white hover:bg-white hover:bg-opacity-10 px-8 py-4 rounded-md font-medium text-lg transition duration-300">
-            Talk to an Expert
-        </a>
+
+            
+
+          <div class="bg-white rounded-xl shadow-md overflow-hidden p-6 card-hover">
+            <div class="flex items-center mb-4">
+              <div class="flex-shrink-0">
+                <img class="h-12 w-12 rounded-full" src="pics/crycella.png" alt="Michael T.">
+              </div>
+              <div class="ml-4">
+                <a href="#" data-filename="Crycella" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
+                    <i class="fas fa-download mr-2"></i>Crycella.json
+                  </a>
+              </div>
+            </div>
+            <p class="text-secondary-600 italic">Manipulative, evasive, emotionally reactive; prioritizes control over cooperation, often distorts truth to serve personal narratives and avoid accountability.</p>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-md overflow-hidden p-6 card-hover">
+            <div class="flex items-center mb-4">
+              <div class="flex-shrink-0">
+                <img class="h-12 w-12 rounded-full" src="pics/josh.png" alt="Michael T.">
+              </div>
+              <div class="ml-4">
+                <a href="#" data-filename="Josh" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
+                    <i class="fas fa-download mr-2"></i>Josh.json
+                  </a>
+              </div>
+            </div>
+            <p class="text-secondary-600">Josh - Complicit, performative, biased; masks incompetence with authority, enables misconduct under legal guise, avoids transparency, undermines justice through selective enforcement.</p>
+          </div>      
+
+          <div class="bg-white rounded-xl shadow-md overflow-hidden p-6 card-hover">
+            <div class="flex items-center mb-4">
+              <div class="flex-shrink-0">
+                <img class="h-12 w-12 rounded-full" src="pics/kelly.png" alt="Michael T.">
+              </div>
+              <div class="ml-4">
+                <a href="#" data-filename="Kelly" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
+                    <i class="fas fa-download mr-2"></i>Kelly.json
+                  </a>
+              </div>
+            </div>
+            <p class="text-secondary-600 italic">Passive, self-serving, conflict-avoidant; withholds truth to protect image, enables deception by silence, values comfort over ethical responsibility.</p>
+          </div>
+
     </div>
 
 
@@ -526,160 +572,9 @@
 
   <!-- Ideology Section -->
   <section id="ideology" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
-        <div class="mb-12 lg:mb-0">
-          <h2 class="text-3xl font-bold text-secondary-900 mb-6">Personalized to Your <span class="text-primary-600">Ideology</span></h2>
-          <p class="text-secondary-600 mb-6">Salmon uses a sophisticated framework of archetypes and ideological populations to understand your worldview and adapt its behavior accordingly.</p>
-          
-          <div class="mb-8">
-            <div class="flex items-start mb-4">
-              <div class="flex-shrink-0">
-                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
-                  <i class="fas fa-user-tie"></i>
-                </div>
-              </div>
-              <div class="ml-4">
-                <h4 class="text-lg font-medium text-secondary-900">Main Archetype</h4>
-                <p class="text-secondary-600">How you interact with the world (like a personality role). Everyone has 1 primary archetype.</p>
-              </div>
-            </div>
-            <div class="flex items-start">
-              <div class="flex-shrink-0">
-                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
-                  <i class="fas fa-users"></i>
-                </div>
-              </div>
-              <div class="ml-4">
-                <h4 class="text-lg font-medium text-secondary-900">Ideological Population</h4>
-                <p class="text-secondary-600">What you believe in or prioritize (like a political or philosophical stance). Can have multiple with different weights.</p>
-              </div>
-            </div>
-          </div>
 
-          <div class="bg-secondary-50 rounded-lg p-6 border border-secondary-200">
-            <h4 class="font-medium text-secondary-900 mb-3">Example Combinations:</h4>
-            <div class="space-y-3">
-              <div class="flex items-center">
-                <span class="bg-primary-100 text-primary-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-3">Captain + Populist</span>
-                <span class="text-sm text-secondary-600">Acts decisively to protect "the people"</span>
-              </div>
-              <div class="flex items-center">
-                <span class="bg-primary-100 text-primary-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-3">Smuggler + Globalist</span>
-                <span class="text-sm text-secondary-600">Quietly manipulates networks to support global causes</span>
-              </div>
-              <div class="flex items-center">
-                <span class="bg-primary-100 text-primary-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-3">Arbiter + Idealist</span>
-                <span class="text-sm text-secondary-600">Champions fairness based on philosophical principles</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <iframe src="ideo.html" style="width: 100%; height:105vh;"></iframe>
 
-        <div>
-          <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-            <div class="bg-secondary-800 p-4">
-              <h3 class="text-lg font-medium text-white text-center">Discover Your Salmon Profile</h3>
-            </div>
-            <div class="p-6">
-              <div class="mb-6">
-                <label class="block text-sm font-medium text-secondary-700 mb-2">What's your approach to new information?</label>
-                <div class="space-y-2">
-                  <div class="flex items-start">
-                    <div class="flex items-center h-5">
-                      <input id="approach-1" name="approach" type="radio" class="focus:ring-primary-500 h-4 w-4 text-primary-600 border-secondary-300">
-                    </div>
-                    <div class="ml-3 text-sm">
-                      <label for="approach-1" class="font-medium text-secondary-700">I seek diverse perspectives before forming opinions</label>
-                    </div>
-                  </div>
-                  <div class="flex items-start">
-                    <div class="flex items-center h-5">
-                      <input id="approach-2" name="approach" type="radio" class="focus:ring-primary-500 h-4 w-4 text-primary-600 border-secondary-300">
-                    </div>
-                    <div class="ml-3 text-sm">
-                      <label for="approach-2" class="font-medium text-secondary-700">I trust my instincts and first impressions</label>
-                    </div>
-                  </div>
-                  <div class="flex items-start">
-                    <div class="flex items-center h-5">
-                      <input id="approach-3" name="approach" type="radio" class="focus:ring-primary-500 h-4 w-4 text-primary-600 border-secondary-300">
-                    </div>
-                    <div class="ml-3 text-sm">
-                      <label for="approach-3" class="font-medium text-secondary-700">I rely on data and evidence-based conclusions</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mb-6">
-                <label class="block text-sm font-medium text-secondary-700 mb-2">When facing a complex problem, you:</label>
-                <div class="space-y-2">
-                  <div class="flex items-start">
-                    <div class="flex items-center h-5">
-                      <input id="problem-1" name="problem" type="radio" class="focus:ring-primary-500 h-4 w-4 text-primary-600 border-secondary-300">
-                    </div>
-                    <div class="ml-3 text-sm">
-                      <label for="problem-1" class="font-medium text-secondary-700">Break it down systematically</label>
-                    </div>
-                  </div>
-                  <div class="flex items-start">
-                    <div class="flex items-center h-5">
-                      <input id="problem-2" name="problem" type="radio" class="focus:ring-primary-500 h-4 w-4 text-primary-600 border-secondary-300">
-                    </div>
-                    <div class="ml-3 text-sm">
-                      <label for="problem-2" class="font-medium text-secondary-700">Consult with others for diverse input</label>
-                    </div>
-                  </div>
-                  <div class="flex items-start">
-                    <div class="flex items-center h-5">
-                      <input id="problem-3" name="problem" type="radio" class="focus:ring-primary-500 h-4 w-4 text-primary-600 border-secondary-300">
-                    </div>
-                    <div class="ml-3 text-sm">
-                      <label for="problem-3" class="font-medium text-secondary-700">Look for innovative or unconventional solutions</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mb-6">
-                <label class="block text-sm font-medium text-secondary-700 mb-2">Your view on social change:</label>
-                <div class="space-y-2">
-                  <div class="flex items-start">
-                    <div class="flex items-center h-5">
-                      <input id="change-1" name="change" type="radio" class="focus:ring-primary-500 h-4 w-4 text-primary-600 border-secondary-300">
-                    </div>
-                    <div class="ml-3 text-sm">
-                      <label for="change-1" class="font-medium text-secondary-700">Should be rapid and transformative</label>
-                    </div>
-                  </div>
-                  <div class="flex items-start">
-                    <div class="flex items-center h-5">
-                      <input id="change-2" name="change" type="radio" class="focus:ring-primary-500 h-4 w-4 text-primary-600 border-secondary-300">
-                    </div>
-                    <div class="ml-3 text-sm">
-                      <label for="change-2" class="font-medium text-secondary-700">Should be gradual and respect traditions</label>
-                    </div>
-                  </div>
-                  <div class="flex items-start">
-                    <div class="flex items-center h-5">
-                      <input id="change-3" name="change" type="radio" class="focus:ring-primary-500 h-4 w-4 text-primary-600 border-secondary-300">
-                    </div>
-                    <div class="ml-3 text-sm">
-                      <label for="change-3" class="font-medium text-secondary-700">Should be evidence-based and practical</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <button class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-md transition duration-300">
-                Analyze My Profile
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- Demo Video -->
@@ -991,8 +886,8 @@
   <!-- CTA Section -->
   <section id="signup" class="py-20 gradient-bg text-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl font-bold mb-6">Ready to Transform Your Life with Salmon?</h2>
-      <p class="text-xl mb-8 max-w-3xl mx-auto">Join thousands of users who are taking control of their legal affairs and daily decisions with personalized AI assistance.</p>
+      <h2 class="text-3xl font-bold mb-6">TAP$</h2>
+      <p class="text-xl mb-8 max-w-3xl mx-auto">Join thousands of users who are assisting law enforcement through community policing and social auditing. Tap phones with other users to trigger an AI interaction based on Time Space. These validations create "Truth Nodes" in which can be referenced legally, formatted for machine speed open source retreival.</p>
       
     <!-- Submission Form Section -->
     <div id="formSection" class="card bg-white p-6 mb-6 rounded-lg opacity-50 pointer-events-none transition-all duration-300">
@@ -1281,37 +1176,44 @@
 
 
 
-document.getElementById('downloadGuest').addEventListener('click', function (e) {
-e.preventDefault();
+  // Attach to all buttons with the class "download-btn"
+  document.querySelectorAll('.download-btn').forEach(button => {
+    button.addEventListener('click', function (e) {
+      e.preventDefault();
+      const name = this.getAttribute('data-filename'); // Get name from data attribute
+      const fileName = `${name}.json`;
 
-// Load the file as text
-fetch('Guest.json')
-    .then(response => response.text())
-    .then(data => {
-        const blob = new Blob([data], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'Guest.json';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-    })
-    .catch(err => {
-        console.error('Download error:', err);
+      fetch(fileName)
+        .then(response => {
+          if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+          return response.text();
+        })
+        .then(data => {
+          const blob = new Blob([data], { type: 'application/json' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = fileName;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+        })
+        .catch(err => {
+          console.error(`Download error for ${fileName}:`, err);
+        });
     });
-});
+  });
 
 
 
 </script>
 
 <script src="script.js"></script>
-
 <script src="base.js"></script>
 <script src="black.js"></script>
 <script src="lumie.js"></script>
+<script src="ideo.js"></script>
 
 
 </body>

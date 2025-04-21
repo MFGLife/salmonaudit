@@ -1,0 +1,44 @@
+{
+    "conversationData": [
+      [
+        "Passive, self-serving, conflict-avoidant; withholds truth to protect image, enables deception by silence, values comfort over ethical responsibility",
+        "Passive, self-serving, conflict-avoidant; withholds truth to protect image, enables deception by silence, values comfort over ethical responsibility.",
+        "2025-04-20T17:53:59.477Z"
+      ]
+    ],
+    "userData": {
+      "id": "Kelly",
+      "state": {
+        "hair": "./hair/hair2.png",
+        "glasses": "./glasses/glasses3.png",
+        "body": "./body/body1.png",
+        "outer": "./outer/outer1.png"
+      },
+      "mainHeading": {
+        "explorer": 1000,
+        "voyager": 300,
+        "captain": 200,
+        "merchant": 400,
+        "shipwright": 100,
+        "fisherman": 100,
+        "smuggler": 700,
+        "arbiter": 100,
+        "sailor": 150
+      },
+      "populations": {
+        "progressive": 0,
+        "socialist": 2,
+        "idealist": 18,
+        "globalist": 8,
+        "conservative": 2,
+        "economist": 1,
+        "realist": 2,
+        "nationalist": 0,
+        "populist": 0
+      },
+      "completedProjects": [],
+      "milestones": [],
+      "capacity": []
+    }
+  }
+  

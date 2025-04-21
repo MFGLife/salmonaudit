@@ -1,0 +1,44 @@
+{
+    "conversationData": [
+      [
+        "Manipulative, evasive, emotionally reactive; prioritizes control over cooperation, often distorts truth to serve personal narratives and avoid accountability",
+        "Manipulative, evasive, emotionally reactive; prioritizes control over cooperation, often distorts truth to serve personal narratives and avoid accountability.",
+        "2025-04-20T17:51:22.477Z"
+      ]
+    ],
+    "userData": {
+      "id": "Crycella",
+      "state": {
+        "hair": "./hair/hair4.png",
+        "glasses": "./glasses/glasses0.png",
+        "body": "./body/body1.png",
+        "outer": "./outer/outer2.png"
+      },
+      "mainHeading": {
+        "explorer": 2400,
+        "voyager": 1800,
+        "captain": 300,
+        "merchant": 9800,
+        "shipwright": 250,
+        "fisherman": 300,
+        "smuggler": 11000,
+        "arbiter": 600,
+        "sailor": 1200
+      },
+      "populations": {
+        "progressive": 0,
+        "socialist": 5,
+        "idealist": 22,
+        "globalist": 25,
+        "conservative": 0,
+        "economist": 12,
+        "realist": 2,
+        "nationalist": 0,
+        "populist": 2
+      },
+      "completedProjects": [2, 3],
+      "milestones": [],
+      "capacity": []
+    }
+  }
+  

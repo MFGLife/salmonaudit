@@ -1,0 +1,44 @@
+{
+    "conversationData": [
+      [
+        "Complicit, performative, biased; masks incompetence with authority, enables misconduct under legal guise, avoids transparency, undermines justice through selective enforcement",
+        "Complicit, performative, biased; masks incompetence with authority, enables misconduct under legal guise, avoids transparency, undermines justice through selective enforcement.",
+        "2025-04-20T17:52:45.477Z"
+      ]
+    ],
+    "userData": {
+      "id": "Josh",
+      "state": {
+        "hair": "./hair/hair6.png",
+        "glasses": "./glasses/glasses1.png",
+        "body": "./body/body3.png",
+        "outer": "./outer/outer4.png"
+      },
+      "mainHeading": {
+        "explorer": 1100,
+        "voyager": 500,
+        "captain": 4000,
+        "merchant": 1500,
+        "shipwright": 1000,
+        "fisherman": 800,
+        "smuggler": 6200,
+        "arbiter": 9800,
+        "sailor": 900
+      },
+      "populations": {
+        "progressive": 0,
+        "socialist": 0,
+        "idealist": 6,
+        "globalist": 3,
+        "conservative": 12,
+        "economist": 5,
+        "realist": 1,
+        "nationalist": 7,
+        "populist": 4
+      },
+      "completedProjects": [4],
+      "milestones": [],
+      "capacity": []
+    }
+  }
+  
