@@ -1,4 +1,4 @@
-   // Base conversation data - will be extended with uploaded data
+// Base conversation data - will be extended with uploaded data
    let baseData = [
     ["hello", "Hi there!", ""],
     ["how old is the earth", "The Earth is approximately 4.54 billion years old.", ""],
@@ -513,10 +513,10 @@ function sendMessage() {
     userInput.value = '';
 
     // Add user message to chat
-    addUserMessage(message);
+    const timestamp = new Date().toISOString(); // Generate timestamp
+    addUserMessage(message, timestamp);
 
     // Add to conversation data
-    const timestamp = new Date().toISOString();
     const newEntry = [message, "", timestamp];
     conversationData.push(newEntry);
 
@@ -540,16 +540,53 @@ function sendMessage() {
 
         processConversationData();
         updateJSONDisplay();
-        addSystemMessage(response);
+        addSystemMessage(response, timestamp); // Pass timestamp to system message
     }, 500);
 }
 
-function addUserMessage(message) {
+function addUserMessage(message, timestamp) {
     const chatWindow = document.getElementById('chatWindow');
+
+    // Create a container for the user message
+    const messageContainer = document.createElement('div');
+    messageContainer.className = 'chat-message-container mb-4';
+
+    // Create the chat bubble
     const userMessage = document.createElement('div');
-    userMessage.className = 'chat-message text-left text-gray-800 bg-gray-200 rounded-lg p-2 mb-2';
-    userMessage.textContent = `User: ${message}`;
-    chatWindow.appendChild(userMessage);
+    userMessage.className = 'chat-message text-left text-gray-800 bg-gray-200 rounded-lg p-2';
+    userMessage.textContent = `${message}`;
+    messageContainer.appendChild(userMessage);
+
+    // Add the timestamp below the chat bubble
+    const timestampElement = document.createElement('div');
+    timestampElement.className = 'text-xs text-gray-500 mt-1';
+    timestampElement.textContent = `${new Date(timestamp).toLocaleString()}`;
+    messageContainer.appendChild(timestampElement);
+
+    chatWindow.appendChild(messageContainer);
+    chatWindow.scrollTop = chatWindow.scrollHeight; // Scroll to the bottom
+}
+
+function addSystemMessage(message, timestamp) {
+    const chatWindow = document.getElementById('chatWindow');
+
+    // Create a container for the system message
+    const messageContainer = document.createElement('div');
+    messageContainer.className = 'chat-message-container mb-4 text-right';
+
+    // Create the chat bubble
+    const systemMessage = document.createElement('div');
+    systemMessage.className = 'chat-message text-white bg-indigo-600 rounded-lg p-2';
+    systemMessage.textContent = `${message}`;
+    messageContainer.appendChild(systemMessage);
+
+    // Add the timestamp below the chat bubble
+    const timestampElement = document.createElement('div');
+    timestampElement.className = 'text-xs text-gray-500 mt-1';
+    timestampElement.textContent = `${new Date(timestamp).toLocaleString()}`;
+    messageContainer.appendChild(timestampElement);
+
+    chatWindow.appendChild(messageContainer);
     chatWindow.scrollTop = chatWindow.scrollHeight; // Scroll to the bottom
 }
 
@@ -842,16 +879,6 @@ function updateVisualizations() {
     }
 }
 
-function addSystemMessage(message, isError = false) {
-    const chatWindow = document.getElementById('chatWindow');
-    const systemMessage = document.createElement('p');
-    systemMessage.className = `text-sm ${isError ? 'text-red-500' : 'text-green-500'} italic`;
-    systemMessage.textContent = message;
-
-    chatWindow.appendChild(systemMessage);
-    chatWindow.scrollTop = chatWindow.scrollHeight; // Scroll to the bottom
-}
-
 function isValidDataFormat(data) {
     if (!data || !data.conversationData || !Array.isArray(data.conversationData)) {
         return false;
@@ -872,7 +899,38 @@ function isValidDataFormat(data) {
     }
     return true;
 }
+// Restore timestamps in the chat window
+function restoreTimestamps() {
+    const chatWindow = document.getElementById('chatWindow');
+    chatWindow.innerHTML = ''; // Clear the chat window
 
+    if (conversationData.length === 0) {
+        chatWindow.innerHTML = '<p class="text-gray-500 italic">No conversation data yet. Start typing below.</p>';
+        return;
+    }
+
+    // Display messages with timestamps
+    conversationData.forEach(([message, response, timestamp]) => {
+        // Add user message with timestamp
+        const userMessage = document.createElement('div');
+        userMessage.className = 'chat-message text-left text-gray-800 bg-gray-200 rounded-lg p-2 mb-2';
+        userMessage.textContent = `${userId} (${new Date(timestamp).toLocaleString()}): ${message}`;
+        chatWindow.appendChild(userMessage);
+
+        // Add system response with timestamp
+        if (response) {
+            const systemMessage = document.createElement('div');
+            systemMessage.className = 'chat-message text-right text-white bg-indigo-600 rounded-lg p-2 mb-2';
+            systemMessage.textContent = `System (${new Date(timestamp).toLocaleString()}): ${response}`;
+            chatWindow.appendChild(systemMessage);
+        }
+    });
+
+    chatWindow.scrollTop = chatWindow.scrollHeight; // Scroll to the bottom
+}
+
+// Call restoreTimestamps to ensure timestamps are displayed
+restoreTimestamps();
 function updateChatWindow() {
     const chatWindow = document.getElementById('chatWindow');
     chatWindow.innerHTML = ''; // Clear the chat window
@@ -882,22 +940,20 @@ function updateChatWindow() {
         return;
     }
 
-    // Only display messages added during the session
+    // Display messages added during the session
     conversationData.forEach(([message, response, timestamp]) => {
-        if (!timestamp.startsWith('2025-04-18')) { // Example: Skip messages with specific timestamps
-            // Add user message
-            const userMessage = document.createElement('div');
-            userMessage.className = 'chat-message text-left text-gray-800 bg-gray-200 rounded-lg p-2 mb-2';
-            userMessage.textContent = `User: ${message}`;
-            chatWindow.appendChild(userMessage);
+        // Add user message
+        const userMessage = document.createElement('div');
+        userMessage.className = 'chat-message text-left text-gray-800 bg-gray-200 rounded-lg p-2 mb-2';
+        userMessage.textContent = `${userId}: ${message}`; // Ensure userId is used here
+        chatWindow.appendChild(userMessage);
 
-            // Add system response
-            if (response) {
-                const systemMessage = document.createElement('div');
-                systemMessage.className = 'chat-message text-right text-white bg-indigo-600 rounded-lg p-2 mb-2';
-                systemMessage.textContent = `System: ${response}`;
-                chatWindow.appendChild(systemMessage);
-            }
+        // Add system response
+        if (response) {
+            const systemMessage = document.createElement('div');
+            systemMessage.className = 'chat-message text-right text-white bg-indigo-600 rounded-lg p-2 mb-2';
+            systemMessage.textContent = `System: ${response}`;
+            chatWindow.appendChild(systemMessage);
         }
     });
 
