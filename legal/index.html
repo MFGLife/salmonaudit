@@ -24,21 +24,11 @@
     <div class="app-sidebar">
       
       <a onclick="showSection('glossaryS')" class="app-sidebar-link active">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
-          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-          <polyline points="9 22 9 12 15 12 15 22" /></svg>
-      </a>
-      <a onclick="showSection('timelineS')" class="app-sidebar-link">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
           <path d="M2 12l5-2 2-5 3 3 3-3 2 5 5 2-5 2-2 5-3-3-3 3-2-5-5-2z"/>
-        </svg>     
+        </svg> 
       </a>
-      <a onclick="showSection('graphS')" class="app-sidebar-link">
-        <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-pie-chart" viewBox="0 0 24 24">
-          <defs />
-          <path d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z" />
-        </svg>
-      </a>
+
       <a onclick="showSection('calendarS')" class="app-sidebar-link">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
           <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
@@ -73,18 +63,6 @@
       <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showPrint=0&src=bWljaGVhbC5tZmdAZ21haWwuY29t&src=MzQxYzZhMDIzMzY0YWZkOTY3NmU2ZTMzZDMxNDlkNWVjMWViOGVlNDk4OTkzZWY2MjcyMGMwNzU3MWU0Y2MyN0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=YTI3OGQ0MzJjMjI5YWY4NjExYzU5OTU0MWIwMzMwNmQ2NDU1ODliMDk5MDExYzg0NjI0OGRiOTFhZTM2YzAwOUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=djAzaTdsMWs5aG51aWVsZzd1NWw5bDA0MjBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=ZjAyaGk2aHBzbHZjMTlqcjdnYWE2YTJ0ZDRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=NDZlM2UyODlmOWFkNjYyMzE5NGVkYmY0ZmY2MTZkYjExZmQ1N2MwODgwMjgzZGM5MGZlYWVlY2ZjMmY1YTk3OEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=YWlwN3U4dXVtdmhzdWg4OGF1aG5oaHYzbzBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=ZmFtaWx5MDIyNjUyODkwNDI1OTY3MDMzNjlAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%23A79B8E&color=%237CB342&color=%237CB342&color=%239E69AF&color=%23F09300&color=%23E67C73&color=%23A79B8E&color=%23009688" style="border:solid 1px #777" width="90%" height="100%" frameborder="0" scrolling="no"></iframe>
     </div>
 
-
-    <div class="projects-section"  id="graphS" >
-
-      <div>
-        <h1>Phone Call Data</h1>
-        <canvas id="phoneCallsChart"></canvas>
-        <h1>Investigations</h1>
-        <canvas id="workSummaryChart"></canvas>
-    </div>
-
-
-    </div>
 
     <div class="projects-section"  id="justiceS" >
 
@@ -360,7 +338,6 @@
 
 <div class="project-boxes jsGridView"></div>
 
-
 </div>
 
 
@@ -475,8 +452,6 @@
             </div>
           </main>
         </div>
-        
-
         
     </main>
 </div></div>
@@ -652,23 +627,7 @@
 </div>
 
 
-<div class="projects-section" id="timelineS">
-<div style="width: 100%; height: 100%; overflow-y: auto;">
 
-  <div class="projects-section-header">
-    <p>Event Timeline</p>
-  </div>
-
-  <div class="messages">
-    <!-- Existing message boxes -->
-    <div class="message-box" style="justify-content: center;">
-      <p class="message-line"><strong>Net Loss:</strong> <font style="color: red;">$90,000.00</font></p>
-    </div>
-    <!-- Timeline container -->
-    <div id="timeline" class="timeline-container"></div>
-  </div>
-</div>
-</div>
 
 
 
@@ -677,11 +636,10 @@
 
 <!-- partial -->
   <script  src="./script.js"></script>
-  <script  src="./timeline/timeline.js"></script>
   <script  src="./participants.js"></script>
   <script  src="./infraction.js"></script>
-  <script  src="./graph.js"></script>
   <script defer src="motion.js"></script>
+  <script defer src="tabs.js"></script>
 
 </body>
 </html>
