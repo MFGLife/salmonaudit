@@ -1,5 +1,99 @@
 
+<!-- Report Officer Misconduct Form -->
+<div class="card bg-white p-6 mb-6 rounded-lg">
+  <h2 class="text-lg font-semibold text-gray-800 mb-4">Report Officer Misconduct</h2>
 
+  <form id="misconductForm" class="space-y-6 text-black">
+    <!-- Reporter Information -->
+    <div class="border-b border-gray-200 pb-4">
+      <h3 class="text-md font-medium text-gray-700 mb-3">Your Information</h3>
+      
+      <div class="input-container">
+        <label for="reporterName" class="floating-label">Name</label>
+        <input type="text" id="reporterName" name="reporterName" class="w-full px-3 py-2 border border-gray-300 rounded-md" required>
+      </div>
+
+      <div class="input-container">
+        <label for="reporterContact" class="floating-label">Contact Info</label>
+        <input type="text" id="reporterContact" name="reporterContact" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+      </div>
+    </div>
+
+    <!-- Officer Details -->
+    <div class="border-b border-gray-200 pb-4">
+      <h3 class="text-md font-medium text-gray-700 mb-3">Officer Information</h3>
+
+      <div class="input-container">
+        <label for="officerName" class="floating-label">Officer Name (if known)</label>
+        <input type="text" id="officerName" name="officerName" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+      </div>
+
+      <div class="input-container">
+        <label for="badgeNumber" class="floating-label">Badge/Vehicle ID</label>
+        <input type="text" id="badgeNumber" name="badgeNumber" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+      </div>
+    </div>
+
+    <!-- Incident Details -->
+    <div class="border-b border-gray-200 pb-4">
+      <h3 class="text-md font-medium text-gray-700 mb-3">Incident Details</h3>
+
+      <div class="input-container">
+        <label for="incidentLocation" class="floating-label">Location <span class="text-red-500">*</span></label>
+        <input type="text" id="incidentLocation" name="incidentLocation" class="w-full px-3 py-2 border border-gray-300 rounded-md" required>
+      </div>
+
+      <div class="input-container">
+        <label for="incidentDateTime" class="floating-label">Date & Time <span class="text-red-500">*</span></label>
+        <input type="datetime-local" id="incidentDateTime" name="incidentDateTime" class="w-full px-3 py-2 border border-gray-300 rounded-md" required>
+      </div>
+
+      <div class="input-container">
+        <label for="witnesses" class="floating-label">Witnesses (if any)</label>
+        <input type="text" id="witnesses" name="witnesses" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+      </div>
+    </div>
+
+    <!-- Allegation Details -->
+    <div>
+      <div class="input-container">
+        <label for="description" class="floating-label">What Happened? <span class="text-red-500">*</span></label>
+        <textarea id="description" name="description" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md" required></textarea>
+      </div>
+
+      <div class="input-container">
+        <label for="harm" class="floating-label">How did it impact you? <span class="text-red-500">*</span></label>
+        <textarea id="harm" name="harm" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md" required></textarea>
+      </div>
+
+      <div class="input-container">
+        <label for="evidence" class="floating-label">Link to Evidence (if any)</label>
+        <input type="url" id="evidence" name="evidence" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+      </div>
+    </div>
+
+    <!-- Follow Up -->
+    <div class="input-container">
+      <label for="callback" class="floating-label">Willing to be contacted?</label>
+      <select id="callback" name="callback" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+        <option value="Yes">Yes</option>
+        <option value="No" selected>No</option>
+      </select>
+    </div>
+
+    <div id="callbackContact" class="input-container hidden">
+      <label for="callbackInfo" class="floating-label">Preferred Contact Method</label>
+      <input type="text" id="callbackInfo" name="callbackInfo" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+    </div>
+
+    <!-- Submit -->
+    <div class="pt-4">
+      <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-md">
+        Submit Misconduct Report
+      </button>
+    </div>
+  </form>
+</div>
 
 
 
