@@ -190,7 +190,7 @@
                     <img class="h-12 w-12 rounded-full" src="pics/micheal.png" alt="Michael T.">
                   </div>
                   <div class="ml-4">
-                    <a href="#" id="download-btn" data-filename="Micheal" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
+                    <a href="#" id="download-micheal" data-filename="Micheal" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
                         <i class="fas fa-download mr-2"></i>Micheal.json
                       </a>
                   </div>
@@ -293,7 +293,7 @@
                 <img class="h-12 w-12 rounded-full" src="pics/crycella.png" alt="Michael T.">
               </div>
               <div class="ml-4">
-                <a href="#" id="download-btn" data-filename="Crycella" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
+                <a href="#" id="download-crycella" data-filename="Crycella" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
                     <i class="fas fa-download mr-2"></i>Crycella.json
                   </a>
               </div>
@@ -307,7 +307,7 @@
                 <img class="h-12 w-12 rounded-full" src="pics/josh.png" alt="Michael T.">
               </div>
               <div class="ml-4">
-                <a href="#" id="download-btn" data-filename="Josh" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
+                <a href="#" id="download-josh" data-filename="Josh" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
                     <i class="fas fa-download mr-2"></i>Josh.json
                   </a>
               </div>
@@ -321,7 +321,7 @@
                 <img class="h-12 w-12 rounded-full" src="pics/kelly.png" alt="Michael T.">
               </div>
               <div class="ml-4">
-                <a href="#" id="download-btn" data-filename="Kelly" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
+                <a href="#" id="download-kelly" data-filename="Kelly" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
                     <i class="fas fa-download mr-2"></i>Kelly.json
                   </a>
               </div>
@@ -1166,33 +1166,45 @@
 
 
 
-  // Attach to all buttons with the class "download-btn"
-  document.querySelectorAll('.download-btn').forEach(button => {
-    button.addEventListener('click', function (e) {
-      e.preventDefault();
-      const name = this.getAttribute('data-filename'); // Get name from data attribute
-      const fileName = `${name}.json`;
+    function downloadFile(fileName) {
+    // Update path if needed, e.g., 'data/' + fileName + '.json'
+    fetch(`${fileName}.json`)
+      .then(response => {
+        if (!response.ok) throw new Error(`Failed to fetch ${fileName}: ${response.statusText}`);
+        return response.text();
+      })
+      .then(data => {
+        const blob = new Blob([data], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${fileName}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      })
+      .catch(err => console.error(err));
+  }
 
-      fetch(fileName)
-        .then(response => {
-          if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-          return response.text();
-        })
-        .then(data => {
-          const blob = new Blob([data], { type: 'application/json' });
-          const url = URL.createObjectURL(blob);
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = fileName;
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-          URL.revokeObjectURL(url);
-        })
-        .catch(err => {
-          console.error(`Download error for ${fileName}:`, err);
-        });
-    });
+  document.getElementById('download-micheal').addEventListener('click', e => {
+    e.preventDefault();
+    downloadFile('Micheal');
+  });
+
+  document.getElementById('download-crycella').addEventListener('click', e => {
+    e.preventDefault();
+    downloadFile('Crycella');
+  });
+
+  document.getElementById('download-josh').addEventListener('click', e => {
+    e.preventDefault();
+    downloadFile('Josh');
+  });
+
+  document.getElementById('download-kelly').addEventListener('click', e => {
+    e.preventDefault();
+    downloadFile('Kelly');
   });
 
 
