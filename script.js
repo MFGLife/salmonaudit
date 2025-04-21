@@ -461,7 +461,7 @@ jsonFileInput.addEventListener('change', (event) => {
         // Read the file
         const reader = new FileReader();
         reader.onload = (e) => {
-            try {
+           
                 const data = JSON.parse(e.target.result);
 
                 // Validate the data format
@@ -493,25 +493,6 @@ jsonFileInput.addEventListener('change', (event) => {
                     // Show success message
                     addSystemMessage(`Loaded ${data.conversationData.length} new conversation pairs from file.`);
 
-                    // Enable form when JSON is uploaded
-                    const user = data.userData || {};
-                    const capacityData = user.capacity?.[0] || {};
-
-                    // Auto-fill form fields
-                    document.getElementById('name').value = user.id || '';
-                    document.getElementById('vehicle').value = capacityData.vehicle_description || '';
-                    document.getElementById('insurance').value = capacityData.insurance_provider || '';
-                    document.getElementById('contact').value = capacityData.contact_email || '';
-                    document.getElementById('followup').value = capacityData.allow_followup ? 'Yes' : 'No';
-
-                    // Show or hide the contact info field based on followup value
-                    const contactContainer = document.getElementById('contactContainer');
-                    if (capacityData.allow_followup) {
-                        contactContainer.classList.remove('hidden');
-                    } else {
-                        contactContainer.classList.add('hidden');
-                    }
-
                     // Show success message in the upload status
                     const uploadStatus = document.getElementById('uploadStatus');
                     uploadStatus.textContent = 'Profile loaded successfully!';
@@ -519,23 +500,8 @@ jsonFileInput.addEventListener('change', (event) => {
                     uploadStatus.classList.remove('hidden');
 
                     // Enable the form
-                    const formSection = document.getElementById('formSection');
-                    formSection.classList.remove('opacity-50', 'pointer-events-none');
-                } else {
-                    // Handle invalid data format
-                    addSystemMessage("Invalid data format. Please upload a valid JSON file.", true);
                 }
-            } catch (error) {
-                // Handle JSON parsing errors
-                addSystemMessage(`Error parsing JSON: ${error.message}`, true);
-
-                // Update the upload status with an error message
-                const uploadStatus = document.getElementById('uploadStatus');
-                uploadStatus.textContent = 'Invalid JSON file. Please upload a valid TAP profile.';
-                uploadStatus.className = 'text-sm mt-2 text-red-600';
-                uploadStatus.classList.remove('hidden');
-                console.error(error);
-            }
+            
         };
         reader.readAsText(file);
     }
