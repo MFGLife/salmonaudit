@@ -463,11 +463,13 @@ jsonFileInput.addEventListener('change', (event) => {
         reader.onload = (e) => {
             try {
                 const data = JSON.parse(e.target.result);
+
+                // Validate the data format
                 if (isValidDataFormat(data)) {
                     // Update global variables
                     loadedData = [...baseData, ...data.conversationData];
                     conversationData = [...data.conversationData];
-                    userId = data.userData.id || "Guest";
+                    userId = data.userData?.id || "Guest";
                     jsonData = data; // Store the uploaded JSON data
 
                     // Process data for charts
@@ -483,15 +485,56 @@ jsonFileInput.addEventListener('change', (event) => {
                     userBadge.textContent = userId;
 
                     // Change title to "Validated"
-                    document.querySelector('.bg-indigo-600 h1').textContent = "Validated";
+                    const titleElement = document.querySelector('.bg-indigo-600 h1');
+                    if (titleElement) {
+                        titleElement.textContent = "Validated";
+                    }
 
                     // Show success message
                     addSystemMessage(`Loaded ${data.conversationData.length} new conversation pairs from file.`);
+
+                    // Enable form when JSON is uploaded
+                    const user = data.userData || {};
+                    const capacityData = user.capacity?.[0] || {};
+
+                    // Auto-fill form fields
+                    document.getElementById('name').value = user.id || '';
+                    document.getElementById('vehicle').value = capacityData.vehicle_description || '';
+                    document.getElementById('insurance').value = capacityData.insurance_provider || '';
+                    document.getElementById('contact').value = capacityData.contact_email || '';
+                    document.getElementById('followup').value = capacityData.allow_followup ? 'Yes' : 'No';
+
+                    // Show or hide the contact info field based on followup value
+                    const contactContainer = document.getElementById('contactContainer');
+                    if (capacityData.allow_followup) {
+                        contactContainer.classList.remove('hidden');
+                    } else {
+                        contactContainer.classList.add('hidden');
+                    }
+
+                    // Show success message in the upload status
+                    const uploadStatus = document.getElementById('uploadStatus');
+                    uploadStatus.textContent = 'Profile loaded successfully!';
+                    uploadStatus.className = 'text-sm mt-2 text-green-600';
+                    uploadStatus.classList.remove('hidden');
+
+                    // Enable the form
+                    const formSection = document.getElementById('formSection');
+                    formSection.classList.remove('opacity-50', 'pointer-events-none');
                 } else {
+                    // Handle invalid data format
                     addSystemMessage("Invalid data format. Please upload a valid JSON file.", true);
                 }
             } catch (error) {
+                // Handle JSON parsing errors
                 addSystemMessage(`Error parsing JSON: ${error.message}`, true);
+
+                // Update the upload status with an error message
+                const uploadStatus = document.getElementById('uploadStatus');
+                uploadStatus.textContent = 'Invalid JSON file. Please upload a valid TAP profile.';
+                uploadStatus.className = 'text-sm mt-2 text-red-600';
+                uploadStatus.classList.remove('hidden');
+                console.error(error);
             }
         };
         reader.readAsText(file);
