@@ -1,0 +1,55 @@
+<section id="signup" class="py-20 gradient-bg text-white">
+
+
+
+
+    </section>
+
+
+    <script>
+
+const webhookURL = 'https://discord.com/api/webhooks/1363220862500864090/CF2VguJJG_My3lAFXWgcmFQqtm-2tQLdK3VCOR9tUEcZS92sl2Xq1dOQkGB7AQurCLQF';
+
+document.getElementById('misconductForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const content = `**🚨 Officer Misconduct Report**\n` +
+    `**Reporter Name:** ${this.reporterName.value}\n` +
+    `**Contact Info:** ${this.reporterContact.value || 'Not provided'}\n` +
+    `**Officer Name:** ${this.officerName.value || 'Unknown'}\n` +
+    `**Badge/Vehicle ID:** ${this.badgeNumber.value || 'Not provided'}\n` +
+    `**Incident Location:** ${this.incidentLocation.value}\n` +
+    `**Incident Date & Time:** ${this.incidentDateTime.value}\n` +
+    `**Witnesses:** ${this.witnesses.value || 'None'}\n` +
+    `**Description of Incident:**\n${this.description.value}\n` +
+    `**Impact on Reporter:**\n${this.harm.value}\n` +
+    `**Evidence Link:** ${this.evidence.value || 'None'}\n` +
+    `**Willing to be contacted:** ${this.callback.value}\n` +
+    `**Preferred Contact Method (if yes):** ${this.callbackInfo.value || 'Not provided'}`;
+
+  try {
+    await fetch(webhookURL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ content })
+    });
+
+    alert('Your misconduct report has been submitted successfully.');
+    this.reset();
+  } catch (err) {
+    alert('There was an error submitting your report. Please try again.');
+    console.error(err);
+  }
+});
+
+document.getElementById('callback').addEventListener('change', function() {
+  const callbackContact = document.getElementById('callbackContact');
+  if (this.value === 'Yes') {
+    callbackContact.classList.remove('hidden');
+  } else {
+    callbackContact.classList.add('hidden');
+  }
+});
+
+
+</script>
