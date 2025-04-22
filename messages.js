@@ -1,5 +1,4 @@
 const idleQuestions = [
-    "What are your thoughts on privacy vs. transparency?",
     "Have you ever wondered how much your data says about you?",
     "How would you design a fair legal system?",
     "Is misinformation more dangerous than censorship?"
@@ -8,7 +7,7 @@ const idleQuestions = [
   let idleTimer = null;
 
   setTimeout(() => {
-    const greeting = "Hi there! Download a profile then upload it to get started. You can use the Editor below to change your name, and any information to make it yours. Be sure to export your .json at the end of every session to retain updates.";
+    const greeting = 'Drag & drop your JSON file or click button to sync';
     const timestamp = new Date().toISOString();
     addSystemMessage(greeting, timestamp);
     

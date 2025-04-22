@@ -839,3 +839,252 @@ canvas {
 .event-item:last-child {
   border-bottom: none;
 }
+
+.salmonTail {
+  transform: translateX(-4px);
+  animation: swim 2.4s ease alternate infinite;
+  }
+  @keyframes swim {
+    0% {
+      transform: translateX(0px);
+    }
+    50% {
+      transform: translateX(-4px);
+    }
+    100% {
+      transform: translateX(0px);
+    }
+  }
+  
+  #raftHolder {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100px;
+    height: 50px;
+    overflow: hidden;
+  }
+  
+  #raft {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+    -webkit-animation-name: raftFloat;
+            animation-name: raftFloat;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+  }
+  
+  #raftBottom {
+    position: absolute;
+    margin: auto;
+    top: 34px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 0px;
+    height: 0px;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+  }
+  
+  
+  #raftTop {
+    position: absolute;
+    margin: auto;
+    top: -22px;
+    left: -20px;
+    right: 0;
+    bottom: 0;
+    width: 180px;
+    height: 80px;
+    border-bottom: 30px solid transparent;
+    border-right: 20px solid transparent;
+  }
+  #raftTop::before {
+    content: "";
+    position: absolute;
+    margin: auto;
+    width: 80px;
+    height: 80px;
+    left: -80px;
+    border-bottom: 30px solid transparent;
+    border-left: 20px solid transparent;
+  }
+  
+  #raftRipples {
+    position: absolute;
+    margin: auto;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    right: 100px;
+    width: 200px;
+    height: 50px;
+  }
+  
+  .raftRipple {
+    position: absolute;
+    margin: auto;
+    width: 0px;
+    height: 4px;
+    border-radius: 2px;
+    opacity: .1;
+    background: #fff;
+    -webkit-animation-name: raftRippleMove;
+            animation-name: raftRippleMove;
+    -webkit-animation-duration: 1.5s;
+            animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+  }
+  .raftRipple:nth-child(1) {
+    top: 30px;
+    left: 120px;
+    -webkit-animation-delay: 1s;
+            animation-delay: 1s;
+  }
+  .raftRipple:nth-child(2) {
+    top: 24px;
+    left: 120px;
+    -webkit-animation-delay: 1.5s;
+            animation-delay: 1.5s;
+  }
+  
+  #raftReflection {
+    position: absolute;
+    margin: auto;
+    top: 90px;
+    bottom: 0;
+    right: 0;
+    left: 10px;
+    width: 150px;
+    height: 50px;
+  }
+  
+  .raftReflectionSegment {
+    position: absolute;
+    margin: auto;
+    height: 4px;
+    border-radius: 2px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    -webkit-animation-name: raftReflectionMove;
+            animation-name: raftReflectionMove;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+  }
+  .raftReflectionSegment:nth-child(1) {
+    top: -30px;
+    width: 35px;
+    opacity: .1;
+  }
+  .raftReflectionSegment:nth-child(2) {
+    top: -16px;
+    width: 45px;
+    -webkit-animation-delay: .2s;
+            animation-delay: .2s;
+    opacity: .05;
+  }
+  .raftReflectionSegment:nth-child(3) {
+    top: -2px;
+    width: 60px;
+    -webkit-animation-delay: .4s;
+            animation-delay: .4s;
+    opacity: .02;
+  }
+  
+  @-webkit-keyframes raftReflectionMove {
+    0% {
+      -webkit-transform: scale(1.2, 1) translate(5px);
+              transform: scale(1.2, 1) translate(5px);
+    }
+    100% {
+      -webkit-transform: scale(1, 1) translate(-10px);
+              transform: scale(1, 1) translate(-10px);
+    }
+  }
+  
+  @keyframes raftReflectionMove {
+    0% {
+      -webkit-transform: scale(1.2, 1) translate(5px);
+              transform: scale(1.2, 1) translate(5px);
+    }
+    100% {
+      -webkit-transform: scale(1, 1) translate(-10px);
+              transform: scale(1, 1) translate(-10px);
+    }
+  }
+  @-webkit-keyframes raftRippleMove {
+    0% {
+      width: 0px;
+    }
+    70% {
+      width: 50px;
+    }
+    100% {
+      -webkit-transform: translate(-100px);
+              transform: translate(-100px);
+      width: 0px;
+      opacity: 0;
+    }
+  }
+  @keyframes raftRippleMove {
+    0% {
+      width: 0px;
+    }
+    70% {
+      width: 50px;
+    }
+    100% {
+      -webkit-transform: translate(-100px);
+              transform: translate(-100px);
+      width: 0px;
+      opacity: 0;
+    }
+  }
+  @-webkit-keyframes raftFloat {
+    0% {
+      -webkit-transform: rotate(3deg) translate(10px, -2px);
+              transform: rotate(3deg) translate(10px, -2px);
+    }
+    100% {
+      -webkit-transform: rotate(-3deg) translate(-5px);
+              transform: rotate(-3deg) translate(-5px);
+    }
+  }
+  @keyframes raftFloat {
+    0% {
+      -webkit-transform: rotate(3deg) translate(10px, -2px);
+              transform: rotate(3deg) translate(10px, -2px);
+    }
+    100% {
+      -webkit-transform: rotate(-3deg) translate(-5px);
+              transform: rotate(-3deg) translate(-5px);
+    }
+  }
