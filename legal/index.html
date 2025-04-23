@@ -16,7 +16,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <!-- HEAD: Leaflet CSS -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+  
+
 <style>
   #leafletMap {
     height: 100%;
@@ -66,31 +69,45 @@
 
     <div>
     
+
+
+
+
+
     <div class="projects-section"  id="calendarS" style="width: 600px; height: 100%;">
       <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showPrint=0&src=bWljaGVhbC5tZmdAZ21haWwuY29t&src=MzQxYzZhMDIzMzY0YWZkOTY3NmU2ZTMzZDMxNDlkNWVjMWViOGVlNDk4OTkzZWY2MjcyMGMwNzU3MWU0Y2MyN0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=YTI3OGQ0MzJjMjI5YWY4NjExYzU5OTU0MWIwMzMwNmQ2NDU1ODliMDk5MDExYzg0NjI0OGRiOTFhZTM2YzAwOUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=djAzaTdsMWs5aG51aWVsZzd1NWw5bDA0MjBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=ZjAyaGk2aHBzbHZjMTlqcjdnYWE2YTJ0ZDRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=NDZlM2UyODlmOWFkNjYyMzE5NGVkYmY0ZmY2MTZkYjExZmQ1N2MwODgwMjgzZGM5MGZlYWVlY2ZjMmY1YTk3OEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=YWlwN3U4dXVtdmhzdWg4OGF1aG5oaHYzbzBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=ZmFtaWx5MDIyNjUyODkwNDI1OTY3MDMzNjlAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%23A79B8E&color=%237CB342&color=%237CB342&color=%239E69AF&color=%23F09300&color=%23E67C73&color=%23A79B8E&color=%23009688" style="border:solid 1px #777" width="90%" height="100%" frameborder="0" scrolling="no"></iframe>
     </div>
+
+
+
+
+
+
     <div class="projects-section" id="justiceS">
       <section class="w-full min-h-screen relative bg-gray-100 flex flex-col items-center justify-start pt-6 pb-4 px-4 sm:px-8">
-        
-        <!-- Title -->
-        <h2 class="text-3xl sm:text-4xl font-bold text-center mb-2">
-          Class Action Map: Supervised Child Services
-        </h2>
-    
-        <!-- Explainer -->
-        <div class="w-full max-w-3xl text-center mb-4">
-          <button onclick="toggleExplainer()" class="mb-2 text-green-700 font-semibold underline hover:text-green-900 transition">
-            What is this map showing?
-          </button>
-          <div id="explainerText" class="text-gray-700 text-base sm:text-lg hidden transition-opacity duration-300 ease-in-out">
-            This map highlights locations of supervised visitation services in the Kansas City area. Locations marked with a red gavel icon
-            are officially named in a class action lawsuit alleging obstruction of parental access, unlawful billing practices, or
-            collusion with court officers. Click each marker to learn more.
-          </div>
-        </div>
-    
-        <!-- Map container -->
-        <div id="leafletMap" class="w-full h-[75vh] sm:h-[80vh] rounded-lg shadow-lg z-10"></div>
+        <!-- Title --> 
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-2"> 
+              Class Action Map 
+            </h2>
+         
+            <!-- Search Bar Instead of Explainer --> 
+            <div class="search-container">
+              <div class="search-bar">
+                <input type="text" class="search-input" id="evidenceSearch" placeholder="Search evidence by keyword, location, or case number...">
+                <button class="search-button" onclick="searchEvidence()">Search</button>
+              </div>
+              <div class="evidence-counter">
+                Showing 24 pieces of evidence related to <strong>Class Action 25CV325</strong>
+              </div>
+            </div>
+      
+                        <!-- Map container --> 
+                        <div id="leafletMap" class="w-full h-[75vh] sm:h-[80vh] rounded-lg shadow-lg z-10"></div>
+
+
+         
+
+  
     
       </section>
     </div>
@@ -443,67 +460,198 @@
         performSearch();
     }
 
-    const locations = [
-      {
-        name: "Layne Project",
-        lat: 39.0997,
-        lng: -94.5786,
-        involvedInClassAction: true,
-        docket: "LP-001"
-      },
-      {
-        name: "Hope House Supervised Services",
-        lat: 39.0501,
-        lng: -94.5465,
-        involvedInClassAction: true,
-        docket: "HH-002"
-      },
-      {
-        name: "Kids First Visitation Center",
-        lat: 39.0628,
-        lng: -94.5922,
-        involvedInClassAction: false
-      }
-    ];
+    
+// This is the fixed version of your JavaScript code
 
-    const map = L.map('leafletMap').setView([39.0997, -94.5786], 11);
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
-
-    const caseIcon = L.icon({
-      iconUrl: '../pics/lumie.png',
-      iconSize: [30, 30],
-      iconAnchor: [15, 30],
-      popupAnchor: [0, -30]
-    });
-
-    const defaultIcon = L.icon({
-      iconUrl: '../pics/lumie.png',
-      iconSize: [24, 24],
-      iconAnchor: [12, 24],
-      popupAnchor: [0, -24]
-    });
-
-    locations.forEach(loc => {
-      const icon = loc.involvedInClassAction ? caseIcon : defaultIcon;
-      const marker = L.marker([loc.lat, loc.lng], { icon }).addTo(map);
-
-      const popupContent = `
-        <strong>${loc.name}</strong><br/>
-        ${loc.involvedInClassAction 
-          ? `<span style="color: red; font-weight: bold;">⚖️ Class Action Docket: ${loc.docket}</span>`
-          : 'Not named in class action'}
-      `;
-
-      marker.bindPopup(popupContent);
-    });
-
-    function toggleExplainer() {
-    const el = document.getElementById("explainerText");
-    el.classList.toggle("hidden");
+const locations = [ 
+  { 
+    name: "The Layne Project",  
+    lat: 38.8857904534, 
+    lng: -94.8184621779, 
+    involvedInClassAction: true, 
+    docket: "25CV325 #6",
+    evidence: {
+      testimony: [
+        { title: "Affidavit - Jane Doe", url: "#" },
+        { title: "Deposition - John Smith", url: "#" },
+        { title: "Victim Statement - A. Johnson", url: "#" }
+      ],
+      financial: [
+        { title: "Billing Records - The Layne Project", url: "#" },
+        { title: "Invoice Analysis - 2023-2024", url: "#" },
+        { title: "Audit Report - Hope House", url: "#" }
+      ],
+      emails: [
+        { title: "Email Thread - Court Coordinator", url: "#" },
+        { title: "Internal Communications - Heritage", url: "#" },
+        { title: "Client Correspondence - 2024", url: "#" }
+      ],
+      documents: [
+        { title: "Class Action Filing - 25CV325", url: "#" },
+        { title: "Court Orders - 2023", url: "#" },
+        { title: "Service Contracts - All Locations", url: "#" }
+      ]
+    }
+  }, 
+  { 
+    name: "Heritage United Methodist Church", 
+    lat: 38.8955359230, 
+    lng: -94.7246447280, 
+    involvedInClassAction: true, 
+    docket: "25CV325 #6",
+    evidence: {
+      testimony: [
+        { title: "Witness Statement - M. Brown", url: "#" }
+      ],
+      financial: [
+        { title: "Expense Report - Heritage", url: "#" }
+      ],
+      emails: [],
+      documents: [
+        { title: "Legal Agreement - Heritage", url: "#" }
+      ]
+    }
   }
+];
+
+// Initialize map
+const map = L.map('leafletMap').setView([38.8857, -94.8184], 12); 
+
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { 
+  attribution: '&copy; OpenStreetMap contributors' 
+}).addTo(map); 
+
+const caseIcon = L.icon({ 
+  iconUrl: '../pics/lumie.png', 
+  iconSize: [30, 30], 
+  iconAnchor: [15, 30], 
+  popupAnchor: [0, -30] 
+}); 
+
+const defaultIcon = L.icon({ 
+  iconUrl: '../pics/lumies.png', 
+  iconSize: [24, 24], 
+  iconAnchor: [12, 24], 
+  popupAnchor: [0, -24] 
+});
+
+// Create markers
+const markers = [];
+locations.forEach(loc => { 
+  const icon = loc.involvedInClassAction ? caseIcon : defaultIcon; 
+  const marker = L.marker([loc.lat, loc.lng], { icon }).addTo(map); 
+
+  // Generate evidence list dynamically
+  const generateEvidenceList = (evidenceType, items) => {
+    if (!items || items.length === 0) return '';
+    return `
+      <strong>${evidenceType}:</strong>
+      <ul style="list-style: none; padding-left: 0; margin-bottom: 10px;">
+        ${items.map(item => `<li><a href="${item.url}" target="_blank" style="color: blue; text-decoration: underline;">${item.title}</a></li>`).join('')}
+      </ul>
+    `;
+  };
+
+  // Enhanced popup content with evidence details
+  const popupContent = ` 
+    <strong>${loc.name}</strong><br/> 
+    ${loc.involvedInClassAction  
+      ? `<span style="color: red; font-weight: bold;">⚖️ Class Action Docket: ${loc.docket}</span><br/>
+         <div style="max-height: 200px; overflow-y: auto; padding-right: 10px;">
+           ${generateEvidenceList('👤 Testimonies', loc.evidence.testimony)}
+           ${generateEvidenceList('💰 Financial Records', loc.evidence.financial)}
+           ${generateEvidenceList('✉️ Emails', loc.evidence.emails)}
+           ${generateEvidenceList('📄 Legal Documents', loc.evidence.documents)}
+         </div>`
+      : 'Not named in class action'} 
+  `; 
+
+  marker.bindPopup(popupContent);
+});
+
+// Function to handle viewing evidence
+function viewEvidence(locationName) {
+  const loc = locations.find(l => l.name === locationName);
+  if (!loc) return;
+
+  // Display evidence details in a modal or a dedicated section
+  alert(`Viewing evidence for ${locationName}:\n\n` +
+    `👤 Testimonies: ${loc.evidence.testimony.map(e => e.title).join(', ')}\n` +
+    `💰 Financial Records: ${loc.evidence.financial.map(e => e.title).join(', ')}\n` +
+    `✉️ Emails: ${loc.evidence.emails.map(e => e.title).join(', ')}\n` +
+    `📄 Legal Documents: ${loc.evidence.documents.map(e => e.title).join(', ')}`);
+}
+
+// Toggle evidence links visibility
+function toggleEvidenceLinks(type) {
+  const linksElement = document.getElementById(`${type}-links`);
+  
+  // Close all other open links
+  document.querySelectorAll('.evidence-links').forEach(el => {
+    if (el.id !== `${type}-links`) {
+      el.style.display = 'none';
+    }
+  });
+  
+  if (linksElement.style.display === 'flex') {
+    linksElement.style.display = 'none';
+  } else {
+    linksElement.style.display = 'flex';
+  }
+}
+
+// Show evidence modal
+function showEvidence(title, url) {
+  const modal = document.getElementById('evidenceModal');
+  const titleEl = document.getElementById('evidenceTitle');
+  const frame = document.getElementById('evidenceFrame');
+  
+  titleEl.textContent = title;
+  frame.src = url;
+  modal.style.display = 'flex';
+}
+
+// Close evidence modal
+function closeEvidence() {
+  const modal = document.getElementById('evidenceModal');
+  modal.style.display = 'none';
+}
+
+
+
+// Search functionality
+function searchEvidence() {
+  const searchInput = document.getElementById('evidenceSearch').value.toLowerCase();
+  
+  if (!searchInput.trim()) {
+    alert('Please enter a search term');
+    return;
+  }
+
+  let matchCount = 0;
+  
+  // Reset all markers
+  markers.forEach(marker => {
+    marker.setOpacity(0.4);
+  });
+  
+  locations.forEach((loc, index) => {
+    if (loc.name.toLowerCase().includes(searchInput) || 
+        (loc.docket && loc.docket.toLowerCase().includes(searchInput))) {
+      markers[index].setOpacity(1);
+      matchCount += loc.evidence.testimony.length + 
+                   loc.evidence.financial.length + 
+                   loc.evidence.emails.length + 
+                   loc.evidence.documents.length;
+    }
+  });
+  
+  // Update counter
+  document.querySelector('.evidence-counter').innerHTML = 
+    `Found <strong>${matchCount}</strong> pieces of evidence matching "<strong>${searchInput}</strong>"`;
+}
+    
 
 </script>
 
