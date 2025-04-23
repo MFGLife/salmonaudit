@@ -51,11 +51,40 @@ document.addEventListener('DOMContentLoaded', function () {
     calendar.style.width = width;
   }
 
+  function setJusticeSectionWidth() {
+    const screenWidth = window.innerWidth;
+    const justiceSection = document.getElementById('justiceS');
+    const leafletMap = document.getElementById('leafletMap');
+    let width;
+  
+    if (screenWidth < 400) {
+      width = '320px';
+    } else if (screenWidth < 600) {
+      width = '400px';
+    } else if (screenWidth < 800) {
+      width = '600px';
+    } else if (screenWidth < 1000) {
+      width = '750px';
+    } else if (screenWidth < 1200) {
+      width = '900px';
+    } else {
+      width = '1050px';
+    }
+  
+    // Apply width to the map container to maintain consistency
+    leafletMap.style.width = width;
+    
+    // Make sure the parent section remains flexible
+    // justiceSection.style.width remains unchanged to allow for padding
+  }
+  
+  // Initialize both functions
   setCalendarWidth();
+  setJusticeSectionWidth();
+  
+  // Add event listeners for window resize
   window.addEventListener('resize', setCalendarWidth);
-
-  setCalendarWidth();
-  window.addEventListener('resize', setCalendarWidth);
+  window.addEventListener('resize', setJusticeSectionWidth);
 
 
 function openCrycella(){window.open("https://drive.google.com/drive/folders/1PGRGoEZuJ68PqOWcwW-naURZCVz2jNDE?usp=drive_link")}
