@@ -29,62 +29,90 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-  function setCalendarWidth() {
-    const screenWidth = window.innerWidth;
-    const calendar = document.getElementById('calendarS');
-    let width;
+function setCalendarWidth() {
+  const screenWidth = window.innerWidth;
+  const calendar = document.getElementById('calendarS');
+  let width;
 
-    if (screenWidth < 400) {
-      width = '320px';
-    } else if (screenWidth < 600) {
-      width = '400px';
-    } else if (screenWidth < 800) {
-      width = '600px';
-    } else if (screenWidth < 1000) {
-      width = '750px';
-    } else if (screenWidth < 1200) {
-      width = '900px';
-    } else {
-      width = '1050px';
-    }
-
-    calendar.style.width = width;
+  if (screenWidth < 400) {
+    width = '320px';
+  } else if (screenWidth < 600) {
+    width = '400px';
+  } else if (screenWidth < 800) {
+    width = '600px';
+  } else if (screenWidth < 1000) {
+    width = '750px';
+  } else if (screenWidth < 1200) {
+    width = '900px';
+  } else {
+    width = '1050px';
   }
 
-  function setJusticeSectionWidth() {
-    const screenWidth = window.innerWidth;
-    const justiceSection = document.getElementById('justiceS');
-    const leafletMap = document.getElementById('leafletMap');
-    let width;
+  calendar.style.width = width;
+}
+
+function setJusticeSectionWidth() {
+  const screenWidth = window.innerWidth;
+  const leafletMap = document.getElementById('leafletMap');
+  if (!leafletMap) return;
   
-    if (screenWidth < 400) {
-      width = '320px';
-    } else if (screenWidth < 600) {
-      width = '400px';
-    } else if (screenWidth < 800) {
-      width = '600px';
-    } else if (screenWidth < 1000) {
-      width = '750px';
-    } else if (screenWidth < 1200) {
-      width = '900px';
-    } else {
-      width = '1050px';
-    }
-  
-    // Apply width to the map container to maintain consistency
-    leafletMap.style.width = width;
-    
-    // Make sure the parent section remains flexible
-    // justiceSection.style.width remains unchanged to allow for padding
+  let width;
+
+  if (screenWidth < 400) {
+    width = '320px';
+  } else if (screenWidth < 600) {
+    width = '400px';
+  } else if (screenWidth < 800) {
+    width = '600px';
+  } else if (screenWidth < 1000) {
+    width = '750px';
+  } else if (screenWidth < 1200) {
+    width = '900px';
+  } else {
+    width = '1050px';
   }
+
+  leafletMap.style.width = width;
   
-  // Initialize both functions
+  // If you're using Leaflet.js
+  if (window.map && typeof window.map.invalidateSize === 'function') {
+    window.map.invalidateSize();
+  }
+}
+
+// Initialize functions
+setCalendarWidth();
+setJusticeSectionWidth();
+
+// Handle window resize
+window.addEventListener('resize', function() {
   setCalendarWidth();
   setJusticeSectionWidth();
+});
+
+// Refresh on window focus - this helps when returning to the tab
+window.addEventListener('focus', function() {
+  setJusticeSectionWidth();
   
-  // Add event listeners for window resize
-  window.addEventListener('resize', setCalendarWidth);
-  window.addEventListener('resize', setJusticeSectionWidth);
+  // Short delay to ensure map is ready
+  setTimeout(function() {
+    if (window.map && typeof window.map.invalidateSize === 'function') {
+      window.map.invalidateSize();
+    }
+  }, 100);
+});
+
+// Also trigger a refresh after the page has fully loaded
+window.addEventListener('load', function() {
+  setJusticeSectionWidth();
+  
+  // Multiple attempts with increasing delays to catch late-initializing maps
+  setTimeout(setJusticeSectionWidth, 100);
+  setTimeout(setJusticeSectionWidth, 500);
+  setTimeout(setJusticeSectionWidth, 1000);
+});
+  
+
 
 
 function openCrycella(){window.open("https://drive.google.com/drive/folders/1PGRGoEZuJ68PqOWcwW-naURZCVz2jNDE?usp=drive_link")}
