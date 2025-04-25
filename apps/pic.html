@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document Photo Compressor</title>
+</head>
+<body>
+  <h2>Take Document Photo</h2>
+  <input type="file" accept="image/*" capture="environment" id="imageInput"><br><br>
+
+  <label for="filename">File Name:</label>
+  <input type="text" id="filename" placeholder="document"><br><br>
+
+  <button onclick="processImage()">Compress & Save</button>
+
+  <canvas id="canvas" style="display:none;"></canvas>
+
+  <script>
+    function processImage() {
+      const fileInput = document.getElementById('imageInput');
+      const filename = document.getElementById('filename').value || 'document';
+      if (!fileInput.files[0]) return alert('Please take a photo first.');
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const img = new Image();
+        img.onload = function() {
+          const canvas = document.getElementById('canvas');
+          const ctx = canvas.getContext('2d');
+
+          // Resize to about 800x1100 px to match 8x11 scale
+          const scale = 800 / img.width;
+          canvas.width = 800;
+          canvas.height = img.height * scale;
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+          // Compress until < 50KB
+          let quality = 0.9;
+          let dataURL;
+          do {
+            dataURL = canvas.toDataURL('image/jpeg', quality);
+            quality -= 0.05;
+          } while (dataURL.length > 50000 && quality > 0.1); // target <50kb
+
+          // Download
+          const a = document.createElement('a');
+          a.href = dataURL;
+          a.download = filename + '.jpg';
+          a.click();
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(fileInput.files[0]);
+    }
+  </script>
+</body>
+</html>
