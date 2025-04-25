@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Warehouse Training Image Capture</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        #camera { width: 500px; height: 500px; background: #ddd; margin: 10px 0; }
+        button { padding: 10px; margin: 5px; }
+        .preview { display: inline-block; margin: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Warehouse Training Image Capture</h1>
+    
+    <div>
+        <label>Category:
+            <select id="category">
+                <option value="empty">Empty</option>
+                <option value="red">Red Piece</option>
+                <option value="yellow">Yellow Piece</option>
+            </select>
+        </label>
+        <button id="captureBtn">Capture Image</button>
+    </div>
+    
+    <div id="camera"></div>
+    <div id="previews"></div>
+    
+    <script>
+        const categorySelect = document.getElementById('category');
+        const captureBtn = document.getElementById('captureBtn');
+        const cameraDiv = document.getElementById('camera');
+        const previewsDiv = document.getElementById('previews');
+        
+        let stream = null;
+        let video = null;
+        
+        // Start camera
+        async function startCamera() {
+            try {
+                stream = await navigator.mediaDevices.getUserMedia({
+                    video: { width: 500, height: 500 },
+                    audio: false
+                });
+                
+                video = document.createElement('video');
+                video.srcObject = stream;
+                video.autoplay = true;
+                cameraDiv.innerHTML = '';
+                cameraDiv.appendChild(video);
+            } catch (err) {
+                alert("Error accessing camera: " + err.message);
+            }
+        }
+        
+        // Capture image
+        captureBtn.addEventListener('click', () => {
+            if (!stream) {
+                alert("Please allow camera access first");
+                return;
+            }
+            
+            const category = categorySelect.value;
+            const canvas = document.createElement('canvas');
+            canvas.width = 500;
+            canvas.height = 500;
+            const ctx = canvas.getContext('2d');
+            
+            // Draw video frame to canvas
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            
+            // Create download link
+            const link = document.createElement('a');
+            link.href = canvas.toDataURL('image/jpeg', 0.7);
+            link.download = `${category}_${Date.now()}.jpg`;
+            link.click();
+            
+            // Add preview
+            const preview = document.createElement('img');
+            preview.src = canvas.toDataURL('image/jpeg', 0.7);
+            preview.width = 100;
+            preview.height = 100;
+            preview.className = 'preview';
+            preview.title = category;
+            previewsDiv.appendChild(preview);
+        });
+        
+        // Initialize
+        startCamera();
+    </script>
+</body>
+</html>
