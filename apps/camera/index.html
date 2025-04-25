@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Training Image Capture</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        #camera {
+            width: 640px;
+            height: 480px;
+            background-color: #eee;
+            margin: 20px auto;
+            border: 2px solid #333;
+        }
+        #preview {
+            width: 160px;
+            height: 120px;
+            margin: 10px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .progress {
+            margin: 20px;
+            height: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        #progressBar {
+            height: 100%;
+            width: 0%;
+            background-color: #4CAF50;
+            transition: width 0.3s;
+        }
+        .controls {
+            margin: 20px 0;
+        }
+        #status {
+            margin: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Plant Training Image Capture</h1>
+    <p>Capture 100 images for your machine learning model</p>
+    
+    <div class="controls">
+        <label for="folderName">Folder Name:</label>
+        <input type="text" id="folderName" value="sunflower">
+        <label for="imageQuality">Image Quality (lower = smaller files):</label>
+        <input type="range" id="imageQuality" min="0.1" max="1" step="0.1" value="0.5">
+        <span id="qualityValue">0.5</span>
+    </div>
+    
+    <div id="camera"></div>
+    <div id="status">Ready to start</div>
+    <div class="progress">
+        <div id="progressBar"></div>
+    </div>
+    <div>
+        <button id="startBtn">Start Capture (100 photos)</button>
+        <button id="testBtn">Test Camera</button>
+    </div>
+    <div id="previewContainer">
+        <img id="preview" alt="Last captured image">
+    </div>
+    
+    <script>
+        const folderNameInput = document.getElementById('folderName');
+        const imageQualityInput = document.getElementById('imageQuality');
+        const qualityValue = document.getElementById('qualityValue');
+        const startBtn = document.getElementById('startBtn');
+        const testBtn = document.getElementById('testBtn');
+        const statusDiv = document.getElementById('status');
+        const progressBar = document.getElementById('progressBar');
+        const previewImg = document.getElementById('preview');
+        
+        let stream = null;
+        let captureInterval = null;
+        let photoCount = 0;
+        let videoTrack = null;
+        
+        // Update quality display
+        imageQualityInput.addEventListener('input', () => {
+            qualityValue.textContent = imageQualityInput.value;
+        });
+        
+        // Test camera button
+        testBtn.addEventListener('click', async () => {
+            try {
+                if (stream) {
+                    stream.getTracks().forEach(track => track.stop());
+                }
+                
+                statusDiv.textContent = "Starting camera...";
+                
+                stream = await navigator.mediaDevices.getUserMedia({
+                    video: {
+                        width: { ideal: 640 },
+                        height: { ideal: 480 },
+                        facingMode: 'environment'
+                    },
+                    audio: false
+                });
+                
+                const cameraDiv = document.getElementById('camera');
+                cameraDiv.innerHTML = '';
+                const video = document.createElement('video');
+                video.srcObject = stream;
+                video.autoplay = true;
+                cameraDiv.appendChild(video);
+                
+                videoTrack = stream.getVideoTracks()[0];
+                
+                statusDiv.textContent = "Camera ready - click Start Capture";
+            } catch (err) {
+                statusDiv.textContent = "Error: " + err.message;
+                console.error(err);
+            }
+        });
+        
+        // Start capture button
+        startBtn.addEventListener('click', async () => {
+            if (!stream) {
+                statusDiv.textContent = "Please test camera first";
+                return;
+            }
+            
+            const folderName = folderNameInput.value.trim() || 'sunflower';
+            const quality = parseFloat(imageQualityInput.value);
+            
+            photoCount = 0;
+            progressBar.style.width = '0%';
+            statusDiv.textContent = `Starting capture sequence for folder: ${folderName}`;
+            
+            // Create folder (this will prompt download for each image)
+            // In a real app, you would send to server for proper storage
+            
+            captureInterval = setInterval(() => {
+                capturePhoto(folderName, quality);
+                photoCount++;
+                progressBar.style.width = `${photoCount}%`;
+                
+                if (photoCount >= 100) {
+                    clearInterval(captureInterval);
+                    statusDiv.textContent = `Capture complete! 100 photos saved to ${folderName}`;
+                } else {
+                    statusDiv.textContent = `Capturing photo ${photoCount+1}/100 for ${folderName}`;
+                }
+            }, 1000); // 1 second between captures
+        });
+        
+        function capturePhoto(folderName, quality) {
+            const cameraDiv = document.getElementById('camera');
+            const video = cameraDiv.querySelector('video');
+            
+            if (!video) return;
+            
+            // Create canvas to capture frame
+            const canvas = document.createElement('canvas');
+            canvas.width = 640;
+            canvas.height = 480;
+            const ctx = canvas.getContext('2d');
+            
+            // Draw video frame to canvas
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            
+            // Convert to JPEG with specified quality
+            const imageData = canvas.toDataURL('image/jpeg', quality);
+            
+            // Update preview
+            previewImg.src = imageData;
+            
+            // Create download link (in real app, you'd send to server)
+            const link = document.createElement('a');
+            link.href = imageData;
+            link.download = `${folderName}_${String(photoCount+1).padStart(3, '0')}.jpg`;
+            link.click();
+        }
+    </script>
+</body>
+</html>
