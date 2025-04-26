@@ -15,6 +15,7 @@
           <link rel="mask-icon" href="pics/lumie.png" color="#fff">
           <link rel="shortcut icon" href="pics/lumie.png">
 
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -127,6 +128,17 @@
       visibility: visible;
       opacity: 1;
     }
+
+
+@keyframes blink-orange {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+.blink-orange {
+    animation: blink-orange 1.5s infinite;
+}
   </style>
 </head>
 <body class="bg-secondary-100 text-secondary-900 font-sans">
@@ -180,6 +192,97 @@
 
     <iframe src="legal/index.html" style="width: 100%; height:90vh;"></iframe>
 
+</section>
+
+
+<button onclick="window.location.href='mailto:classactionabuse@gmail.com?subject=Class%20Action%20Waiver%20Submission&body=I%20hereby%20agree%20to%20be%20counted%20as%20a%20material%20witness%20for%20this%20case.%0A%0APlease%20add%20me%20to%20the%20forming%20class%20action.%0A%0AFull%20Name%3A%20%0APhone%20Number%3A%20%0A%0A';"
+ class="w-[calc(100%-1rem)] mx-2 my-4 px-8 py-4 text-[clamp(18px,4vw,48px)] text-black font-bold rounded-lg shadow-[0_0_15px_5px_rgba(255,155,139,0.5)] hover:shadow-[0_0_25px_8px_rgba(255,155,139,0.6)] hover:shadow-xl transition-all duration-300 transform hover:scale-[1.01] relative overflow-hidden">
+  <!-- Animated salmon SVG -->
+  <div style="position:absolute; top:-10px; left:30px; z-index:9999999999999999999999;">
+    <svg class="salmonTail" width="80" height="80" viewBox="-359 -463 900 500">
+      <path d="M3 49c0 6-2 11-5 15l-119 164c-6 8-20 15-30 15h-146c-7 0-11-3-11-8 0-2 1-5 3-7l130-179-130-179-3-7c0-5 4-8 11-8h146c10 0 24 7 30 15L-2 34c3 4 5 10 5 15z" fill="#D95952"></path>
+
+    </svg>
+</div>
+<div style="position:absolute; top:-10px; left:30px; z-index:9999999999999999999998;">
+    <svg width="80" height="80" viewBox="-359 -463 900 500">
+      <path d="M408 34L290-130c-6-8-20-15-30-15H16c-10 0-23 7-29 15l-33 45L40 34c3 4 5 10 5 15s-2 11-5 15l-86 119 33 45c6 8 19 15 29 15h244c10 0 24-7 30-15L408 64c3-4 5-10 5-15s-2-11-5-15zM206-90c12 0 21 9 21 21s-9 21-21 21-21-9-21-21 9-21 21-21z" fill="#D95952"></path>
+    </svg>
+</div>
+
+<style>
+
+.salmonTail {
+    transform: translateX(-4px);
+    animation: swim 2.4s ease alternate infinite;
+    }
+    @keyframes swim {
+      0% {
+        transform: translateX(0px);
+      }
+      50% {
+        transform: translateX(-4px);
+      }
+      100% {
+        transform: translateX(0px);
+      }
+    }
+
+</style>
+  
+  <!-- Button text -->
+  <span class="relative z-10 pl-10">Join the Action!</span>
+  
+
+  
+
+</button>
+
+<section id="timeline">
+
+  <div class="container mx-auto px-4 py-8 max-w-4xl">
+    <header class="mb-8">
+        <div class="bg-white p-4 rounded-lg shadow mb-4">
+            <p class="font-semibold">Lead Plaintiff: Micheal Lawrence Salmon</p>
+            <p class="text-sm text-gray-600 mt-1">Case Numbers: 25CV325, 24SNDR00104</p>
+            <p class="text-sm text-gray-600 mt-1">Circuit Court of Stone County, Missouri | District Court of Wyandotte County, Kansas</p>
+
+        </div>
+        
+        <div class="bg-blue-50 p-4 rounded-lg border border-blue-100 mb-4">
+            <p class="text-gray-700 mt-2">Our goal is full transparency: every step taken will be documented here, with links to public filings whenever possible.</p>
+        </div>
+        
+        <div class="flex items-center space-x-4 mb-4">
+            <div class="flex items-center">
+                <span class="w-4 h-4 rounded-full bg-green-500 mr-2"></span>
+                <span class="text-sm">= Completed Filing</span>
+            </div>
+            <div class="flex items-center">
+                <span class="blink-orange w-4 h-4 rounded-full bg-orange-500 mr-2"></span>
+                <span class="text-sm">= Pending Filing</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="space-y-6">
+            <!-- Timeline items will be inserted here -->
+        </div>
+        
+        <div class="mt-12 bg-white p-6 rounded-lg shadow">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">Relief sought includes:</h2>
+            <ul class="list-disc pl-5 space-y-2">
+                <li>Declaratory judgment invalidating fraudulent or abusive judicial acts</li>
+                <li>Injunctive relief preventing retaliation or continued harm</li>
+                <li>Monetary damages for harm already inflicted</li>
+                <li>Class certification to allow others similarly affected to seek remedy</li>
+            </ul>
+        </div>
+    </main>
+
+
+</div>
 </section>
 
   <!-- Testimonials -->

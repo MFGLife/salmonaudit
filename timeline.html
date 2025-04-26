@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Action Case Timeline</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes blink-red {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+        @keyframes blink-orange {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+        .blink-red {
+            animation: blink-red 1.5s infinite;
+        }
+        .blink-orange {
+            animation: blink-orange 1.5s infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <header class="mb-8">
+            <div class="bg-white p-4 rounded-lg shadow mb-4">
+                <p class="font-semibold">Lead Plaintiff: Micheal Lawrence Salmon</p>
+                <p class="text-sm text-gray-600 mt-1">Case Numbers: 25CV325, 24SNDR00104</p>
+                <p class="text-sm text-gray-600 mt-1">Circuit Court of Stone County, Missouri | District Court of Wyandotte County, Kansas</p>
+
+            </div>
+            
+            <div class="bg-blue-50 p-4 rounded-lg border border-blue-100 mb-4">
+                <p class="text-gray-700 mt-2">Our goal is full transparency: every step taken will be documented here, with links to public filings whenever possible.</p>
+            </div>
+            
+            <div class="flex items-center space-x-4 mb-4">
+                <div class="flex items-center">
+                    <span class="blink-red w-4 h-4 rounded-full bg-red-500 mr-2"></span>
+                    <span class="text-sm">= Completed Filing</span>
+                </div>
+                <div class="flex items-center">
+                    <span class="blink-orange w-4 h-4 rounded-full bg-orange-500 mr-2"></span>
+                    <span class="text-sm">= Pending Filing</span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="space-y-6">
+                <!-- Timeline items will be inserted here -->
+            </div>
+            
+            <div class="mt-12 bg-white p-6 rounded-lg shadow">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">Relief sought includes:</h2>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li>Declaratory judgment invalidating fraudulent or abusive judicial acts</li>
+                    <li>Injunctive relief preventing retaliation or continued harm</li>
+                    <li>Monetary damages for harm already inflicted</li>
+                    <li>Class certification to allow others similarly affected to seek remedy</li>
+                </ul>
+            </div>
+        </main>
+
+
+    </div>
+
+    <script>
+        const timelineData = [
+            {
+                "date": "2025-03-24",
+                "status": "completed",
+                "title": "Case Initiated",
+                "description": "Filed 'Motion for Declaratory and Injunctive Relief' with Notice of anticipated class certification following discovery.",
+                "link": "#"
+            },
+            {
+                "date": "2025-03-25",
+                "status": "completed",
+                "title": "Initial Service Attempts",
+                "description": "Defendants served or in process of being served with summons and initial pleadings.",
+                "link": "#"
+            },
+            {
+                "date": "2025-04-XX",
+                "status": "pending",
+                "title": "Response Deadline for Defendants",
+                "description": "Defendants are required to file answers or responsive pleadings within court-mandated timelines.",
+                "link": ""
+            },
+            {
+                "date": "2025-05-XX",
+                "status": "pending",
+                "title": "Motion for Class Certification Filing",
+                "description": "After initial discovery responses, the motion to certify class action will be formally filed.",
+                "link": ""
+            }
+        ];
+
+        const timelineContainer = document.querySelector('main .space-y-6');
+
+        timelineData.forEach(item => {
+            const dateObj = new Date(item.date);
+            const formattedDate = item.date.includes('XX') 
+                ? item.date.replace('XX', '').replace(/-$/, '') + ' (Anticipated)'
+                : dateObj.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            
+            const timelineItem = document.createElement('div');
+            timelineItem.className = 'bg-white p-6 rounded-lg shadow flex';
+            
+            const statusDot = document.createElement('div');
+            statusDot.className = `mr-4 flex-shrink-0 ${item.status === 'completed' ? 'blink-red' : 'blink-orange'} w-6 h-6 rounded-full ${item.status === 'completed' ? 'bg-red-500' : 'bg-orange-500'}`;
+            
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'flex-grow';
+            
+            const dateHeader = document.createElement('h3');
+            dateHeader.className = 'font-bold text-gray-800';
+            dateHeader.textContent = formattedDate;
+            
+            const titleHeader = document.createElement('h4');
+            titleHeader.className = 'text-lg font-semibold text-gray-700 mt-1';
+            titleHeader.textContent = `Event: ${item.title}`;
+            
+            const descriptionPara = document.createElement('p');
+            descriptionPara.className = 'text-gray-600 mt-2';
+            descriptionPara.textContent = item.description;
+            
+            if (item.link) {
+                const link = document.createElement('a');
+                link.href = item.link;
+                link.className = 'inline-block mt-3 text-blue-600 hover:underline';
+                link.textContent = 'Public copy available: [View Document]';
+                contentDiv.appendChild(link);
+            }
+            
+            contentDiv.appendChild(dateHeader);
+            contentDiv.appendChild(titleHeader);
+            contentDiv.appendChild(descriptionPara);
+            
+            timelineItem.appendChild(statusDot);
+            timelineItem.appendChild(contentDiv);
+            
+            timelineContainer.appendChild(timelineItem);
+        });
+    </script>
+</body>
+</html>

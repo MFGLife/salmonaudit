@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document to Legal JSON Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .input-section, .output-section {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        textarea {
+            width: 100%;
+            min-height: 200px;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: pre;
+            overflow-wrap: normal;
+            overflow-x: scroll;
+        }
+        #jsonOutput {
+            min-height: 300px;
+        }
+        button {
+            padding: 8px 15px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .status {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .success {
+            background: #dff0d8;
+            color: #3c763d;
+        }
+        .error {
+            background: #f2dede;
+            color: #a94442;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Document to Legal JSON Converter</h1>
+        
+        <div class="input-section">
+            <h2>1. Document Information</h2>
+            <div class="form-group">
+                <label for="docId">Document ID:</label>
+                <input type="text" id="docId" placeholder="e.g., 25DM781">
+            </div>
+            <div class="form-group">
+                <label for="docTitle">Title:</label>
+                <input type="text" id="docTitle" placeholder="e.g., PRAECIPE">
+            </div>
+            <div class="form-group">
+                <label for="docDate">Date (YYYY-MM-DD):</label>
+                <input type="text" id="docDate" placeholder="e.g., 2025-04-17">
+            </div>
+            <div class="form-group">
+                <label for="docType">Type:</label>
+                <select id="docType">
+                    <option value="Motion">Motion</option>
+                    <option value="Answer">Answer</option>
+                    <option value="Petition">Petition</option>
+                    <option value="Order">Order</option>
+                    <option value="Brief">Brief</option>
+                    <option value="Other" selected>Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="docStatus">Status:</label>
+                <select id="docStatus">
+                    <option value="Pending">Pending</option>
+                    <option value="Granted" selected>Granted</option>
+                    <option value="OverRuled">OverRuled</option>
+                    <option value="Denied">Denied</option>
+                    <option value="Dismissed">Dismissed</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            
+            <h2>2. Paste Document Content</h2>
+            <textarea id="inputText" placeholder="Paste your document content here..."></textarea>
+            
+            <div class="controls">
+                <button id="processButton">Generate JSON</button>
+                <button id="clearButton">Clear All</button>
+            </div>
+        </div>
+        
+        <div class="output-section">
+            <h2>3. JSON Output</h2>
+            <textarea id="jsonOutput" readonly></textarea>
+            
+            <div class="controls">
+                <button id="copyButton">Copy JSON</button>
+                <button id="downloadButton">Download JSON</button>
+            </div>
+            
+            <div id="status" class="status"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM elements
+            const docId = document.getElementById('docId');
+            const docTitle = document.getElementById('docTitle');
+            const docDate = document.getElementById('docDate');
+            const docType = document.getElementById('docType');
+            const docStatus = document.getElementById('docStatus');
+            const inputText = document.getElementById('inputText');
+            const jsonOutput = document.getElementById('jsonOutput');
+            const processButton = document.getElementById('processButton');
+            const clearButton = document.getElementById('clearButton');
+            const copyButton = document.getElementById('copyButton');
+            const downloadButton = document.getElementById('downloadButton');
+            const statusDiv = document.getElementById('status');
+            
+            // Process text when button is clicked
+            processButton.addEventListener('click', function() {
+                const content = inputText.value.trim();
+                if (!content) {
+                    showStatus('Please paste document content first', 'error');
+                    return;
+                }
+                
+                if (!docId.value.trim()) {
+                    showStatus('Please enter a document ID', 'error');
+                    return;
+                }
+                
+                try {
+                    const jsonString = formatAsLegalJson(
+                        docId.value.trim(),
+                        docTitle.value.trim(),
+                        docDate.value.trim(),
+                        docType.value,
+                        docStatus.value,
+                        content
+                    );
+                    
+                    jsonOutput.value = jsonString;
+                    showStatus('JSON generated successfully!', 'success');
+                } catch (err) {
+                    showStatus('Error: ' + err.message, 'error');
+                    console.error(err);
+                }
+            });
+            
+            // Clear all fields
+            clearButton.addEventListener('click', function() {
+                docId.value = '';
+                docTitle.value = '';
+                docDate.value = '';
+                docType.value = 'Other';
+                docStatus.value = 'Granted';
+                inputText.value = '';
+                jsonOutput.value = '';
+                statusDiv.textContent = '';
+                statusDiv.className = 'status';
+            });
+            
+            // Copy JSON to clipboard
+            copyButton.addEventListener('click', function() {
+                if (!jsonOutput.value.trim()) {
+                    showStatus('No JSON to copy', 'error');
+                    return;
+                }
+                
+                jsonOutput.select();
+                document.execCommand('copy');
+                showStatus('JSON copied to clipboard!', 'success');
+            });
+            
+            // Download JSON as file
+            downloadButton.addEventListener('click', function() {
+                if (!jsonOutput.value.trim()) {
+                    showStatus('No JSON to download', 'error');
+                    return;
+                }
+                
+                const blob = new Blob([jsonOutput.value], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'legal_document_' + docId.value.trim() + '.json';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                showStatus('JSON file downloaded', 'success');
+            });
+            
+            // Format as legal JSON with backticks
+            function formatAsLegalJson(id, title, date, type, status, content) {
+                // Escape backticks in content
+                const escapedContent = content.replace(/`/g, '\\`');
+                
+                // Format with proper indentation
+                return `{
+  id: "${id}",
+  title: "${title}",
+  date: "${date}",
+  type: "${type}",
+  status: "${status}",
+  content: \`${escapedContent}\`
+},`;
+            }
+            
+            function showStatus(message, type) {
+                statusDiv.textContent = message;
+                statusDiv.className = `status ${type}`;
+                setTimeout(() => {
+                    statusDiv.textContent = '';
+                    statusDiv.className = 'status';
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>
