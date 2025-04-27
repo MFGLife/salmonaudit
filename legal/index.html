@@ -15,138 +15,16 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<!-- HEAD: Leaflet CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
-  
 
-<style>
-  #leafletMap {
-    height: 100%;
-  }
-</style>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 </head>
 <body>
 <!-- partial:index.partial.html -->
 
-    <div class="app-sidebar">
-      
-      <a onclick="showSection('glossaryS')" class="app-sidebar-link active">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
-          <path d="M2 12l5-2 2-5 3 3 3-3 2 5 5 2-5 2-2 5-3-3-3 3-2-5-5-2z"/>
-        </svg> 
-      </a>
 
-      <a onclick="showSection('calendarS')" class="app-sidebar-link">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
-          <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-          <line x1="16" y1="2" x2="16" y2="6" />
-          <line x1="8" y1="2" x2="8" y2="6" />
-          <line x1="3" y1="10" x2="21" y2="10" /></svg>
-      </a>
-      <a onclick="showSection('justiceS')" class="app-sidebar-link">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
-          <path d="M12 3v18M5 8h14M5 8a7 7 0 0 1 7 7h0a7 7 0 0 1 7-7" />
-          <path d="M6 19h12M6 19a3 3 0 0 1 6 0h0a3 3 0 0 1 6 0" />
-        </svg>   
-      </a>
-      <a onclick="showSection('projectsS')" class="app-sidebar-link">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
-          <path d="M4 4h16M4 8h16M4 12h8M4 16h8M4 20h8M14 12h6M14 16h6M14 20h6"/>
-        </svg>    
-      </a>
-
-      <a class="mode-switch app-sidebar-link" title="Switch Theme">
-        <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
-          <defs></defs>
-          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
-        </svg>
-      </a>
-
-    </div>
-
-    <div>
     
 
-
-
-
-
-    <div class="projects-section"  id="calendarS" style="width: 600px; height: 100%;">
-      <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showPrint=0&src=bWljaGVhbC5tZmdAZ21haWwuY29t&src=MzQxYzZhMDIzMzY0YWZkOTY3NmU2ZTMzZDMxNDlkNWVjMWViOGVlNDk4OTkzZWY2MjcyMGMwNzU3MWU0Y2MyN0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=YTI3OGQ0MzJjMjI5YWY4NjExYzU5OTU0MWIwMzMwNmQ2NDU1ODliMDk5MDExYzg0NjI0OGRiOTFhZTM2YzAwOUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=djAzaTdsMWs5aG51aWVsZzd1NWw5bDA0MjBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=ZjAyaGk2aHBzbHZjMTlqcjdnYWE2YTJ0ZDRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=NDZlM2UyODlmOWFkNjYyMzE5NGVkYmY0ZmY2MTZkYjExZmQ1N2MwODgwMjgzZGM5MGZlYWVlY2ZjMmY1YTk3OEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=YWlwN3U4dXVtdmhzdWg4OGF1aG5oaHYzbzBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=ZmFtaWx5MDIyNjUyODkwNDI1OTY3MDMzNjlAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%23A79B8E&color=%237CB342&color=%237CB342&color=%239E69AF&color=%23F09300&color=%23E67C73&color=%23A79B8E&color=%23009688" style="border:solid 1px #777" width="90%" height="100%" frameborder="0" scrolling="no"></iframe>
-    </div>
-
-
-
-
-
-
-    <div class="projects-section" id="justiceS">
-      <section class="w-full min-h-screen relative bg-gray-100 flex flex-col items-center justify-start pt-6 pb-4 px-4 sm:px-8">
-        <!-- Title --> 
-            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-2"> 
-              Class Action Map 
-            </h2>
-         
-            <!-- Search Bar Instead of Explainer --> 
-            <div class="search-container">
-              <div class="search-bar">
-                <input type="text" class="search-input" id="evidenceSearch" placeholder="Search evidence by keyword, location, or case number...">
-                <button class="search-button" onclick="searchEvidence()">Search</button>
-              </div>
-              <div class="evidence-counter">
-                Showing 24 pieces of evidence related to <strong>Class Action 25CV325</strong>
-              </div>
-            </div>
-      
-                        <!-- Map container --> 
-                        <div id="leafletMap" class="w-full h-[75vh] sm:h-[80vh] rounded-lg shadow-lg z-10"></div>
-
-
-         
-
-  
-    
-      </section>
-    </div>
-    
-
-    <div class="projects-section" id="projectsS">
-
-
-      <div class="projects-section-header">
-
-        <div class="view-actions">
-          <button class="view-btn list-view" title="List View">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list">
-              <line x1="8" y1="6" x2="21" y2="6" />
-              <line x1="8" y1="12" x2="21" y2="12" />
-              <line x1="8" y1="18" x2="21" y2="18" />
-              <line x1="3" y1="6" x2="3.01" y2="6" />
-              <line x1="3" y1="12" x2="3.01" y2="12" />
-              <line x1="3" y1="18" x2="3.01" y2="18" /></svg>
-          </button>
-          <button class="view-btn grid-view active" title="Grid View">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid">
-              <rect x="3" y="3" width="7" height="7" />
-              <rect x="14" y="3" width="7" height="7" />
-              <rect x="14" y="14" width="7" height="7" />
-              <rect x="3" y="14" width="7" height="7" /></svg>
-          </button>
-        </div>
-      </div>
-
-
-
-
-
-<div id="cards" class="project-boxes jsGridView"></div>
-
-<div class="project-boxes jsGridView"></div>
-
-</div>
 
 
 
@@ -477,13 +355,36 @@
 
 
 <!-- partial -->
-  <script  src="./script.js"></script>
-  <script  src="./participants.js"></script>
-  <script  src="./infraction.js"></script>
   
   <script defer src="motion.js"></script>
-  <script defer src="tabs.js"></script>
-  <script defer src="locations.js"></script>
+  <script>
+
+
+function showSection(sectionId) {
+    const sections = [ 'glossaryS']; // List of all section IDs
+
+    // Loop through all sections and hide them
+    sections.forEach(id => {
+      const section = document.getElementById(id);
+      section.style.position = 'absolute';
+      section.style.opacity = '0';
+      section.style.height = '0';
+      section.style.overflow = 'hidden';
+    });
+
+    // Show the selected section
+    const selectedSection = document.getElementById(sectionId);
+    selectedSection.style.position = 'relative';
+    selectedSection.style.opacity = '1';
+    selectedSection.style.height = '95vh';
+    selectedSection.style.overflow = 'visible';
+  }
+
+
+  showSection('glossaryS');
+
+
+  </script>
   <script defer src="cases/25DM781.js"></script>
   <script defer src="cases/25CV325.js"></script>
 </body>

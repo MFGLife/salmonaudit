@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Action Map</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Override default Tailwind styles if needed, e.g., for leaflet map height */
+        #leafletMap {
+            height: 75vh; /* Use viewport height for better responsiveness */
+            width: 100%;
+            border-radius: 0.5rem; /* Tailwind's rounded-md */
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1); /* Tailwind's shadow-sm */
+        }
+        .search-container {
+            @apply bg-white p-4 rounded-md shadow-md mb-4 flex flex-col sm:flex-row items-center justify-between gap-2 w-full max-w-lg;
+        }
+        .search-bar {
+            @apply flex w-full sm:w-auto;
+        }
+        .search-input {
+            @apply shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:w-auto pr-12 sm:pr-3 pl-3 py-2 border-gray-300 rounded-md;
+        }
+        .search-button {
+            @apply ml-2 px-4 py-2 bg-indigo-600 text-white rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+        }
+        .evidence-counter {
+            @apply text-sm text-gray-500 mt-2 sm:mt-0;
+        }
+           /* Style for the profile marker icons */
+    .leaflet-marker-icon.profile-marker-icon {
+        border-radius: 50%; /* Make the icon circular */
+        box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+        overflow: hidden; /* Ensure the image stays within the circle */
+    }
+
+    .leaflet-marker-icon.profile-marker-icon img {
+        display: block; /* Prevent extra space below the image */
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensure the image covers the circle without distortion */
+    }
+    </style>
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+    <div class="container mx-auto p-4 flex-grow flex flex-col justify-center items-center">
+
+
+        <div class="search-container w-full max-w-lg">
+            <div class="search-bar w-full">
+                <input type="text" class="search-input" id="evidenceSearch" placeholder="keyword, location, or case number...">
+                <button class="search-button" onclick="searchEvidence()"><div class="evidence-counter">
+                    🔄 Narrow 144 connections related to <strong>Case No. 25CV325</strong>
+                </div></button>
+            </div>
+            
+        </div>
+
+        <div id="leafletMap" class="w-full max-w-3xl"></div>
+    </div>
+
+    <script>
+        
+let  locations = [
+        {
+          name: "Judge Matt Alan Selby",
+          lat: 36.805257601746895,
+          lng: -93.46626031829551,
+          profilePicUrl: '../pics/stone2.png',
+          docket: "24SN-DR00104",
+          evidence: {
+            testimony: [],
+            financial: [],
+            emails: [],
+            documents: [ {
+        title: "(2024-12-16) Ignored submitted lease agreement disproving eviction claims",
+        url: "#evidence-2024-12-16" // You'll need to define these URLs or IDs
+      },
+      {
+        title: "(2025-01-07) Applied unequal standards to motion filings",
+        url: "#evidence-2025-01-07"
+      },
+      {
+        title: "(2025-01-28) Refused to review exculpatory text message evidence",
+        url: "#evidence-2025-01-28"
+      },
+      {
+        title: "(2025-02-18) Maintained jurisdiction despite UCCJEA violations",
+        url: "#evidence-2025-02-18"
+      },
+      {
+        title: "(2025-02-26) Failed to address witness perjury",
+        url: "#evidence-2025-02-26"
+      },
+      {
+        title: "(2025-03-03) Disregarded evidence of evidence tampering",
+        url: "#evidence-2025-03-03"
+      },
+      {
+        title: "(2025-03-17) Delegated judicial duties to opposing counsel",
+        url: "#evidence-2025-03-17"
+      },
+      {
+        title: "(2025-03-25) Failed to rule on motions for 60+ days",
+        url: "#evidence-2025-03-25"
+      },
+      {
+        title: "(2025-03-27) Mischaracterized Micheal's statements on record",
+        url: "#evidence-2025-03-27"
+      },
+      {
+        title: "(2025-03-28) Permitted violations of court orders without consequence",
+        url: "#evidence-2025-03-28"
+      },
+      {
+        title: "(2025-03-31) Refused to address parental alienation evidence",
+        url: "#evidence-2025-03-31"
+      },
+      {
+        title: "(2025-04-03) Cancelled hearing without proper notice",
+        url: "#evidence-2025-04-03"
+      }]
+          }
+        },
+        {
+          name: "Stone County Circuit Court Clerks",
+          lat: 36.8053,
+          lng: -93.4663,
+          profilePicUrl: '../pics/stone.png',
+          docket: "24SN-DR00104",
+          evidence: {
+            testimony: [],
+            financial: [],
+            emails: [],
+            documents: [ {
+    "title": "(2025-02-26) Misrepresented appellate record requirements",
+    "url": "#evidence-2025-02-26"
+  },
+  {
+    "title": "(2025-03-17) Refused to schedule emergency motion on Motion Day",
+    "url": "#evidence-2025-03-17"
+  },
+  {
+    "title": "(2025-03-25) Withheld public records of scheduled hearings",
+    "url": "#evidence-2025-03-25"
+  },
+  {
+    "title": "(2025-03-27) Failed to provide clear guidance on payment methods",
+    "url": "#evidence-2025-03-27"
+  },
+  {
+    "title": "(2025-04-03) Improperly handled filing of Notice of Appeal",
+    "url": "#evidence-2025-04-03"
+  }]
+          }
+        },
+        {
+          name: "GAL Mark Stephens",
+          lat: 36.64389316433466,
+          lng: -93.21816926205341,
+          profilePicUrl: '../pics/josh.png',
+          docket: "24SN-DR00104",
+          evidence: {
+            testimony: [],
+            financial: [],
+            emails: [],
+            documents: []
+          }
+        },
+        {
+          name: "Attorney Josh Garrett",
+          lat: 36.64389316433466,
+          lng: -93.21816926205341,
+          profilePicUrl: '../pics/josh.png',
+          docket: "24SN-DR00104",
+          evidence: {
+            testimony: [],
+            financial: [],
+            emails: [],
+            documents: [{
+    "title": "(2024-12-16) Advised client to cease co-parenting communication",
+    "url": "#evidence-2024-12-16"
+  },
+  {
+    "title": "(2025-01-07) Failed to disclose financial records per discovery requests",
+    "url": "#evidence-2025-01-07"
+  },
+  {
+    "title": "(2025-01-30) Coached witnesses with 'Watch his reaction' instructions",
+    "url": "#evidence-2025-01-30"
+  },
+  {
+    "title": "(2025-02-26) Knowingly presented falsified evidence to court",
+    "url": "#evidence-2025-02-26"
+  },
+  {
+    "title": "(2025-03-17) Violated Rule 4.4 (Respect for Rights of Third Persons)",
+    "url": "#evidence-2025-03-17"
+  },
+  {
+    "title": "(2025-03-25) Made false statements to Layne Project supervisors",
+    "url": "#evidence-2025-03-25"
+  },
+  {
+    "title": "(2025-03-27) Failed to comply with court-ordered evaluation scheduling",
+    "url": "#evidence-2025-03-27"
+  },
+  {
+    "title": "(2025-04-03) Engaged in ex parte communications with court staff",
+    "url": "#evidence-2025-04-03"
+  },
+  {
+    "title": "(2025-04-04) Obstructed access to psychological evaluators",
+    "url": "#evidence-2025-04-04"
+  },
+  {
+    "title": "(2025-04-10) Knowingly misrepresented cause of Layne Project cancellation to justify Midtown psychological evaluation",
+    "url": "#evidence-2025-04-10"
+  }]
+          }
+        },
+        {
+          name: "Jozef Hanratty",
+          lat: 39.06238381570413,
+          lng: -94.59786977911088,
+          profilePicUrl: '../pics/jozef.png',
+          docket: "24SN-DR00104",
+          evidence: {
+            testimony: [],
+            financial: [],
+            emails: [],
+            documents: [{
+    "title": "(2024-12-16) Falsely testified about Micheal's eviction status",
+    "url": "#evidence-2024-12-16"
+  },
+  {
+    "title": "(2025-01-28) Lied about lease agreement terms under oath",
+    "url": "#evidence-2025-01-28"
+  },
+  {
+    "title": "(2025-02-18) Provided false statements about housing stability",
+    "url": "#evidence-2025-02-18"
+  },
+  {
+    "title": "(2025-04-07) Admitted on cross that Micheal had right to remain per verbal agreement with Kelly",
+    "url": "#evidence-2025-04-07"
+  }]
+          }
+        },
+        {
+          name: "Kelly Truelove",
+          lat: 39.72964411124986,
+          lng: -104.9576367585265,
+          profilePicUrl: '../pics/kelly.png',
+          docket: "24SN-DR00104",
+          evidence: {
+            testimony: [],
+            financial: [],
+            emails: [],
+            documents: [{
+    "title": "(2025-01-28) Conspired to fabricate eviction claims",
+    "url": "#evidence-2025-01-28"
+  },
+  {
+    "title": "(2025-02-26) Provided false statements about lease agreement",
+    "url": "#evidence-2025-02-26"
+  },
+  {
+    "title": "(2025-03-27) Filed then dismissed fraudulent eviction lawsuit",
+    "url": "#evidence-2025-03-27"
+  },
+  {
+    "title": "(2025-04-07) Refused to acknowledge verbal lease agreement",
+    "url": "#evidence-2025-04-07"
+  }]
+          }
+        },
+        {
+          name: "Crycella Freitag",
+          lat: 38.613111847779656,
+          lng: -95.45326893406421,
+          profilePicUrl: '../pics/crycella.png',
+          docket: "24SN-DR00104",
+          evidence: {
+            testimony: [],
+            financial: [],
+            emails: [],
+            documents: [{
+    "title": "(2024-12-16) Falsely testified about Micheal's housing stability in custody hearing",
+    "url": "#evidence-2024-12-16"
+  },
+  {
+    "title": "(2025-01-07) Claimed Micheal 'kicked her out' despite moving voluntarily",
+    "url": "#evidence-2025-01-07"
+  },
+  {
+    "title": "(2025-01-30) Fabricated safety concerns ('I'm scared of him') without evidence",
+    "url": "#evidence-2025-01-30"
+  },
+  {
+    "title": "(2025-02-18) Misrepresented living conditions in custody filings",
+    "url": "#evidence-2025-02-18"
+  },
+  {
+    "title": "(2025-03-17) Submitted false testimony about Micheal's parenting",
+    "url": "#evidence-2025-03-17"
+  },
+  {
+    "title": "(2025-03-25) Lied about financial contributions to child support",
+    "url": "#evidence-2025-03-25"
+  },
+  {
+    "title": "(2025-03-31) Falsely claimed inability to facilitate visitation",
+    "url": "#evidence-2025-03-31"
+  },
+  {
+    "title": "(2025-01-30) Submitted edited 12-minute video (original 40+ minutes)",
+    "url": "#evidence-2025-01-30-video" // Added a slight variation to the URL for potential distinction
+  },
+  {
+    "title": "(2025-03-14) Selectively provided text messages omitting key context",
+    "url": "#evidence-2025-03-14"
+  },
+  {
+    "title": "(2025-04-04) Failed to produce original video files per court order",
+    "url": "#evidence-2025-04-04"
+  }]
+          }
+        },
+        {
+          name: "The Layne Project",
+          lat: 38.8857904534,
+          lng: -94.8184621779,
+          profilePicUrl: '../pics/layne.png',
+          docket: "25CV325 #6",
+          evidence: {
+            testimony: [
+              { title: "Deposition - Trina Nudson", url: "#" },
+              { title: "Undercover Interview with Layne Project", url: "https://drive.google.com/file/d/1Mv5rFDGoUOqBDUvf4wAgZHOYbNb4qYuA/view?usp=drive_link" },
+              { title: "Victim Statement - A. Johnson", url: "#" },
+              { title: "Victim Statement - M. Salmon", url: "#" },
+              { title: "Victim Statement - C. Fisk", url: "#" },
+              { title: "Victim Statement - Redacted", url: "#" },
+              { title: "Victim Statement - Redacted", url: "#" }
+            ],
+            financial: [
+              { title: "Billing Records - The Layne Project", url: "#" },
+              { title: "Invoice Analysis - 2023-2024", url: "#" },
+              { title: "Audit Report - Hope House", url: "#" }
+            ],
+            emails: [
+              { title: "Email Thread - Court Coordinator", url: "#" },
+              { title: "Internal Communications - Heritage", url: "#" },
+              { title: "Client Correspondence - 2025", url: "#" }
+            ],
+            documents: [
+              { title: "Class Action Filing - 25CV325", url: "https://drive.google.com/file/d/1N_Z8_L2I9nTq1kuYdGKBELCFR6m4wqeD/view?usp=drive_link" },
+              { title: "Service Contracts - All Locations", url: "#" }
+            ]
+          }
+        },
+        {
+          name: "Heritage United Methodist Church",
+          lat: 38.8955359230,
+          lng: -94.7246447280,
+          profilePicUrl: '../pics/heritage.png',
+          docket: "25CV325 #6",
+          evidence: {
+            testimony: [
+              { title: "Witness Statement - M. Brown", url: "#" }
+            ],
+            financial: [
+              { title: "Expense Report - Heritage", url: "#" }
+            ],
+            emails: [],
+            documents: [
+              { title: "Legal Agreement - Heritage", url: "#" }
+            ]
+          }
+        },
+        {
+          name: "Christ Connect Church",
+          lat: 38.90005341227,
+          lng: -94.7623538318,
+          profilePicUrl: '../pics/cccs.png',
+          docket: "25CV325 #6",
+          evidence: {
+            testimony: [
+              { title: "Witness Statement - M. Salmon", url: "#" }
+            ],
+            financial: [],
+            emails: [],
+            documents: [
+              { title: "Legal Agreement - M. Salmon", url: "#" }
+            ]
+          }
+        },
+        {
+          name: "Midtown Psychological Services, Inc",
+          lat: 38.9951214716,
+          lng: -94.5935323607,
+          profilePicUrl: '../pics/midtown.jpg',
+          docket: "25CV325 #6",
+          evidence: {
+            testimony: [
+              { title: "Witness Statement - Sadie Billings", url: "#" },
+              { title: "Witness Statement - Amir R", url: "#" },
+              { title: "Witness Statement - Alaya Strong", url: "#" },
+              { title: "Witness Statement - Ashley Thompson", url: "#" },
+              { title: "Witness Statement - Jeremy Tucker", url: "#" }
+            ],
+            financial: [
+              { title: "Expense Report - Sadie Billings", url: "#" }
+            ],
+            emails: [],
+            documents: [
+              { title: "Legal Agreement - Sadie Billings", url: "#" }
+            ]
+          }
+        }
+      ];
+
+        // Initialize map
+        const map = L.map('leafletMap').setView([38.8857, -94.8184], 10);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+
+
+// Create markers
+const markers = [];
+        locations.forEach(loc => {
+            // Define a default icon URL in case the profilePicUrl is missing
+            const defaultProfilePicUrl = '../pics/default_profile.png'; // Or your preferred default
+
+            const personIcon = L.icon({
+                iconUrl: loc.profilePicUrl || defaultProfilePicUrl, // Use the provided URL or the default
+                iconSize: [30, 30], // Adjust as needed
+                iconAnchor: [15, 30], // Adjust as needed
+                popupAnchor: [0, -30], // Adjust as needed
+                className: 'profile-marker-icon' // Add a custom class to the icon
+            });
+
+            const marker = L.marker([loc.lat, loc.lng], { icon: personIcon }).addTo(map);
+            markers.push(marker);
+
+            // Generate evidence list dynamically (remains the same)
+            const generateEvidenceList = (evidenceType, items) => {
+                if (!items || items.length === 0) return '';
+                return `
+                    <strong>${evidenceType}:</strong>
+                    <ul style="list-style: none; padding-left: 0; margin-bottom: 10px;">
+                        ${items.map(item => `<li><a href="${item.url}" target="_blank" style="color: blue; text-decoration: underline;">${item.title}</a></li>`).join('')}
+                    </ul>
+                `;
+            };
+
+            // Enhanced popup content with evidence details (adjust as needed)
+            const popupContent = `
+                <strong>${loc.name}</strong><br/>
+                ${loc.docket ? `<span style="color: red; font-weight: bold;">⚖️ Class Action Docket: ${loc.docket}</span><br/>` : ''}
+                <div style="max-height: 200px; overflow-y: auto; padding-right: 10px;">
+                    ${generateEvidenceList('👤 Testimonies', loc.evidence.testimony)}
+                    ${generateEvidenceList('💰 Financial Records', loc.evidence.financial)}
+                    ${generateEvidenceList('✉️ Emails', loc.evidence.emails)}
+                    ${generateEvidenceList('📄 Legal Documents', loc.evidence.documents)}
+                </div>
+            `;
+
+            marker.bindPopup(popupContent);
+        });
+
+        // Function to handle viewing evidence (remains the same)
+        function viewEvidence(locationName) {
+            const loc = locations.find(l => l.name === locationName);
+            if (!loc) return;
+
+            // Display evidence details in a modal or a dedicated section
+            alert(`Viewing evidence for ${locationName}:\n\n` +
+                `👤 Testimonies: ${loc.evidence.testimony.map(e => e.title).join(', ')}\n` +
+                `💰 Financial Records: ${loc.evidence.financial.map(e => e.title).join(', ')}\n` +
+                `✉️ Emails: ${loc.evidence.emails.map(e => e.title).join(', ')}\n` +
+                `📄 Legal Documents: ${loc.evidence.documents.map(e => e.title).join(', ')}`);
+        }
+
+        // Toggle evidence links visibility (remains the same)
+        function toggleEvidenceLinks(type) {
+            const linksElement = document.getElementById(`${type}-links`);
+
+            // Close all other open links
+            document.querySelectorAll('.evidence-links').forEach(el => {
+                if (el.id !== `${type}-links`) {
+                    el.style.display = 'none';
+                }
+            });
+
+            if (linksElement.style.display === 'flex') {
+                linksElement.style.display = 'none';
+            } else {
+                linksElement.style.display = 'flex';
+            }
+        }
+
+        // Show evidence modal (remains the same)
+        function showEvidence(title, url) {
+            const modal = document.getElementById('evidenceModal');
+            const titleEl = document.getElementById('evidenceTitle');
+            const frame = document.getElementById('evidenceFrame');
+
+            titleEl.textContent = title;
+            frame.src = url;
+            modal.style.display = 'flex';
+        }
+
+        // Close evidence modal (remains the same)
+        function closeEvidence() {
+            const modal = document.getElementById('evidenceModal');
+            modal.style.display = 'none';
+        }
+
+        // Search functionality (assuming you've implemented the broader search from our previous discussion)
+        function searchEvidence() {
+            const searchInput = document.getElementById('evidenceSearch').value.toLowerCase();
+
+            if (!searchInput.trim()) {
+                resetMapAndCounter();
+                return;
+            }
+
+            let matchCount = 0;
+            let visibleMarkers = 0;
+
+            markers.forEach(marker => {
+                marker.setOpacity(1);
+            });
+
+            locations.forEach((loc, index) => {
+                let locationMatch = false;
+                let evidenceMatchCount = 0;
+
+                if (loc.name.toLowerCase().includes(searchInput) || (loc.docket && loc.docket.toLowerCase().includes(searchInput))) {
+                    locationMatch = true;
+                }
+
+                for (const category in loc.evidence) {
+                    loc.evidence[category].forEach(item => {
+                        if (item.title.toLowerCase().includes(searchInput)) {
+                            evidenceMatchCount++;
+                        }
+                    });
+                }
+
+                if (locationMatch || evidenceMatchCount > 0) {
+                    markers[index].setOpacity(1);
+                    visibleMarkers++;
+                    matchCount += evidenceMatchCount;
+                } else {
+                    markers[index].setOpacity(0.4);
+                }
+            });
+
+            document.querySelector('.evidence-counter').innerHTML = `🔄 Showing <strong>${matchCount}</strong> pieces of evidence matching "<strong>${searchInput}</strong>" across <strong>${visibleMarkers}</strong> locations`;
+        }
+
+        function resetMapAndCounter() {
+            markers.forEach(marker => {
+                marker.setOpacity(1);
+            });
+            const totalEvidence = locations.reduce((sum, loc) => {
+                let count = 0;
+                for (const category in loc.evidence) {
+                    count += loc.evidence[category].length;
+                }
+                return sum + count;
+            }, 0);
+            document.querySelector('.evidence-counter').innerHTML = `🔄 Narrow ${totalEvidence} Connections`;
+        }
+
+        // Initial call to set the counter
+        resetMapAndCounter();
+
+
+    </script>
+
+
+</body>
+</html>
+
+
+       
+
+
+

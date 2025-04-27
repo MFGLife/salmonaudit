@@ -16,7 +16,7 @@ MODEL_PATH = 'models/warehouse_model.h5'
 os.makedirs(TRAIN_DIR, exist_ok=True)
 os.makedirs(os.path.join(TRAIN_DIR, 'empty'), exist_ok=True)
 os.makedirs(os.path.join(TRAIN_DIR, 'red'), exist_ok=True)
-os.makedirs(os.path.join(TRAIN_DIR, 'yellow'), exist_ok=True)
+os.makedirs(os.path.join(TRAIN_DIR, 'green'), exist_ok=True)
 
 # Data augmentation
 train_datagen = ImageDataGenerator(
@@ -56,7 +56,7 @@ model = models.Sequential([
     layers.Conv2D(32, (3, 3), activation='relu'),
     layers.Flatten(),
     layers.Dense(32, activation='relu'),
-    layers.Dense(3, activation='softmax')  # 3 classes: empty, red, yellow
+    layers.Dense(3, activation='softmax')  # 3 classes: empty, red, green
 ])
 
 model.compile(optimizer='adam',

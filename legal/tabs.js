@@ -2,7 +2,7 @@
 
 
   function showSection(sectionId) {
-    const sections = ['projectsS', 'calendarS', 'justiceS', 'glossaryS']; // List of all section IDs
+    const sections = [ 'glossaryS']; // List of all section IDs
 
     // Loop through all sections and hide them
     sections.forEach(id => {
