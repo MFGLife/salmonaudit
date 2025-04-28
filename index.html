@@ -150,6 +150,37 @@
 .blink-orange {
     animation: blink-orange 1.5s infinite;
 }
+
+#timeline-track > div.active {
+  background: white; /* Or whatever background color you want for the main one */
+}
+
+#timeline-viewport {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+#timeline-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  will-change: transform;
+}
+
+#timeline-track > div {
+  flex: 0 0 60%;
+  opacity: 0.5;
+  transition: all 0.5s ease;
+}
+
+#timeline-track > div.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+
+
+
   </style>
 </head>
 <body class="bg-secondary-100 text-secondary-900 font-sans">
@@ -293,10 +324,13 @@
         </div>
     </header>
 
-    <main>
-        <div class="space-y-6">
-            <!-- Timeline items will be inserted here -->
-        </div>
+    <div id="timeline-viewport" class="overflow-hidden relative w-full">
+      <div id="timeline-track" class="flex transition-transform duration-500 ease-in-out">
+        <!-- Timeline items will be injected here -->
+      </div>
+    </div>
+    
+      
         
         <div class="mt-12 bg-white p-6 rounded-lg shadow">
             <h2 class="text-xl font-bold text-gray-800 mb-4">Relief sought includes:</h2>
@@ -1279,6 +1313,71 @@
     e.preventDefault();
     downloadFile('Kelly');
   });
+
+
+
+
+let currentIndex = 0;
+let startX = 0;
+let isDragging = false;
+
+// Mobile touch
+const viewport = document.getElementById('timeline-viewport');
+
+viewport.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].clientX;
+  isDragging = true;
+});
+
+viewport.addEventListener('touchend', (e) => {
+  if (!isDragging) return;
+  const endX = e.changedTouches[0].clientX;
+  handleSwipe(endX - startX);
+  isDragging = false;
+});
+
+// Desktop mouse
+viewport.addEventListener('mousedown', (e) => {
+  startX = e.clientX;
+  isDragging = true;
+});
+
+viewport.addEventListener('mouseup', (e) => {
+  if (!isDragging) return;
+  const endX = e.clientX;
+  handleSwipe(endX - startX);
+  isDragging = false;
+});
+
+// Shared swipe logic
+function handleSwipe(delta) {
+  if (Math.abs(delta) > 50) { // Swipe threshold
+    if (delta < 0) {
+      currentIndex = Math.min(currentIndex + 1, timelineContainer.children.length - 1);
+    } else {
+      currentIndex = Math.max(currentIndex - 1, 0);
+    }
+    updateTimelinePosition();
+  }
+}
+
+function updateTimelinePosition() {
+  const track = document.getElementById('timeline-track');
+  const items = track.children;
+  
+  const itemWidth = viewport.offsetWidth * 0.6; // 60% width of viewport
+  
+  track.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
+
+  Array.from(items).forEach((item, idx) => {
+    item.classList.toggle('active', idx === currentIndex);
+  });
+}
+
+
+// Initialize
+window.addEventListener('load', updateTimelinePosition);
+window.addEventListener('resize', updateTimelinePosition);
 
 
 

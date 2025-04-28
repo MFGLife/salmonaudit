@@ -69,19 +69,25 @@ const swiper = new Swiper(".mySwiper", {
     {
         "date": "2025-03-24",
         "status": "completed",
-        "title": "Case Initiated",
+        "title": "Case Initiated - Serviced",
         "description": "Filed 'Motion for Declaratory and Injunctive Relief' with Notice of anticipated class certification following discovery.",
         "link": "https://drive.google.com/drive/folders/1NTo0eqZ6Nai2sBxFzS-bBkOUEGTYDFv8?usp=drive_link"
     },
     {
-        "date": "2025-03-25",
-        "status": "completed",
-        "title": "Initial Service Attempts",
-        "description": "Defendants served or in process of being served with summons and initial pleadings.",
-        "link": "https://drive.google.com/drive/folders/1NTo0eqZ6Nai2sBxFzS-bBkOUEGTYDFv8?usp=drive_link"
-    },
+      "date": "2025-05-XX",
+      "status": "pending",
+      "title": "Conducting Initial Discovery: Week 1",
+      "descriptionList": [
+      { "text": "Olathe Police Department", "status": "pending" },
+      { "text": "Carolyn Salmon", "status": "pending" },
+      { "text": "United Methodist Church", "status": "pending" },
+      { "text": "Kid Centric", "status": "completed" },
+      { "text": "Midtown Psychological Services", "status": "pending" }
+                        ],
+        "link": ""
+  },
     {
-        "date": "2025-04-XX",
+        "date": "2025-05-XX",
         "status": "pending",
         "title": "Response Deadline for Defendants",
         "description": "Defendants are required to file answers or responsive pleadings within court-mandated timelines.",
@@ -96,52 +102,85 @@ const swiper = new Swiper(".mySwiper", {
     }
 ];
 
-const timelineContainer = document.querySelector('main .space-y-6');
+
+
+const timelineContainer = document.getElementById('timeline-track');
 
 timelineData.forEach(item => {
     const dateObj = new Date(item.date);
     const formattedDate = item.date.includes('XX') 
         ? item.date.replace('XX', '').replace(/-$/, '') + ' (Anticipated)'
         : dateObj.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-    
+
     const timelineItem = document.createElement('div');
-    timelineItem.className = 'bg-white p-6 rounded-lg shadow flex';
-    
-    const statusDot = document.createElement('div');
-    statusDot.className = `mr-4 flex-shrink-0 ${item.status === 'completed' ? 'green' : 'blink-orange'} w-6 h-6 rounded-full ${item.status === 'completed' ? 'bg-green-500' : 'bg-orange-500'}`;
-    
+    timelineItem.className = `
+      w-full md:w-[80vw] flex-shrink-0 
+      flex flex-col items-center justify-center 
+      p-6 rounded-lg shadow 
+      transition-all duration-300 ease-in-out
+      mx-2
+    `;
+
+    const statusDot = document.createElement('span');
+    statusDot.className = `mb-4 w-4 h-4 rounded-full ${
+        item.status === 'completed' ? 'bg-green-500' : 'blink-orange bg-orange-500'
+    }`;
+
     const contentDiv = document.createElement('div');
-    contentDiv.className = 'flex-grow';
-    
+    contentDiv.className = 'text-center';
+
     const dateHeader = document.createElement('h3');
     dateHeader.className = 'font-bold text-gray-800';
     dateHeader.textContent = formattedDate;
-    
+
     const titleHeader = document.createElement('h4');
     titleHeader.className = 'text-lg font-semibold text-gray-700 mt-1';
-    titleHeader.textContent = `Event: ${item.title}`;
-    
-    const descriptionPara = document.createElement('p');
-    descriptionPara.className = 'text-gray-600 mt-2';
-    descriptionPara.textContent = item.description;
-    
-    
+    titleHeader.textContent = item.title;
+
+    const descriptionDiv = document.createElement('div');
+    descriptionDiv.className = 'text-gray-600 mt-2';
+    descriptionDiv.textContent = item.description;
+
     contentDiv.appendChild(dateHeader);
     contentDiv.appendChild(titleHeader);
-    contentDiv.appendChild(descriptionPara);
+    contentDiv.appendChild(descriptionDiv);
+
+    // If there's a descriptionList, build a nice <ul>
+    if (item.descriptionList && item.descriptionList.length > 0) {
+        const ul = document.createElement('ul');
+        ul.className = 'mt-2 list-none space-y-1'; // No bullets, add spacing
+
+        item.descriptionList.forEach(listItem => {
+            const li = document.createElement('li');
+            li.className = 'flex items-center'; // Dot + text
+
+            const smallStatusDot = document.createElement('span');
+            smallStatusDot.className = `mr-2 flex-shrink-0 w-3 h-3 rounded-full ${
+                listItem.status === 'completed' ? 'bg-green-500' : 'blink-orange bg-orange-500'
+            }`;
+
+            const textNode = document.createTextNode(listItem.text);
+
+            li.appendChild(smallStatusDot);
+            li.appendChild(textNode);
+            ul.appendChild(li);
+        });
+
+        contentDiv.appendChild(ul);
+    }
 
     if (item.link) {
-      const link = document.createElement('a');
-      link.href = item.link;
-      link.target = '_blank'; // Open in new tab
-      link.rel = 'noopener noreferrer'; // Security best practice
-      link.className = 'inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition'; 
-      link.textContent = 'View Public Document';
-      contentDiv.appendChild(link);
+        const link = document.createElement('a');
+        link.href = item.link;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.className = 'inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition'; 
+        link.textContent = 'View Public Document';
+        contentDiv.appendChild(link);
     }
-    
+
     timelineItem.appendChild(statusDot);
     timelineItem.appendChild(contentDiv);
-    
+
     timelineContainer.appendChild(timelineItem);
 });
