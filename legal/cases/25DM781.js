@@ -109,5 +109,37 @@ motionData.push (
     
     Clerk of the District Court
     Wyandotte County Courthouse`
+    },
+    {
+      id: "25DM781",
+      title: "PETITION FOR IMMEDIATE ACCESS TO MINOR CHILD AND REQUEST FOR EMERGENCY HEARING",
+      date: "2025-05-02",
+      type: "Petition",
+      status: "Pending",
+      content: `PETITION FOR IMMEDIATE ACCESS TO MINOR CHILD AND REQUEST FOR EMERGENCY HEARING
+    COMES NOW the Petitioner, Micheal Lawrence Salmon, biological father of Felix Day Salmon, and respectfully requests this Court to immediately grant temporary custodial access and set an emergency hearing regarding the welfare of the minor child, Felix Day Salmon. Petitioner has been denied all contact with his son for over three months due to a combination of jurisdictional confusion and procedural failures in an out-of-state proceeding. The result has caused severe emotional harm to both father and child and continues to violate Petitioner’s fundamental parental rights.
+    Petitioner respectfully recommends the Court schedule an immediate hearing to award him at least one month of uninterrupted custodial time as a temporary, make-up period for the extensive and unjustified denial of access. Following this, Petitioner requests a fair and full evidentiary hearing to address all matters properly under Kansas jurisdiction. At the previous Missouri hearing, the Petitioner voluntarily produced all financial records, communication logs, and phone data, while the opposing party produced no evidence and was not held to any reciprocal standard. The result was a lopsided proceeding in which no factual rebuttal was considered.
+    This Court has both the authority and the responsibility to intervene in the best interests of the child and to correct the procedural imbalance that has thus far deprived both child and father of their right to maintain their familial bond.
+    This Court has proper jurisdiction under K.S.A. § 23-37, as both the minor child, Felix Day Salmon, and both parents currently reside within the State of Kansas. Any temporary relocation to Missouri was both recent and not made in good faith, as Respondent had expressed her intention to return Felix to Stone County, Missouri just weeks before the six-month statutory residency mark, suggesting the move was strategic rather than child-centered. (See Audit #ex.35.6)
+    Petitioner, Micheal Lawrence Salmon, has formally removed himself from the Missouri docket and is requesting Kansas assume full jurisdiction over all matters concerning Felix’s welfare. This petition is filed in good faith and in accordance with Kansas law, seeking immediate and corrective relief after multiple procedural injustices in Missouri proceedings.
+    Critically, Respondent Crycella Freitag made no mention of the ongoing and complete denial of access between Felix and his father in her latest filings, choosing instead to focus her efforts entirely on forum control and jurisdictional maneuvering. This demonstrates a clear attempt to evade scrutiny and obstruct the fair resolution of custody and parenting time, rather than prioritize Felix’s best interests.
+    Petitioner affirms that this is the proper venue for addressing these matters and that an emergency hearing is both necessary and legally appropriate to prevent further emotional harm to the child and irreparable erosion of the parent-child relationship. A competent and impartial court acting in the best interests of the child would proceed as follows:
+    Grant the Petitioner immediate make-up custodial time with Felix while the facts and evidence are properly reviewed;
+    Schedule a neutral evidentiary hearing in Kansas.
+    This structure provides both parties a meaningful opportunity to demonstrate what sole custody looks like under their care, with the child’s well-being as the central focus. No Guardian ad Litem is needed; the parties are prepared to present direct evidence. What is required now is judicial intervention that prioritizes equity, transparency, and the child’s right to family continuity—values this Petition brings before this Court.
+    Attached to this Petition are complete, unedited recordings of the last three Missouri hearings for the Court’s reference. Petitioner requests access to the audio copies submitted by Respondent in order to verify their integrity, given a history of misrepresentation in the record.
+    Exhibit A: (See Audit #ex.31.2)
+    March 26 webex: https://youtu.be/j8uel49hjaU?si=gY03t2HyYVbbQsmo
+    Exhibit B: (See Audit #ex.75.2)
+    April 9 webex: https://youtu.be/2gF6Rjtpacw?si=4sGXMz9THcSSf6u5
+    Exhibit C: (See Audit #ex.111.2)
+    April 28 webex: https://youtu.be/isLbnCGqX_w?si=Y5HXcxdUlvV7oFaF
+    
+    
+    
+    
+    
+    
+    I, Micheal Lawrence Salmon, affirm under penalty of perjury that the foregoing is true and correct to the best of my knowledge and belief`
     }
 )
