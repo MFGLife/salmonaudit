@@ -74,20 +74,43 @@ const swiper = new Swiper(".mySwiper", {
         "link": "https://drive.google.com/drive/folders/1NTo0eqZ6Nai2sBxFzS-bBkOUEGTYDFv8?usp=drive_link"
     },
     {
-      "date": "2025-05-XX",
-      "status": "pending",
+      "date": "2025-05-01",
+      "status": "completed",
       "title": "Conducting Initial Discovery: Week 1",
       "descriptionList": [
-      { "text": "Olathe Police Department", "status": "pending" },
-      { "text": "Carolyn Salmon", "status": "pending" },
-      { "text": "United Methodist Church", "status": "pending" },
+      { "text": "Jozef Hanratty", "status": "completed" },
+      { "text": "Carolyn Salmon", "status": "completed" },
+      { "text": "Kelly Truelove", "status": "completed" },
+      { "text": "Crycella Freitag", "status": "completed" },
+      { "text": "Josh Garrett", "status": "completed" },
+      { "text": "Matt Selby", "status": "completed" },
+      { "text": "Mark Stephenson", "status": "completed" },
+      { "text": "Amanda Freitag", "status": "completed" },
+      { "text": "Christian Freitag", "status": "completed" },
+      { "text": "Stephanie Reed", "status": "completed" },
+      { "text": "Tyler Brown", "status": "completed" },
+      { "text": "Chanille Witham", "status": "completed" },
+      { "text": "Natasha Kluttz", "status": "completed" },
       { "text": "Kid Centric", "status": "completed" },
-      { "text": "Midtown Psychological Services", "status": "pending" }
+      { "text": "Trina Nudson", "status": "completed" }
                         ],
         "link": ""
   },
+  {
+    "date": "2025-06-XX",
+    "status": "pending",
+    "title": "Conducting Initial Discovery: Week 1",
+    "descriptionList": [
+    { "text": "Olathe Police Department", "status": "pending" },
+    { "text": "Kansas City Police Department", "status": "pending" },
+    { "text": "United Methodist Church", "status": "pending" },
+    { "text": "Diana Health", "status": "pending" },
+    { "text": "Midtown Psychological Services", "status": "pending" }
+                      ],
+      "link": ""
+},
     {
-        "date": "2025-05-XX",
+        "date": "2025-06-XX",
         "status": "pending",
         "title": "Response Deadline for Defendants",
         "description": "Defendants are required to file answers or responsive pleadings within court-mandated timelines.",
