@@ -883,6 +883,54 @@ motionData.push (
   
   
   All further filings or orders in this Missouri matter will be documented and presented to the appropriate Kansas and federal authorities as evidence of extrajudicial coercion and unlawful forum manipulation.`
+  },
+  {
+    id: "24SN-DR00104",
+    title: "MOTION FOR DEFAULT JUDGMENT, SANCTIONS, AND EMERGENCY TRANSFER OF CUSTODY TO WYANDOTTE COUNTY",
+    date: "2025-05-05",
+    type: "Motion",
+    status: "Pending",
+    content: `COMES NOW, Petitioner Micheal Lawrence Salmon, and respectfully moves this Court to enter a Default Judgment in favor of the Petitioner and against the Respondent, CRYCELLA FREITAG, and in support thereof states as follows:
+  1. TOTAL OBSTRUCTION BY RESPONDENT AND OFFICERS OF THE COURT
+  1.1 Respondent has failed to appear on camera in any hearings in violation of due process and transparency. Petitioner, by contrast, has been forced to show his face, posture, and emotions in every single interaction.
+  1.2 Through subpoena requests and filed motions, Petitioner has shown probable cause that CRYCELLA FREITAG is being aided in real time during hearings and filings by a clandestine group consisting of:
+  Trina Nudson, Carolyn Salmon, Amanda Freitag, Kate Salmon
+  Ryan Weber, Mark Stephens, Chanille Witham, Jesse Salmon 2 & 3
+  Kelly Truelove, Natasha Kluttz and Jozef Hanratty
+  These individuals are believed to be co-conspirators facilitating concealment and providing illegal strategic guidance in violation of the rules of open and closed court.
+  1.3 Subpoena requests to verify and expose this aid network were improperly denied. Had they been allowed, this Court would be in possession of screen recordings and device logs proving coordinated group interference, while Petitioner has been denied the same advantage or protection.
+  2. G.A.L. MARK STEPHENS — FRAUDULENT, COERCIVE, AND EXTRA PROCEDURAL CONDUCT
+  2.1 Guardian ad Litem Mark Stephens has made several demands and accusations while refusing to file formal acceptance of his appointment with the Court.
+  2.2 Mr. Stephens has declared, through correspondence, that he will only formally accept the role approximately one hour before the final court date, a statement which is coercive and unprofessional, amounting to extrajudicial manipulation of court timelines.
+  2.3 Mr. Stephens has made numerous factual assertions, filed informal reports, and sent communications as though operating in full capacity — all without being formally appointed. This has poisoned the proceedings and interfered with Petitioner’s right to due process and timely relief.
+  3. 91+ DAYS OF WITHHELD VISITATION — CHILD ENDANGERMENT BY COURT ENABLERS
+  3.1 As of the filing of this motion, Petitioner has been prohibited from seeing his son Felix for over 90 days, despite no court order explicitly barring visitation.
+  3.2 Respondent has operated with impunity while this Court, and its associated actors, have refused to take action or enforce standing requests for visitation and parental access.
+  3.3 Multiple motions have detailed the obstruction, and they remain unaddressed on the record. These include:
+  Petitioner’s March 17, 2025 motion for subpoena and Layne Project deposition;
+  Motions regarding GAL misconduct, and
+  Emergency filings submitted both in Missouri and Kansas courts.
+  3.4 Petitioner has since opened a Kansas case to protect his rights, which this Court continues to ignore. The refusal to acknowledge or coordinate with that jurisdiction is part of the larger withholding campaign.
+  4. SYSTEMIC COERCION — DEMAND FOR ACCOUNTABILITY
+  4.1 The conduct of Respondent and officers of this Court reflect growing patterns now recognized under "Criminal Coercive Control" statutes being passed in multiple U.S. jurisdictions under Senate Bill 588. These statutes criminalize ongoing manipulation, gaslighting, concealment, and social isolation tactics in domestic and custodial contexts.
+  4.2 This case, and the broader class action effort emerging from it, will advocate for the immediate introduction and passage of Senate Bill 588 provisions in both Kansas and Missouri to address these escalating harms.
+  4.3 As part of this effort, Petitioner demands that Joshua Garrett, attorney of record, immediately draft and file a sworn petition attesting to the full truth and verifiability of all claims, statements, and representations he has made before this Court, in writing or oral argument. This petition will serve as the basis for accountability and potential perjury claims in any subsequent proceedings or investigations.
+  5. MEDIA AND TRANSPARENCY
+  5.1 To prevent further gaslighting or concealment, Petitioner has uploaded all hearings, transcripts, and filings to public channels including YouTube.
+  5.2 Every falsehood, omission, and contradiction is now part of the public record. The Respondent, GAL, and court actors can no longer hide behind sealed processes or selective enforcement.
+  6. PRAYER FOR RELIEF
+  Petitioner requests the following:
+  1. That a Default Judgment be entered against CRYCELLA FREITAG for obstruction, refusal to appear, and withholding Felix;
+  2. That any claims, defenses, or filings by CRYCELLA FREITAG be stricken from the record;
+  3. That GAL Mark Stephens be disqualified, investigated, and barred from further involvement;
+  4. That custody be temporarily and immediately transferred to Petitioner until a full and transparent hearing can be held in Wyandotte County, Kansas, which has jurisdiction based on Felix's residency;
+  5. That sanctions be imposed upon any officer of the court who continued to act despite being notified of these ongoing violations;
+  6. That Joshua Garrett be required to submit a sworn petition affirming all claims and representations he has made in this matter as true, complete, and verifiable under penalty of perjury.
+  7. SYSTEMIC FRAUS LEGIS — THE ABUSE AND DEGRADATION OF LEGAL PROCESS
+  7.1 This Court, its officers, and the Respondent have cumulatively engaged in behavior consistent with fraus legis — fraud upon the law itself — through sustained acts of misrepresentation, coercive delays, suppression of valid motions, and selective enforcement of procedural standards.
+  7.2 Legal norms have been turned into tools of punishment rather than protection. Subpoenas are denied without hearing, appearances are unbalanced, and GAL appointments are enforced extra-procedurally. The effect is not mere negligence, but calculated erosion of the Petitioner's access to justice.
+  7.3 Such actions do not merely affect this case — they degrade the rule of law, violating foundational principles of fairness, impartiality, and good faith.
+  7.4 Petitioner asserts that unless this fraus legis is named and remedied, the system will continue to embolden actors who treat due process as theater, not as duty. The law becomes the mask worn by manipulation, rather than the safeguard against it.`
   }
 )
 
