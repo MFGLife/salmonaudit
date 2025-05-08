@@ -931,6 +931,95 @@ motionData.push (
   7.2 Legal norms have been turned into tools of punishment rather than protection. Subpoenas are denied without hearing, appearances are unbalanced, and GAL appointments are enforced extra-procedurally. The effect is not mere negligence, but calculated erosion of the Petitioner's access to justice.
   7.3 Such actions do not merely affect this case — they degrade the rule of law, violating foundational principles of fairness, impartiality, and good faith.
   7.4 Petitioner asserts that unless this fraus legis is named and remedied, the system will continue to embolden actors who treat due process as theater, not as duty. The law becomes the mask worn by manipulation, rather than the safeguard against it.`
+  },
+  {
+    id: "24SNDR00104",
+    title: "RESPONSE TO ORDER TO SHOW CAUSE AND MOTION TO DISMISS CONTEMPT ACTION AS RETALIATORY, UNCONSTITUTIONAL PRIOR RESTRAINT, AND DUE PROCESS VIOLATION",
+    date: "2025-05-08",
+    type: "Answer",
+    status: "Granted",
+    content: `COMES NOW Micheal Salmon, pro se, and submits this Response to the Court’s April 29, 2025, Order to Show Cause and Motion to Dismiss the contempt action in its entirety. This contempt claim is not based on any willful or unlawful defiance—but is instead a retaliatory and unconstitutional attempt to silence protected speech exposing documented due process violations and civil rights abuses that have caused irreparable harm to a parent and child.
+  
+  I. PRELIMINARY STATEMENT
+  
+  Respondent recorded and published segments of prior proceedings not to defy the court, but to document overwhelming violations of Missouri law, judicial canons, and constitutional protections. These proceedings involve:
+  
+  The removal of Respondent’s minor son, Felix, for over three months with no evidentiary finding or judicial ruling that Respondent is unfit, unsafe, or abusive.
+  A systemic denial of due process and equal protection, including:
+  Admitted falsification of evidence and testimony,
+  The court’s refusal to enforce valid subpoenas,
+  The suppression of critical exculpatory and safety-related documentation,
+  Failure to apply the "best interest" or "fit parent presumption" standards required under Missouri law.
+  
+  As such, Respondent asserts that the court has ceased to act within the bounds of legitimate authority and now seeks to punish lawful documentation of systemic abuse and misconduct.
+  
+  II. THE LEGAL BASIS FOR RECORDING: NECESSITY DUE TO CIVIL RIGHTS VIOLATIONS
+  
+  The Missouri and U.S. Constitutions provide no carve-out for courts to conceal unlawful acts. The recording was made for the following lawful and necessary purposes:
+  
+  To protect the rights of a minor child and expose ongoing judicial misconduct,
+  To create a record for federal class action litigation involving systemic abuses of pro se litigants and the denial of fundamental parental rights,
+  To preserve evidence of civil rights violations in anticipation of federal prosecution of individuals involved in obstruction, perjury, and deprivation of rights under color of law.
+  
+  Respondent’s conduct falls squarely under the protections of:
+  
+  The First Amendment, which protects the right to document and report government abuses;
+  The Fourteenth Amendment, which guards against deprivation of liberty (including parenting rights) without due process of law; and
+  42 U.S.C. §1983, which establishes liability for officials who violate constitutional rights under color of state authority.
+  
+  III. THE COURT HAS FAILED TO SHOW A LEGAL BASIS FOR CHILD REMOVAL
+  
+  It is undisputed that:
+  
+  No judicial finding of unfitness, abuse, or endangerment has ever been issued against Respondent.
+  Respondent has demonstrated that the opposing party, Crycella Freitag, poses multiple documented risks, including:
+  Threats of violence involving firearms,
+  Coercive control and false allegations,
+  Repeated violations of prior parenting orders.
+  
+  Despite this, the court has allowed Felix to remain deprived of access to his father in violation of Missouri’s Fit Parent Doctrine, and without meeting the state’s burden of proving that the child is in danger.
+  "A natural parent has a fundamental liberty interest in the care, custody, and management of their child. That right is protected by the Fourteenth Amendment and may not be infringed absent a showing that the parent is unfit or that the child’s welfare is otherwise endangered."
+  Troxel v. Granville, 530 U.S. 57 (2000);  In re K.A.W., 133 S.W.3d 1 (Mo. banc 2004)
+  
+  IV. CONTEMPT CANNOT STAND WHERE THE ORDER WAS UNCONSTITUTIONAL AND PROCEDURALLY DEFECTIVE
+  
+  The April 29 “order” demanding removal of the video:
+  Was issued without hearing, legal basis, or statutory citation;
+  Functioned as a prior restraint on protected speech;
+  Sought to criminalize the exposure of publicly observable misconduct.
+  
+  Contempt cannot be sustained where:
+  
+  The underlying order was not clear, specific, or lawful;
+  The Respondent was exercising a good faith belief in a higher constitutional obligation;
+  The alleged violation caused no actual disruption of proceedings or prejudice to justice.
+  
+  V. THIS CONTEMPT ACTION IS RETALIATORY AND DESIGNED TO SUPPRESS ACCOUNTABILITY
+  
+  This court is now attempting to silence Respondent in anticipation of:
+  An imminent federal class action lawsuit focused on judicial and clerical misconduct, obstruction, and constitutional violations;
+  The exposure of collusion between court clerks, judges, and opposing parties, particularly with the use of falsified evidence and denial of access to emergency hearings for pro se litigants;
+  A growing body of video and documentary evidence proving that the court selectively applies rules to shield those in power while blocking pro se parents from accessing their own children.
+  
+  Such actions constitute abuse of judicial authority and justify scrutiny not only in federal court, but in forthcoming media and prosecutorial inquiries.
+  
+  VI. VIRTUAL ACCESS, CONCEALMENT, AND JURISDICTIONAL OVERREACH
+  
+  Throughout these proceedings, Respondent has made every effort to participate in good faith, despite maintaining a consistent objection to this Court’s jurisdiction. Both parties reside in Kansas, and jurisdiction properly lies in Wyandotte County, where the minor child has resided the overwhelming majority of the last two years.
+  
+  Despite the contested nature of this forum, Respondent has cooperated fully via Webex appearances. In contrast, Crycella has used the virtual format to conceal her face, hide unauthorized participants—including Carolyn Salmon and Kelly Truelove—and create an unfair litigation advantage. The court has held Respondent to the full standard of conduct while allowing the other party to operate behind a screen of anonymity and collusion.
+  
+  This double standard further erodes the legitimacy of these proceedings and underscores the urgent need to terminate Missouri’s ongoing overreach and restore jurisdiction to the appropriate Kansas court.
+  
+  VII. CONCLUSION AND REQUEST FOR RELIEF
+  
+  WHEREFORE, Respondent Micheal Salmon respectfully requests that this Court:
+  
+  DISMISS the show cause order and deny any contempt finding;
+  Acknowledge that the April 29 order functioned as an unconstitutional prior restraint issued without due process;
+  Refrain from further retaliatory sanctions related to Respondent’s exercise of constitutional rights;
+  Take judicial notice that Respondent is preparing federal civil rights and RICO-based litigation against individuals and agencies involved in the systemic denial of justice in this matter.
+  Grant full physical and sole custody of Felix Day to Micheal Salmon`
   }
 )
 
