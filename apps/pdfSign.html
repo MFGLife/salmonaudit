@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Annotation App</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.15.349/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .page-container {
+            position: relative;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .page-container canvas {
+            max-width: 100%;
+            display: block;
+        }
+        
+        .annotation-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .text-field {
+            position: absolute;
+            min-width: 100px;
+            min-height: 20px;
+            border: 1px dashed #3b82f6;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 2px;
+            cursor: move;
+            pointer-events: auto;
+            resize: none;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+        }
+        
+        .text-field:focus {
+            outline: none;
+            border: 1px solid #2563eb;
+            background-color: white;
+        }
+        
+        .text-field.selected {
+            border: 1px solid #2563eb;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+        }
+        
+        .signature-field {
+            position: absolute;
+            border: 1px dashed #10b981;
+            background-color: rgba(255, 255, 255, 0.8);
+            cursor: move;
+            pointer-events: auto;
+        }
+        
+        .signature-field.selected {
+            border: 1px solid #059669;
+            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.5);
+        }
+        
+        .signature-canvas {
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .field-handle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: #2563eb;
+            border-radius: 50%;
+            z-index: 10;
+        }
+        
+        .field-handle.nw {
+            top: -4px;
+            left: -4px;
+            cursor: nw-resize;
+        }
+        
+        .field-handle.ne {
+            top: -4px;
+            right: -4px;
+            cursor: ne-resize;
+        }
+        
+        .field-handle.sw {
+            bottom: -4px;
+            left: -4px;
+            cursor: sw-resize;
+        }
+        
+        .field-handle.se {
+            bottom: -4px;
+            right: -4px;
+            cursor: se-resize;
+        }
+        
+        .field-handle.delete {
+            top: -10px;
+            right: -10px;
+            width: 16px;
+            height: 16px;
+            background-color: #ef4444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 10px;
+            cursor: pointer;
+        }
+        
+        #pdf-container {
+            position: relative;
+            width: 100%;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            overflow: auto;
+            max-height: 80vh;
+        }
+        
+        #video {
+            width: 300px;
+            height: 200px;
+            background: #000;
+            border-radius: 0.5rem;
+        }
+        
+        #photo {
+            max-width: 200px;
+            max-height: 200px;
+            margin-top: 10px;
+            border-radius: 0.5rem;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .tooltip {
+            position: relative;
+        }
+        
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            width: 120px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-3xl font-bold text-gray-800">PDF Annotation Tool</h1>
+            <div class="flex space-x-2">
+                <label for="pdf-upload" class="cursor-pointer bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center">
+                    <i class="fas fa-file-pdf mr-2"></i> Upload PDF
+                    <input type="file" id="pdf-upload" accept="application/pdf" class="hidden">
+                </label>
+            </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md p-4 mb-6">
+            <div class="flex flex-wrap gap-2 mb-4">
+                <button id="add-text-field" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center">
+                    <i class="fas fa-font mr-2"></i> Add Text Field
+                </button>
+                <button id="toggle-signing" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center">
+                    <i class="fas fa-signature mr-2"></i> Draw Signature
+                </button>
+                <button id="camera-permission" class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-lg flex items-center">
+                    <i class="fas fa-camera mr-2"></i> Enable Camera
+                </button>
+                <button id="capture-photo" class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-lg flex items-center">
+                    <i class="fas fa-camera-retro mr-2"></i> Capture Photo
+                </button>
+                <button id="finish-signing" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg flex items-center">
+                    <i class="fas fa-file-export mr-2"></i> Save PDF
+                </button>
+                <button id="clear-fields" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg flex items-center">
+                    <i class="fas fa-trash-alt mr-2"></i> Clear Fields
+                </button>
+            </div>
+            
+            <div class="flex items-center space-x-4 mb-4">
+                <div class="flex items-center">
+                    <label for="font-size" class="mr-2 text-gray-700">Font Size:</label>
+                    <select id="font-size" class="border rounded px-2 py-1">
+                        <option value="10">10px</option>
+                        <option value="12" selected>12px</option>
+                        <option value="14">14px</option>
+                        <option value="16">16px</option>
+                        <option value="18">18px</option>
+                        <option value="20">20px</option>
+                    </select>
+                </div>
+                <div class="flex items-center">
+                    <label for="text-color" class="mr-2 text-gray-700">Text Color:</label>
+                    <input type="color" id="text-color" value="#000000" class="w-8 h-8">
+                </div>
+            </div>
+        </div>
+        
+        <div id="pdf-container" class="bg-white"></div>
+        
+        <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-white rounded-lg shadow-md p-4">
+                <h3 class="text-lg font-semibold mb-2 text-gray-800">Camera Preview</h3>
+                <video id="video" autoplay></video>
+                <img id="photo" alt="Captured photo">
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-4">
+                <h3 class="text-lg font-semibold mb-2 text-gray-800">Instructions</h3>
+                <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                    <li>Upload a PDF file to get started</li>
+                    <li>Click "Add Text Field" to create editable text boxes</li>
+                    <li>Drag text fields to position them on the document</li>
+                    <li>Click on fields to edit their content</li>
+                    <li>Use "Draw Signature" to sign the document</li>
+                    <li>Adjust font size and color as needed</li>
+                    <li>Click "Save PDF" to download your annotated document</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const pdfContainer = document.getElementById('pdf-container');
+        const pdfUpload = document.getElementById('pdf-upload');
+        const toggleSigningBtn = document.getElementById('toggle-signing');
+        const cameraPermissionBtn = document.getElementById('camera-permission');
+        const capturePhotoBtn = document.getElementById('capture-photo');
+        const finishSigningBtn = document.getElementById('finish-signing');
+        const addTextFieldBtn = document.getElementById('add-text-field');
+        const clearFieldsBtn = document.getElementById('clear-fields');
+        const videoElement = document.getElementById('video');
+        const photoElement = document.getElementById('photo');
+        const fontSizeSelect = document.getElementById('font-size');
+        const textColorInput = document.getElementById('text-color');
+
+        // Application State
+        let pdfDocument = null;
+        let isSigningMode = false;
+        let isAddingTextField = false;
+        let photoDataUrl = null;
+        let pageAnnotations = {};
+        let selectedField = null;
+        let currentFontSize = 12;
+        let currentTextColor = '#000000';
+        let isDragging = false;
+        let isResizing = false;
+        let resizeHandle = null;
+        let dragOffsetX = 0;
+        let dragOffsetY = 0;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set up event listeners
+            pdfUpload.addEventListener('change', handlePDFUpload);
+            toggleSigningBtn.addEventListener('click', toggleSigningMode);
+            cameraPermissionBtn.addEventListener('click', requestCameraPermission);
+            capturePhotoBtn.addEventListener('click', capturePhoto);
+            finishSigningBtn.addEventListener('click', saveAnnotatedPDF);
+            addTextFieldBtn.addEventListener('click', activateTextFieldMode);
+            clearFieldsBtn.addEventListener('click', clearAllFields);
+            fontSizeSelect.addEventListener('change', updateFontSize);
+            textColorInput.addEventListener('change', updateTextColor);
+            
+            // Set initial values
+            fontSizeSelect.value = currentFontSize;
+            textColorInput.value = currentTextColor;
+        });
+
+        // Handle PDF Upload
+        async function handlePDFUpload(e) {
+            const file = e.target.files[0];
+            if (file && file.type === 'application/pdf') {
+                await renderPDF(file);
+            } else {
+                alert('Please upload a valid PDF file');
+            }
+        }
+
+        // Render PDF
+        async function renderPDF(file) {
+            // Clear previous renders
+            pdfContainer.innerHTML = '';
+            pageAnnotations = {};
+            selectedField = null;
+
+            const pdfjsLib = window['pdfjs-dist/build/pdf'];
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.15.349/pdf.worker.min.js';
+
+            const pdf = await pdfjsLib.getDocument(URL.createObjectURL(file)).promise;
+            pdfDocument = pdf;
+
+            for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+                const page = await pdf.getPage(pageNum);
+                const viewport = page.getViewport({ scale: 1.5 });
+
+                // Create page container
+                const pageContainer = document.createElement('div');
+                pageContainer.className = 'page-container';
+                pageContainer.style.width = `${viewport.width}px`;
+                pageContainer.style.height = `${viewport.height}px`;
+                pageContainer.dataset.pageNumber = pageNum;
+
+                // Main canvas for PDF content
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d');
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+
+                // Annotation layer for text fields and signatures
+                const annotationLayer = document.createElement('div');
+                annotationLayer.className = 'annotation-layer';
+                annotationLayer.dataset.pageNumber = pageNum;
+
+                // Render PDF page
+                await page.render({ canvasContext: context, viewport }).promise;
+
+                // Add elements to container
+                pageContainer.appendChild(canvas);
+                pageContainer.appendChild(annotationLayer);
+                pdfContainer.appendChild(pageContainer);
+
+                // Initialize annotations for this page
+                pageAnnotations[pageNum] = [];
+
+                // Setup signature drawing if in signing mode
+                if (isSigningMode) {
+                    setupSignatureDrawing(canvas, pageNum);
+                }
+            }
+        }
+
+        // Toggle Signing Mode
+        function toggleSigningMode() {
+            isSigningMode = !isSigningMode;
+            isAddingTextField = false;
+            
+            toggleSigningBtn.textContent = isSigningMode ? 'Stop Drawing' : 'Draw Signature';
+            toggleSigningBtn.className = isSigningMode ? 
+                'bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg flex items-center' : 
+                'bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center';
+            
+            addTextFieldBtn.className = isSigningMode ? 
+                'bg-blue-500 text-white px-4 py-2 rounded-lg flex items-center opacity-50 cursor-not-allowed' : 
+                'bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center';
+            
+            // Setup or remove signature drawing for each page
+            const canvases = document.querySelectorAll('.page-container canvas');
+            canvases.forEach(canvas => {
+                if (isSigningMode) {
+                    setupSignatureDrawing(canvas, parseInt(canvas.parentElement.dataset.pageNumber));
+                } else {
+                    // Remove signature event listeners
+                    canvas.removeEventListener('mousedown', startSignatureDrawing);
+                    canvas.removeEventListener('mousemove', drawSignature);
+                    canvas.removeEventListener('mouseup', endSignatureDrawing);
+                    canvas.removeEventListener('mouseout', endSignatureDrawing);
+                    canvas.removeEventListener('touchstart', startSignatureDrawing);
+                    canvas.removeEventListener('touchmove', drawSignature);
+                    canvas.removeEventListener('touchend', endSignatureDrawing);
+                    canvas.removeEventListener('touchcancel', endSignatureDrawing);
+                }
+            });
+        }
+
+        // Setup Signature Drawing
+        function setupSignatureDrawing(canvas, pageNum) {
+            let isDrawing = false;
+            let lastX = 0, lastY = 0;
+            
+            // Initialize signatures for this page if not exists
+            if (!pageAnnotations[pageNum]) {
+                pageAnnotations[pageNum] = [];
+            }
+
+            function startSignatureDrawing(e) {
+                if (!isSigningMode) return;
+                isDrawing = true;
+                
+                const rect = canvas.getBoundingClientRect();
+                lastX = e.touches ? e.touches[0].clientX - rect.left : e.clientX - rect.left;
+                lastY = e.touches ? e.touches[0].clientY - rect.top : e.clientY - rect.top;
+                
+                // Create a new signature object
+                const signature = {
+                    type: 'signature',
+                    points: [{x: lastX, y: lastY}],
+                    page: pageNum
+                };
+                
+                pageAnnotations[pageNum].push(signature);
+            }
+
+            function drawSignature(e) {
+                if (!isDrawing || !isSigningMode) return;
+                
+                const ctx = canvas.getContext('2d');
+                const rect = canvas.getBoundingClientRect();
+                const x = e.touches ? e.touches[0].clientX - rect.left : e.clientX - rect.left;
+                const y = e.touches ? e.touches[0].clientY - rect.top : e.clientY - rect.top;
+                
+                ctx.beginPath();
+                ctx.moveTo(lastX, lastY);
+                ctx.lineTo(x, y);
+                ctx.strokeStyle = 'black';
+                ctx.lineWidth = 2;
+                ctx.lineCap = 'round';
+                ctx.stroke();
+                
+                // Add point to current signature
+                const currentSignature = pageAnnotations[pageNum].find(s => s.type === 'signature' && !s.completed);
+                if (currentSignature) {
+                    currentSignature.points.push({x, y});
+                }
+                
+                lastX = x;
+                lastY = y;
+            }
+
+            function endSignatureDrawing() {
+                if (!isDrawing) return;
+                isDrawing = false;
+                
+                // Mark the current signature as completed
+                const currentSignature = pageAnnotations[pageNum].find(s => s.type === 'signature' && !s.completed);
+                if (currentSignature) {
+                    currentSignature.completed = true;
+                }
+            }
+
+            // Add mouse event listeners
+            canvas.addEventListener('mousedown', startSignatureDrawing);
+            canvas.addEventListener('mousemove', drawSignature);
+            canvas.addEventListener('mouseup', endSignatureDrawing);
+            canvas.addEventListener('mouseout', endSignatureDrawing);
+            
+            // Add touch event listeners
+            canvas.addEventListener('touchstart', startSignatureDrawing);
+            canvas.addEventListener('touchmove', drawSignature);
+            canvas.addEventListener('touchend', endSignatureDrawing);
+            canvas.addEventListener('touchcancel', endSignatureDrawing);
+        }
+
+        // Activate Text Field Mode
+        function activateTextFieldMode() {
+            if (isSigningMode) return;
+            
+            isAddingTextField = true;
+            addTextFieldBtn.className = 'bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center';
+            
+            // Set up click handler for adding text fields
+            const annotationLayers = document.querySelectorAll('.annotation-layer');
+            annotationLayers.forEach(layer => {
+                layer.style.pointerEvents = 'auto';
+                layer.addEventListener('click', handleAddTextField);
+            });
+            
+            // Change cursor to indicate text field mode
+            document.body.style.cursor = 'crosshair';
+        }
+
+        // Handle Add Text Field
+        function handleAddTextField(e) {
+            if (!isAddingTextField) return;
+            
+            const pageContainer = e.currentTarget.parentElement;
+            const pageNum = parseInt(pageContainer.dataset.pageNumber);
+            const rect = pageContainer.getBoundingClientRect();
+            
+            // Calculate position relative to the page
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            // Create a new text field
+            createTextField(pageNum, x, y);
+            
+            // Reset text field mode
+            deactivateTextFieldMode();
+        }
+
+        // Create Text Field
+        function createTextField(pageNum, x, y, text = '', width = 150, height = 24) {
+            const annotationLayer = document.querySelector(`.annotation-layer[data-page-number="${pageNum}"]`);
+            
+            // Create text field element
+            const textField = document.createElement('textarea');
+            textField.className = 'text-field';
+            textField.style.left = `${x}px`;
+            textField.style.top = `${y}px`;
+            textField.style.width = `${width}px`;
+            textField.style.height = `${height}px`;
+            textField.style.fontSize = `${currentFontSize}px`;
+            textField.style.color = currentTextColor;
+            textField.value = text;
+            
+            // Create field ID
+            const fieldId = `field-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+            textField.id = fieldId;
+            
+            // Add to DOM
+            annotationLayer.appendChild(textField);
+            
+            // Create annotation object
+            const annotation = {
+                id: fieldId,
+                type: 'text',
+                page: pageNum,
+                x: x,
+                y: y,
+                width: width,
+                height: height,
+                text: text,
+                fontSize: currentFontSize,
+                color: currentTextColor
+            };
+            
+            // Add to page annotations
+            pageAnnotations[pageNum].push(annotation);
+            
+            // Set up event listeners for the field
+            setupTextFieldEvents(textField, annotation);
+            
+            // Select the new field
+            selectField(textField, annotation);
+            
+            return textField;
+        }
+
+        // Setup Text Field Events
+        function setupTextFieldEvents(textField, annotation) {
+            // Focus event - select the field
+            textField.addEventListener('focus', () => {
+                selectField(textField, annotation);
+            });
+            
+            // Input event - update annotation text
+            textField.addEventListener('input', () => {
+                annotation.text = textField.value;
+            });
+            
+            // Blur event - update annotation
+            textField.addEventListener('blur', () => {
+                annotation.text = textField.value;
+                annotation.width = textField.offsetWidth;
+                annotation.height = textField.offsetHeight;
+            });
+            
+            // Mouse down - start drag or resize
+            textField.addEventListener('mousedown', (e) => {
+                e.stopPropagation();
+                
+                // Check if we're clicking on a resize handle
+                if (e.target.classList.contains('field-handle')) {
+                    isResizing = true;
+                    resizeHandle = e.target.classList[1]; // nw, ne, sw, se
+                    
+                    // Store initial dimensions
+                    const rect = textField.getBoundingClientRect();
+                    annotation.startWidth = rect.width;
+                    annotation.startHeight = rect.height;
+                    annotation.startX = rect.left;
+                    annotation.startY = rect.top;
+                    
+                    return;
+                }
+                
+                // Otherwise start dragging
+                isDragging = true;
+                const rect = textField.getBoundingClientRect();
+                dragOffsetX = e.clientX - rect.left;
+                dragOffsetY = e.clientY - rect.top;
+                
+                // Select the field
+                selectField(textField, annotation);
+            });
+            
+            // Prevent text selection while dragging
+            textField.addEventListener('selectstart', (e) => {
+                if (isDragging) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+        }
+
+        // Document Mouse Move - Handle dragging and resizing
+        document.addEventListener('mousemove', (e) => {
+            if (!selectedField) return;
+            
+            const annotation = pageAnnotations[selectedField.dataset.page].find(a => a.id === selectedField.id);
+            
+            if (isDragging) {
+                // Calculate new position
+                const pageContainer = selectedField.closest('.page-container');
+                const pageRect = pageContainer.getBoundingClientRect();
+                
+                let newX = e.clientX - pageRect.left - dragOffsetX;
+                let newY = e.clientY - pageRect.top - dragOffsetY;
+                
+                // Constrain to page bounds
+                newX = Math.max(0, Math.min(newX, pageRect.width - selectedField.offsetWidth));
+                newY = Math.max(0, Math.min(newY, pageRect.height - selectedField.offsetHeight));
+                
+                // Update position
+                selectedField.style.left = `${newX}px`;
+                selectedField.style.top = `${newY}px`;
+                
+                // Update annotation
+                annotation.x = newX;
+                annotation.y = newY;
+            }
+            
+            if (isResizing) {
+                const pageContainer = selectedField.closest('.page-container');
+                const pageRect = pageContainer.getBoundingClientRect();
+                
+                // Calculate new dimensions based on resize handle
+                let newWidth, newHeight;
+                
+                switch (resizeHandle) {
+                    case 'se':
+                        newWidth = e.clientX - annotation.startX;
+                        newHeight = e.clientY - annotation.startY;
+                        break;
+                    case 'sw':
+                        newWidth = annotation.startX + annotation.startWidth - e.clientX;
+                        newHeight = e.clientY - annotation.startY;
+                        selectedField.style.left = `${e.clientX - pageRect.left}px`;
+                        break;
+                    case 'ne':
+                        newWidth = e.clientX - annotation.startX;
+                        newHeight = annotation.startY + annotation.startHeight - e.clientY;
+                        selectedField.style.top = `${e.clientY - pageRect.top}px`;
+                        break;
+                    case 'nw':
+                        newWidth = annotation.startX + annotation.startWidth - e.clientX;
+                        newHeight = annotation.startY + annotation.startHeight - e.clientY;
+                        selectedField.style.left = `${e.clientX - pageRect.left}px`;
+                        selectedField.style.top = `${e.clientY - pageRect.top}px`;
+                        break;
+                }
+                
+                // Apply minimum dimensions
+                newWidth = Math.max(50, newWidth);
+                newHeight = Math.max(20, newHeight);
+                
+                // Update field dimensions
+                selectedField.style.width = `${newWidth}px`;
+                selectedField.style.height = `${newHeight}px`;
+                
+                // Update annotation
+                annotation.width = newWidth;
+                annotation.height = newHeight;
+                
+                // Update position if needed
+                if (resizeHandle === 'sw' || resizeHandle === 'nw') {
+                    annotation.x = parseFloat(selectedField.style.left);
+                }
+                if (resizeHandle === 'ne' || resizeHandle === 'nw') {
+                    annotation.y = parseFloat(selectedField.style.top);
+                }
+            }
+        });
+
+        // Document Mouse Up - End dragging or resizing
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+            isResizing = false;
+            resizeHandle = null;
+        });
+
+        // Select Field
+        function selectField(field, annotation) {
+            // Deselect current field if any
+            if (selectedField) {
+                selectedField.classList.remove('selected');
+                
+                // Remove resize handles
+                const handles = selectedField.querySelectorAll('.field-handle');
+                handles.forEach(handle => handle.remove());
+            }
+            
+            // Select new field
+            selectedField = field;
+            selectedField.classList.add('selected');
+            selectedField.dataset.page = annotation.page;
+            
+            // Add resize handles
+            addResizeHandles(field);
+            
+            // Focus the field
+            field.focus();
+        }
+
+        // Add Resize Handles
+        function addResizeHandles(field) {
+            // Create resize handles
+            const handles = [
+                {class: 'nw', cursor: 'nw-resize'},
+                {class: 'ne', cursor: 'ne-resize'},
+                {class: 'sw', cursor: 'sw-resize'},
+                {class: 'se', cursor: 'se-resize'},
+                {class: 'delete', cursor: 'pointer'}
+            ];
+            
+            handles.forEach(handle => {
+                const handleEl = document.createElement('div');
+                handleEl.className = `field-handle ${handle.class}`;
+                handleEl.style.cursor = handle.cursor;
+                
+                if (handle.class === 'delete') {
+                    handleEl.innerHTML = '×';
+                    handleEl.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        deleteField(field);
+                    });
+                }
+                
+                field.appendChild(handleEl);
+            });
+        }
+
+        // Delete Field
+        function deleteField(field) {
+            const pageNum = parseInt(field.closest('.page-container').dataset.pageNumber);
+            
+            // Remove from DOM
+            field.remove();
+            
+            // Remove from annotations
+            pageAnnotations[pageNum] = pageAnnotations[pageNum].filter(a => a.id !== field.id);
+            
+            selectedField = null;
+        }
+
+        // Deactivate Text Field Mode
+        function deactivateTextFieldMode() {
+            isAddingTextField = false;
+            addTextFieldBtn.className = 'bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center';
+            
+            // Remove click handlers
+            const annotationLayers = document.querySelectorAll('.annotation-layer');
+            annotationLayers.forEach(layer => {
+                layer.removeEventListener('click', handleAddTextField);
+                layer.style.pointerEvents = 'none';
+            });
+            
+            // Reset cursor
+            document.body.style.cursor = '';
+        }
+
+        // Update Font Size
+        function updateFontSize(e) {
+            currentFontSize = parseInt(e.target.value);
+            
+            if (selectedField && selectedField.classList.contains('text-field')) {
+                selectedField.style.fontSize = `${currentFontSize}px`;
+                
+                // Update annotation
+                const pageNum = parseInt(selectedField.closest('.page-container').dataset.pageNumber);
+                const annotation = pageAnnotations[pageNum].find(a => a.id === selectedField.id);
+                if (annotation) {
+                    annotation.fontSize = currentFontSize;
+                }
+            }
+        }
+
+        // Update Text Color
+        function updateTextColor(e) {
+            currentTextColor = e.target.value;
+            
+            if (selectedField && selectedField.classList.contains('text-field')) {
+                selectedField.style.color = currentTextColor;
+                
+                // Update annotation
+                const pageNum = parseInt(selectedField.closest('.page-container').dataset.pageNumber);
+                const annotation = pageAnnotations[pageNum].find(a => a.id === selectedField.id);
+                if (annotation) {
+                    annotation.color = currentTextColor;
+                }
+            }
+        }
+
+        // Request Camera Permission
+        async function requestCameraPermission() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                videoElement.srcObject = stream;
+            } catch (error) {
+                alert('Could not access the camera. Please make sure you have granted camera permissions.');
+                console.error('Camera error:', error);
+            }
+        }
+
+        // Capture Photo
+        function capturePhoto() {
+            if (!videoElement.srcObject) {
+                alert('Please enable the camera first');
+                return;
+            }
+            
+            const canvas = document.createElement('canvas');
+            canvas.width = videoElement.videoWidth;
+            canvas.height = videoElement.videoHeight;
+            
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+            
+            photoDataUrl = canvas.toDataURL('image/png');
+            photoElement.src = photoDataUrl;
+        }
+
+        // Clear All Fields
+        function clearAllFields() {
+            if (!confirm('Are you sure you want to remove all annotations?')) return;
+            
+            // Remove from DOM
+            const fields = document.querySelectorAll('.text-field, .signature-field');
+            fields.forEach(field => field.remove());
+            
+            // Clear annotations
+            for (const pageNum in pageAnnotations) {
+                pageAnnotations[pageNum] = [];
+            }
+            
+            selectedField = null;
+        }
+
+        // Save Annotated PDF
+        async function saveAnnotatedPDF() {
+            if (!pdfDocument) {
+                alert('Please upload a PDF first');
+                return;
+            }
+
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            for (let pageNum = 1; pageNum <= pdfDocument.numPages; pageNum++) {
+                const page = await pdfDocument.getPage(pageNum);
+                const viewport = page.getViewport({ scale: 1.5 });
+
+                // Render original PDF page to canvas
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d');
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+                await page.render({ canvasContext: context, viewport }).promise;
+
+                // Add page to PDF
+                const imgData = canvas.toDataURL('image/jpeg');
+                doc.addImage(imgData, 'JPEG', 0, 0, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight());
+
+                // Add annotations if any
+                if (pageAnnotations[pageNum] && pageAnnotations[pageNum].length > 0) {
+                    const annotationCanvas = document.createElement('canvas');
+                    annotationCanvas.width = canvas.width;
+                    annotationCanvas.height = canvas.height;
+                    const annotationCtx = annotationCanvas.getContext('2d');
+
+                    // Draw annotations
+                    pageAnnotations[pageNum].forEach(annotation => {
+                        if (annotation.type === 'text') {
+                            annotationCtx.font = `${annotation.fontSize}px Arial`;
+                            annotationCtx.fillStyle = annotation.color;
+
+                            const x = annotation.x;
+                            const y = annotation.y;
+                            const width = annotation.width;
+
+                            const words = annotation.text.split(' ');
+                            let line = '';
+                            let lineHeight = annotation.fontSize * 1.2;
+                            let currentY = y + lineHeight;
+
+                            for (let i = 0; i < words.length; i++) {
+                                const testLine = line + words[i] + ' ';
+                                const metrics = annotationCtx.measureText(testLine);
+                                const testWidth = metrics.width;
+
+                                if (testWidth > width && i > 0) {
+                                    annotationCtx.fillText(line, x, currentY);
+                                    line = words[i] + ' ';
+                                    currentY += lineHeight;
+                                } else {
+                                    line = testLine;
+                                }
+                            }
+
+                            annotationCtx.fillText(line, x, currentY);
+                        } else if (annotation.type === 'signature') {
+                            annotationCtx.strokeStyle = 'black';
+                            annotationCtx.lineWidth = 2;
+                            annotationCtx.lineCap = 'round';
+
+                            for (let i = 1; i < annotation.points.length; i++) {
+                                const p1 = annotation.points[i - 1];
+                                const p2 = annotation.points[i];
+
+                                annotationCtx.beginPath();
+                                annotationCtx.moveTo(p1.x, p1.y);
+                                annotationCtx.lineTo(p2.x, p2.y);
+                                annotationCtx.stroke();
+                            }
+                        }
+                    });
+
+                    // Add annotations to PDF
+                    const annotationImgData = annotationCanvas.toDataURL('image/png');
+                    doc.addImage(annotationImgData, 'PNG', 0, 0, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight());
+                }
+
+                // Add new page if not the last page
+                if (pageNum < pdfDocument.numPages) {
+                    doc.addPage();
+                }
+            }
+
+            // Add captured photo if exists
+            if (photoDataUrl) {
+                doc.addPage();
+                doc.addImage(photoDataUrl, 'PNG', 10, 10, 50, 50);
+            }
+
+            // Save the PDF
+            doc.save('annotated-document.pdf');
+        }
+    </script>
+</body>
+</html>
