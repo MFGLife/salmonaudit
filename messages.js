@@ -99,7 +99,26 @@ const swiper = new Swiper(".mySwiper", {
       { name: "Chris Laubenthal", link: "https://drive.google.com/file/d/1omI-MThT7QQVF6bEWI4ngAFDVi4yT2gg/view" },
       { name: "Robin Laubenthal", link: "https://drive.google.com/file/d/1omI-MThT7QQVF6bEWI4ngAFDVi4yT2gg/view" },
       { name: "Jesse Salmon", link: "https://drive.google.com/file/d/1gV6-5IxvGwAHypLu9908K3pxpeY92XSt/view" },
-      { name: "Carolyn Salmon", link: "https://drive.google.com/file/d/1gV6-5IxvGwAHypLu9908K3pxpeY92XSt/view" }
+      { name: "Carolyn Salmon", link: "https://drive.google.com/file/d/1gV6-5IxvGwAHypLu9908K3pxpeY92XSt/view" },
+
+      { name: "Trina Nudson", link: "https://drive.google.com/file/d/1vM76Je5qzagq3dSvXsdfhazxG3s_6jg2/view" },
+{ name: "Jessica Newman", link: "https://drive.google.com/file/d/1yAw34o6Qnd47JWrapQgixGSkr00AZGFj/view" },
+{ name: "Jesse Salmon", link: "https://drive.google.com/file/d/1UfnPE0uAXbyMPMP371HcxFGQY-qEB-Io/view" },
+{ name: "Kate Salmon", link: "https://drive.google.com/file/d/1UfnPE0uAXbyMPMP371HcxFGQY-qEB-Io/view" },
+{ name: "Chanille Witham", link: "https://drive.google.com/file/d/1DwqnQaDvIwhmsGTUvAuOCIMjtnjisbpq/view" },
+{ name: "Peter Witham", link: "https://drive.google.com/file/d/1DwqnQaDvIwhmsGTUvAuOCIMjtnjisbpq/view" },
+{ name: "Michael Jackson", link: "https://drive.google.com/file/d/19j0Kg5H7ej4DrGI_YNItWlbkvTfxQpsv/view" },
+{ name: "Midtown Psychological Services", link: "https://drive.google.com/file/d/1o1Uu_Auc8hOoWdWoq68o9OjqH2_1UyIw/view" },
+{ name: "Gregory Sisk", link: "https://drive.google.com/file/d/1qoeQ8Zac36lL6yDQY6dAKlnqUk9wyAK6/view" },
+{ name: "Helen Weiser", link: "https://drive.google.com/file/d/1fCanjK-kt0CnyG9mkPNKpB6ETFsA5XHq/view" },
+{ name: "April DeMasters", link: "https://drive.google.com/file/d/1SgxmnXX1GZGymX54EsJVcno92bTleJZV/view" },
+{ name: "Brooke Gipson", link: "https://drive.google.com/file/d/1eQuImoYK90gezmSVXhv6t3fyqZM1HNdP/view" },
+{ name: "Terri Gilbert", link: "https://drive.google.com/file/d/13LDafOE4TC3kcu_t7LtIBJbPu19WDS6z/view" },
+{ name: "Heather McBride", link: "https://drive.google.com/file/d/1EegUjwC9cUWDpWf2GCtBzcICyQELBFwR/view" },
+{ name: "Ryan Weber", link: "https://drive.google.com/file/d/18_Emk_hVteooBere2JJHPgllV_AaXh0H/view" },
+{ name: "Stephanie Reed", link: "https://drive.google.com/file/d/1MKtLxNubdXvmirPTcsFEntliWOGqRumk/view" },
+{ name: "Tyler Brown", link: "https://drive.google.com/file/d/13rr22SsLy83tVz_4XrFS4f_2e-MEjiI4/view" }
+
 
     ];
 
