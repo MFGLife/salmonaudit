@@ -1,31 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Subpoena JSON Generator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+  <div class="max-w-6xl mx-auto bg-white p-8 shadow-md rounded">
+    <h1 class="text-2xl font-bold mb-4">Missouri Subpoena JSON Generator</h1>
+    <button onclick="generateJson()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded mb-4">Generate JSON</button>
+    <textarea id="output" rows="30" class="w-full font-mono text-sm p-4 border border-gray-300 rounded" readonly></textarea>
+  </div>
 
-
-const totalSlides = document.querySelectorAll('.swiper-slide').length;
-
-const swiper = new Swiper(".mySwiper", {
-  slidesPerView: 1,
-  spaceBetween: 20,
-  loop: totalSlides > 3, // Only enable loop if more than 3 slides
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev"
-  },
-  breakpoints: {
-    640: {
-      slidesPerView: 1.2,
-    },
-    768: {
-      slidesPerView: 2,
-    },
-    1024: {
-      slidesPerView: 3,
-    },
-  },
-});
-
-
-  const subpoenaData = [
-      { name: "Crycella Freitag", link: "https://drive.google.com/file/d/1ztjk8LZ8lTjma0Z9szn_wUlrySPFtno3/view" },
+  <script>
+    const subpoenaData = [
+            { name: "Crycella Freitag", link: "https://drive.google.com/file/d/1ztjk8LZ8lTjma0Z9szn_wUlrySPFtno3/view" },
       { name: "Crycella Freitag", link: "https://drive.google.com/file/d/1sZVLOM2lNEmYxjg4KUtdRFWzNTjVxFMN/view" },
       { name: "Crycella Freitag", link: "https://drive.google.com/file/d/1pjIVi5Ao3huyPE7E1FRxo52T8l9xe3xX/view" },
       { name: "Crycella Freitag", link: "https://drive.google.com/file/d/1DGp9Sd5-3Be3f_sdyzULVf2epqIGCdew/view" },
@@ -80,26 +69,42 @@ const swiper = new Swiper(".mySwiper", {
 { name: "Kelly Truelove", link: "https://drive.google.com/file/d/19lrK72LEXBztOlGJcpqneH8UxPg5D33H/view?usp=drive_link" }
 
 
-
     ];
 
-    const searchInput = document.getElementById('search');
-    const resultsList = document.getElementById('results');
-    const noResults = document.getElementById('noResults');
+    function formatAsLegalJson(id, title, date, type, status, content) {
+      const escapedContent = content.replace(/`/g, '\\`');
+      return `{
+  id: "24SN-DR00104",
+  title: "${title}",
+  date: "${date}",
+  type: "${type}",
+  status: "${status}",
+  content: \`${escapedContent}\`
+},`;
+    }
 
-    searchInput.addEventListener('input', function () {
-      const query = this.value.trim().toLowerCase();
-      resultsList.innerHTML = '';
-      const matches = subpoenaData.filter(item => item.name.toLowerCase().includes(query));
+    function generateJson() {
+      const date = new Date().toISOString().split('T')[0];
+      const type = "Subpoena Duces Tecum";
+      const status = "pending";
+      let output = "";
 
-      if (matches.length === 0) {
-        noResults.classList.remove('hidden');
-      } else {
-        noResults.classList.add('hidden');
-        matches.forEach(item => {
-          const li = document.createElement('li');
-          li.innerHTML = `<a href="${item.link}" target="_blank" class="text-blue-600 hover:underline">${item.name}</a>`;
-          resultsList.appendChild(li);
-        });
-      }
-    });
+      subpoenaData.forEach((entry, index) => {
+        const id = `subpoena_${index + 1}`;
+        const title = `Subpoena: ${entry.name}`;
+        const content = `You are hereby commanded to produce all communications, including but not limited to:
+- Text messages
+- Emails
+- Social media messages
+- Voice recordings
+- Any and all phone call recordings involving or referring to Micheal Lawrence Salmon
+
+Failure to comply may result in legal penalties as defined under Missouri Revised Statutes. View subpoena: ${entry.link}`;
+        output += formatAsLegalJson(id, title, date, type, status, content) + "\n\n";
+      });
+
+      document.getElementById("output").value = output;
+    }
+  </script>
+</body>
+</html>
