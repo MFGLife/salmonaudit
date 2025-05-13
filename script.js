@@ -5,7 +5,7 @@
     ["what is your name", "I'm Lumies AI assistant!", ""],
     ["goodbye", "Goodbye! Have a great day!", ""]
 ];
-
+ 
 // Global variables
 let userId = "Guest";
 let conversationData = [];
@@ -757,32 +757,12 @@ function parseValue(value) {
     return value;
 }
 
-function distance(a, b) {
-    const aLen = a.length;
-    const bLen = b.length;
-    const dist = Array(aLen + 1).fill(null).map(() => Array(bLen + 1).fill(null));
-
-    for (let i = 0; i <= aLen; i++) dist[i][0] = i;
-    for (let j = 0; j <= bLen; j++) dist[0][j] = j;
-
-    for (let i = 1; i <= aLen; i++) {
-        for (let j = 1; j <= bLen; j++) {
-            const cost = a[i - 1] === b[j - 1] ? 0 : 1;
-            dist[i][j] = Math.min(
-                dist[i - 1][j] + 1,
-                dist[i][j - 1] + 1,
-                dist[i - 1][j - 1] + cost
-            );
-        }
-    }
-    return dist[aLen][bLen];
-}
-
 function getResponse(message) {
     const lowerMsg = message.toLowerCase().trim();
     let bestMatch = null;
     let bestDistance = Infinity;
 
+    // Iterate through loadedData to find the closest match
     for (const [question, answer] of loadedData) {
         const dist = distance(lowerMsg, question.toLowerCase());
         if (dist < bestDistance) {
@@ -791,8 +771,40 @@ function getResponse(message) {
         }
     }
 
-    if (bestDistance <= 5 && bestMatch) return bestMatch[1];
+    // If the best match is within the similarity threshold, return the answer
+    if (bestDistance <= similarityThreshold && bestMatch) {
+        return bestMatch[1];
+    }
+
+    // If no match is found within the threshold, suggest rephrasing
     return "I'm not sure how to respond to that. Can you try asking something else?";
+}
+
+// Levenshtein distance function for fuzzy matching
+function distance(a, b) {
+    const aLen = a.length;
+    const bLen = b.length;
+
+    // Create a 2D array to store distances
+    const dist = Array(aLen + 1).fill(null).map(() => Array(bLen + 1).fill(null));
+
+    // Initialize the first row and column
+    for (let i = 0; i <= aLen; i++) dist[i][0] = i;
+    for (let j = 0; j <= bLen; j++) dist[0][j] = j;
+
+    // Fill in the rest of the matrix
+    for (let i = 1; i <= aLen; i++) {
+        for (let j = 1; j <= bLen; j++) {
+            const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+            dist[i][j] = Math.min(
+                dist[i - 1][j] + 0.25, // Deletion
+                dist[i][j - 1] + 0.25, // Insertion
+                dist[i - 1][j - 1] + cost // Substitution
+            );
+        }
+    }
+
+    return dist[aLen][bLen];
 }
 
 function initCharts() {
@@ -914,9 +926,15 @@ function restoreTimestamps() {
     chatWindow.innerHTML = ''; // Clear the chat window
 
     if (conversationData.length === 0) {
-        chatWindow.innerHTML = '<p class="text-gray-500 italic">No conversation data yet. Start typing below.</p>';
-        return;
-    }
+    chatWindow.innerHTML = `
+        <p class="text-gray-500 italic text-sm">
+            No conversation data yet. Upload a JSON file or start typing below. 
+            <p class="py-6"><a href="#" id="download-micheal" data-filename="Micheal" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
+               Download Micheal.json
+            </a></p>
+        </p>`;
+    return;
+}
 
     // Display messages with timestamps
     conversationData.forEach(([message, response, timestamp]) => {
@@ -945,9 +963,15 @@ function updateChatWindow() {
     chatWindow.innerHTML = ''; // Clear the chat window
 
     if (conversationData.length === 0) {
-        chatWindow.innerHTML = '<p class="text-gray-500 italic">No conversation data yet. Start typing below.</p>';
-        return;
-    }
+    chatWindow.innerHTML = `
+        <p class="text-gray-500 italic text-sm">
+            No conversation data yet. Upload a JSON file or start typing below. 
+            <p class="py-6"><a href="#" id="download-micheal" data-filename="Micheal" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
+                Download Micheal.json
+            </a></p>
+        </p>`;
+    return;
+}
 
     // Display messages added during the session
     conversationData.forEach(([message, response, timestamp]) => {

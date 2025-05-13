@@ -183,6 +183,56 @@
 
   </style>
 </head>
+
+
+<div id="chatBot" class="fixed z-50 bottom-4 right-4 w-80 max-w-full bg-white rounded-xl shadow-lg overflow-hidden transition-transform transform translate-y-0">
+  <!-- Header -->
+  <div class="bg-green-600 px-4 py-3 flex items-center justify-between">
+    <h1 class="text-lg font-bold text-white">Chat Bot</h1>
+    <button id="toggleChatBot" class="text-white focus:outline-none">
+      <i class="fas fa-chevron-down"></i>
+    </button>
+  </div>
+
+  <!-- Chat Content -->
+  <div id="chatContent" class="p-4">
+    <!-- File Upload Section -->
+    <div class="mb-4">
+      <div class="file-upload bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg p-4 text-center transition-colors hover:border-green-400">
+        <div class="flex flex-col items-center justify-center space-y-3">
+          <i class="fas fa-file-upload text-2xl text-green-500"></i>
+          <p class="text-gray-600 text-sm">Drag & drop your JSON file here or click to browse</p>
+          <input type="file" id="jsonFileInput" accept=".json" class="hidden">
+          <button id="uploadBtn" class="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+            Select File
+          </button>
+
+        </div>
+      </div>
+      <div id="fileInfo" class="mt-2 text-sm text-gray-600 hidden">
+        <i class="fas fa-check-circle text-green-500 mr-1"></i>
+        <span id="fileName">No file selected</span>
+      </div>
+      <div id="uploadStatus" class="hidden text-sm mt-2"></div>
+    </div>
+
+    <!-- Conversation Section -->
+    <div class="mb-4">
+      <h2 class="text-sm font-semibold mb-2 text-gray-800">Conversation</h2>
+      <div id="chatWindow" class="bg-gray-50 rounded-lg p-3 h-48 overflow-y-auto mb-3 space-y-2">
+        <p class="text-gray-500 italic text-sm">No conversation data yet. Upload a JSON file or start typing below. <a href="#" id="download-micheal" data-filename="Micheal" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-3 px-6 rounded-lg text-center transition duration-300"><i class="fas fa-download mr-2"></i>Micheal.json</a></p>
+      </div>
+      <div class="flex space-x-2">
+        <input type="text" id="userInput" placeholder="Type your message..." 
+               class="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+        <button id="sendBtn" class="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition-colors text-sm">
+          Send
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <body class="bg-secondary-100 text-secondary-900 font-sans">
   <!-- Navigation -->
   <nav class="bg-white shadow-lg sticky top-0 z-50">
@@ -196,16 +246,15 @@
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
               <a href="#home" class="px-3 py-2 rounded-md text-sm font-medium text-primary-700 bg-primary-100">Home</a>
-              <a href="#features" class="px-3 py-2 rounded-md text-sm font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">Features</a>
-              <a href="#ideology" class="px-3 py-2 rounded-md text-sm font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">Ideology</a>
+              <a href="#ideology" class="px-3 py-2 rounded-md text-sm font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">Data</a>
               <a href="#tools" class="px-3 py-2 rounded-md text-sm font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">Tools</a>
-              <a href="#faq" class="px-3 py-2 rounded-md text-sm font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">FAQ</a>
+              <a href="./apps/SalmonAudit(beta).apk" class="px-3 py-2 rounded-md text-sm font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">Download App</a>
             </div>
           </div>
         </div>
         <div class="hidden md:block">
-<a href="./apps/SalmonAudit(beta).apk" download class="px-4 py-2 rounded-md text-sm font-medium text-white bg-indigo-600 hover:bg-primary-700 transition duration-300">
-    Download App
+<a href="./apps/pdfSign.html" download class="px-4 py-2 rounded-md text-sm font-medium text-white bg-indigo-600 hover:bg-primary-700 transition duration-300">
+    E-Notarize
 </a>
         </div>
         <div class="-mr-2 flex md:hidden">
@@ -221,27 +270,25 @@
     <div class="md:hidden hidden" id="mobile-menu">
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
         <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-primary-700 bg-primary-100">Home</a>
-        <a href="#features" class="block px-3 py-2 rounded-md text-base font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">Features</a>
-        <a href="#ideology" class="block px-3 py-2 rounded-md text-base font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">Ideology</a>
+        <a href="#ideology" class="block px-3 py-2 rounded-md text-base font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">Data</a>
         <a href="#tools" class="block px-3 py-2 rounded-md text-base font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">Tools</a>
-        <a href="#faq" class="block px-3 py-2 rounded-md text-base font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">FAQ</a>
-<a href="./apps/SalmonAudit(beta).apk" download class="px-4 py-2 rounded-md text-sm font-medium text-white bg-indigo-600 hover:bg-primary-700 transition duration-300">
-    Download App
-</a>
+        <a href="./apps/SalmonAudit(beta).apk" class="block px-3 py-2 rounded-md text-base font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">Download App</a>
+<a class="px-1 py-6"> <a href="./apps/pdfSign.html" download class="px-4 py-2 rounded-md text-sm font-medium text-white bg-indigo-600 hover:bg-primary-700 transition duration-300">
+    E-Notarize
+</a> </a>
       </div>
     </div>
   </nav>
 
   
-<section id="timeline">
+<section id="timeline" class="bg-white">
+    <div class="max-w-7xl py-4 mx-auto px-4 sm:px-6 lg:px-8">
 
-  <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <header class="mb-8">
-      <div class="bg-white w-full max-w-7xl mx-auto rounded-xl shadow-md overflow-hidden p-6 space-y-4">
+
         <!-- Profile Header -->
         <div class="flex items-center justify-between w-full">
   <!-- Profile Image + Info -->
-  <div class="flex items-center flex-grow">
+  <div class="flex items-center flex-grow py-4">
     <img class="h-16 w-16 rounded-full border-2 border-primary-600" src="pics/micheal.png" alt="Micheal Lawrence Salmon">
     <div class="ml-4">
       <h2 class="text-xl font-bold text-gray-800">Micheal Lawrence Salmon</h2>
@@ -252,8 +299,10 @@
     </div>
   </div>
 
+
+
   <!-- Social Icons -->
-<div class="grid grid-cols-2 gap-4 ml-6 text-3xl text-secondary-300">
+<div class="grid grid-cols-2 gap-4 ml-6 text-1xl text-secondary-300">
   <a href="https://x.com/LuminaFields" class="hover:text-white">
     <i class="fab fa-twitter"></i>
   </a>
@@ -292,6 +341,8 @@
     This isn’t just a campaign — it’s a movement for accountability, truth, and transformation in our legal system.
     <span class="font-semibold text-primary-700">Let’s make Kansas City the blueprint for justice in America.</span>
   </p>
+
+               
 </div>
 
 
@@ -312,6 +363,78 @@
     <p id="noResults" class="text-center text-gray-500 hidden">No matching subpoenas found.</p>
   </div> 
    
+
+<div class="space-y-4 py-4">
+
+  <!-- FAQ 1 -->
+  <div class="border border-secondary-200 rounded-lg overflow-hidden">
+    <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
+      <span class="text-lg font-medium text-secondary-900">What is the Golden Bridge Disclosure Contract?</span>
+      <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
+    </button>
+    <div class="faq-content hidden px-4 pb-4 pt-0 text-secondary-600">
+      <p>The Golden Bridge Disclosure Contract is a one-time legal instrument offered to recipients of subpoenas. It allows them to voluntarily disclose communications, defamatory actions, collusion, or false reporting. In return, the contract offers immunity from private prosecution by the issuing party and locks that immunity into the court record permanently. It functions as a subpoena response, an NDA, and a will—enforceable in Missouri and Kansas, and notarized through SalmonAudit.info.</p>
+    </div>
+  </div>
+
+  <!-- FAQ 2 -->
+  <div class="border border-secondary-200 rounded-lg overflow-hidden">
+    <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
+      <span class="text-lg font-medium text-secondary-900">What happens if I ignore the subpoena and this contract?</span>
+      <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
+    </button>
+    <div class="faq-content hidden px-4 pb-4 pt-0 text-secondary-600">
+      <p>Ignoring a subpoena is a violation of civil procedure in both Kansas and Missouri. When paired with refusal to sign the Golden Bridge Disclosure Contract after communication has been made, this becomes evidence of obstruction. The issuing party may file for contempt of court, motion to compel, and motion for sanctions under Supreme Court Rule 61.01(d) in Missouri and K.S.A. 60-237(b) in Kansas. This will be submitted as part of the appeal record, showing deliberate evasion and misconduct.</p>
+    </div>
+  </div>
+
+  <!-- FAQ 3 -->
+  <div class="border border-secondary-200 rounded-lg overflow-hidden">
+    <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
+      <span class="text-lg font-medium text-secondary-900">Why is adverse inference triggered by ignoring this contract?</span>
+      <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
+    </button>
+    <div class="faq-content hidden px-4 pb-4 pt-0 text-secondary-600">
+      <p>If you've received the subpoena and were personally contacted, yet refuse to respond or deny facts that can be proven false, adverse inference applies. This legal principle allows the court (or future appeals court) to presume that the information being withheld would have been unfavorable to you. Case law in both Kansas and Missouri supports this consequence when destruction, concealment, or refusal to produce relevant documents occurs after a subpoena is issued.</p>
+    </div>
+  </div>
+
+  <!-- FAQ 4 -->
+  <div class="border border-secondary-200 rounded-lg overflow-hidden">
+    <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
+      <span class="text-lg font-medium text-secondary-900">What if I claim I didn’t receive the subpoena or contract?</span>
+      <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
+    </button>
+    <div class="faq-content hidden px-4 pb-4 pt-0 text-secondary-600">
+      <p>All subpoenas and Golden Bridge contracts are documented through tracked service, screenshots, and notarized contacts on SalmonAudit.info. If you've received a message, email, or text and were given access to this form and you ignore it, your silence becomes legally significant. Courts recognize that actual notice (not formal service) can trigger duty to preserve evidence and comply with discovery. Silence is not innocence; it becomes an admission of bad faith when paired with refusal.</p>
+    </div>
+  </div>
+
+  <!-- FAQ 5 -->
+  <div class="border border-secondary-200 rounded-lg overflow-hidden">
+    <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
+      <span class="text-lg font-medium text-secondary-900">What does signing this contract actually do?</span>
+      <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
+    </button>
+    <div class="faq-content hidden px-4 pb-4 pt-0 text-secondary-600">
+      <p>Signing the Golden Bridge Disclosure Contract voluntarily allows you to provide evidence, clarify intent, or admit to past actions without fear of future personal prosecution from the issuing party. It is permanently bound to the case record and functions as a waiver of liability. This one-time offer gives you control over what’s disclosed, within the boundaries of truth. Once signed, you are protected from being listed in civil conspiracy or retaliation claims tied to the ongoing case or its fallout.</p>
+    </div>
+  </div>
+
+  <!-- FAQ 6 -->
+  <div class="border border-secondary-200 rounded-lg overflow-hidden">
+    <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
+      <span class="text-lg font-medium text-secondary-900">What if I lie or give partial disclosure?</span>
+      <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
+    </button>
+    <div class="faq-content hidden px-4 pb-4 pt-0 text-secondary-600">
+      <p>Partial disclosure or false statements after signing the contract will invalidate the agreement and trigger a perjury or fraud inquiry in both jurisdictions. It will also allow the issuing party to reintroduce you into the class action or conspiracy proceedings with your admission now usable against you. In short: the contract protects you only if your disclosures are full, honest, and provable. Anything less reactivates the full legal arsenal already documented and in progress.</p>
+    </div>
+  </div>
+
+</div>
+
+
 <!-- DA Pathway Section with Swiper Carousel -->
 <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 space-y-3">
 
@@ -527,16 +650,6 @@ months.</p>
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
   </div>
-</div>
-
-    </header>
-
-  </head>
-
-
-
-    </main>
-
 
 </div>
 </section>
@@ -841,226 +954,9 @@ months.</p>
     </div>
   </section>
   
-  
-  <!-- Hero Section -->
-  <section id="home" class="gradient-bg text-white py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
-        <div class="mb-12 lg:mb-0">
-          <h1 class="text-4xl md:text-5xl font-bold mb-6">Your Personalized <span class="text-accent-400">AI Life Adjuvant</span></h1>
-          <p class="text-xl mb-8">Salmon is a 1GB lightweight AI model that autonomizes your life, serving as both a personal assistant and legal aid, perfectly aligned with your ideology.</p>
-          <p class="text-xl mb-12">Set privacy. Choose transparency.</p>
-
-          <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-            <div class="bg-white rounded-xl shadow-md overflow-hidden p-6 card-hover">
-                <div class="flex items-center mb-4">
-                  <div class="flex-shrink-0">
-                    <img class="h-12 w-12 rounded-full" src="pics/micheal.png" alt="Michael T.">
-                  </div>
-                  <div class="ml-4">
-                    <a href="#" id="download-micheal" data-filename="Micheal" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
-                        <i class="fas fa-download mr-2"></i>Micheal.json
-                      </a>
-                  </div>
-                </div>
-                <p class="text-secondary-600">Micheal - Strategic, stoic, principled, relentless; a truth-seeker who values logic over emotion, champions justice, and empowers others through self-discipline.</p>
-              </div> 
-          </div>
-          <div class="mt-8 flex items-center">
-            <div class="flex -space-x-2">
-              <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://randomuser.me/api/portraits/women/12.jpg" alt="">
-              <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://randomuser.me/api/portraits/men/33.jpg" alt="">
-              <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://randomuser.me/api/portraits/women/45.jpg" alt="">
-            </div>
-            <p class="ml-4 text-primary-200">
-              <span class="font-semibold text-white">10,000+</span> users trust Salmon
-            </p>
-          </div>
-        </div>
-
-
-        <div class="relative">
-          <div class="relative mx-auto w-full max-w-md">
-
-            <div class="container mx-auto px-4 py-8 max-w-4xl">
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                                    <div class="bg-green-600 px-6 py-4">
-                    <div class="flex items-center justify-between">
-                        <h1 class="text-2xl font-bold text-white">Upload JSON File</h1>
-                        <div class="flex items-center space-x-2">
-                            <span id="userBadge" class="bg-green-800 text-white px-3 py-1 rounded-full text-sm">Guest</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Main Content -->
-                <div class="p-6">
-                    <!-- File Upload Section -->
-                    <div class="mb-8">
-                        <div class="file-upload bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg p-8 text-center transition-colors hover:border-green-400">
-                            <div class="flex flex-col items-center justify-center space-y-3">
-                                <i class="fas fa-file-upload text-4xl text-green-500"></i>
-                                <p class="text-gray-600">Drag & drop your JSON file here or click to browse</p>
-                                <input type="file" id="jsonFileInput" accept=".json" class="hidden">
-                                <button id="uploadBtn" class="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">
-                                    Select File
-                                </button>
-                            </div>
-                        </div>
-                        <div id="fileInfo" class="mt-3 text-sm text-gray-600 hidden">
-                            <i class="fas fa-check-circle text-green-500 mr-1"></i>
-                            <span id="fileName">No file selected</span>
-                        </div>
-                        <div id="uploadStatus" class="hidden text-sm mt-2"></div>
-                    </div>
-                    
-                    <!-- Conversation Section -->
-                    <div class="mb-8">
-                        <h2 class="text-xl font-semibold mb-4 text-gray-800">Conversation</h2>
-                        <div id="chatWindow" class="bg-gray-50 rounded-lg p-4 h-64 overflow-y-auto mb-4 space-y-3">
-                            <p class="text-gray-500 italic">No conversation data yet. Upload a JSON file or start typing below.</p>
-                        </div>
-                        
-                        <div class="flex space-x-2 text-black">
-                            <input type="text" id="userInput" placeholder="Type your message..." 
-                                   class="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
-                            <button id="sendBtn" class="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">
-                                Send
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            
 
 
 
-
-            </div>
-            </div>
-
-
-
-
-
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Trusted By -->
-  <section class="bg-white py-12">
-    <div class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
-
-
-          <div class="bg-white rounded-xl shadow-md overflow-hidden p-6 card-hover">
-            <div class="flex items-center mb-4">
-              <div class="flex-shrink-0">
-                <img class="h-12 w-12 rounded-full" src="pics/crycella.png" alt="Michael T.">
-              </div>
-              <div class="ml-4">
-                <a href="#" id="download-crycella" data-filename="Crycella" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
-                    <i class="fas fa-download mr-2"></i>Crycella.json
-                  </a>
-              </div>
-            </div>
-            <p class="text-secondary-600 italic">Manipulative, evasive, emotionally reactive; prioritizes control over cooperation, often distorts truth to serve personal narratives and avoid accountability.</p>
-          </div>
-
-          <div class="bg-white rounded-xl shadow-md overflow-hidden p-6 card-hover">
-            <div class="flex items-center mb-4">
-              <div class="flex-shrink-0">
-                <img class="h-12 w-12 rounded-full" src="pics/josh.png" alt="Michael T.">
-              </div>
-              <div class="ml-4">
-                <a href="#" id="download-josh" data-filename="Josh" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
-                    <i class="fas fa-download mr-2"></i>Josh.json
-                  </a>
-              </div>
-            </div>
-            <p class="text-secondary-600">Complicit, performative, biased; masks incompetence with authority, enables misconduct under legal guise, avoids transparency, undermines justice through selective enforcement.</p>
-          </div>      
-
-          <div class="bg-white rounded-xl shadow-md overflow-hidden p-6 card-hover">
-            <div class="flex items-center mb-4">
-              <div class="flex-shrink-0">
-                <img class="h-12 w-12 rounded-full" src="pics/kelly.png" alt="Michael T.">
-              </div>
-              <div class="ml-4">
-                <a href="#" id="download-kelly" data-filename="Kelly" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
-                    <i class="fas fa-download mr-2"></i>Kelly.json
-                  </a>
-              </div>
-            </div>
-            <p class="text-secondary-600 italic">Passive, self-serving, conflict-avoidant; withholds truth to protect image, enables deception by silence, values comfort over ethical responsibility.</p>
-          </div>
-
-    </div>
-
-
-            <!-- New JSON Data Explorer Section -->
-            <div class="mt-8 bg-gray-800 text-gray-200 rounded-lg p-6">
-                <!-- Header -->
-                <header class="mb-6">
-                    <h2 class="text-xl font-bold mb-2">JSON Data Explorer</h2>
-                    <div class="flex items-center space-x-4">
-                        <div class="relative flex-1">
-                            <input type="file" id="fileInput" class="hidden" accept=".json">
-
-                        </div>
-                        <button id="saveBtn" class="px-4 py-2 bg-green-600 hover:bg-green-700 rounded flex items-center">
-                            <i class="fas fa-save mr-2"></i> Save Changes
-                        </button>
-                        <button id="resetBtn" class="px-4 py-2 bg-gray-600 hover:bg-gray-700 rounded flex items-center">
-                            <i class="fas fa-undo mr-2"></i> Reset
-                        </button>
-                    </div>
-                </header>
-
-                <!-- Main Content -->
-                <div class="flex flex-col lg:flex-row gap-6">
-                    <!-- Left Panel - JSON Tree -->
-                    <div class="flex-1 overflow-auto border border-gray-700 rounded p-4">
-                        <h3 class="text-lg font-semibold mb-4 flex items-center">
-                            <i class="fas fa-code mr-2"></i> JSON Structure
-                        </h3>
-                        <div id="jsonViewer" class="font-mono text-sm"></div>
-                    </div>
-
-                    <!-- Right Panel - Data Visualization -->
-                    <div class="flex-1 overflow-auto">
-                        <div class="grid grid-cols-1 gap-6">
-                            <!-- Main Headings Chart -->
-                            <div class="border border-gray-700 rounded p-4">
-                                <h3 class="text-lg font-semibold mb-4 flex items-center">
-                                    <i class="fas fa-chart-bar mr-2"></i> Main Headings
-                                </h3>
-                                <canvas id="mainHeadingChart" height="200"></canvas>
-                            </div>
-
-                            <!-- Populations Chart -->
-                            <div class="border border-gray-700 rounded p-4">
-                                <h3 class="text-lg font-semibold mb-4 flex items-center">
-                                    <i class="fas fa-chart-pie mr-2"></i> Populations
-                                </h3>
-                                <canvas id="populationsChart" height="200"></canvas>
-                            </div>
-
-                            <!-- Completed Projects -->
-                            <div class="border border-gray-700 rounded p-4">
-                                <h3 class="text-lg font-semibold mb-4 flex items-center">
-                                    <i class="fas fa-tasks mr-2"></i> Completed Projects
-                                </h3>
-                                <div id="projectsList" class="flex flex-wrap gap-2"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-  </section>
 
   <!-- Features Section -->
   <section id="features" class="py-20 bg-secondary-50">
@@ -1423,6 +1319,68 @@ months.</p>
 </section>
 
 
+            <!-- New JSON Data Explorer Section -->
+            <div class="mt-8 bg-gray-800 text-gray-200 p-6">
+                <!-- Header -->
+                <header class="mb-6">
+                    <h2 class="text-xl font-bold mb-2">JSON Data Explorer</h2>
+                    <div class="flex items-center space-x-4">
+                        <div class="relative flex-1">
+                            <input type="file" id="fileInput" class="hidden" accept=".json">
+
+                        </div>
+                        <button id="saveBtn" class="px-4 py-2 bg-green-600 hover:bg-green-700 rounded flex items-center">
+                            <i class="fas fa-save mr-2"></i> Save Changes
+                        </button>
+                        <button id="resetBtn" class="px-4 py-2 bg-gray-600 hover:bg-gray-700 rounded flex items-center">
+                            <i class="fas fa-undo mr-2"></i> Reset
+                        </button>
+                    </div>
+                </header>
+
+                <!-- Main Content -->
+                <div class="flex flex-col lg:flex-row gap-6">
+                    <!-- Left Panel - JSON Tree -->
+                    <div class="flex-1 overflow-auto border border-gray-700 rounded p-4">
+                        <h3 class="text-lg font-semibold mb-4 flex items-center">
+                            <i class="fas fa-code mr-2"></i> JSON Structure
+                        </h3>
+                        <div id="jsonViewer" class="font-mono text-sm"></div>
+                    </div>
+
+                    <!-- Right Panel - Data Visualization -->
+                    <div class="flex-1 overflow-auto">
+                        <div class="grid grid-cols-1 gap-6">
+                            <!-- Main Headings Chart -->
+                            <div class="border border-gray-700 rounded p-4">
+                                <h3 class="text-lg font-semibold mb-4 flex items-center">
+                                    <i class="fas fa-chart-bar mr-2"></i> Main Headings
+                                </h3>
+                                <canvas id="mainHeadingChart" height="200"></canvas>
+                            </div>
+
+                            <!-- Populations Chart -->
+                            <div class="border border-gray-700 rounded p-4">
+                                <h3 class="text-lg font-semibold mb-4 flex items-center">
+                                    <i class="fas fa-chart-pie mr-2"></i> Populations
+                                </h3>
+                                <canvas id="populationsChart" height="200"></canvas>
+                            </div>
+
+                            <!-- Completed Projects -->
+                            <div class="border border-gray-700 rounded p-4">
+                                <h3 class="text-lg font-semibold mb-4 flex items-center">
+                                    <i class="fas fa-tasks mr-2"></i> Completed Projects
+                                </h3>
+                                <div id="projectsList" class="flex flex-wrap gap-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
   <!-- Footer -->
   <footer class="bg-secondary-900 text-white pt-16 pb-8">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1628,23 +1586,16 @@ months.</p>
     downloadFile('Micheal');
   });
 
-  document.getElementById('download-crycella').addEventListener('click', e => {
-    e.preventDefault();
-    downloadFile('Crycella');
+  const chatBot = document.getElementById('chatBot');
+  const toggleChatBot = document.getElementById('toggleChatBot');
+  const chatContent = document.getElementById('chatContent');
+
+  toggleChatBot.addEventListener('click', () => {
+    chatContent.classList.toggle('hidden');
+    const icon = toggleChatBot.querySelector('i');
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
   });
-
-  document.getElementById('download-josh').addEventListener('click', e => {
-    e.preventDefault();
-    downloadFile('Josh');
-  });
-
-  document.getElementById('download-kelly').addEventListener('click', e => {
-    e.preventDefault();
-    downloadFile('Kelly');
-  });
-
-
-
 
 </script>
 
