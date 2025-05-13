@@ -929,7 +929,7 @@ function restoreTimestamps() {
     chatWindow.innerHTML = `
         <p class="text-gray-500 italic text-sm">
             No conversation data yet. Upload a JSON file or start typing below. 
-            <p class="py-6"><a href="#" id="download-micheal" data-filename="Micheal" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
+            <p class="py-6"><a href="#" id="download-micheal" data-filename="Micheal.json" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
                Download Micheal.json
             </a></p>
         </p>`;
@@ -966,7 +966,7 @@ function updateChatWindow() {
     chatWindow.innerHTML = `
         <p class="text-gray-500 italic text-sm">
             No conversation data yet. Upload a JSON file or start typing below. 
-            <p class="py-6"><a href="#" id="download-micheal" data-filename="Micheal" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
+            <p class="py-6"><a href="#" id="download-micheal" data-filename="Micheal.json" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
                 Download Micheal.json
             </a></p>
         </p>`;
