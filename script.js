@@ -900,6 +900,27 @@ function updateVisualizations() {
     }
 }
 
+function bindDownloadButton(data) {
+    const btn = document.getElementById('download-micheal');
+    if (btn) {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            const filename = this.getAttribute('data-filename');
+            const jsonStr = JSON.stringify(data, null, 2);
+            const blob = new Blob([jsonStr], { type: "application/json" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+    }
+}
+
+
 function isValidDataFormat(data) {
     if (!data || !data.conversationData || !Array.isArray(data.conversationData)) {
         return false;
@@ -933,6 +954,7 @@ function restoreTimestamps() {
                Download Micheal.json
             </a></p>
         </p>`;
+bindDownloadButton({ conversationData, userData });
     return;
 }
 
@@ -970,6 +992,7 @@ function updateChatWindow() {
                 Download Micheal.json
             </a></p>
         </p>`;
+bindDownloadButton({ conversationData, userData });
     return;
 }
 
