@@ -481,21 +481,16 @@ jsonFileInput.addEventListener('change', (event) => {
                     document.querySelector('.file-upload').classList.add('hidden');
                     fileInfo.classList.add('hidden');
 
-                    // Update user badge
-                    userBadge.textContent = userId;
-
-                    // Change title to "Validated"
-                    const titleElement = document.querySelector('.bg-indigo-600 h1');
-                    if (titleElement) {
-                        titleElement.textContent = "Validated";
-                    }
+                    // Update user interface
+                    updateUserInterface(userId);
 
                     // Show success message
                     addSystemMessage(`Loaded ${data.conversationData.length} new conversation pairs from file.`);
 
                     // Show success message in the upload status
                     const uploadStatus = document.getElementById('uploadStatus');
-                    uploadStatus.textContent = 'Profile loaded successfully!';
+                    addSystemMessage(`Profile Loaded sucessfully.`);
+                    document.getElementById('chatWindow').style.height = '350px';
                     uploadStatus.className = 'text-sm mt-2 text-green-600';
                     uploadStatus.classList.remove('hidden');
 
@@ -928,10 +923,7 @@ function restoreTimestamps() {
 
     if (conversationData.length === 0) {
     chatWindow.innerHTML = `
-        <p class="text-gray-500 italic text-sm">
-<!-- Hero Mission Statement -->
-<div class="relative bg-gradient-to-br from-white via-primary-50 to-primary-100 border-l-8 border-primary-600 p-6 shadow-xl rounded-md">
-
+      <span id="userBadge" class="bg-green-800 text-white px-3 py-1 rounded-full text-sm">Guest</span>
 
   <!-- Headline -->
   <h1 class="text-xl sm:text-2xl font-black uppercase text-primary-700 tracking-wide mb-4">
@@ -949,10 +941,8 @@ function restoreTimestamps() {
     This isn’t just a campaign — it’s a movement for accountability, truth, and transformation in our legal system.
     <span class="font-semibold text-primary-700">Let’s make Kansas City the blueprint for justice in America.</span>
   </p>
-
-               
-</div>            
-        </p>`;
+           
+        `;
     return;
 }
 
@@ -984,9 +974,8 @@ function updateChatWindow() {
 
     if (conversationData.length === 0) {
     chatWindow.innerHTML = `
-    <!-- Hero Mission Statement -->
-<div class="relative bg-gradient-to-br from-white via-primary-50 to-primary-100 border-l-8 border-primary-600 p-6 shadow-xl rounded-md">
 
+  <span id="userBadge" class="bg-green-800 text-white px-3 py-1 rounded-full text-sm">Guest</span>
 
   <!-- Headline -->
   <h1 class="text-xl sm:text-2xl font-black uppercase text-primary-700 tracking-wide mb-4">
@@ -1004,9 +993,7 @@ function updateChatWindow() {
     This isn’t just a campaign — it’s a movement for accountability, truth, and transformation in our legal system.
     <span class="font-semibold text-primary-700">Let’s make Kansas City the blueprint for justice in America.</span>
   </p>
-
-               
-</div>    
+   
     `;
     return;
 }
@@ -1051,4 +1038,18 @@ document.getElementById('saveBtn').addEventListener('click', () => {
 
     addSystemMessage(`File saved as ${exportFileName}.`);
 });
+
+function updateUserInterface(userId) {
+    // Update user badge
+    const userBadge = document.getElementById('userBadge');
+    if (userBadge) {
+        userBadge.textContent = userId;
+    }
+
+    // Change title to "Validated"
+    const titleElement = document.querySelector('.bg-indigo-600 h1');
+    if (titleElement) {
+        titleElement.textContent = "Validated";
+    }
+}
 
