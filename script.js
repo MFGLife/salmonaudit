@@ -900,26 +900,6 @@ function updateVisualizations() {
     }
 }
 
-function bindDownloadButton(data) {
-    const btn = document.getElementById('download-micheal');
-    if (btn) {
-        btn.addEventListener('click', function (e) {
-            e.preventDefault();
-            const filename = this.getAttribute('data-filename');
-            const jsonStr = JSON.stringify(data, null, 2);
-            const blob = new Blob([jsonStr], { type: "application/json" });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = filename;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        });
-    }
-}
-
 
 function isValidDataFormat(data) {
     if (!data || !data.conversationData || !Array.isArray(data.conversationData)) {
@@ -949,12 +929,30 @@ function restoreTimestamps() {
     if (conversationData.length === 0) {
     chatWindow.innerHTML = `
         <p class="text-gray-500 italic text-sm">
-            No conversation data yet. Upload a JSON file or start typing below. 
-            <p class="py-6"><a href="#" id="download-micheal" data-filename="Micheal.json" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
-               Download Micheal.json
-            </a></p>
+<!-- Hero Mission Statement -->
+<div class="relative bg-gradient-to-br from-white via-primary-50 to-primary-100 border-l-8 border-primary-600 p-6 shadow-xl rounded-md">
+
+
+  <!-- Headline -->
+  <h1 class="text-xl sm:text-2xl font-black uppercase text-primary-700 tracking-wide mb-4">
+    Fighting for Justice in Wyandotte County
+  </h1>
+
+  <!-- Mission Text -->
+  <p class="text-gray-800 text-base sm:text-lg leading-relaxed">
+    I’m running for <span class="font-semibold text-primary-600">District Attorney</span> to challenge corruption in family court
+    and lead a revolution in justice. My vision harnesses <strong>AI-powered legal strategy</strong> and bold constitutional reform
+    to prosecute coercive control and restore dignity to every family.
+  </p>
+
+  <p class="mt-4 text-gray-800 text-base sm:text-lg leading-relaxed">
+    This isn’t just a campaign — it’s a movement for accountability, truth, and transformation in our legal system.
+    <span class="font-semibold text-primary-700">Let’s make Kansas City the blueprint for justice in America.</span>
+  </p>
+
+               
+</div>            
         </p>`;
-bindDownloadButton({ conversationData, userData });
     return;
 }
 
@@ -986,13 +984,30 @@ function updateChatWindow() {
 
     if (conversationData.length === 0) {
     chatWindow.innerHTML = `
-        <p class="text-gray-500 italic text-sm">
-            No conversation data yet. Upload a JSON file or start typing below. 
-            <p class="py-6"><a href="#" id="download-micheal" data-filename="Micheal.json" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
-                Download Micheal.json
-            </a></p>
-        </p>`;
-bindDownloadButton({ conversationData, userData });
+    <!-- Hero Mission Statement -->
+<div class="relative bg-gradient-to-br from-white via-primary-50 to-primary-100 border-l-8 border-primary-600 p-6 shadow-xl rounded-md">
+
+
+  <!-- Headline -->
+  <h1 class="text-xl sm:text-2xl font-black uppercase text-primary-700 tracking-wide mb-4">
+    Fighting for Justice in Wyandotte County
+  </h1>
+
+  <!-- Mission Text -->
+  <p class="text-gray-800 text-base sm:text-lg leading-relaxed">
+    I’m running for <span class="font-semibold text-primary-600">District Attorney</span> to challenge corruption in family court
+    and lead a revolution in justice. My vision harnesses <strong>AI-powered legal strategy</strong> and bold constitutional reform
+    to prosecute coercive control and restore dignity to every family.
+  </p>
+
+  <p class="mt-4 text-gray-800 text-base sm:text-lg leading-relaxed">
+    This isn’t just a campaign — it’s a movement for accountability, truth, and transformation in our legal system.
+    <span class="font-semibold text-primary-700">Let’s make Kansas City the blueprint for justice in America.</span>
+  </p>
+
+               
+</div>    
+    `;
     return;
 }
 

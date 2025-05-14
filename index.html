@@ -188,7 +188,13 @@
 <div id="chatBot" class="fixed z-50 bottom-4 right-4 w-80 max-w-full bg-white rounded-xl shadow-lg overflow-hidden transition-transform transform translate-y-0">
   <!-- Header -->
   <div class="bg-green-600 px-4 py-3 flex items-center justify-between">
-    <h1 class="text-lg font-bold text-white">Chat Bot</h1>
+    <img class="h-12 w-12 rounded-full border-2 border-primary-600" src="pics/micheal.png" alt="Micheal Lawrence Salmon">
+    <div class="ml-4">
+      <p class="text-sm text-black-600">
+        <b>Dt. Micheal L. Salmon</b>
+        <br>Lead Plaintiff 25CV325
+      </p>
+    </div>
     <button id="toggleChatBot" class="text-white focus:outline-none">
       <i class="fas fa-chevron-down"></i>
     </button>
@@ -201,12 +207,12 @@
       <div class="file-upload bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg p-4 text-center transition-colors hover:border-green-400">
         <div class="flex flex-col items-center justify-center space-y-3">
           <i class="fas fa-file-upload text-2xl text-green-500"></i>
-          <p class="text-gray-600 text-sm">Drag & drop your JSON file here or click to browse</p>
+          <p class="text-gray-600 text-sm">Drag & drop your JSON file here, click to browse, or <a href="#" id="download-micheal" data-filename="Micheal.json" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-1 px-1 rounded-lg text-center transition duration-300"><i class="fas fa-download mr-2"></i>Micheal.json</a>
+</p>
           <input type="file" id="jsonFileInput" accept=".json" class="hidden">
           <button id="uploadBtn" class="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition-colors">
             Select File
           </button>
-
         </div>
       </div>
       <div id="fileInfo" class="mt-2 text-sm text-gray-600 hidden">
@@ -220,7 +226,7 @@
     <div class="mb-4">
       <h2 class="text-sm font-semibold mb-2 text-gray-800">Conversation</h2>
       <div id="chatWindow" class="bg-gray-50 rounded-lg p-3 h-48 overflow-y-auto mb-3 space-y-2">
-        <p class="text-gray-500 italic text-sm">No conversation data yet. Upload a JSON file or start typing below. <a href="#" id="download-micheal" data-filename="Micheal.json" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-3 px-6 rounded-lg text-center transition duration-300"><i class="fas fa-download mr-2"></i>Micheal.json</a></p>
+        <p class="text-gray-500 italic text-sm">No conversation data yet. Upload a JSON file or start typing below.</p>
       </div>
       <div class="flex space-x-2">
         <input type="text" id="userInput" placeholder="Type your message..." 
@@ -273,78 +279,26 @@
         <a href="#ideology" class="block px-3 py-2 rounded-md text-base font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">Data</a>
         <a href="#tools" class="block px-3 py-2 rounded-md text-base font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">Tools</a>
         <a href="./apps/SalmonAudit(beta).apk" class="block px-3 py-2 rounded-md text-base font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">Download App</a>
-<a class="px-1 py-6"> <a href="./apps/pdfSign.html" download class="px-4 py-2 rounded-md text-sm font-medium text-white bg-indigo-600 hover:bg-primary-700 transition duration-300">
+<p class="px-1 py-2"> <a href="./apps/pdfSign.html" download class="px-4 py-2 rounded-md text-sm font-medium text-white bg-indigo-600 hover:bg-primary-700 transition duration-300">
     E-Notarize
-</a> </a>
+</a> </p>
       </div>
     </div>
   </nav>
 
+
+
+
+  <!-- Offline Section -->
+  <section id="offline">
+
+    <iframe src="legal/index.html" style="width: 100%; height:93vh;"></iframe>
+
+</section>
+
   
 <section id="timeline" class="bg-white">
     <div class="max-w-7xl py-4 mx-auto px-4 sm:px-6 lg:px-8">
-
-
-        <!-- Profile Header -->
-        <div class="flex items-center justify-between w-full">
-  <!-- Profile Image + Info -->
-  <div class="flex items-center flex-grow py-4">
-    <img class="h-16 w-16 rounded-full border-2 border-primary-600" src="pics/micheal.png" alt="Micheal Lawrence Salmon">
-    <div class="ml-4">
-      <h2 class="text-xl font-bold text-gray-800">Micheal Lawrence Salmon</h2>
-      <p class="text-sm text-gray-600">
-        Lead Plaintiff, Case No. 25CV325<br>
-        District Court of Wyandotte County, Kansas
-      </p>
-    </div>
-  </div>
-
-
-
-  <!-- Social Icons -->
-<div class="grid grid-cols-2 gap-4 ml-6 text-1xl text-secondary-300">
-  <a href="https://x.com/LuminaFields" class="hover:text-white">
-    <i class="fab fa-twitter"></i>
-  </a>
-  <a href="https://www.facebook.com/woodandmortar" class="hover:text-white">
-    <i class="fab fa-facebook-f"></i>
-  </a>
-  <a href="https://www.linkedin.com/in/woodandmortar/" class="hover:text-white">
-    <i class="fab fa-linkedin-in"></i>
-  </a>
-  <a href="https://github.com/mfglife" class="hover:text-white">
-    <i class="fab fa-github"></i>
-  </a>
-</div>
-
-  
-</div>
-
-      
-<!-- Hero Mission Statement -->
-<div class="relative bg-gradient-to-br from-white via-primary-50 to-primary-100 border-l-8 border-primary-600 p-6 shadow-xl rounded-md">
-
-
-  <!-- Headline -->
-  <h1 class="text-xl sm:text-2xl font-black uppercase text-primary-700 tracking-wide mb-4">
-    Fighting for Justice in Wyandotte County
-  </h1>
-
-  <!-- Mission Text -->
-  <p class="text-gray-800 text-base sm:text-lg leading-relaxed">
-    I’m running for <span class="font-semibold text-primary-600">District Attorney</span> to challenge corruption in family court
-    and lead a revolution in justice. My vision harnesses <strong>AI-powered legal strategy</strong> and bold constitutional reform
-    to prosecute coercive control and restore dignity to every family.
-  </p>
-
-  <p class="mt-4 text-gray-800 text-base sm:text-lg leading-relaxed">
-    This isn’t just a campaign — it’s a movement for accountability, truth, and transformation in our legal system.
-    <span class="font-semibold text-primary-700">Let’s make Kansas City the blueprint for justice in America.</span>
-  </p>
-
-               
-</div>
-
 
        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Does Micheal have a Subpoena for you?</h1>
@@ -655,12 +609,6 @@ months.</p>
 </section>
 
 
-  <!-- Offline Section -->
-  <section id="offline">
-
-    <iframe src="legal/index.html" style="width: 100%; height:93vh;"></iframe>
-
-</section>
 
 
 <section id="map" class="flex justify-center items-center w-full h-[600px] rounded-lg shadow-md">

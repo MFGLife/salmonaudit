@@ -77,8 +77,8 @@ const swiper = new Swiper(".mySwiper", {
 { name: "Stephanie Reed", link: "https://drive.google.com/file/d/1MKtLxNubdXvmirPTcsFEntliWOGqRumk/view" },
 { name: "Tyler Brown", link: "https://drive.google.com/file/d/13rr22SsLy83tVz_4XrFS4f_2e-MEjiI4/view" },
 { name: "Jozef Hanratty", link: "https://drive.google.com/file/d/1DQWQ6_wbWKEWXgCt8CT7EMzPPAcXw6TB/view?usp=drive_link" },
-{ name: "Kelly Truelove", link: "https://drive.google.com/file/d/19lrK72LEXBztOlGJcpqneH8UxPg5D33H/view?usp=drive_link" }
-
+{ name: "Kelly Truelove", link: "https://drive.google.com/file/d/19lrK72LEXBztOlGJcpqneH8UxPg5D33H/view?usp=drive_link" },
+{ name: "Zach Stangl", link: "https://drive.google.com/file/d/1LlQ4rJMfZDkylMlBdeLgtWCA73B-ZJ08/view?usp=drive_link" }
 
 
     ];
