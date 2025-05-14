@@ -207,7 +207,7 @@
       <div class="file-upload bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg p-4 text-center transition-colors hover:border-green-400">
         <div class="flex flex-col items-center justify-center space-y-3">
           <i class="fas fa-file-upload text-2xl text-green-500"></i>
-          <p class="text-gray-600 text-sm">Drag & drop your JSON file here, click to browse, or <a href="#" id="download-micheal" data-filename="Micheal.json" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-1 px-1 rounded-lg text-center transition duration-300"><i class="fas fa-download mr-2"></i>Micheal.json</a>
+          <p class="text-gray-600 text-sm">Drag & drop your JSON file here, click to browse, or <a href="#" id="download-micheal" data-filename="Micheal" class="bg-white hover:bg-gray-100 text-primary-700 font-bold py-1 px-1 rounded-lg text-center transition duration-300"><i class="fas fa-download mr-2"></i>Micheal.json</a>
 </p>
           <input type="file" id="jsonFileInput" accept=".json" class="hidden">
           <button id="uploadBtn" class="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition-colors">
@@ -1531,7 +1531,7 @@ months.</p>
 
   document.getElementById('download-micheal').addEventListener('click', e => {
     e.preventDefault();
-    downloadFile('Micheal.json');
+    downloadFile('Micheal');
   });
 
   const chatBot = document.getElementById('chatBot');
