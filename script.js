@@ -545,6 +545,53 @@ function sendMessage() {
         processConversationData();
         updateJSONDisplay();
         addSystemMessage(response, timestamp); // Pass timestamp to system message
+
+        
+replaceLinksWithIcon = () => {
+  const divs = chatWindow.querySelectorAll("div:not(.fa-icon-replaced)");
+
+  divs.forEach(div => {
+    const text = div.textContent;
+
+    // Match all URLs in the text
+    const urlMatches = text.match(/http[s]?:\/\/\S+/g); // Match all URLs starting with http or https
+    if (urlMatches) {
+      div.textContent = ""; // Clear the div's text content
+      div.classList.add("fa-icon-replaced");
+
+          // Add a line before the icons
+      const header = document.createElement("p");
+      header.textContent = "Here are all the documents found:";
+      header.style.fontWeight = "bold";
+      header.style.marginBottom = "0.5rem";
+      div.appendChild(header);
+
+      // Iterate over each URL match
+      urlMatches.forEach(url => {
+        // Create the icon element
+        const icon = document.createElement("i");
+        icon.className = "fas fa-link text-green-500 ml-1"; // Tailwind green + FontAwesome icon
+        icon.style.marginLeft = "0.25rem";
+
+        // Create the clickable link element
+        const link = document.createElement("a");
+        link.href = url;
+        link.target = "_blank";
+        link.appendChild(icon);
+
+        // Append the link (with the icon) to the div
+        div.appendChild(link);
+
+        // Add a space for better readability
+        const space = document.createTextNode(" ");
+        div.appendChild(space);
+      });
+    }
+  });
+};
+
+  
+replaceLinksWithIcon();
     }, 500);
 }
 
@@ -1014,6 +1061,7 @@ function updateChatWindow() {
     });
 
     chatWindow.scrollTop = chatWindow.scrollHeight; // Scroll to the bottom
+
 }
 
 document.getElementById('saveBtn').addEventListener('click', () => {
@@ -1036,6 +1084,8 @@ document.getElementById('saveBtn').addEventListener('click', () => {
 
     addSystemMessage(`File saved as ${exportFileName}.`);
 });
+
+
 
 function updateUserInterface(userId) {
     // Update user badge
