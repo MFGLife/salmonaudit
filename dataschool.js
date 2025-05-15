@@ -53,6 +53,10 @@ document.querySelectorAll('#copycat').forEach(copycatDiv => {
 
         // Call the function to display the selected Data School
         displayDataSchool(schoolKey);
+         // Expand to full height
+      chatBot.classList.remove('h-[10vh]');
+      chatBot.classList.remove('bottom-20');
+      chatBot.classList.add('h-full');
     });
 });
 

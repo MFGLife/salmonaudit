@@ -185,7 +185,7 @@
 </head>
 
 
-<div id="chatBot" class="fixed z-50 bottom-4 right-4 w-80 max-w-full bg-white rounded-xl shadow-lg overflow-hidden transition-transform transform translate-y-0">
+<div id="chatBot" class="fixed z-50 bottom-0 right-0 h-full max-h-full w-80 max-w-full bg-white shadow-lg transition-transform transform translate-y-0">
   <!-- Header -->
   <div class="bg-gradient-to-br from-white via-primary-50 to-primary-100 border-l-8 border-primary-600 px-4 py-3 flex items-center justify-between">
     <img class="h-12 w-12 rounded-full border-2 border-primary-600" src="pics/micheal.png" alt="Micheal Lawrence Salmon">
@@ -201,9 +201,10 @@
   </div>
 
   <!-- Chat Content -->
-  <div id="chatContent" class="p-4">
+  <div id="chatContent" class="bg-gray-50">
+      <a class="text-xs bg-gray-50 px-1" id="toggleDropdown">Login / File Upload</a>
     <!-- File Upload Section -->
-    <div class="mb-4">
+    <div id="dropdownContent" class="mb-4 hidden">
       <div class="file-upload bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg p-4 text-center transition-colors hover:border-green-400">
         <div class="flex flex-col items-center justify-center space-y-3">
           <i class="fas fa-file-upload text-2xl text-green-500"></i>
@@ -224,23 +225,29 @@
 
     <!-- Conversation Section -->
     <div class="mb-4">
-      <div id="chatWindow" class="bg-gray-50 rounded-lg p-3 h-48 overflow-y-auto mb-3 space-y-2">
-        <p class="text-gray-500 italic text-sm">No conversation data yet. Upload a JSON file or start typing below.</p>
+      <div id="chatWindow" class="bg-gray-50 rounded-lg p-3 h-[85vh] overflow-y-scroll mb-3 space-y-2">
+<p class="text-gray-500 italic text-sm">No conversation data yet. Upload a JSON file or start typing below.</p>
       </div>
-      <div class="flex space-x-2">
-        <input type="text" id="userInput" placeholder="Type your message..." 
-               class="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
-        <button id="sendBtn" class="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition-colors text-sm">
-          Send
-        </button>
-      </div>
+      
     </div>
   </div>
 </div>
 
+<div class="fixed bottom-0 left-0 w-full bg-white shadow-lg z-50 px-4 py-2">
+  <div class="flex space-x-2">
+    <input type="text" id="userInput" oninput="performSearch()" placeholder="Chat or Search Database../" 
+           class="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500">
+    <button id="sendBtn" class="bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 px-4 rounded-lg transition-colors text-sm">
+      Send
+    </button>
+  </div>
+</div>
+
 <body class="bg-secondary-100 text-secondary-900 font-sans">
+
+
   <!-- Navigation -->
-  <nav class="bg-white shadow-lg sticky top-0 z-50">
+  <nav class="bg-white shadow-lg sticky top-0 z-49">
     <div class="max-w-7xl mx-auto px-4">
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center">
@@ -253,7 +260,7 @@
               <a href="#offline" class="px-3 py-2 rounded-md text-sm font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">Home</a>
               <a href="#ideology" class="px-3 py-2 rounded-md text-sm font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">State</a>
               <a href="#tools" class="px-3 py-2 rounded-md text-sm font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">Tools</a>
-              <a href="./apps/SalmonAudit(beta).apk" class="px-3 py-2 rounded-md text-sm font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">Download App</a>
+              <a href="./apps/SalmonAudit(beta).apk" class="px-3 py-2 rounded-md text-sm font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50"><i class="fas fa-download mr-2"></i><span id="userBadge">Guest</span>.App</a>
             </div>
           </div>
         </div>
@@ -289,103 +296,96 @@
 
 
   <!-- Offline Section -->
-  <section id="offline">
+  <section id="offline" style="height: 600px;">
 
-    <iframe src="legal/index.html" style="width: 100%; height:93vh;"></iframe>
+
+
+
+
+<div id="glossaryS"  style="width: 100%; height: 100%;">
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+
+    <!-- Main content area -->
+    <main>
+
+
+
+
+        <div class="flex flex-col h-screen">
+          <!-- Header -->
+          <header class="shrink-0 mb-4 px-4 py-2">
+        <!-- Stats bar -->
+        <div class="bg-white rounded-xl shadow-sm p-4 mb-6 flex flex-wrap items-center justify-between gap-4">
+
+          <div class="flex items-center space-x-2">
+              <div class="p-2 rounded-lg bg-orange-50 text-orange-600">
+                  <i class="fas fa-file-alt"></i>
+              </div>
+              <div>
+                  <p class="text-xs text-gray-500">Documents Found</p>
+                  <p class="font-medium" id="totalDocuments">0</p>
+              </div>
+          </div>
+          
+          <div class="flex items-center space-x-2">
+              <div class="p-2 rounded-lg bg-blue-50 text-blue-600">
+                  <i class="fas fa-search"></i>
+              </div>
+              <div>
+                  <p class="text-xs text-gray-500">Matches</p>
+                  <p class="font-medium" id="resultCount">0</p>
+              </div>
+          </div>
+
+
+          <div class="flex items-center space-x-2">
+            <div class="p-2 rounded-lg bg-green-50 text-green-600">
+                <a onclick="clearSearch()"><i class="fas fa-times"></i></a>
+            </div>
+            <div>
+                  <p class="font-medium">Clear Results</p>
+            </div>
+        </div>
+
+      </div>
+          </header>
+        
+          <!-- Scrollable area -->
+          <main class="flex-1 overflow-y-auto px-4 pb-40">
+            <div id="searchResults" class="space-y-4">
+              <!-- Cards and dynamic content -->
+              <div id="initialState" class="bg-white rounded-xl shadow-sm overflow-hidden">
+                <div class="p-8 text-center">
+                  <div class="mx-auto w-24 h-24 text-gray-300 mb-4">
+                    <i class="fas fa-search fa-3x"></i>
+                  </div>
+                  <h3 class="text-lg font-medium text-gray-700 mb-2">Did Micheal serve you?</h3>
+                  <p class="text-gray-500 max-w-md mx-auto">
+                            Enter your name, case number, legal term, or document reference to begin searching our compliance database.
+                  </p>
+                  <div class="mt-6 flex justify-center gap-3">
+                    <div class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">
+                      Try: "2025 CV 325"
+                    </div>
+                    <div class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">
+                      Try: "subpoena"
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+        
+    </main>
+</div></div>
 
 </section>
 
-  
-<section id="timeline" class="bg-white">
-    <div class="max-w-7xl py-4 mx-auto px-4 sm:px-6 lg:px-8">
 
-       <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Does Micheal have a Subpoena for you?</h1>
-
-    <input
-      id="search"
-      type="text"
-      placeholder="Enter your name..."
-      class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 mb-4"
-    />
-
-    <ul id="results" class="space-y-3">
-      <!-- Results will appear here -->
-    </ul>
-
-    <p id="noResults" class="text-center text-gray-500 hidden">No matching subpoenas found.</p>
-  </div> 
-   
-
-<div class="space-y-4 py-4">
-
-  <!-- FAQ 1 -->
-  <div class="border border-secondary-200 rounded-lg overflow-hidden">
-    <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
-      <span class="text-lg font-medium text-secondary-900">What is the Golden Bridge Disclosure Contract?</span>
-      <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
-    </button>
-    <div class="faq-content hidden px-4 pb-4 pt-0 text-secondary-600">
-      <p>The Golden Bridge Disclosure Contract is a one-time legal instrument offered to recipients of subpoenas. It allows them to voluntarily disclose communications, defamatory actions, collusion, or false reporting. In return, the contract offers immunity from private prosecution by the issuing party and locks that immunity into the court record permanently. It functions as a subpoena response, an NDA, and a will—enforceable in Missouri and Kansas, and notarized through SalmonAudit.info.</p>
-    </div>
-  </div>
-
-  <!-- FAQ 2 -->
-  <div class="border border-secondary-200 rounded-lg overflow-hidden">
-    <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
-      <span class="text-lg font-medium text-secondary-900">What happens if I ignore the subpoena and this contract?</span>
-      <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
-    </button>
-    <div class="faq-content hidden px-4 pb-4 pt-0 text-secondary-600">
-      <p>Ignoring a subpoena is a violation of civil procedure in both Kansas and Missouri. When paired with refusal to sign the Golden Bridge Disclosure Contract after communication has been made, this becomes evidence of obstruction. The issuing party may file for contempt of court, motion to compel, and motion for sanctions under Supreme Court Rule 61.01(d) in Missouri and K.S.A. 60-237(b) in Kansas. This will be submitted as part of the appeal record, showing deliberate evasion and misconduct.</p>
-    </div>
-  </div>
-
-  <!-- FAQ 3 -->
-  <div class="border border-secondary-200 rounded-lg overflow-hidden">
-    <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
-      <span class="text-lg font-medium text-secondary-900">Why is adverse inference triggered by ignoring this contract?</span>
-      <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
-    </button>
-    <div class="faq-content hidden px-4 pb-4 pt-0 text-secondary-600">
-      <p>If you've received the subpoena and were personally contacted, yet refuse to respond or deny facts that can be proven false, adverse inference applies. This legal principle allows the court (or future appeals court) to presume that the information being withheld would have been unfavorable to you. Case law in both Kansas and Missouri supports this consequence when destruction, concealment, or refusal to produce relevant documents occurs after a subpoena is issued.</p>
-    </div>
-  </div>
-
-  <!-- FAQ 4 -->
-  <div class="border border-secondary-200 rounded-lg overflow-hidden">
-    <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
-      <span class="text-lg font-medium text-secondary-900">What if I claim I didn’t receive the subpoena or contract?</span>
-      <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
-    </button>
-    <div class="faq-content hidden px-4 pb-4 pt-0 text-secondary-600">
-      <p>All subpoenas and Golden Bridge contracts are documented through tracked service, screenshots, and notarized contacts on SalmonAudit.info. If you've received a message, email, or text and were given access to this form and you ignore it, your silence becomes legally significant. Courts recognize that actual notice (not formal service) can trigger duty to preserve evidence and comply with discovery. Silence is not innocence; it becomes an admission of bad faith when paired with refusal.</p>
-    </div>
-  </div>
-
-  <!-- FAQ 5 -->
-  <div class="border border-secondary-200 rounded-lg overflow-hidden">
-    <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
-      <span class="text-lg font-medium text-secondary-900">What does signing this contract actually do?</span>
-      <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
-    </button>
-    <div class="faq-content hidden px-4 pb-4 pt-0 text-secondary-600">
-      <p>Signing the Golden Bridge Disclosure Contract voluntarily allows you to provide evidence, clarify intent, or admit to past actions without fear of future personal prosecution from the issuing party. It is permanently bound to the case record and functions as a waiver of liability. This one-time offer gives you control over what’s disclosed, within the boundaries of truth. Once signed, you are protected from being listed in civil conspiracy or retaliation claims tied to the ongoing case or its fallout.</p>
-    </div>
-  </div>
-
-  <!-- FAQ 6 -->
-  <div class="border border-secondary-200 rounded-lg overflow-hidden">
-    <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
-      <span class="text-lg font-medium text-secondary-900">What if I lie or give partial disclosure?</span>
-      <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
-    </button>
-    <div class="faq-content hidden px-4 pb-4 pt-0 text-secondary-600">
-      <p>Partial disclosure or false statements after signing the contract will invalidate the agreement and trigger a perjury or fraud inquiry in both jurisdictions. It will also allow the issuing party to reintroduce you into the class action or conspiracy proceedings with your admission now usable against you. In short: the contract protects you only if your disclosures are full, honest, and provable. Anything less reactivates the full legal arsenal already documented and in progress.</p>
-    </div>
-  </div>
-
-</div>
+<section class="bg-white">
 
 
 <!-- DA Pathway Section with Swiper Carousel -->
@@ -601,14 +601,91 @@ months.</p>
   </div>
 
 </div>
+
 </section>
 
 
 
 
-<section id="map" class="flex justify-center items-center w-full h-[600px] rounded-lg shadow-md">
-  <iframe src="legal/map.html" class="w-full h-full border-none"></iframe>
+  
+<section id="timeline" class="bg-white">
+    <div class="max-w-7xl py-4 mx-auto px-4 sm:px-6 lg:px-8"> 
+
+<div class="space-y-4 py-4">
+
+  <!-- FAQ 1 -->
+  <div class="border border-secondary-200 rounded-lg overflow-hidden">
+    <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
+      <span class="text-lg font-medium text-secondary-900">What is the Golden Bridge Disclosure Contract?</span>
+      <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
+    </button>
+    <div class="faq-content hidden px-4 pb-4 pt-0 text-secondary-600">
+      <p>The Golden Bridge Disclosure Contract is a one-time legal instrument offered to recipients of subpoenas. It allows them to voluntarily disclose communications, defamatory actions, collusion, or false reporting. In return, the contract offers immunity from private prosecution by the issuing party and locks that immunity into the court record permanently. It functions as a subpoena response, an NDA, and a will—enforceable in Missouri and Kansas, and notarized through SalmonAudit.info.</p>
+    </div>
+  </div>
+
+  <!-- FAQ 2 -->
+  <div class="border border-secondary-200 rounded-lg overflow-hidden">
+    <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
+      <span class="text-lg font-medium text-secondary-900">What happens if I ignore the subpoena and this contract?</span>
+      <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
+    </button>
+    <div class="faq-content hidden px-4 pb-4 pt-0 text-secondary-600">
+      <p>Ignoring a subpoena is a violation of civil procedure in both Kansas and Missouri. When paired with refusal to sign the Golden Bridge Disclosure Contract after communication has been made, this becomes evidence of obstruction. The issuing party may file for contempt of court, motion to compel, and motion for sanctions under Supreme Court Rule 61.01(d) in Missouri and K.S.A. 60-237(b) in Kansas. This will be submitted as part of the appeal record, showing deliberate evasion and misconduct.</p>
+    </div>
+  </div>
+
+  <!-- FAQ 3 -->
+  <div class="border border-secondary-200 rounded-lg overflow-hidden">
+    <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
+      <span class="text-lg font-medium text-secondary-900">Why is adverse inference triggered by ignoring this contract?</span>
+      <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
+    </button>
+    <div class="faq-content hidden px-4 pb-4 pt-0 text-secondary-600">
+      <p>If you've received the subpoena and were personally contacted, yet refuse to respond or deny facts that can be proven false, adverse inference applies. This legal principle allows the court (or future appeals court) to presume that the information being withheld would have been unfavorable to you. Case law in both Kansas and Missouri supports this consequence when destruction, concealment, or refusal to produce relevant documents occurs after a subpoena is issued.</p>
+    </div>
+  </div>
+
+  <!-- FAQ 4 -->
+  <div class="border border-secondary-200 rounded-lg overflow-hidden">
+    <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
+      <span class="text-lg font-medium text-secondary-900">What if I claim I didn’t receive the subpoena or contract?</span>
+      <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
+    </button>
+    <div class="faq-content hidden px-4 pb-4 pt-0 text-secondary-600">
+      <p>All subpoenas and Golden Bridge contracts are documented through tracked service, screenshots, and notarized contacts on SalmonAudit.info. If you've received a message, email, or text and were given access to this form and you ignore it, your silence becomes legally significant. Courts recognize that actual notice (not formal service) can trigger duty to preserve evidence and comply with discovery. Silence is not innocence; it becomes an admission of bad faith when paired with refusal.</p>
+    </div>
+  </div>
+
+  <!-- FAQ 5 -->
+  <div class="border border-secondary-200 rounded-lg overflow-hidden">
+    <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
+      <span class="text-lg font-medium text-secondary-900">What does signing this contract actually do?</span>
+      <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
+    </button>
+    <div class="faq-content hidden px-4 pb-4 pt-0 text-secondary-600">
+      <p>Signing the Golden Bridge Disclosure Contract voluntarily allows you to provide evidence, clarify intent, or admit to past actions without fear of future personal prosecution from the issuing party. It is permanently bound to the case record and functions as a waiver of liability. This one-time offer gives you control over what’s disclosed, within the boundaries of truth. Once signed, you are protected from being listed in civil conspiracy or retaliation claims tied to the ongoing case or its fallout.</p>
+    </div>
+  </div>
+
+  <!-- FAQ 6 -->
+  <div class="border border-secondary-200 rounded-lg overflow-hidden">
+    <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
+      <span class="text-lg font-medium text-secondary-900">What if I lie or give partial disclosure?</span>
+      <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
+    </button>
+    <div class="faq-content hidden px-4 pb-4 pt-0 text-secondary-600">
+      <p>Partial disclosure or false statements after signing the contract will invalidate the agreement and trigger a perjury or fraud inquiry in both jurisdictions. It will also allow the issuing party to reintroduce you into the class action or conspiracy proceedings with your admission now usable against you. In short: the contract protects you only if your disclosures are full, honest, and provable. Anything less reactivates the full legal arsenal already documented and in progress.</p>
+    </div>
+  </div>
+
+</div>
+
+
+
 </section>
+
+
 
 
 
@@ -1752,11 +1829,226 @@ months.</p>
   const toggleChatBot = document.getElementById('toggleChatBot');
   const chatContent = document.getElementById('chatContent');
 
-  toggleChatBot.addEventListener('click', () => {
-    chatContent.classList.toggle('hidden');
-    const icon = toggleChatBot.querySelector('i');
-    icon.classList.toggle('fa-chevron-down');
-    icon.classList.toggle('fa-chevron-up');
+
+
+    toggleChatBot.addEventListener('click', () => {
+          const icon = toggleChatBot.querySelector('i');
+
+    if (chatBot.classList.contains('h-[10vh]')) {
+      // Expand to full height
+      chatBot.classList.remove('h-[10vh]');
+      chatBot.classList.remove('bottom-20');
+      chatBot.classList.add('h-full');
+      icon.classList.remove('fa-chevron-up');
+      icon.classList.add('fa-chevron-down');
+    } else {
+      // Collapse to smaller size
+      chatBot.classList.remove('h-full');
+      chatBot.classList.add('h-[10vh]');
+      chatBot.classList.add('bottom-20');
+      icon.classList.remove('fa-chevron-down');
+      icon.classList.add('fa-chevron-up');
+    }
+  });
+
+  
+    // Sample legal document data
+    const motionData = [];
+
+    // Initialize the page
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('totalDocuments').textContent = motionData.length;
+        
+        // Focus search input on Ctrl+/
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === '/') {
+                e.preventDefault();
+                document.getElementById('userInput').focus();
+            }
+        });
+    });
+
+    // Perform search function
+    function performSearch() {
+        const keyword = document.getElementById('userInput').value.trim().toLowerCase();
+        const resultsContainer = document.getElementById('searchResults');
+        // Clear previous results
+        resultsContainer.innerHTML = '';
+        document.getElementById('resultCount').textContent = '0';
+        
+        if (!keyword) {
+            // Show initial state if search is empty
+            resultsContainer.innerHTML = `
+                <div id="initialState" class="bg-white rounded-xl shadow-sm overflow-hidden fade-in">
+                    <div class="p-8 text-center">
+                        <div class="mx-auto w-24 h-24 text-gray-300 mb-4">
+                            <i class="fas fa-search fa-3x"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-700 mb-2">Did Micheal serve you?</h3>
+                        <p class="text-gray-500 max-w-md mx-auto">
+                            Enter your name, case number, legal term, or document reference to begin searching our compliance database.
+                        </p>
+                        <div class="mt-6 flex justify-center gap-3">
+                            <div class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">
+                                Try: "24SN-DR00104"
+                            </div>
+                            <div class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">
+                                Try: "motion to dismiss"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            return;
+        }
+        
+        // Filter documents that match the search
+        const searchResults = motionData.filter(motion => {
+            return (
+                motion.id.toLowerCase().includes(keyword) ||
+                motion.title.toLowerCase().includes(keyword) ||
+                motion.content.toLowerCase().includes(keyword)
+            );
+        });
+        
+        document.getElementById('resultCount').textContent = searchResults.length;
+        
+        if (searchResults.length === 0) {
+            // Show no results state
+            resultsContainer.innerHTML = `
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden fade-in">
+                    <div class="p-8 text-center">
+                        <div class="mx-auto w-24 h-24 text-gray-300 mb-4">
+                            <i class="fas fa-search-minus fa-3x"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-700 mb-2">No results found</h3>
+                        <p class="text-gray-500 max-w-md mx-auto">
+                            Your search for "${keyword}" did not match any documents in our database. Try different keywords or case numbers.
+                        </p>
+                    </div>
+                </div>
+            `;
+            return;
+        }
+        
+        // Display search results
+        searchResults.forEach((motion, index) => {
+            // Find matching lines in content
+            const contentLines = motion.content.split('\n');
+            const matchingLines = contentLines
+                .map((line, i) => ({ line, number: i + 1 }))
+                .filter(item => item.line.toLowerCase().includes(keyword))
+                .slice(0, 3); // Show max 3 matching lines
+            
+            // Highlight keyword in title
+            const highlightedTitle = motion.title.replace(
+                new RegExp(`(${keyword})`, 'gi'), 
+                '<span class="highlight">$1</span>'
+            );
+            
+            const deniedStatuses = ['Denied', 'OverRuled'];
+
+            // Create status badge
+            let statusBadge = '';
+            if (motion.status === 'Granted') {
+                statusBadge = 'bg-green-100 text-green-800';
+            } else if (deniedStatuses.includes(motion.status)) {
+                statusBadge = 'bg-red-100 text-red-800';
+            } else {
+                statusBadge = 'bg-blue-100 text-blue-800';
+            }
+            
+            // Create document card
+            const card = document.createElement('div');
+            card.className = 'bg-white rounded-xl shadow-sm overflow-hidden fade-in';
+            card.style.animationDelay = `${index * 0.05}s`;
+            card.innerHTML = `
+                <div class="document-card p-6 hover:bg-gray-50 cursor-pointer" onclick="showDocumentDetails('${motion.id}')">
+                    <div class="flex items-start justify-between mb-2">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900 mb-1">${highlightedTitle}</h3>
+                            <div class="flex items-center space-x-3 text-sm mb-3">
+                                <span class="text-gray-500">${motion.id}</span>
+                                <span class="text-gray-300">•</span>
+                                <span class="text-gray-500">${motion.date}</span>
+                                <span class="text-gray-300">•</span>
+                                <span class="px-2 py-0.5 rounded-full text-xs font-medium ${statusBadge}">
+                                    ${motion.status}
+                                </span>
+                            </div>
+                        </div>
+                        <span class="text-xs text-gray-400">${motion.type}</span>
+                    </div>
+                                        
+                    ${matchingLines.length > 0 ? `
+                    <div class="bg-gray-50 p-3 rounded-lg border border-gray-200 text-sm">
+                        <div class="text-xs text-gray-500 mb-1">Matching content:</div>
+                        ${matchingLines.map(item => {
+                            const highlightedLine = item.line.replace(
+                                new RegExp(`(${keyword})`, 'gi'), 
+                                '<span class="highlight">$1</span>'
+                            );
+                            return `
+                                <div class="mb-1">
+                                    <span class="text-gray-400 text-xs">Line ${item.number}:</span>
+                                    <span class="text-gray-800">${highlightedLine}</span>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                    ` : ''}
+                </div>
+            `;
+            
+            resultsContainer.appendChild(card);
+        });
+    }
+    
+    // Show document details (would be implemented for a full view)
+    function showDocumentDetails(docId) {
+        const doc = motionData.find(m => m.id === docId);
+        if (!doc) return;
+        
+        alert(`Would show full details for document: ${doc.title}\n\nThis would include the complete document text in a detailed view.`);
+    }
+    
+    // Clear search function
+    function clearSearch() {
+        document.getElementById('userInput').value = '';
+        performSearch();
+    }
+
+    
+function showSection(sectionId) {
+    const sections = [ 'glossaryS']; // List of all section IDs
+
+    // Loop through all sections and hide them
+    sections.forEach(id => {
+      const section = document.getElementById(id);
+      section.style.position = 'absolute';
+      section.style.opacity = '0';
+      section.style.height = '0';
+      section.style.overflow = 'hidden';
+    });
+
+    // Show the selected section
+    const selectedSection = document.getElementById(sectionId);
+    selectedSection.style.position = 'relative';
+    selectedSection.style.opacity = '1';
+    selectedSection.style.height = '95vh';
+    selectedSection.style.overflow = 'visible';
+  }
+
+
+  showSection('glossaryS');
+
+  const toggleDropdown = document.getElementById('toggleDropdown');
+  const dropdownContent = document.getElementById('dropdownContent');
+
+  // Add a click event listener to the button
+  toggleDropdown.addEventListener('click', () => {
+    dropdownContent.classList.toggle('hidden'); // Toggle the 'hidden' class
+        toggleDropdown.classList.toggle('hidden'); // Toggle the 'hidden' class
   });
 
 </script>
@@ -1769,6 +2061,13 @@ months.</p>
 <script src="messages.js"></script>
 <script src="legal/app.js"></script>
 <script src="dataschool.js"></script>
+
+  <script defer src="legal/motion.js"></script>
+  <script defer src="legal/cases/25DM781.js"></script>
+  <script defer src="legal/cases/25CV325.js"></script>
+  <script defer src="legal/cases/WY2025LM002787.js"></script>
+  <script defer src="legal/cases/missouri.js"></script>
+  <script defer src="legal/cases/subpoenas/24SNDR00104.js"></script>
 
 </body>
 </html>

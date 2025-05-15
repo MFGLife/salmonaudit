@@ -45,17 +45,26 @@
     }
     </style>
 </head>
-<body class="bg-gray-100 flex flex-col min-h-screen">
+<body class="bg-white flex flex-col min-h-screen">
+
     <div class="container mx-auto p-4 flex-grow flex flex-col justify-center items-center">
 
 
-        <div class="search-container w-full max-w-lg">
-            <div class="search-bar w-full">
-                <input type="text" class="search-input" id="evidenceSearch" placeholder="keyword, location, or case number...">
-                <button class="search-button" onclick="searchEvidence()"><div class="evidence-counter">
-                    🔄 Narrow 144 connections related to <strong>Case No. 25CV325</strong>
-                </div></button>
-            </div>
+        <div class="search-container w-full max-w-lg p-4">
+            <div class="flex w-full items-center gap-2">
+              <a id="evidence-counter"></a>
+    <input 
+        type="text" 
+        id="evidenceSearch" 
+        placeholder="keyword, location, or case number..." 
+        class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+    />
+    <button 
+        onclick="searchEvidence()" 
+        class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+    >
+Narrow <span class="ml-1 font-bold">144</span> .connections</button>
+</div>
             
         </div>
 
@@ -65,6 +74,911 @@
     <script>
         
 let  locations = [
+
+  {
+    "name": "Crycella Freitag",
+    profilePicUrl: '../pics/crycella.png',
+          docket: "24SN-DR00104", 
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [
+{
+    title: 'Affidavit of Charges: Conspiracy, Collusion, Kidnapping, Coercive Control, Perjury, Obstruction, and multiple Civil Rights violations. - M. Salmon',
+    url: "https://drive.google.com/drive/folders/1PGRGoEZuJ68PqOWcwW-naURZCVz2jNDE?usp=drive_link"
+  }],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Active Subpoena",
+          "url": "https://drive.google.com/file/d/1ztjk8LZ8lTjma0Z9szn_wUlrySPFtno3/view"
+        },
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1sZVLOM2lNEmYxjg4KUtdRFWzNTjVxFMN/view"
+        },
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1pjIVi5Ao3huyPE7E1FRxo52T8l9xe3xX/view"
+        },
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1DGp9Sd5-3Be3f_sdyzULVf2epqIGCdew/view"
+        },
+        {
+          "title": "(2025-03-31) Falsely claimed inability to facilitate visitation",
+          "url": "#evidence-2025-03-31"
+        },
+        {
+          "title": "(2025-01-30) Submitted edited 12-minute video (original 40+ minutes)",
+          "url": "#evidence-2025-01-30-video" // Added a slight variation to the URL for potential distinction
+        },
+        {
+          "title": "(2025-03-14) Selectively provided text messages omitting key context",
+          "url": "#evidence-2025-03-14"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Amanda Freitag",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1EMbfT6YWUTorCOAfE5A1x2WP2kcNdPK0/view"
+        },
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/13cRnHYjQ7UgDmYj4u-Oofp596kVKSbjA/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Christian Freitag",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1BAFIuo9DxbT1IS9pdW3T2B5B2TirEq4y/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Christina Rockley",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1xxDHfwtbn2Rc1l5TQILncpn2hmwUEUtx/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Adrienne Fleck",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1hyaSssSR9viNHg-QSdhCDyMZGRCXKlLj/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Matthew Zweifel",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/13Hae9npBEZ5ZfAsBeCZz_rN44auUDdBz/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Michele Dill",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1egG5sEql83Zjai-CXGw-JO5TdvHZoEGW/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Katherine Eickhorst",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1OHCraimQgyzkWXzPJz57SmFzSyaodj7H/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Fred Fulks",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/10RBKrvIRJrfE61RsH32P1x2OsmsNI-QH/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Carl Jemison",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1GO4eat2PQOv18vxVkKHVhU0uwpKmuHDZ/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "James Masterson",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1zPcAalTdAVdKJhSOnyzo1-I0z_jhPN6r/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Taylor Penrod",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1aSYda03OaziRF5Zw9QlwJWeWv4PJqcfw/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Terry Seufferlein",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1E0aMz84xH_hXJfQ6WluaIdDGrnwFK6Gh/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Teresa Showen",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/16-qRm7sSfNPFG1juFs2lUtEcfdkUs5uI/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Nikki Wiarda",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1_FVwg2X8L5p4RpiuEy3D-GLF_7Hlbtlj/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Leslee Trotter",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1ej9oajCXdNGPvJ1RNWrYRewmsSjfilIm/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Samantha Wilson",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1wpAAUNPK9AYNDfnb5cMW9YhHbxYwS-om/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Scott Abraham",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1HaOEa5CF44A2DKsxrKTry1iolyrb_kps/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Beth Abraham",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1HaOEa5CF44A2DKsxrKTry1iolyrb_kps/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Jim Baumann",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1v0R52C1BdlNRcgglKC1ySKvJdoul8j-O/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Kathy Baumann",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1v0R52C1BdlNRcgglKC1ySKvJdoul8j-O/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Jamie Wilson",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1dRkkROy-lTpg9y945A9wjGDEQslYCE37/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Michael Wilson",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1dRkkROy-lTpg9y945A9wjGDEQslYCE37/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Natasha Klutts",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1U7Mo8LQRf_uwxKWNkEg3lpEPRjBNLBYi/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Robert Klutts",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1U7Mo8LQRf_uwxKWNkEg3lpEPRjBNLBYi/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Chris Laubenthal",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1omI-MThT7QQVF6bEWI4ngAFDVi4yT2gg/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Robin Laubenthal",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1omI-MThT7QQVF6bEWI4ngAFDVi4yT2gg/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Jesse Salmon",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1gV6-5IxvGwAHypLu9908K3pxpeY92XSt/view"
+        },
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1UfnPE0uAXbyMPMP371HcxFGQY-qEB-Io/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Carolyn Salmon",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1gV6-5IxvGwAHypLu9908K3pxpeY92XSt/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Trina Nudson",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1vM76Je5qzagq3dSvXsdfhazxG3s_6jg2/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Jessica Newman",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1yAw34o6Qnd47JWrapQgixGSkr00AZGFj/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Kate Salmon",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1UfnPE0uAXbyMPMP371HcxFGQY-qEB-Io/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Chanille Witham",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1DwqnQaDvIwhmsGTUvAuOCIMjtnjisbpq/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Peter Witham",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1DwqnQaDvIwhmsGTUvAuOCIMjtnjisbpq/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Michael Jackson",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/19j0Kg5H7ej4DrGI_YNItWlbkvTfxQpsv/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Midtown Psychological Services",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1o1Uu_Auc8hOoWdWoq68o9OjqH2_1UyIw/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Gregory Sisk",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1qoeQ8Zac36lL6yDQY6dAKlnqUk9wyAK6/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Helen Weiser",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1fCanjK-kt0CnyG9mkPNKpB6ETFsA5XHq/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "April DeMasters",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1SgxmnXX1GZGymX54EsJVcno92bTleJZV/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Brooke Gipson",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1eQuImoYK90gezmSVXhv6t3fyqZM1HNdP/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Terri Gilbert",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/13LDafOE4TC3kcu_t7LtIBJbPu19WDS6z/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Heather McBride",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1EegUjwC9cUWDpWf2GCtBzcICyQELBFwR/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Ryan Weber",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/18_Emk_hVteooBere2JJHPgllV_AaXh0H/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Stephanie Reed",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1MKtLxNubdXvmirPTcsFEntliWOGqRumk/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Tyler Brown",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/13rr22SsLy83tVz_4XrFS4f_2e-MEjiI4/view"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Jozef Hanratty",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1DQWQ6_wbWKEWXgCt8CT7EMzPPAcXw6TB/view?usp=drive_link"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Kelly Truelove",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/19lrK72LEXBztOlGJcpqneH8UxPg5D33H/view?usp=drive_link"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Zach Stangl",
+    profilePicUrl: '../pics/crycella.png',
+    "docket": "",
+    "lat": 38.613111847779656,
+    "lng": -95.45326893406421,
+    "evidence": {
+      "testimony": [],
+      "financial": [],
+      "emails": [],
+      "documents": [
+        {
+          "title": "Subpoena",
+          "url": "https://drive.google.com/file/d/1LlQ4rJMfZDkylMlBdeLgtWCA73B-ZJ08/view?usp=drive_link"
+        }
+      ]
+    }
+  },
+
+
+
+
         {
           name: "Judge Matt Alan Selby",
           lat: 36.805257601746895,
@@ -278,58 +1192,7 @@ let  locations = [
   }]
           }
         },
-        {
-          name: "Crycella Freitag",
-          lat: 38.613111847779656,
-          lng: -95.45326893406421,
-          profilePicUrl: '../pics/crycella.png',
-          docket: "24SN-DR00104",
-          evidence: {
-            testimony: [],
-            financial: [],
-            emails: [],
-            documents: [{
-    "title": "(2024-12-16) Falsely testified about Micheal's housing stability in custody hearing",
-    "url": "#evidence-2024-12-16"
-  },
-  {
-    "title": "(2025-01-07) Claimed Micheal 'kicked her out' despite moving voluntarily",
-    "url": "#evidence-2025-01-07"
-  },
-  {
-    "title": "(2025-01-30) Fabricated safety concerns ('I'm scared of him') without evidence",
-    "url": "#evidence-2025-01-30"
-  },
-  {
-    "title": "(2025-02-18) Misrepresented living conditions in custody filings",
-    "url": "#evidence-2025-02-18"
-  },
-  {
-    "title": "(2025-03-17) Submitted false testimony about Micheal's parenting",
-    "url": "#evidence-2025-03-17"
-  },
-  {
-    "title": "(2025-03-25) Lied about financial contributions to child support",
-    "url": "#evidence-2025-03-25"
-  },
-  {
-    "title": "(2025-03-31) Falsely claimed inability to facilitate visitation",
-    "url": "#evidence-2025-03-31"
-  },
-  {
-    "title": "(2025-01-30) Submitted edited 12-minute video (original 40+ minutes)",
-    "url": "#evidence-2025-01-30-video" // Added a slight variation to the URL for potential distinction
-  },
-  {
-    "title": "(2025-03-14) Selectively provided text messages omitting key context",
-    "url": "#evidence-2025-03-14"
-  },
-  {
-    "title": "(2025-04-04) Failed to produce original video files per court order",
-    "url": "#evidence-2025-04-04"
-  }]
-          }
-        },
+
         {
           name: "The Layne Project",
           lat: 38.8857904534,
@@ -527,11 +1390,6 @@ const markers = [];
         function searchEvidence() {
             const searchInput = document.getElementById('evidenceSearch').value.toLowerCase();
 
-            if (!searchInput.trim()) {
-                resetMapAndCounter();
-                return;
-            }
-
             let matchCount = 0;
             let visibleMarkers = 0;
 
@@ -564,25 +1422,10 @@ const markers = [];
                 }
             });
 
-            document.querySelector('.evidence-counter').innerHTML = `🔄 Showing <strong>${matchCount}</strong> pieces of evidence matching "<strong>${searchInput}</strong>" across <strong>${visibleMarkers}</strong> locations`;
+            document.querySelector('#evidence-counter').innerHTML = `<strong>${matchCount}</strong>  "<strong>${searchInput}</strong>" across <strong>${visibleMarkers}</strong>`;
         }
 
-        function resetMapAndCounter() {
-            markers.forEach(marker => {
-                marker.setOpacity(1);
-            });
-            const totalEvidence = locations.reduce((sum, loc) => {
-                let count = 0;
-                for (const category in loc.evidence) {
-                    count += loc.evidence[category].length;
-                }
-                return sum + count;
-            }, 0);
-            document.querySelector('.evidence-counter').innerHTML = `🔄 Narrow ${totalEvidence} Connections`;
-        }
-
-        // Initial call to set the counter
-        resetMapAndCounter();
+  
 
 
     </script>

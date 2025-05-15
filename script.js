@@ -490,7 +490,6 @@ jsonFileInput.addEventListener('change', (event) => {
                     // Show success message in the upload status
                     const uploadStatus = document.getElementById('uploadStatus');
                     addSystemMessage(`Profile Loaded sucessfully.`);
-                    document.getElementById('chatWindow').style.height = '350px';
                     uploadStatus.className = 'text-sm mt-2 text-green-600';
                     uploadStatus.classList.remove('hidden');
 
@@ -509,6 +508,7 @@ userInput.addEventListener('keypress', (e) => {
         sendMessage();
     }
 });
+
 
 function sendMessage() {
     const message = userInput.value.trim();
@@ -923,10 +923,9 @@ function restoreTimestamps() {
 
     if (conversationData.length === 0) {
     chatWindow.innerHTML = `
-      <span id="userBadge" class="bg-green-800 text-white px-3 py-1 rounded-full text-sm">Guest</span>
 
   <!-- Headline -->
-  <h1 class="text-xl sm:text-2xl font-black uppercase text-primary-700 tracking-wide mb-4">
+  <h1 class="text-large sm:text-2xl font-black uppercase text-primary-700 tracking-wide mb-4">
     Fighting for Justice in Wyandotte County
   </h1>
 
@@ -975,10 +974,9 @@ function updateChatWindow() {
     if (conversationData.length === 0) {
     chatWindow.innerHTML = `
 
-  <span id="userBadge" class="bg-green-800 text-white px-3 py-1 rounded-full text-sm">Guest</span>
 
   <!-- Headline -->
-  <h1 class="text-xl sm:text-2xl font-black uppercase text-primary-700 tracking-wide mb-4">
+  <h1 class="text-large sm:text-2xl font-black uppercase text-primary-700 tracking-wide mb-4">
     Fighting for Justice in Wyandotte County
   </h1>
 

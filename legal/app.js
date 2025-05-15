@@ -1,4 +1,3 @@
-let motionData = [];
 
 function processFiles() {
     const fileInput = document.getElementById('fileInput2');
