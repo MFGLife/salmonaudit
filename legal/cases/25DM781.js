@@ -169,5 +169,32 @@ Directly to Movant;
 To the Court for in-camera review; or
 Under seal and subject to protective order if privacy concerns arise.
 That the Court formally record this request in the docket of each related case to preserve procedural integrity and guard against evidence spoliation, especially given the ongoing pattern of retaliation against Movant for exercising protected legal actions.`
+},
+
+{
+  id: "2025DM781",
+  title: "MOTION TO COMPEL CLERK  AND NOTICE OF PROCEDURAL OBFUSCATION",
+  date: "2025-05-16",
+  type: "Motion",
+  status: "Pending",
+  content: `COMES NOW, Micheal Lawrence Salmon, appearing pro se, and respectfully moves this Court to compel the Clerk’s Office to fulfill its ministerial duties pursuant to applicable state law and constitutional guarantees of access to the courts. In support of this Motion, I state the following:
+On May 16, 2025, I personally appeared at the Clerk’s Office for the purpose of performing procedural tasks required in preparation for lawful discovery, including but not limited to:
+Requesting a blank subpoena form;
+Filing or timestamping of case documents;
+Accessing or reviewing court records.
+These procedural tools are not optional but are essential to the exercise of my due process rights as a pro se litigant preparing for hearings and conducting discovery.
+I was either denied access, redirected without explanation, or coerced into using forms that are not legally required under Wyandotte County procedural rules or Kansas Supreme Court Rule 111, which allows for written pleadings.
+As a result, I was forced to spend unnecessary time and labor navigating administrative obstruction, all of which is being documented for potential federal claims involving denial of access, obstruction of due process, and coercive policies applied unequally to self-represented litigants.
+This Motion is submitted to preserve the record, request judicial intervention, and serve notice of damages incurred.
+ Time Spent: __1 hour__[Total: $600 @3hrs]
+ Staff Involved (if known): Civil Dept, Self Help, Special Actions Clerks
+ Action Requested: Seperate my duplicate hearing dates, let me have a Subpoena duces tecum 
+ Outcome / Notes: Escorted out by police causing 4 civil rights violations.
+
+WHEREFORE, I respectfully request that the Court:
+Issue an order compelling the Clerk’s Office to provide equal access to litigation tools;
+Declare that forcing use of pre-selected forms, when proper motions are filed, is not supported by rule or statute;
+Enter this Motion on the docket to preserve the timeline and financial harm incurred from ongoing obstruction, and refrain from further obfuscation.`
 }
+
 )

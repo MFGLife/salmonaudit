@@ -375,5 +375,25 @@ Directly to Movant;
 To the Court for in-camera review; or
 Under seal and subject to protective order if privacy concerns arise.
 That the Court formally record this request in the docket of each related case to preserve procedural integrity and guard against evidence spoliation, especially given the ongoing pattern of retaliation against Movant for exercising protected legal actions.`
+},
+
+{
+  id: "2025CV325",
+  title: "PETITION TO COMPEL ACCEPTANCE OF SUBPOENA DUCES TECUM AND PRESERVE RELATED EVIDENCE",
+  date: "2025-05-16",
+  type: "Petition",
+  status: "Pending",
+  content: `COMES NOW, Micheal Lawrence Salmon, appearing pro se, and hereby petitions this Court to compel the Civil Division and Special Actions Division of the Wyandotte County Courthouse to accept properly submitted subpoenas duces tecum, and to preserve all associated surveillance and law enforcement body camera footage tied to the obstruction and police removal of the Petitioner on May 16, 2025.
+FACTUAL BACKGROUND
+On May 16, 2025, Petitioner attempted to submit a subpoena duces tecum to the Civil and Special Actions Divisions. Clerks were unable to distinguish between a subpoena ad testificatum and a subpoena duces tecum, incorrectly asserting that only one form was available. Petitioner clarified the legal distinction, but clerks refused to accept the submission and directed him to the Self-Help Center, which also issued the wrong form. Upon Petitioner’s attempt to educate the clerks and assert his right to submit the correct form, courthouse staff called law enforcement to remove him. Petitioner remained calm, was the only person present in the room, and did not raise his voice. His removal from the courthouse constituted a retaliatory action against lawful court access and First Amendment-protected conduct.
+LEGAL BASIS
+The refusal to accept a valid subpoena duces tecum violates procedural due process, impedes discovery, and obstructs the court’s own administrative integrity. Under Kansas law and the Kansas Open Records Act (KORA), the public has the right to access records and to file lawful legal instruments. The clerk’s ignorance of basic subpoena forms and subsequent retaliatory involvement of law enforcement to remove a peaceful pro se litigant constitutes an abuse of discretion and a chilling violation of constitutional rights.
+
+REQUESTED RELIEF
+That the Court issue an order compelling all relevant court divisions to accept subpoenas duces tecum properly formatted and submitted by the Petitioner.
+That the Court issue an order preserving all surveillance footage and audio from the Civil and Special Actions Divisions on May 16, 2025 (8:00 AM – 1:00 PM).
+That the Court issue an order compelling the Wyandotte County Sheriff’s Office to preserve and produce body camera footage of officers who interacted with the Petitioner on May 16, 2025.
+That the Court document this event on the official record for all relevant case dockets to protect against future obstruction or retaliation.
+That the Court admonish or require remedial training for court clerks involved in the incident to prevent recurrences.`
 }
     )
