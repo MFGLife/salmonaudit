@@ -9,7 +9,7 @@ motionData.push (
       content: `TO THE HONORABLE COURT:\r\nI, Micheal Salmon, appearing Pro Se, respectfully move this Court to transfer venue for this\r\ncase from the United States District Court for the Western District of Missouri to the United\r\nStates District Court for the District of Kansas, in the interest of justice and for the convenience\r\nof all parties and witnesses, pursuant to 28 U.S.C. � 1404(a).\r\n\r\nI. Introduction\r\nThis motion seeks to transfer venue to the District of Kansas, where both parties currently\r\nreside, to reduce undue burdens on the parties and ensure efficient resolution of this matter.\r\nThe current venue in Missouri imposes significant logistical and financial challenges, making it\r\nimpractical for the parties and witnesses.\r\n\r\nII. Factual Background\r\n1. Parties� Residences:\r\n? I, Micheal Salmon, reside at 4120 Adams Street, Kansas City, Kansas, 66103.\r\n? The Plaintiff, Crycella Freitag, resides in Pomona, Kansas.\r\n2. Current Venue Impact:\r\n? The current venue in Missouri is over four hours away from both parties� homes,\r\nmaking travel difficult.\r\n3. Efforts to Cooperate:\r\n? I relocated from Missouri to Kansas to facilitate co-parenting and reduce travel\r\nburdens, moving within 40 minutes of the Plaintiff.\r\n\r\n4. Personal and Community Ties in Kansas:\r\n? Our two-year-old son, Felix, attends a Montessori school and is actively involved\r\nin community activities in Kansas, including church and friendships.\r\n\r\n? Both families reside in Kansas, making it a more practical location for witness\r\ntestimonies.\r\n\r\n5. Financial and Work Constraints:\r\n? As a full-time single father, taking time off work to travel four hours each way for\r\ncourt proceedings is unfeasible.\r\n? The Plaintiff also works full time, making a Missouri venue equally burdensome.\r\n\r\nIII. Legal Standard\r\nUnder 28 U.S.C. � 1404(a), this Court may transfer a case for the convenience of the parties\r\nand witnesses, and in the interest of justice. Factors to consider include:\r\n1. The convenience of the parties and witnesses;\r\n2. Access to sources of proof;\r\n3. The plaintiff�s choice of forum;\r\n4. Practical challenges of conducting the trial in the chosen forum;\r\n5. Local interest in having localized controversies decided at home.\r\n\r\nIV. Argument\r\n1. Convenience of the Parties:\r\n? Both parties reside in Kansas and would face significant hardship traveling to\r\nMissouri for court appearances. Transferring the case to Kansas reduces\r\nlogistical burdens for both.\r\n2. Convenience of Witnesses:\r\n? Both parties� families and potential witnesses reside in Kansas, minimizing travel\r\nfor them and ensuring better participation.\r\n\r\n3. Access to Evidence:\r\n? Relevant evidence, such as Felix�s school records and community ties, is more\r\nreadily available in Kansas.\r\n\r\n4. Local Interest:\r\n? Kansas has a strong local interest in adjudicating this matter, as both parties and\r\ntheir child reside and participate in the Kansas community.\r\n\r\n5. Interest of Justice:\r\n\r\n? Transferring the case aligns with fairness, reduces financial and logistical\r\nhardships, and supports the co-parenting relationship.\r\n\r\nV. Conclusion\r\nFor the reasons stated, I, Micheal Salmon, respectfully request that this Court transfer venue of\r\nthis case to the United States District Court for the District of Kansas, in the interest of justice\r\nand for the convenience of the parties and witnesses.`
     },
     {
-      id: "25DM781",
+      id: "2025DM781",
       title: "PRAECIPE",
       date: "2025-04-17",
       type: "Other",
@@ -36,7 +36,7 @@ motionData.push (
   o)`
     },
     {
-      id: "25DM781",
+      id: "2025DM781",
       title: "EMERGENCY MOTION FOR TEMPORARY CUSTODY AND EX PARTE RELIEF",
       date: "2025-04-17",
       type: "Motion",
@@ -92,7 +92,7 @@ motionData.push (
     WHEREFORE, Petitioner respectfully requests that the Court enter an order allowing him to file pleadings electronically in this matter, and for such further relief as the Court deems just and proper.`
     },
     {
-      id: "25DM781",
+      id: "2025DM781",
       title: "Summons",
       date: "2025-04-17",
       type: "Other",
@@ -111,7 +111,7 @@ motionData.push (
     Wyandotte County Courthouse`
     },
     {
-      id: "25DM781",
+      id: "2025DM781",
       title: "PETITION FOR IMMEDIATE ACCESS TO MINOR CHILD AND REQUEST FOR EMERGENCY HEARING",
       date: "2025-05-02",
       type: "Petition",
@@ -141,5 +141,33 @@ motionData.push (
     
     
     I, Micheal Lawrence Salmon, affirm under penalty of perjury that the foregoing is true and correct to the best of my knowledge and belief`
-    }
+    },
+    {
+  id: "2025DM781",
+  title: "MOTION TO PRESERVE AND PRODUCE SURVEILLANCE AND BODY CAMERA FOOTAGE",
+  date: "2025-05-15",
+  type: "Motion",
+  status: "Pending",
+  content: `COMES NOW, Micheal Lawrence Salmon, appearing pro se, and hereby moves this Court to preserve and compel production of all surveillance and law enforcement body camera footage from incidents occurring on May 14, 2025, during filing procedures in the above-captioned cases. This footage is critical to evaluating potential violations of civil rights, improper interference with lawful discovery activity, and possible abuse of authority by courthouse officials and law enforcement personnel.
+FACTUAL BACKGROUND
+On May 14, 2025, Movant lawfully appeared at the Wyandotte County courthouse to file and deliver subpoenas tied to lawful discovery under open litigation in three matters. Court clerks at the civil filings window refused to process standard subpoena filings without justification, withheld procedural forms, and issued contradictory directives in what appeared to be a coordinated obstruction.
+When Movant asked for clarification on how to escalate the issue, the clerks summoned an armed sheriff's deputy to the scene. The deputy did not de-escalate but rather aggravated the situation, spoke over legal questions, and attempted to dismiss Movant from a public records window. Upon learning that his conduct and identity would be included in a records request, the officer visibly and audibly turned off his body-worn camera mid-incident.
+Movant has reason to believe this was not an isolated event but part of a pattern of retaliatory obstruction toward litigants pursuing subpoena enforcement, civil rights claims, or other discovery unfavorable to courthouse personnel or their associates. These events raise serious concerns regarding the clerk’s impartiality and whether court personnel are enlisting law enforcement to intimidate or suppress legal access for disfavored parties.
+LEGAL BASIS
+Under the Kansas Open Records Act (KORA), K.S.A. 45-215 et seq., all body-worn and security camera footage recorded in public spaces by public officials is subject to disclosure and preservation. Further, under the Kansas Judicial Code of Conduct and applicable civil rights protections, clerks and judicial officers may not engage in retaliatory obstruction of access to courts or use law enforcement to discourage legal activity protected under the First and Fourteenth Amendments.
+This Court retains both statutory and inherent authority to order immediate preservation of material evidence where misconduct may be involved, especially when state actors use administrative power to interfere with due process and discovery rights.
+REQUESTED RELIEF
+Movant respectfully requests:
+That the Court issue an immediate preservation order for all audio, video, and surveillance footage from the Wyandotte County courthouse on May 14, 2025, covering the time period between 8:30 AM and 1:00 PM.
+That this order include:
+Courthouse security camera footage showing civil clerk interactions
+All body camera footage worn by the sheriff deputy who interacted with Movant
+Any internal courthouse communications logs, radio transmissions, or dispatch records relevant to the clerk's request for police presence
+Any video/audio showing the moment the officer deactivated his body camera
+That the Court compel the Wyandotte County Sheriff’s Office and courthouse security division to produce the unredacted footage either:
+Directly to Movant;
+To the Court for in-camera review; or
+Under seal and subject to protective order if privacy concerns arise.
+That the Court formally record this request in the docket of each related case to preserve procedural integrity and guard against evidence spoliation, especially given the ongoing pattern of retaliation against Movant for exercising protected legal actions.`
+}
 )

@@ -397,6 +397,86 @@ motionData.push (
   Refrain from further retaliatory sanctions related to Respondent’s exercise of constitutional rights;
   Take judicial notice that Respondent is preparing federal civil rights and RICO-based litigation against individuals and agencies involved in the systemic denial of justice in this matter.
   Grant full physical and sole custody of Felix Day to Micheal Salmon`
-  }
+  },
+  {
+  id: "24SNDR00104",
+  title: "Motion to Vacate Judgment and Response to Trial Order",
+  date: "2025-05-12",
+  type: "Motion",
+  status: "Pending",
+  content: `Comes now the Respondent, appearing pro se, and respectfully moves this Court to vacate the judgment entered on May 9, 2025, pursuant to Missouri Rules of Civil Procedure 75.01 and 74.05(d), and hereby responds to the trial order as follows:
+I. PROCEDURAL AND JURISDICTIONAL DEFECTS
+1. Lack of Subject Matter Jurisdiction:
+ At the time of filing, neither party satisfied the 90-day residency requirement as set forth under Missouri Revised Statutes § 452.305(1). Both parties primarily reside in Kansas, and this Missouri action was improperly initiated while the Petitioner was temporarily vacationing in Branson. The Court lacked jurisdiction ab initio and must vacate all resulting orders.
+2. Improper Service and Inadequate Notice:
+ Respondent did not receive lawful or timely notice of the May 9, 2025 hearing. No notice of hearing or order to appear was served, in violation of Rule 43.01 and Respondent’s due process rights. Proceeding without ensuring proper notice is grounds for mandatory vacatur.
+3. Denial of Opportunity to Be Heard:
+ The Court stated on the record it would not review any of Respondent’s pending motions and refused to allow argument on time-sensitive and properly filed pleadings. This prejudiced Respondent’s ability to present key jurisdictional challenges and evidence of retaliation, in direct violation of fundamental due process principles.
+II. GUARDIAN AD LITEM (GAL) MISCONDUCT
+1. Unsworn and Unauthorized GAL Participation:
+ Gail Mark-Stevens was not sworn in as GAL prior to taking actions or issuing recommendations to the Court. This omission renders all GAL communications and advisements legally void. Per Missouri Supreme Court Rule 129.04, no GAL may act in an official capacity absent formal appointment and oath.
+2. Reliance on Invalid Recommendations:
+ The Court’s suspension of Respondent’s visitation was grounded solely on recommendations issued by the unsworn GAL, in the absence of cross-examination or evidentiary hearing. The legal reliance on an unvetted and unauthorized source deprived Respondent of procedural fairness and violated the Missouri Rules of Civil Procedure and Evidence.
+III. RETALIATION, COERCION, AND ABUSE OF JUDICIAL PROCESS
+1. Pattern of Coercive Forum Manipulation:
+ The Petitioner deliberately initiated litigation in Stone County as a form of jurisdictional manipulation and coercion. This follows a consistent pattern of retaliatory filings designed to obstruct Respondent’s parental rights and limit meaningful participation in the upbringing of the minor child.
+2. Evidence of Strategic Abuse:
+ This case was filed in a jurisdiction wholly unrelated to the habitual residence of the child or the parties. The selection of venue and timing appears to be motivated by the desire to evade scrutiny and secure unlawful default judgments while obstructing Respondent’s participation and defense.
+IV. FEDERAL IMPLICATIONS AND PRESERVATION OF RIGHTS
+1. Federal Questions and Subpoena Authority:
+ This case has invoked ongoing federal jurisdiction under 42 U.S.C. § 1983 and the Fourteenth Amendment. Subpoenas have been issued and served upon more than a dozen individuals and entities involved in or witness to retaliatory conduct and misconduct by state officials, including judicial actors.
+2. Retaliatory Dismissal Will Be Treated as Obstruction:
+ Any attempt to dismiss this case or neutralize pending subpoenas—now tied to formal judicial misconduct complaints and disciplinary inquiries—will be treated as retaliatory obstruction of a federally protected process. Such an act will result in immediate federal action, including a motion for injunctive relief and potential referral to the U.S. Attorney’s Office for review of civil rights violations.
+3. Subpoenas Are Now Federally Preserved:
+ All subpoenas issued are subject to continuing federal protections and relevance under appellate and § 1983 frameworks. The Court is hereby noticed that destruction, voiding, or suppression of those subpoenas will be documented and challenged through the appropriate federal judicial and administrative channels.
+
+V. CONCLUSION AND PRAYER FOR RELIEF
+WHEREFORE, the Respondent respectfully demands that this Court:
+Vacate the Judgment entered on May 9, 2025, based on improper notice, lack of jurisdiction, and procedural irregularities;
+Dismiss the Action for want of jurisdiction and improper venue;
+Preserve and Enforce All Lawfully Issued Subpoenas, and prohibit retaliatory quashing or dismissal to suppress evidence;
+Set a Special Hearing on All Previously Filed Motions, including those regarding standing, discovery, and coercive control;
+Admonish the GAL for Failure to Comply with Required Oath and Process, and nullify all recommendations made outside procedural bounds;
+Acknowledge that Further Retaliation or Attempted Suppression Will Trigger Federal Consequences, including civil rights litigation under 42 U.S.C. § 1983, and prompt complaints to the Missouri Judicial Commission and U.S. Department of Justice;
+And grant any other relief this Court deems just and proper to preserve judicial integrity and restore Respondent’s constitutional rights.`
+},
+{
+  id: "Pending",
+  title: "PETITION FOR PROTECTION FROM STALKING, SEXUAL ASSAULT, OR HUMAN TRAFFICKING ORDER",
+  date: "2025-05-13",
+  type: "Petition",
+  status: "Pending",
+  content: `PETITION FOR PROTECTION FROM STALKING, SEXUAL ASSAULT, OR HUMAN TRAFFICKING ORDER
+(K.S.A. 60-31a01 et seq.)
+COMES NOW the Petitioner, Micheal Lawrence Salmon, and pursuant to K.S.A. 60-31a01 et seq., respectfully petitions this Court to issue a Protection Order against Respondent, Zach Stangl, and in support thereof states as follows:
+1. PARTIES
+Petitioner: Micheal Lawrence Salmon is a resident of Wyandotte County, Kansas.
+Respondent: Zach Stangl resides or works at 1311 E 13th Street, Ste D, Kansas City, Missouri 64106.
+2. GROUNDS FOR RELIEF
+Petitioner seeks protection on the grounds of stalking as defined under K.S.A. 60-31a02(b), which includes intentional harassment that places a person in fear for their safety.
+On multiple occasions, Respondent has engaged in threatening, manipulative, and emotionally abusive behavior.
+Petitioner possesses video evidence of Respondent threatening physical violence (“beat me up”), available at:
+ https://drive.google.com/file/d/1NwBSt2rVB_DfGLMLqLnbc5Hx4iXFNenM/view
+Following a lawful request for subpoena compliance, Respondent attempted to provoke and frame Petitioner as mentally unstable through text messages, consistent with a pattern of coercive behavior.
+Text evidence further demonstrates collusion with Crycella Freitag, a known party in ongoing custody and civil litigation involving Petitioner, in what appears to be a retaliatory or coordinated attack on Petitioner’s mental health, safety, and reputation.
+These acts collectively amount to a knowing and intentional pattern of harassment, intimidation, and emotional manipulation designed to threaten, destabilize, and endanger Petitioner.
+3. IMMEDIATE DANGER AND REQUEST FOR RELIEF
+Petitioner believes Respondent poses a credible threat to their safety and well-being. The escalation from feigned ignorance to anger during legal procedures—especially regarding subpoenaed phone records—further validates the threat.
+Petitioner respectfully requests that this Court:
+Issue a temporary order of protection without notice to Respondent;
+Prohibit Respondent from contacting Petitioner in any form, including direct, indirect, electronic, or third-party contact;
+Order Respondent to stay at least 500 feet away from Petitioner’s residence, place of employment, and any known locations Petitioner frequents;
+Include any other relief deemed just and necessary.
+5. FORCED COMMUNICATION AND CONTEMPTUOUS DISREGARD FOR LEGAL PROCESS
+In addition to threats and manipulative behavior, Respondent has engaged in a pattern of forced communication after being placed on notice regarding his conduct. Despite Petitioner making it clear that communications were unwanted and inappropriate, Respondent continued to reach out with hostile and provocative messages.
+Of particular concern is Respondent’s documented refusal to respect the authority of lawful subpoenas:
+When informed of a pending subpoena request for his phone records related to ongoing litigation, Respondent first pretended ignorance, then escalated into anger and threats.
+In text communications, Respondent explicitly indicated that he does not care about subpoenas, contempt of court, or the legal consequences of refusing to cooperate. This was not a misunderstanding but an intentional declaration of defiance toward the court process.
+Respondent used this exchange as an opportunity to again frame Petitioner as mentally unstable, consistent with gaslighting tactics and coercive control through the deliberate undermining of Petitioner’s credibility.
+This conduct demonstrates not only Respondent’s willful disrespect for court authority, but also his ongoing emotional exploitation and psychological abuse of Petitioner through manipulation, provocation, and fear-based coercion.
+Petitioner believes this presents clear and convincing evidence that Respondent’s communications are not only unwanted, but are being used as weapons to intimidate and provoke a legal or emotional breakdown, further justifying the issuance of a protection order.
+5. CERTIFICATION AND REQUEST FOR HEARING
+Petitioner certifies that the above statements are true to the best of their knowledge and requests a hearing at the earliest possible date.`
+}
 )
 
