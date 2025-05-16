@@ -1851,6 +1851,8 @@ function escapeRegExp(string) {
 
             const matchingLine = matchingLines[0]?.line || '';
             const safeLine = encodeURIComponent(matchingLine);
+            const safeTitle = encodeURIComponent(motion.title);
+
 
             // Highlight keyword in title
             const safeKeyword = escapeRegExp(keyword);
@@ -1877,57 +1879,56 @@ function escapeRegExp(string) {
             card.className = 'bg-white rounded-xl shadow-sm overflow-hidden fade-in';
             card.style.animationDelay = `${index * 0.05}s`;
             card.innerHTML = `
-                <div class="document-card p-6 hover:bg-gray-50 cursor-pointer"        onclick="showDocumentDetails(decodeURIComponent('${safeLine}'))"">
-                    <div class="flex items-start justify-between mb-2">
-                        <div>
-                            <h3 class="text-lg font-medium text-gray-900 mb-1">${highlightedTitle}</h3>
-                            <div class="flex items-center space-x-3 text-sm mb-3">
-                                <span class="text-gray-500">${motion.id}</span>
-                                <span class="text-gray-300">•</span>
-                                <span class="text-gray-500">${motion.date}</span>
-                                <span class="text-gray-300">•</span>
-                                <span class="px-2 py-0.5 rounded-full text-xs font-medium ${statusBadge}">
-                                    ${motion.status}
-                                </span>
-                            </div>
-                        </div>
-                        <span class="text-xs text-gray-400">${motion.type}</span>
-                    </div>
-                                        
-                    ${matchingLines.length > 0 ? `
-                    <div class="bg-gray-50 p-3 rounded-lg border border-gray-200 text-sm">
-                        <div class="text-xs text-gray-500 mb-1">Matching content:</div>
-                        ${matchingLines.map(item => {
-                                  const highlightedLine = item.line.replace(
-                                new RegExp(`(${keyword})`, 'gi'), 
-                                `<span style="${highlightStyle}">$1</span>`
-                            );
-                            return `
-                                <div class="mb-1">
-                                    <span class="text-gray-400 text-xs">Line ${item.number}:</span>
-                                    <span class="text-gray-800">${highlightedLine}</span>
-                                </div>
-                            `;
-                        }).join('')}
-                    </div>
-                    ` : ''}
+    <div class="document-card p-6 hover:bg-gray-50 cursor-pointer" onclick="showDocumentDetails(decodeURIComponent('${safeTitle}'))">
+        <div class="flex items-start justify-between mb-2">
+            <div>
+                <h3 class="text-lg font-medium text-gray-900 mb-1">${highlightedTitle}</h3>
+                <div class="flex items-center space-x-3 text-sm mb-3">
+                    <span class="text-gray-500">${motion.id}</span>
+                    <span class="text-gray-300">•</span>
+                    <span class="text-gray-500">${motion.date}</span>
+                    <span class="text-gray-300">•</span>
+                    <span class="px-2 py-0.5 rounded-full text-xs font-medium ${statusBadge}">
+                        ${motion.status}
+                    </span>
                 </div>
-            `;
+            </div>
+            <span class="text-xs text-gray-400">${motion.type}</span>
+        </div>
+        ${matchingLines.length > 0 ? `
+        <div class="bg-gray-50 p-3 rounded-lg border border-gray-200 text-sm">
+            <div class="text-xs text-gray-500 mb-1">Matching content:</div>
+            ${matchingLines.map(item => {
+                const highlightedLine = item.line.replace(
+                    new RegExp(`(${keyword})`, 'gi'), 
+                    `<span style="${highlightStyle}">$1</span>`
+                );
+                return `
+                    <div class="mb-1">
+                        <span class="text-gray-400 text-xs">Line ${item.number}:</span>
+                        <span class="text-gray-800">${highlightedLine}</span>
+                    </div>
+                `;
+            }).join('')}
+        </div>
+        ` : ''}
+    </div>
+`;
             
             resultsContainer.appendChild(card);
         });
     }
     
     
-    function showDocumentDetails(matchingLine) {
-        // Find the document whose content includes the exact matching line
-        const doc = motionData.find(m => m.content.includes(matchingLine));
-        if (!doc) {
-            alert('Document not found.');
-            return;
-        }
-        renderDocumentCard(doc);
+    function showDocumentDetails(docTitle) {
+    // Find the document whose title matches exactly
+    const doc = motionData.find(m => m.title === docTitle);
+    if (!doc) {
+        alert('Document not found.');
+        return;
     }
+    renderDocumentCard(doc);
+}
     
     // Helper to render the document card
     function renderDocumentCard(doc) {
