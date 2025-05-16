@@ -325,3 +325,97 @@
               transform: rotate(-3deg) translate(-5px);
     }
   }
+
+      .gradient-bg {
+      background: linear-gradient(135deg, #181717 0%, #e65c32 100%);
+    }
+    .card-hover {
+      transition: all 0.3s ease;
+      transform: translateY(0);
+    }
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    .feature-icon {
+      transition: all 0.3s ease;
+    }
+    .feature-card:hover .feature-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .glow {
+      box-shadow: 0 0 15px rgba(66, 165, 245, 0.5);
+    }
+    .tooltip {
+      position: relative;
+    }
+    .tooltip-text {
+      visibility: hidden;
+      width: 200px;
+      background-color: #424242;
+      color: #000000;
+      text-align: center;
+      border-radius: 6px;
+      padding: 10px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .tooltip:hover .tooltip-text {
+      visibility: visible;
+      opacity: 1;
+    }
+
+
+@keyframes blink-orange {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+.blink-orange {
+    animation: blink-orange 1.5s infinite;
+}
+
+#timeline-track > div.active {
+  background: white; /* Or whatever background color you want for the main one */
+}
+
+#timeline-viewport {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+#timeline-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  will-change: transform;
+}
+
+#timeline-track > div {
+  flex: 0 0 60%;
+  opacity: 0.5;
+  transition: all 0.5s ease;
+}
+
+#timeline-track > div.active {
+  opacity: 1;
+  z-index: 2;
+}
+

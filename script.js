@@ -506,6 +506,9 @@ sendBtn.addEventListener('click', sendMessage);
 userInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         sendMessage();
+        chatBot.classList.remove('h-[10vh]');
+      chatBot.classList.remove('bottom-20');
+      chatBot.classList.add('h-full');
     }
 });
 

@@ -84,104 +84,7 @@
       }
     }
   </script>
-  <style>
-    .gradient-bg {
-      background: linear-gradient(135deg, #181717 0%, #e65c32 100%);
-    }
-    .card-hover {
-      transition: all 0.3s ease;
-      transform: translateY(0);
-    }
-    .card-hover:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
-    .feature-icon {
-      transition: all 0.3s ease;
-    }
-    .feature-card:hover .feature-icon {
-      transform: scale(1.1) rotate(5deg);
-    }
-    .tab-content {
-      display: none;
-    }
-    .tab-content.active {
-      display: block;
-      animation: fadeIn 0.5s ease;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    .glow {
-      box-shadow: 0 0 15px rgba(66, 165, 245, 0.5);
-    }
-    .tooltip {
-      position: relative;
-    }
-    .tooltip-text {
-      visibility: hidden;
-      width: 200px;
-      background-color: #424242;
-      color: #000000;
-      text-align: center;
-      border-radius: 6px;
-      padding: 10px;
-      position: absolute;
-      z-index: 1;
-      bottom: 125%;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .tooltip:hover .tooltip-text {
-      visibility: visible;
-      opacity: 1;
-    }
-
-
-@keyframes blink-orange {
-    0% { opacity: 1; }
-    50% { opacity: 0.3; }
-    100% { opacity: 1; }
-}
-
-.blink-orange {
-    animation: blink-orange 1.5s infinite;
-}
-
-#timeline-track > div.active {
-  background: white; /* Or whatever background color you want for the main one */
-}
-
-#timeline-viewport {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
-
-#timeline-track {
-  display: flex;
-  transition: transform 0.5s ease;
-  will-change: transform;
-}
-
-#timeline-track > div {
-  flex: 0 0 60%;
-  opacity: 0.5;
-  transition: all 0.5s ease;
-}
-
-#timeline-track > div.active {
-  opacity: 1;
-  z-index: 2;
-}
-
-
-
-
-  </style>
+  
 </head>
 
 
@@ -1868,6 +1771,10 @@ months.</p>
         });
     });
 
+function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
     // Perform search function
     function performSearch() {
         const keyword = document.getElementById('userInput').value.trim().toLowerCase();
@@ -1941,9 +1848,11 @@ months.</p>
                 .slice(0, 3); // Show max 3 matching lines
             
             // Highlight keyword in title
+            const safeKeyword = escapeRegExp(keyword);
+            const highlightStyle = "background-color:#ffe082;font-weight:bold;border-radius:3px;padding:0 2px;display:inline;";
             const highlightedTitle = motion.title.replace(
-                new RegExp(`(${keyword})`, 'gi'), 
-                '<span class="highlight">$1</span>'
+                new RegExp(`(${safeKeyword})`, 'gi'), 
+                `<span style="${highlightStyle}">$1</span>`
             );
             
             const deniedStatuses = ['Denied', 'OverRuled'];
@@ -1984,9 +1893,9 @@ months.</p>
                     <div class="bg-gray-50 p-3 rounded-lg border border-gray-200 text-sm">
                         <div class="text-xs text-gray-500 mb-1">Matching content:</div>
                         ${matchingLines.map(item => {
-                            const highlightedLine = item.line.replace(
+                                  const highlightedLine = item.line.replace(
                                 new RegExp(`(${keyword})`, 'gi'), 
-                                '<span class="highlight">$1</span>'
+                                `<span style="${highlightStyle}">$1</span>`
                             );
                             return `
                                 <div class="mb-1">
@@ -2004,13 +1913,57 @@ months.</p>
         });
     }
     
-    // Show document details (would be implemented for a full view)
+    
+    // Show document details as a full document card (not in a modal or details container)
     function showDocumentDetails(docId) {
         const doc = motionData.find(m => m.id === docId);
         if (!doc) return;
-        
-        alert(`Would show full details for document: ${doc.title}\n\nThis would include the complete document text in a detailed view.`);
+    
+        // Build the document card HTML
+        const statusBadge =
+            doc.status === 'Granted'
+                ? 'bg-green-100 text-green-800'
+                : ['Denied', 'OverRuled'].includes(doc.status)
+                ? 'bg-red-100 text-red-800'
+                : 'bg-blue-100 text-blue-800';
+    
+        const card = document.createElement('div');
+        card.className = 'bg-white rounded-xl shadow-lg overflow-hidden fade-in my-8 mx-auto max-w-2xl border border-gray-200';
+        card.innerHTML = `
+            <div class="document-card p-8">
+                <div class="flex items-start justify-between mb-4">
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-2">${doc.title}</h2>
+                        <div class="flex items-center space-x-3 text-sm mb-2">
+                            <span class="text-gray-500">${doc.id}</span>
+                            <span class="text-gray-300">•</span>
+                            <span class="text-gray-500">${doc.date}</span>
+                            <span class="text-gray-300">•</span>
+                            <span class="px-2 py-0.5 rounded-full text-xs font-medium ${statusBadge}">
+                                ${doc.status}
+                            </span>
+                        </div>
+                    </div>
+                    <span class="text-xs text-gray-400">${doc.type}</span>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-100 text-sm mb-4">
+                    <pre style="white-space: pre-wrap;" class="text-gray-800">${doc.content}</pre>
+                </div>
+                <button onclick="clearDocumentDetails()" class="mt-2 bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded transition">Close</button>
+            </div>
+        `;
+    
+        // Replace the search results with the document card
+        const resultsContainer = document.getElementById('searchResults');
+        resultsContainer.innerHTML = '';
+        resultsContainer.appendChild(card);
     }
+    
+    // Helper to restore search results view
+    function clearDocumentDetails() {
+        performSearch();
+    }
+        
     
     // Clear search function
     function clearSearch() {
@@ -2068,6 +2021,10 @@ function showSection(sectionId) {
   <script defer src="legal/cases/WY2025LM002787.js"></script>
   <script defer src="legal/cases/missouri.js"></script>
   <script defer src="legal/cases/subpoenas/24SNDR00104.js"></script>
+  <script defer src="legal/cases/subpoenas/2025CV325.js"></script>
+  <script defer src="legal/cases/24SNDR00104/jan2024.js"></script>
+  <script defer src="legal/cases/24SNDR00104/mar2025.js"></script>
+  <script defer src="legal/cases/24SNDR00104/apr2025.js"></script>
 
 </body>
 </html>
