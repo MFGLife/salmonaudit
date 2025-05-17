@@ -374,11 +374,12 @@ function escapeRegExp(string) {
     }
         
     
-    // Clear search function
-    function clearSearch() {
-        document.getElementById('userInput').value = '';
+
+      clearButton.addEventListener('click', () => {
+    document.getElementById('userInput').value = '';
+        document.getElementById('userInput').innerHTML = '';
         performSearch();
-    }
+  });
 
     
 function showSection(sectionId) {

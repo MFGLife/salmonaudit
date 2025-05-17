@@ -105,7 +105,44 @@
 
   <!-- Chat Content -->
   <div id="chatContent" class="bg-gray-50">
-      <a class="text-xs bg-gray-50 px-1" id="toggleDropdown">Login / File Upload</a>
+      <a class="text-xs bg-gray-50 px-4" id="toggleDropdown">Login / File Upload
+
+
+
+                  <header class="shrink-0 mb-4 px-4 py-2">
+        <!-- Stats bar -->
+        <div class="bg-white rounded-xl shadow-sm p-4 mb-6 flex flex-wrap items-center justify-between gap-4">
+
+          <div class="flex items-center space-x-2">
+              <div class="p-2 rounded-lg bg-orange-50 text-orange-600">
+                  <i class="fas fa-file-alt"></i>
+              </div>
+              <div>
+                  <p class="text-xs text-gray-500">Documents Found</p>
+                  <p class="font-medium" id="totalDocuments">0</p>
+              </div>
+          </div>
+          
+          <div class="flex items-center space-x-2">
+              <div class="p-2 rounded-lg bg-blue-50 text-blue-600">
+                  <i class="fas fa-search"></i>
+              </div>
+              <div>
+                  <p class="text-xs text-gray-500">Matches</p>
+                  <p class="font-medium" id="resultCount">0</p>
+              </div>
+          </div>
+
+      </div>
+          </header>
+<blockquote 
+      class="tiktok-embed" 
+      cite="https://www.tiktok.com/@salmonaudit/video/7505054901999832350" 
+      data-video-id="7505054901999832350" 
+      style="max-width: 100%;">
+      <section>Loading...</section>
+    </blockquote>
+      </a>
     <!-- File Upload Section -->
     <div id="dropdownContent" class="mb-4 hidden">
       <div class="file-upload bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg p-4 text-center transition-colors hover:border-green-400">
@@ -143,6 +180,9 @@
     <button id="sendBtn" class="bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 px-4 rounded-lg transition-colors text-sm">
       Send
     </button>
+    <button id="clearButton" class="bg-gray-600 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg transition-colors text-sm">
+                <i class="fas fa-times"></i>
+            </button>
   </div>
 </div>
 
@@ -197,6 +237,7 @@
 
 
 
+  
 
   <!-- Offline Section -->
   <section id="offline" style="height: 600px;">
@@ -207,59 +248,13 @@
 
 <div id="glossaryS"  style="width: 100%; height: 100%;">
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-
-
-    <!-- Main content area -->
-    <main>
-
-
-
-
         <div class="flex flex-col h-screen">
-          <!-- Header -->
-          <header class="shrink-0 mb-4 px-4 py-2">
-        <!-- Stats bar -->
-        <div class="bg-white rounded-xl shadow-sm p-4 mb-6 flex flex-wrap items-center justify-between gap-4">
-
-          <div class="flex items-center space-x-2">
-              <div class="p-2 rounded-lg bg-orange-50 text-orange-600">
-                  <i class="fas fa-file-alt"></i>
-              </div>
-              <div>
-                  <p class="text-xs text-gray-500">Documents Found</p>
-                  <p class="font-medium" id="totalDocuments">0</p>
-              </div>
-          </div>
-          
-          <div class="flex items-center space-x-2">
-              <div class="p-2 rounded-lg bg-blue-50 text-blue-600">
-                  <i class="fas fa-search"></i>
-              </div>
-              <div>
-                  <p class="text-xs text-gray-500">Matches</p>
-                  <p class="font-medium" id="resultCount">0</p>
-              </div>
-          </div>
-
-
-          <div class="flex items-center space-x-2">
-            <div class="p-2 rounded-lg bg-green-50 text-green-600">
-                <a onclick="clearSearch()"><i class="fas fa-times"></i></a>
-            </div>
-            <div>
-                  <p class="font-medium">Clear Results</p>
-            </div>
-        </div>
-
-      </div>
-          </header>
         
           <!-- Scrollable area -->
           <main class="flex-1 overflow-y-auto px-4 pb-40">
-            <div id="searchResults" class="space-y-4">
+            <div id="searchResults" class="space-y-4 py-4">
               <!-- Cards and dynamic content -->
-              <div id="initialState" class="bg-white rounded-xl shadow-sm overflow-hidden">
+              <div id="initialState" class="bg-white rounded-xl shadow-sm overflow-hidden py-4">
                 <div class="p-8 text-center">
                   <div class="mx-auto w-24 h-24 text-gray-300 mb-4">
                     <i class="fas fa-search fa-3x"></i>
@@ -282,8 +277,7 @@
           </main>
         </div>
         
-    </main>
-</div></div>
+</div>
 
 </section>
 
@@ -301,16 +295,16 @@
       <div class="swiper-slide">
         <div class="pdf-container bg-white rounded-xl shadow-md overflow-hidden">
           <div class="pdf-preview h-48 flex items-center justify-center relative">
-  <img src="pics/damages.jpg" alt="Document Preview" class="object-cover w-full h-full">
+  <img src="pics/CCC.png" alt="Document Preview" class="object-cover w-full h-full">
             <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-4">
-              <span class="text-white text-sm font-medium">Pages: 6</span>
+              <span class="text-white text-sm font-medium">Pages: 66</span>
             </div>
           </div>
           <div class="p-4">
-            <h3 class="text-lg font-semibold text-gray-800 mb-2">Verified Petition for Damages</h3>
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">2025CV325 v. Christ Connect Church</h3>
                 <div class="flex items-center text-sm mb-2">
       <span class="w-3 h-3 rounded-full bg-orange-500 mr-1 animate-pulse"></span>
-      <span class="text-gray-700">Pending</span>
+              <span class="text-gray-700">Pending Hokuwa Fee: <span class="text-green-700">$150,000</span></span>
     </div>
             <p class="text-sm text-gray-600 mb-3">
               This action arises out of a coordinated, sustained, and malicious campaign by private
@@ -319,10 +313,28 @@ similarly situated parties through psychological coercion, false allegations, co
 communications, and interference in familial, legal, and social relationships.
             </p>
             <div class="flex justify-between items-center">
-              <span class="text-xs text-gray-500">Filed: May 9, 2025</span>
-              <div class="flex space-x-2">
-                <button onclick="window.open('https://drive.google.com/file/d/1t8VtRh3k80GAFTs6ZLb_kwygn0M9srrn/view?usp=sharing', '_blank')" class="text-blue-600 hover:text-blue-800 text-sm font-medium">View</button>
-                <button onclick="window.open('https://drive.google.com/file/d/1t8VtRh3k80GAFTs6ZLb_kwygn0M9srrn/view?usp=sharing', '_blank')" class="text-gray-600 hover:text-gray-800 text-sm font-medium">Download</button>
+<div class="flex items-center space-x-2">
+  <span class="text-xs text-gray-500">Filed: May 9, 2025</span>
+  <img class="h-6 w-6 rounded-full border-2 border-primary-600" src="pics/micheal.png" alt="Micheal Lawrence Salmon">
+    <img class="h-6 w-6 rounded-full border-2 border-primary-600" src="pics/carl.png" alt="Carl Jemison">
+  <img class="h-6 w-6 rounded-full border-2 border-primary-600" src="pics/terry.png" alt="Trina Nudson">
+    <img class="h-6 w-6 rounded-full border-2 border-primary-600" src="pics/alex.png" alt="Trina Nudson">
+  <img class="h-6 w-6 rounded-full border-2 border-primary-600" src="pics/klutys.png" alt="Trina Nudson">
+
+
+</div>              <div class="flex space-x-2">
+                <button
+  onclick="window.location.href='mailto:classactionabuse@gmail.com?subject=I\'m%20ready%20to%20sign%20the%20golden%20bridge%20disclosure%20agreement&body=I\'m%20ready%20to%20start%20the%20process,%20and%20agree%20that%20communication%20from%20I%20attempting%20to%20fully%20comply.'"
+  class="text-blue-600 hover:text-blue-800 text-sm font-medium">
+  Bridge
+</button>
+
+<button
+  onclick="window.location.href='mailto:classactionabuse@gmail.com?subject=I%20want%20to%20become%20an%20auditor%20for%20this%20case&body=Please%20include%20any%20relevant%20details%20on%20why%20you\'re%20best%20for%20this%20role.%20Let%20us%20know%20if%20you\'re%20looking%20for%20additional%20assistance.'"
+  class="text-gray-600 hover:text-gray-800 text-sm font-medium">
+  Join Audit
+</button>
+
               </div>
             </div>
           </div>
@@ -333,16 +345,16 @@ communications, and interference in familial, legal, and social relationships.
       <div class="swiper-slide">
         <div class="pdf-container bg-white rounded-xl shadow-md overflow-hidden">
           <div class="pdf-preview h-48 flex items-center justify-center relative">
-  <img src="pics/class.jpg" alt="Document Preview" class="object-cover w-full h-full">
+  <img src="pics/layne1.png" alt="Document Preview" class="object-cover w-full h-full">
             <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-4">
-              <span class="text-white text-sm font-medium">Pages: 6</span>
+              <span class="text-white text-sm font-medium">Pages: 24</span>
             </div>
           </div>
           <div class="p-4">
-            <h3 class="text-lg font-semibold text-gray-800 mb-2">Motion to Initiate Class Action</h3>
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">2025CV325 v. Layne Project</h3>
             <div class="flex items-center text-sm mb-2">
-              <span class="w-3 h-3 rounded-full bg-green-500 mr-1"></span>
-              <span class="text-gray-700">Completed</span>
+        <span class="w-3 h-3 rounded-full bg-orange-500 mr-1 animate-pulse"></span>
+              <span class="text-gray-700">Pending Hokuwa Fee: <span class="text-green-700">$90,000</span></span>
             </div>
             <p class="text-sm text-gray-600 mb-3">
               This action arises from the systematic, unauthorized, and procedurally unlawful conduct of The
@@ -351,152 +363,119 @@ adequate oversight, transparency, or legal foundation. The Layne Project acted w
 Plaintiff’s consent, outside judicial order, and against explicit, on-record objections.
             </p>
             <div class="flex justify-between items-center">
-              <span class="text-xs text-gray-500">Filed: April 22, 2025</span>
+<div class="flex items-center space-x-2">
+  <span class="text-xs text-gray-500">Filed: April 22, 2025</span>
+  <img class="h-6 w-6 rounded-full border-2 border-primary-600" src="pics/micheal.png" alt="Micheal Lawrence Salmon">
+  <img class="h-6 w-6 rounded-full border-2 border-primary-600" src="pics/layne.png" alt="Trina Nudson">
+</div>
               <div class="flex space-x-2">
-                <button onclick="window.open('https://drive.google.com/file/d/1YO4jOwNGipJUlEzRJtVIkJp2VKZynzcB/view?usp=sharing', '_blank')" class="text-blue-600 hover:text-blue-800 text-sm font-medium">View</button>
-                <button onclick="window.open('https://drive.google.com/file/d/1YO4jOwNGipJUlEzRJtVIkJp2VKZynzcB/view?usp=sharing', '_blank')" class="text-gray-600 hover:text-gray-800 text-sm font-medium">Download</button>
+                <button
+  onclick="window.location.href='mailto:classactionabuse@gmail.com?subject=I\'m%20ready%20to%20sign%20the%20golden%20bridge%20disclosure%20agreement&body=I\'m%20ready%20to%20start%20the%20process,%20and%20agree%20that%20communication%20from%20I%20attempting%20to%20fully%20comply.'"
+  class="text-blue-600 hover:text-blue-800 text-sm font-medium">
+  Bridge
+</button>
+
+<button
+  onclick="window.location.href='mailto:classactionabuse@gmail.com?subject=I%20want%20to%20become%20an%20auditor%20for%20this%20case&body=Please%20include%20any%20relevant%20details%20on%20why%20you\'re%20best%20for%20this%20role.%20Let%20us%20know%20if%20you\'re%20looking%20for%20additional%20assistance.'"
+  class="text-gray-600 hover:text-gray-800 text-sm font-medium">
+  Join Audit
+</button>
+
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Slide 3 -->
-      <div class="swiper-slide">
-        <div class="pdf-container bg-white rounded-xl shadow-md overflow-hidden">
-          <div class="pdf-preview h-48 flex items-center justify-center relative">
-  <img src="pics/appeal.jpg" alt="Document Preview" class="object-cover w-full h-full">
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-4">
-              <span class="text-white text-sm font-medium">Pages: 3</span>
-            </div>
-          </div>
-          <div class="p-4">
-            <h3 class="text-lg font-semibold text-gray-800 mb-2">Record on Appeal</h3>
-            <div class="flex items-center text-sm mb-2">
-              <span class="w-3 h-3 rounded-full bg-green-500 mr-1"></span>
-              <span class="text-gray-700">Completed</span>
-            </div>
-            <p class="text-sm text-gray-600 mb-3">
-              Includes Judgment Entered by the Trial Court, 
-2. Notice of Appeal, 
-3. Motion to Dismiss for Lack of Jurisdiction, 
-4. Affidavit of Residence (Felix’s Residency Record), 
-5. Motion for Subpoena and Layne Project Records, 
-6. Response by Opposing Counsel, 
-7. Motion for Sanctions (Civil Rights Violations), 
-8. Order Denying Motion for Sanctions, 
-9. Video Evidence Index with Time Stamps....
-            </p>
-            <div class="flex justify-between items-center">
-              <span class="text-xs text-gray-500">Filed: May 19, 2025</span>
-              <div class="flex space-x-2">
-                <button onclick="window.open('https://drive.google.com/file/d/1oypQybEMpTPMVPqwHd170AXesXy_fV_U/view?usp=sharing', '_blank')" class="text-blue-600 hover:text-blue-800 text-sm font-medium">View</button>
-                <button onclick="window.open('https://drive.google.com/file/d/1oypQybEMpTPMVPqwHd170AXesXy_fV_U/view?usp=sharing', '_blank')" class="text-gray-600 hover:text-gray-800 text-sm font-medium">Download</button>
-              </div>
-            </div>
-          </div>
+     <!-- Slide 3 -->
+<div class="swiper-slide">
+  <div class="pdf-container bg-white rounded-xl shadow-md overflow-hidden">
+    <div class="pdf-preview h-48 flex items-center justify-center relative">
+      <img src="pics/stone2.png" alt="Document Preview" class="object-cover w-full h-full">
+      <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-4">
+        <span class="text-white text-sm font-medium">Pages: 238</span>
+      </div>
+    </div>
+    <div class="p-4">
+      <h3 class="text-lg font-semibold text-gray-800 mb-2">2025CV325 v. Stone County Circuit Court</h3>
+      <div class="flex items-center text-sm mb-2">
+        <span class="w-3 h-3 rounded-full bg-orange-500 mr-1 animate-pulse"></span>
+              <span class="text-gray-700">Pending Hokuwa Fee: <span class="text-green-700">$2,500,000</span></span>
+      </div>
+      <p class="text-sm text-gray-600 mb-3">
+        This action targets coordinated constitutional violations by Stone County court officials, including Judge Matt Selby, who issued a custody order without jurisdiction, without evidence, and without a hearing—while refusing over a dozen properly filed motions. The lawsuit seeks damages, federal oversight, and criminal referral.
+      </p>
+      <div class="flex justify-between items-center">
+<div class="flex items-center space-x-2">
+  <span class="text-xs text-gray-500">Filed: May 17, 2025</span>
+  <img class="h-6 w-6 rounded-full border-2 border-primary-600" src="pics/micheal.png" alt="Micheal Lawrence Salmon">
+    <img class="h-6 w-6 rounded-full border-2 border-primary-600" src="pics/crycella.png" alt="Micheal Lawrence Salmon">
+  <img class="h-6 w-6 rounded-full border-2 border-primary-600" src="pics/josh.png" alt="Micheal Lawrence Salmon">
+    <img class="h-6 w-6 rounded-full border-2 border-primary-600" src="pics/jozef.png" alt="Micheal Lawrence Salmon">
+  <img class="h-6 w-6 rounded-full border-2 border-primary-600" src="pics/kelly.png" alt="Micheal Lawrence Salmon">
+
+</div>        <div class="flex space-x-2">
+          <button
+  onclick="window.location.href='mailto:classactionabuse@gmail.com?subject=I\'m%20ready%20to%20sign%20the%20golden%20bridge%20disclosure%20agreement&body=I\'m%20ready%20to%20start%20the%20process,%20and%20agree%20that%20communication%20from%20I%20attempting%20to%20fully%20comply.'"
+  class="text-blue-600 hover:text-blue-800 text-sm font-medium">
+  Bridge
+</button>
+
+<button
+  onclick="window.location.href='mailto:classactionabuse@gmail.com?subject=I%20want%20to%20become%20an%20auditor%20for%20this%20case&body=Please%20include%20any%20relevant%20details%20on%20why%20you\'re%20best%20for%20this%20role.%20Let%20us%20know%20if%20you\'re%20looking%20for%20additional%20assistance.'"
+  class="text-gray-600 hover:text-gray-800 text-sm font-medium">
+  Join Audit
+</button>
+
         </div>
       </div>
-
-      <!-- Add existing slides here as additional swiper-slide divs -->
-
-
-<div class="swiper-slide">
-        <div class="pdf-container bg-white rounded-xl shadow-md overflow-hidden">                          
-                            <div class="pdf-preview h-48 flex items-center justify-center relative">
-                                <div class="absolute inset-0 flex items-center justify-center">
-  <img src="pics/mandamus.jpg" alt="Document Preview" class="object-cover w-full h-full">
-                                </div>
-                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-4">
-                                    <span class="text-white text-sm font-medium">Pages: 5</span>
-                                </div>
-                            </div>
-                            <div class="p-4">
-                                <h3 class="text-lg font-semibold text-gray-800 mb-2">Petition for Writ of Mandamus</h3>
-                                <div class="top-2 right-4 flex items-center space-x-4 text-sm">
-    <div class="flex items-center">
-      <span class="w-3 h-3 rounded-full bg-orange-500 mr-1 animate-pulse"></span>
-      <span class="text-gray-700">Pending</span>
     </div>
   </div>
-                                <p class="text-sm text-gray-600 mb-3">Honorable Court for a Writ of Mandamus directing the Honorable MATT ALAN SELBY, Circuit
-Judge of Stone County, Missouri, to:
-1. Perform his mandatory duty to rule on pending motions and address legal errors;
-2. Vacate all orders issued under improper jurisdiction;
-3. Transfer this matter to the appropriate Kansas court under the Uniform Child Custody
-Jurisdiction</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-xs text-gray-500">Filed: 02/18/2025</span>
-                                    <div class="flex space-x-2">
-                <button onclick="window.open('https://drive.google.com/file/d/1sfucZkZlXouxVpUb2K87nxN8pBsqlI6l/view?usp=drive_link', '_blank')" class="text-blue-600 hover:text-blue-800 text-sm font-medium">View</button>
-                <button onclick="window.open('https://drive.google.com/file/d/1sfucZkZlXouxVpUb2K87nxN8pBsqlI6l/view?usp=drive_link', '_blank')" class="text-gray-600 hover:text-gray-800 text-sm font-medium">Download</button>
-              </div>
-                                </div>
-                            </div>
-                        </div></div>
-                        
-                        <!-- Sample PDF Document 2 -->
+</div>
+
+     <!-- Slide 4 -->
 <div class="swiper-slide">
-        <div class="pdf-container bg-white rounded-xl shadow-md overflow-hidden">
-                                      <div class="pdf-preview h-48 flex items-center justify-center relative">
-                                <div class="absolute inset-0 flex items-center justify-center">
-  <img src="pics/compel.jpg" alt="Document Preview" class="object-cover w-full h-full">
-                                </div>
-                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-4">
-                                    <span class="text-white text-sm font-medium">Pages: 2</span>
-                                </div>
-                            </div>
-                            <div class="p-4">
-                                <h3 class="text-lg font-semibold text-gray-800 mb-2">Motion to Compel Disclosure of Body Camera Footage</h3>
-                                <div class="top-2 right-4 flex items-center space-x-4 text-sm">
-    <div class="flex items-center">
-      <span class="w-3 h-3 rounded-full bg-green-500 mr-1"></span>
-      <span class="text-gray-700">Completed</span>
+  <div class="pdf-container bg-white rounded-xl shadow-md overflow-hidden">
+    <div class="pdf-preview h-48 flex items-center justify-center relative">
+      <img src="pics/wyan.jpg" alt="Document Preview" class="object-cover w-full h-full">
+      <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-4">
+        <span class="text-white text-sm font-medium">Pages: 34</span>
+      </div>
+    </div>
+    <div class="p-4">
+      <h3 class="text-lg font-semibold text-gray-800 mb-2">2025CV325 v. Wyandotte County District Court</h3>
+      <div class="flex items-center text-sm mb-2">
+        <span class="w-3 h-3 rounded-full bg-orange-500 mr-1 animate-pulse"></span>
+              <span class="text-gray-700">Pending Hokuwa Fee: <span class="text-green-700">$15,500</span></span>
+      </div>
+      <p class="text-sm text-gray-600 mb-3">
+        This action targets coordinated constitutional violations by Stone County court officials, including Judge Matt Selby, who issued a custody order without jurisdiction, without evidence, and without a hearing—while refusing over a dozen properly filed motions. The lawsuit seeks damages, federal oversight, and criminal referral.
+      </p>
+      <div class="flex justify-between items-center">
+<div class="flex items-center space-x-2">
+  <span class="text-xs text-gray-500">Filed: May 17, 2025</span>
+  <img class="h-6 w-6 rounded-full border-2 border-primary-600" src="pics/micheal.png" alt="Micheal Lawrence Salmon">
+    <img class="h-6 w-6 rounded-full border-2 border-primary-600" src="pics/kelly.png" alt="Micheal Lawrence Salmon">
+
+</div>        <div class="flex space-x-2">
+          <button
+  onclick="window.location.href='mailto:classactionabuse@gmail.com?subject=I\'m%20ready%20to%20sign%20the%20golden%20bridge%20disclosure%20agreement&body=I\'m%20ready%20to%20start%20the%20process,%20and%20agree%20that%20communication%20from%20I%20attempting%20to%20fully%20comply.'"
+  class="text-blue-600 hover:text-blue-800 text-sm font-medium">
+  Bridge
+</button>
+
+<button
+  onclick="window.location.href='mailto:classactionabuse@gmail.com?subject=I%20want%20to%20become%20an%20auditor%20for%20this%20case&body=Please%20include%20any%20relevant%20details%20on%20why%20you\'re%20best%20for%20this%20role.%20Let%20us%20know%20if%20you\'re%20looking%20for%20additional%20assistance.'"
+  class="text-gray-600 hover:text-gray-800 text-sm font-medium">
+  Join Audit
+</button>
+
+        </div>
+      </div>
     </div>
   </div>
-                                <p class="text-sm text-gray-600 mb-3">Petitioner Micheal Lawrence Salmon, and respectfully moves this Court for an
-order compelling the immediate release of all body-worn camera footage, call logs, and incident
-reports from the Olathe Police Department involving interactions between the Department and
-the undersigned, or concerning Christ Connect Church, for the period covering the last six (6)
-months.</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-xs text-gray-500">Filed: 05/09/2025</span>
-                                    <div class="flex space-x-2">
-                <button onclick="window.open('https://drive.google.com/file/d/1t8VtRh3k80GAFTs6ZLb_kwygn0M9srrn/view?usp=sharing', '_blank')" class="text-blue-600 hover:text-blue-800 text-sm font-medium">View</button>
-                <button onclick="window.open('https://drive.google.com/file/d/1t8VtRh3k80GAFTs6ZLb_kwygn0M9srrn/view?usp=sharing', '_blank')" class="text-gray-600 hover:text-gray-800 text-sm font-medium">Download</button>
-              </div>
-                                </div>
-                            </div>
-                        </div></div>
-                        
-                        <!-- Sample PDF Document 3 -->
-<div class="swiper-slide">
-        <div class="pdf-container bg-white rounded-xl shadow-md overflow-hidden">                         
-             <div class="pdf-preview h-48 flex items-center justify-center relative">
-                                <div class="absolute inset-0 flex items-center justify-center">
-  <img src="pics/control.jpg" alt="Document Preview" class="object-cover w-full h-full">
-                                </div>
-                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-4">
-                                    <span class="text-white text-sm font-medium">Pages: 32</span>
-                                </div>
-                            </div>
-                            <div class="p-4">
-                                <h3 class="text-lg font-semibold text-gray-800 mb-2">Legal Brief: Coercive Control as Constitutional Violation</h3>
-                                <div class="top-2 right-4 flex items-center space-x-4 text-sm">
+</div>
 
-  </div>
-                                <p class="text-sm text-gray-600 mb-3">"The Freedom from Coercive Abuse and Control Act" (FCACA) - To criminalize coercive control as a distinct felony offense, expand definitions of domestic violence, and establish admissibility of modern digital and circumstantial evidence. Comprehensive analysis of how coercive control violates fundamental rights under the 14th Amendment's Due Process and Equal Protection clauses.</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-xs text-gray-500">Filed: 05/18/2023</span>
-                                    <div class="flex space-x-2">
-                <button onclick="window.open('https://docs.google.com/document/d/1QnjIbdAG4a57vc8FxLzJQcho6viWhocBFyrsM7GcWek/edit?usp=sharing', '_blank')" class="text-blue-600 hover:text-blue-800 text-sm font-medium">View</button>
-                <button onclick="window.open('https://docs.google.com/document/d/1QnjIbdAG4a57vc8FxLzJQcho6viWhocBFyrsM7GcWek/edit?usp=sharing', '_blank')" class="text-gray-600 hover:text-gray-800 text-sm font-medium">Download</button>
-              </div>
-                                </div>
-                            </div>
-                        </div></div>
-
-    </div>
 
     <!-- Navigation Buttons -->
     <div class="swiper-button-prev"></div>
@@ -513,100 +492,191 @@ months.</p>
   
 <section id="timeline" class="bg-white">
     <div class="max-w-7xl py-4 mx-auto px-4 sm:px-6 lg:px-8"> 
+<div class="space-y-6 py-6">
 
-<div class="space-y-4 py-4">
-
-  <!-- FAQ 1 -->
-  <div class="border border-secondary-200 rounded-lg overflow-hidden">
-    <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
-      <span class="text-lg font-medium text-secondary-900">What is the Golden Bridge Disclosure Contract?</span>
-      <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
+  <!-- STEP 1 -->
+  <div class="border border-gray-300 rounded-lg overflow-hidden">
+    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-100 transition duration-300">
+      <span class="text-xl font-semibold text-black">Step 1: Understand the Hokuwa Income System</span>
+      <i class="fas fa-chevron-down text-black transition-transform duration-300"></i>
     </button>
-    <div class="faq-content hidden px-4 pb-4 pt-0 text-secondary-600">
-      <p>The Golden Bridge Disclosure Contract is a one-time legal instrument offered to recipients of subpoenas. It allows them to voluntarily disclose communications, defamatory actions, collusion, or false reporting. In return, the contract offers immunity from private prosecution by the issuing party and locks that immunity into the court record permanently. It functions as a subpoena response, an NDA, and a will—enforceable in Missouri and Kansas, and notarized through SalmonAudit.info.</p>
+    <div class="faq-content hidden px-6 pb-6 pt-0 text-gray-800 space-y-4">
+      <p>The Hokuwa Income System allows verified auditors to earn passive or active income by helping us crowdsource justice. Every lawsuit posted to SalmonAudit.info lists a <strong>reward amount</strong>—this is the bounty tied to successful prosecution or settlement.</p>
+      <p>These reward amounts can range from hundreds to tens of thousands of dollars depending on the severity, scope, and documentation involved. Your contributions to a case—whether it's evidence submission, affidavit drafting, or timeline building—qualify you for shares of this reward once legal success is achieved.</p>
+      <p>Think of it as a class-action dividend for citizen auditors. But to earn anything, you need to move through the next steps carefully.</p>
     </div>
   </div>
 
-  <!-- FAQ 2 -->
-  <div class="border border-secondary-200 rounded-lg overflow-hidden">
-    <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
-      <span class="text-lg font-medium text-secondary-900">What happens if I ignore the subpoena and this contract?</span>
-      <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
+  <!-- STEP 2 -->
+  <div class="border border-gray-300 rounded-lg overflow-hidden">
+    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-100 transition duration-300">
+      <span class="text-xl font-semibold text-black">Step 2: Sign a Golden Bridge Disclosure Contract or Provide a Collection Agreement</span>
+      <i class="fas fa-chevron-down text-black transition-transform duration-300"></i>
     </button>
-    <div class="faq-content hidden px-4 pb-4 pt-0 text-secondary-600">
-      <p>Ignoring a subpoena is a violation of civil procedure in both Kansas and Missouri. When paired with refusal to sign the Golden Bridge Disclosure Contract after communication has been made, this becomes evidence of obstruction. The issuing party may file for contempt of court, motion to compel, and motion for sanctions under Supreme Court Rule 61.01(d) in Missouri and K.S.A. 60-237(b) in Kansas. This will be submitted as part of the appeal record, showing deliberate evasion and misconduct.</p>
+    <div class="faq-content hidden px-6 pb-6 pt-0 text-gray-800 space-y-4">
+      <p>You cannot collect rewards unless there is a legal document on file identifying your role and share. This protects everyone, and prevents abuse, fraud, or misunderstandings.</p>
+      <p><strong>Option 1:</strong> Sign the <strong>Golden Bridge Disclosure Contract</strong>. This contract is notarized and functions as a hybrid subpoena response, immunity deal, and NDA. Once signed, you’re officially a contributor with protected status.</p>
+      <p><strong>Option 2:</strong> If you’re working independently or under your own audit contract, you must submit a <strong>Collection Agreement</strong> that clearly states your compensation terms and connection to the case.</p>
+      <p>Without either of these on file, you will not be eligible to claim any portion of reward money, even if your evidence was used.</p>
     </div>
   </div>
 
-  <!-- FAQ 3 -->
-  <div class="border border-secondary-200 rounded-lg overflow-hidden">
-    <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
-      <span class="text-lg font-medium text-secondary-900">Why is adverse inference triggered by ignoring this contract?</span>
-      <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
+  <!-- STEP 3 -->
+  <div class="border border-gray-300 rounded-lg overflow-hidden">
+    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-100 transition duration-300">
+      <span class="text-xl font-semibold text-black">Step 3: Track and Document Violations</span>
+      <i class="fas fa-chevron-down text-black transition-transform duration-300"></i>
     </button>
-    <div class="faq-content hidden px-4 pb-4 pt-0 text-secondary-600">
-      <p>If you've received the subpoena and were personally contacted, yet refuse to respond or deny facts that can be proven false, adverse inference applies. This legal principle allows the court (or future appeals court) to presume that the information being withheld would have been unfavorable to you. Case law in both Kansas and Missouri supports this consequence when destruction, concealment, or refusal to produce relevant documents occurs after a subpoena is issued.</p>
+    <div class="faq-content hidden px-6 pb-6 pt-0 text-gray-800 space-y-4">
+      <p>Start tracking violations related to your assigned or chosen cases. This can include photos, documents, timestamps, video clips, or written summaries of misconduct. All uploads should go through SalmonAudit.info to guarantee chain of custody and submission credit.</p>
+      <p>Every piece of evidence is time-stamped and linked to your auditor ID. This ensures you get proper credit for your work, and allows our legal team to build cases faster with validated chains of evidence.</p>
+      <p>We recommend keeping your own personal copy of everything, but the version submitted through the portal will be the one used to determine eligibility and payout share.</p>
     </div>
   </div>
 
-  <!-- FAQ 4 -->
-  <div class="border border-secondary-200 rounded-lg overflow-hidden">
-    <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
-      <span class="text-lg font-medium text-secondary-900">What if I claim I didn’t receive the subpoena or contract?</span>
-      <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
+  <!-- STEP 4 -->
+  <div class="border border-gray-300 rounded-lg overflow-hidden">
+    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-100 transition duration-300">
+      <span class="text-xl font-semibold text-black">Step 4: Collaborate Toward Class Actions</span>
+      <i class="fas fa-chevron-down text-black transition-transform duration-300"></i>
     </button>
-    <div class="faq-content hidden px-4 pb-4 pt-0 text-secondary-600">
-      <p>All subpoenas and Golden Bridge contracts are documented through tracked service, screenshots, and notarized contacts on SalmonAudit.info. If you've received a message, email, or text and were given access to this form and you ignore it, your silence becomes legally significant. Courts recognize that actual notice (not formal service) can trigger duty to preserve evidence and comply with discovery. Silence is not innocence; it becomes an admission of bad faith when paired with refusal.</p>
+    <div class="faq-content hidden px-6 pb-6 pt-0 text-gray-800 space-y-4">
+      <p>When multiple auditors identify the same violator, their efforts are merged into a single multi-party or class-action case. You’ll see your avatar appear on that bounty board when your evidence is linked.</p>
+      <p>This collaboration allows us to increase pressure, establish patterns of abuse, and file more powerful legal motions. Everyone in the class earns a slice of the final reward based on their participation level and signed terms.</p>
+      <p>Auditors are also invited to strategy briefings, deposition prep sessions, and field assignments when escalation begins. You are now part of a legal strike team.</p>
     </div>
   </div>
 
-  <!-- FAQ 5 -->
-  <div class="border border-secondary-200 rounded-lg overflow-hidden">
-    <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
-      <span class="text-lg font-medium text-secondary-900">What does signing this contract actually do?</span>
-      <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
+  <!-- STEP 5 -->
+  <div class="border border-gray-300 rounded-lg overflow-hidden">
+    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-100 transition duration-300">
+      <span class="text-xl font-semibold text-black">Step 5: Legal Victory and Reward Claim</span>
+      <i class="fas fa-chevron-down text-black transition-transform duration-300"></i>
     </button>
-    <div class="faq-content hidden px-4 pb-4 pt-0 text-secondary-600">
-      <p>Signing the Golden Bridge Disclosure Contract voluntarily allows you to provide evidence, clarify intent, or admit to past actions without fear of future personal prosecution from the issuing party. It is permanently bound to the case record and functions as a waiver of liability. This one-time offer gives you control over what’s disclosed, within the boundaries of truth. Once signed, you are protected from being listed in civil conspiracy or retaliation claims tied to the ongoing case or its fallout.</p>
+    <div class="faq-content hidden px-6 pb-6 pt-0 text-gray-800 space-y-4">
+      <p>Once a case ends in our favor—through settlement, judgment, or default ruling—the bounty triggers. Auditors with valid contracts and verified submissions will be notified by email or encrypted message to begin the claim process.</p>
+      <p>You will be asked to review the total payout amount, your estimated share, and the timeline for disbursement. We use third-party accounting software to generate digital receipts and log transactions for audit and tax purposes.</p>
+      <p><strong>Reminder:</strong> If you submitted work but never signed a contract, you forfeit your right to collect. If you submitted fake, unverifiable, or derivative work, you may be blacklisted from future cases. This is a professional system—treat it that way.</p>
     </div>
   </div>
-
-  <!-- FAQ 6 -->
-  <div class="border border-secondary-200 rounded-lg overflow-hidden">
-    <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
-      <span class="text-lg font-medium text-secondary-900">What if I lie or give partial disclosure?</span>
-      <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
-    </button>
-    <div class="faq-content hidden px-4 pb-4 pt-0 text-secondary-600">
-      <p>Partial disclosure or false statements after signing the contract will invalidate the agreement and trigger a perjury or fraud inquiry in both jurisdictions. It will also allow the issuing party to reintroduce you into the class action or conspiracy proceedings with your admission now usable against you. In short: the contract protects you only if your disclosures are full, honest, and provable. Anything less reactivates the full legal arsenal already documented and in progress.</p>
-    </div>
-  </div>
-
 </div>
 
-
-
 </section>
 
+<!-- Features Section -->
+<section id="features" class="py-20 bg-secondary-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold text-secondary-900 mb-4">Dismantle Legal Gatekeeping with Salmon</h2>
+      <p class="text-xl text-secondary-600 max-w-3xl mx-auto">
+        Replace obsolete legal systems with AI-powered truth enforcement, community-driven justice, and transparent evidence auditing. The era of lawyer monopolies and judge immunity ends here.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Feature 1 -->
+      <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden card-hover">
+        <div class="p-6">
+          <div class="flex items-center mb-4">
+            <div class="feature-icon bg-primary-100 rounded-lg p-3 text-primary-600 mr-4">
+              <i class="fas fa-scale-balanced text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-secondary-900">AI-Driven Legal Replacement</h3>
+          </div>
+          <p class="text-secondary-600 mb-4">
+            Automate the role of lawyers and judges with data-verified filings, perjury detection algorithms, and evidence-led resolution that favors truth—not titles.
+          </p>
+          <ul class="space-y-2 text-secondary-600">
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+              <span>Perjury detection and scoring system</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+              <span>Zero-bias motion generation</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+              <span>Deep History review with public record links</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+              <span>Automated fraud escalation protocols</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden card-hover">
+        <div class="p-6">
+          <div class="flex items-center mb-4">
+            <div class="feature-icon bg-primary-100 rounded-lg p-3 text-primary-600 mr-4">
+              <i class="fas fa-users-slash text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-secondary-900">Community-Verified Accountability</h3>
+          </div>
+          <p class="text-secondary-600 mb-4">
+            Crowdsource misconduct reports, validate claims against live-record databases, and trigger automatic public warnings for repeat perjurers and abusive officials.
+          </p>
+          <ul class="space-y-2 text-secondary-600">
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+              <span>Community voting on public filings</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+              <span>Public misconduct indexing</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+              <span>Time-stamped community archive</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+              <span>Trust decay tracking for officials</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden card-hover">
+        <div class="p-6">
+          <div class="flex items-center mb-4">
+            <div class="feature-icon bg-primary-100 rounded-lg p-3 text-primary-600 mr-4">
+              <i class="fas fa-code-branch text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-secondary-900">Decentralized Justice Ledger</h3>
+          </div>
+          <p class="text-secondary-600 mb-4">
+            Every filing, every transcript, every order—scanned, cross-verified, and assigned a deception score. Misleading language and perjury aren’t just flagged—they’re prosecuted.
+          </p>
+          <ul class="space-y-2 text-secondary-600">
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+              <span>Deception pattern detection</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+              <span>Text-to-video contradiction alerts</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+              <span>Immutable digital audit trail</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
+              <span>Jail-seeking motion automation</span>
+            </li>
+          </ul>
+        </div>
+      </div>
 
 
-
-<!-- Demo Video Playlist -->
-<section id="demo" class="bg-secondary-900 text-white py-12 flex justify-center">
-  <div class="rounded-lg shadow-lg overflow-hidden">
-    <blockquote 
-      class="tiktok-embed" 
-      cite="https://www.tiktok.com/@salmonaudit/video/7505054901999832350" 
-      data-video-id="7505054901999832350" 
-      style="max-width: 100%;">
-      <section>Loading...</section>
-    </blockquote>
+    </div>
   </div>
 </section>
-
-<script async src="https://www.tiktok.com/embed.js"></script>
-
-
 
 <!-- FAQ Section -->
 <section id="FCACA" class="py-20 bg-white">
@@ -1100,180 +1170,6 @@ months.</p>
 
 
 
-  <!-- Features Section -->
-  <section id="features" class="py-20 bg-secondary-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl font-bold text-secondary-900 mb-4">Autonomize Your Life with Salmon</h2>
-        <p class="text-xl text-secondary-600 max-w-3xl mx-auto">Salmon combines legal expertise, community intelligence, and personalized AI to transform how you navigate daily life.</p>
-      </div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Feature 1 -->
-        <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden card-hover">
-          <div class="p-6">
-            <div class="flex items-center mb-4">
-              <div class="feature-icon bg-primary-100 rounded-lg p-3 text-primary-600 mr-4">
-                <i class="fas fa-gavel text-2xl"></i>
-              </div>
-              <h3 class="text-xl font-bold text-secondary-900">Legal Audit & Automation</h3>
-            </div>
-            <p class="text-secondary-600 mb-4">All your court documents archived, searchable, and live so you can edit and file motions autonomously, changing the role of lawyers.</p>
-            <ul class="space-y-2 text-secondary-600">
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
-                <span>Automated document analysis</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
-                <span>Motion drafting assistance</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
-                <span>Deadline tracking</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Feature 2 -->
-        <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden card-hover">
-          <div class="p-6">
-            <div class="flex items-center mb-4">
-              <div class="feature-icon bg-primary-100 rounded-lg p-3 text-primary-600 mr-4">
-                <i class="fas fa-shield-alt text-2xl"></i>
-              </div>
-              <h3 class="text-xl font-bold text-secondary-900">Community Policing</h3>
-            </div>
-            <p class="text-secondary-600 mb-4">Submit real-time data logs with video evidence based on geofenced hotspots for community safety and social credit.</p>
-            <ul class="space-y-2 text-secondary-600">
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
-                <span>Geofenced incident reporting</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
-                <span>Verified video evidence</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
-                <span>Community trust scoring</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Feature 3 -->
-        <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden card-hover">
-          <div class="p-6">
-            <div class="flex items-center mb-4">
-              <div class="feature-icon bg-primary-100 rounded-lg p-3 text-primary-600 mr-4">
-                <i class="fas fa-brain text-2xl"></i>
-              </div>
-              <h3 class="text-xl font-bold text-secondary-900">Ideology Alignment</h3>
-            </div>
-            <p class="text-secondary-600 mb-4">Salmon bonds with your personal ideology to filter information and make recommendations aligned with your worldview.</p>
-            <ul class="space-y-2 text-secondary-600">
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
-                <span>Personalized content curation</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
-                <span>Ideological consistency checks</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
-                <span>Bias-aware decision support</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Feature 4 -->
-        <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden card-hover">
-          <div class="p-6">
-            <div class="flex items-center mb-4">
-              <div class="feature-icon bg-primary-100 rounded-lg p-3 text-primary-600 mr-4">
-                <i class="fas fa-file-contract text-2xl"></i>
-              </div>
-              <h3 class="text-xl font-bold text-secondary-900">Smart Contracts</h3>
-            </div>
-            <p class="text-secondary-600 mb-4">Create, analyze, and execute smart contracts that automatically enforce terms based on real-world conditions.</p>
-            <ul class="space-y-2 text-secondary-600">
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
-                <span>Template library</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
-                <span>Clause analysis</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
-                <span>Automated enforcement</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Feature 5 -->
-        <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden card-hover">
-          <div class="p-6">
-            <div class="flex items-center mb-4">
-              <div class="feature-icon bg-primary-100 rounded-lg p-3 text-primary-600 mr-4">
-                <i class="fas fa-balance-scale text-2xl"></i>
-              </div>
-              <h3 class="text-xl font-bold text-secondary-900">Dispute Resolution</h3>
-            </div>
-            <p class="text-secondary-600 mb-4">AI-mediated conflict resolution that considers all perspectives and suggests fair outcomes based on precedent.</p>
-            <ul class="space-y-2 text-secondary-600">
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
-                <span>Neutral mediation</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
-                <span>Precedent analysis</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
-                <span>Solution optimization</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Feature 6 -->
-        <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden card-hover">
-          <div class="p-6">
-            <div class="flex items-center mb-4">
-              <div class="feature-icon bg-primary-100 rounded-lg p-3 text-primary-600 mr-4">
-                <i class="fas fa-network-wired text-2xl"></i>
-              </div>
-              <h3 class="text-xl font-bold text-secondary-900">Network Effects</h3>
-            </div>
-            <p class="text-secondary-600 mb-4">Salmon learns from the collective intelligence of all users while maintaining individual privacy and data sovereignty.</p>
-            <ul class="space-y-2 text-secondary-600">
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
-                <span>Federated learning</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
-                <span>Privacy-preserving analytics</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-accent-500 mt-1 mr-2"></i>
-                <span>Community wisdom</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Ideology Section -->
   <section id="ideology" class="py-20 bg-white">
 
@@ -1524,13 +1420,11 @@ months.</p>
 
 
   <!-- Footer -->
-  <footer class="bg-secondary-900 text-white pt-16 pb-8">
+  <footer class="bg-secondary-900 text-white pt-16 pb-60">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
-        <div class="col-span-2">
           <div class="flex items-center mb-4">
             <image style="height: 50px;" src="pics/lumie.png"></image>
-            <span class="text-xl font-bold">AUDIT.info</span>
+        <p class="text-secondary-400 text-sm">© 2025 SalmonAUDIT.info & Salmon.Fund All rights reserved.</p>
           </div>
           <p class="text-secondary-300 mb-4"><span class="font-medium">Notice:</span> Your data never leaves your browser unless you submit it. All profiles are stored by you, and your submission is only shared to the audit.info Discord ledger.</span>
           </p>
@@ -1547,44 +1441,15 @@ months.</p>
             <a href="https://github.com/mfglife" class="text-secondary-300 hover:text-white">
               <i class="fab fa-github"></i>
             </a>
-          </div>
-        </div>
-        <div>
-          <h4 class="text-sm font-semibold uppercase tracking-wider mb-4">Product</h4>
-          <ul class="space-y-2">
-            <li><a href="#" class="text-secondary-300 hover:text-white">Features</a></li>
-            <li><a href="#" class="text-secondary-300 hover:text-white">Pricing</a></li>
-            <li><a href="#" class="text-secondary-300 hover:text-white">Demo</a></li>
-            <li><a href="#" class="text-secondary-300 hover:text-white">Updates</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="text-sm font-semibold uppercase tracking-wider mb-4">Company</h4>
-          <ul class="space-y-2">
-            <li><a href="#" class="text-secondary-300 hover:text-white">About</a></li>
-            <li><a href="#" class="text-secondary-300 hover:text-white">Careers</a></li>
-            <li><a href="#" class="text-secondary-300 hover:text-white">Privacy</a></li>
-            <li><a href="#" class="text-secondary-300 hover:text-white">Terms</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="text-sm font-semibold uppercase tracking-wider mb-4">Support</h4>
-          <ul class="space-y-2">
-            <li><a href="https://discord.gg/FC7uzeQU" class="text-secondary-300 hover:text-white">Help Center</a></li>
+               <li><a href="https://www.linkedin.com/pulse/public-legal-audit-wyandotte-county-kansas-salmonaudit-m1h9c/?trackingId=Ec7mmHdcRDepJdCKlR6TLA%3D%3D" class="text-secondary-300 hover:text-white">Blog</a></li>
             <li><a href="https://discord.gg/FC7uzeQU" class="text-secondary-300 hover:text-white">Community</a></li>
-            <li><a href="https://discord.gg/FC7uzeQU" class="text-secondary-300 hover:text-white">Contact</a></li>
+            <li><a href="https://www.linkedin.com/jobs/view/4228376249/" class="text-secondary-300 hover:text-white">Careers</a></li>
             <li><a href="https://discord.gg/FC7uzeQU" class="text-secondary-300 hover:text-white">Status</a></li>
-          </ul>
+          </div>
+         
         </div>
       </div>
-      <div class="mt-12 pt-8 border-t border-secondary-800 flex flex-col md:flex-row justify-between items-center">
-        <p class="text-secondary-400 text-sm">© 2025 SalmonAUDIT.info & Salmon.Fund All rights reserved.</p>
-        <div class="mt-4 md:mt-0 flex space-x-6">
-          <a href="#" class="text-secondary-400 hover:text-white text-sm">Privacy Policy</a>
-          <a href="#" class="text-secondary-400 hover:text-white text-sm">Terms of Service</a>
-          <a href="#" class="text-secondary-400 hover:text-white text-sm">Cookie Policy</a>
-        </div>
-      </div>
+
     </div>
   </footer>
 
@@ -1607,6 +1472,8 @@ months.</p>
         </button>
       </div>
     </div>
+
+<script async src="https://www.tiktok.com/embed.js"></script>
 
 <script src="main.js"></script>
 <script src="script.js"></script>
