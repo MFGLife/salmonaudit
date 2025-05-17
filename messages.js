@@ -22,3 +22,13 @@ const swiper = new Swiper(".mySwiper", {
     },
   },
 });
+
+    // Hide the TikTok blockquote after 5 seconds
+    window.onload = function() {
+      setTimeout(function() {
+        var embed = document.querySelector('.tiktok-embed');
+        if (embed) {
+          embed.style.display = 'none';
+        }
+      }, 6000); // 5000 milliseconds = 5 seconds
+    };
