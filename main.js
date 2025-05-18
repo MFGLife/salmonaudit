@@ -1,11 +1,4 @@
 
-    // Mobile menu toggle
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    mobileMenuButton.addEventListener('click', function() {
-      mobileMenu.classList.toggle('hidden');
-    });
 
     // FAQ toggle functionality
     const faqToggles = document.querySelectorAll('.faq-toggle');
@@ -179,7 +172,18 @@ function escapeRegExp(string) {
                 <div id="initialState" class="bg-white rounded-xl shadow-sm overflow-hidden fade-in">
                     <div class="p-8 text-center">
                         <div class="mx-auto w-24 h-24 text-gray-300 mb-4">
-                            <i class="fas fa-search fa-3x"></i>
+                            <div class="flex items-center justify-between w-full ml-[-30px] h-10 animate-curve-rotate">
+  <div class="ml-[50px]">
+    <svg class="animate-swim" width="80" height="80" viewBox="-359 -463 900 500">
+      <path d="M3 49c0 6-2 11-5 15l-119 164c-6 8-20 15-30 15h-146c-7 0-11-3-11-8 0-2 1-5 3-7l130-179-130-179-3-7c0-5 4-8 11-8h146c10 0 24 7 30 15L-2 34c3 4 5 10 5 15z" fill="gray"></path>
+    </svg>
+  </div>
+  <div class="ml-[-80px]">
+    <svg width="80" height="80" viewBox="-359 -463 900 500">
+      <path d="M408 34L290-130c-6-8-20-15-30-15H16c-10 0-23 7-29 15l-33 45L40 34c3 4 5 10 5 15s-2 11-5 15l-86 119 33 45c6 8 19 15 29 15h244c10 0 24-7 30-15L408 64c3-4 5-10 5-15s-2-11-5-15zM206-90c12 0 21 9 21 21s-9 21-21 21-21-9-21-21 9-21 21-21z" fill="gray"></path>
+    </svg>
+  </div>
+</div>
                         </div>
                         <h3 class="text-lg font-medium text-gray-700 mb-2">Did Micheal serve you?</h3>
                         <p class="text-gray-500 max-w-md mx-auto">
@@ -218,7 +222,18 @@ function escapeRegExp(string) {
                 <div class="bg-white rounded-xl shadow-sm overflow-hidden fade-in">
                     <div class="p-8 text-center">
                         <div class="mx-auto w-24 h-24 text-gray-300 mb-4">
-                            <i class="fas fa-search-minus fa-3x"></i>
+                            <div class="flex items-center justify-between w-full ml-[-30px] h-10 animate-curve-rotate">
+  <div class="ml-[50px]">
+    <svg class="animate-swim" width="80" height="80" viewBox="-359 -463 900 500">
+      <path d="M3 49c0 6-2 11-5 15l-119 164c-6 8-20 15-30 15h-146c-7 0-11-3-11-8 0-2 1-5 3-7l130-179-130-179-3-7c0-5 4-8 11-8h146c10 0 24 7 30 15L-2 34c3 4 5 10 5 15z" fill="gray"></path>
+    </svg>
+  </div>
+  <div class="ml-[-80px]">
+    <svg width="80" height="80" viewBox="-359 -463 900 500">
+      <path d="M408 34L290-130c-6-8-20-15-30-15H16c-10 0-23 7-29 15l-33 45L40 34c3 4 5 10 5 15s-2 11-5 15l-86 119 33 45c6 8 19 15 29 15h244c10 0 24-7 30-15L408 64c3-4 5-10 5-15s-2-11-5-15zM206-90c12 0 21 9 21 21s-9 21-21 21-21-9-21-21 9-21 21-21z" fill="gray"></path>
+    </svg>
+  </div>
+</div>
                         </div>
                         <h3 class="text-lg font-medium text-gray-700 mb-2">No results found</h3>
                         <p class="text-gray-500 max-w-md mx-auto">
