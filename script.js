@@ -553,6 +553,7 @@ function sendMessage() {
 function replaceLinksWithIcon() {
   const divs = chatWindow.querySelectorAll("div:not(.fa-icon-replaced)");
 
+
   divs.forEach(div => {
     const text = div.textContent;
     const urlMatches = text.match(/http[s]?:\/\/\S+/g);
@@ -561,29 +562,16 @@ function replaceLinksWithIcon() {
       div.textContent = "";
       div.classList.add("fa-icon-replaced");
 
-
-      // To prevent duplicate cards if multiple links match same name
       let hokuwaCardRendered = false;
 
       urlMatches.forEach(url => {
-        // Find corresponding baseData entry
-        let match = baseData.find(row => url.includes(row[1].split("?")[0])); // Strip query params
+        let match = baseData.find(row => url.includes(row[1].split("?")[0]));
         let extractedName = match ? match[0] : "Document Record";
 
-        // Only insert card once
-        if (!hokuwaCardRendered) {
+        if (!hokuwaCardRendered && match && typeof match[2] === 'string' && match[2].length > 0) {
           hokuwaCardRendered = true;
+          const hokuwaCodesArray = match[2].split(',').map(code => code.trim());
 
-          // Hokuwa offenses
-          const hokuwaOffenses = {
-            "HOKUWA-L002": "Refusal to enforce valid court orders or subpoenas",
-            "HOKUWA-W002": "Threatening retaliation (legal, physical, reputational) to silence a witness",
-            "HOKUWA-W003": "Denying access to evidence in custody",
-            "HOKUWA-W011": "Withholding third-party statements until favorable manipulation can occur",
-            "HOKUWA-W013": "Refusing subpoena compliance by claiming \"unreasonable burden\" fraudulently"
-          };
-
-          // Card HTML
           let cardHTML = `
             <div class="bg-gradient-to-br from-white via-primary-50 to-primary-100 border-l-8 border-primary-600 px-4 py-3 flex items-center justify-between">
                     <i class="fas fa-scale-balanced text-2xl"></i>
@@ -596,21 +584,22 @@ function replaceLinksWithIcon() {
             <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden card-hover mb-4">
               <div class="p-6">
                 <div class="flex items-center mb-4">
-                  <h3 class="text-xl font-bold text-secondary-900">Hokuwa Violations</h3>
+                  <h3 class="text-xl font-bold text-secondary-900">Potential Hokuwa Violations</h3>
                 </div>
                 <ul class="space-y-2 text-secondary-600">`;
 
-          for (const code in hokuwaOffenses) {
-            cardHTML += `
-                  <li class="flex items-start">
-                    <i class="fas fa-check-circle text-accent-600 mt-1 mr-2"></i>
-                    <span>${code} – ${hokuwaOffenses[code]}</span>
-                  </li>`;
-          }
+          hokuwaCodesArray.forEach(code => {
+            if (hokuwaOffenses[code]) {
+              cardHTML += `
+                    <li class="flex items-start">
+                      <i class="fas fa-exclamation-triangle text-yellow-500 mt-1 mr-2"></i>
+                      <span>${code} – ${hokuwaOffenses[code]}</span>
+                    </li>`;
+            }
+          });
 
           cardHTML += `</ul></div></div>`;
 
-          // Inject card
           const tempCard = document.createElement("div");
           tempCard.innerHTML = cardHTML;
           div.appendChild(tempCard);
@@ -618,7 +607,10 @@ function replaceLinksWithIcon() {
 
         // ✅ Now add the individual module card for the link
         const linkCard = document.createElement("div");
-        linkCard.className = "border border-primary-200 rounded-lg px-4 py-2 mb-2 flex items-center justify-between bg-primary-50";
+        linkCard.className = "border border-primary-200 rounded-lg px-4 py-2 mb-2 bg-primary-50"; // Removed flex and justify-between
+
+        const linkInfo = document.createElement("div"); // Container for text and icon
+        linkInfo.className = "flex items-center justify-between w-full"; // Added flex and justify-between
 
         const leftText = document.createElement("span");
         leftText.textContent = extractedName;
@@ -630,16 +622,30 @@ function replaceLinksWithIcon() {
         linkIcon.className = "text-green-600 hover:text-green-800";
         linkIcon.innerHTML = `<i class="fas fa-link fa-lg"></i>`;
 
-        linkCard.appendChild(leftText);
-        linkCard.appendChild(linkIcon);
-        div.appendChild(linkCard);
+        linkInfo.appendChild(leftText);
+        linkInfo.appendChild(linkIcon);
+        linkCard.appendChild(linkInfo);
 
+        if (match && typeof match[2] === 'string' && match[2].length > 0) {
+          const hokuwaCodesArrayForLink = match[2].split(',').map(code => code.trim());
+          hokuwaCodesArrayForLink.forEach(hokuwaCode => {
+            if (hokuwaOffenses[hokuwaCode]) {
+              const citingCasesForLink = baseData.filter(item => item[2] && (typeof item[2] === 'string' ? item[2].split(',').map(c => c.trim()).includes(hokuwaCode) : Array.isArray(item[2]) && item[2].includes(hokuwaCode))).map(item => item[0]);
+              if (citingCasesForLink.length > 0) {
+                const citationDiv = document.createElement("div");
+                citationDiv.className = "mt-1 text-xs text-gray-600"; // Removed ml-6 for full width
+                citationDiv.textContent = `(${hokuwaCode} cited in: ${citingCasesForLink.join(", ")})`;
+                linkCard.appendChild(citationDiv);
+              }
+            }
+          });
+        }
+
+        div.appendChild(linkCard);
       });
     }
   });
 }
-
-
 
   
 replaceLinksWithIcon();

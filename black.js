@@ -61,7 +61,7 @@ baseData.push (
   ["tyler brown", "https://drive.google.com/file/d/13rr22SsLy83tVz_4XrFS4f_2e-MEjiI4/view", ""],
   ["jozef hanratty", "https://drive.google.com/file/d/1DQWQ6_wbWKEWXgCt8CT7EMzPPAcXw6TB/view?usp=drive_link", ""],
   ["kelly truelove", "https://drive.google.com/file/d/19lrK72LEXBztOlGJcpqneH8UxPg5D33H/view?usp=drive_link", ""],
-  ["zach stangl", "https://drive.google.com/file/d/1LlQ4rJMfZDkylMlBdeLgtWCA73B-ZJ08/view?usp=drive_link", ""],
+  ["zach stangl", "https://drive.google.com/file/d/1LlQ4rJMfZDkylMlBdeLgtWCA73B-ZJ08/view?usp=drive_link", "HOKUWA-L001, HOKUWA-L002, HOKUWA-L003, HOKUWA-L004, HOKUWA-L005, HOKUWA-L006, HOKUWA-L007, HOKUWA-L008, HOKUWA-L009, HOKUWA-L010"],
 
-    ["Are Black women mean", "If you feel like all Black women are mean, your experience indicates you lack melanin inside your patriarch environment and you need more exposure", ""]
+  ["Are Black women mean", "If you feel like all Black women are mean, your experience indicates you lack melanin inside your patriarch environment and you need more exposure", ""]
 );
