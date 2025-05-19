@@ -480,6 +480,79 @@ Plaintiff’s consent, outside judicial order, and against explicit, on-record o
     <div class="max-w-7xl py-4 mx-auto px-4 sm:px-6 lg:px-8"> 
 <div class="space-y-2 py-6">
 
+
+
+
+
+  <div class="border border-gray-300 rounded-lg overflow-hidden">
+    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-100 transition duration-300">
+      <span class="text-xl font-semibold text-black">Make a Report</span>
+      <i class="fas fa-chevron-down text-black transition-transform duration-300"></i>
+    </button>
+    <div class="faq-content hidden px-6 pb-6 pt-0 text-gray-800 space-y-4">
+     <div class="max-w-4xl mx-auto px-4">
+
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    
+    <div id="anonymousFormSection" class="card bg-white p-6 mb-6 rounded-lg">
+        <h2 class="text-lg font-semibold text-gray-800 mb-4">[Auditors] make sure you #ID yourself, to gain credit.</h2>
+
+        <form id="anonymousClassActionForm" class="space-y-6 text-black">
+            <div class="input-container">
+                <label for="anonymousDetails" class="block text-gray-700 text-sm font-bold mb-2">Your Experience <span class="text-red-500">*</span></label>
+                <textarea id="anonymousDetails" name="anonymousDetails" rows="6" class="w-full px-3 py-2 border border-gray-300 rounded-md" required></textarea>
+            </div>
+
+            <div class="pt-4">
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md">
+                    Submit to Public Ledger
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="successModalAnonymous" class="fixed z-10 inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+        <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <div class="sm:flex sm:items-start">
+                    <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10">
+                        <svg class="h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+                            Submission Successful
+                        </h3>
+                        <div class="mt-2">
+                            <p class="text-sm text-gray-500">
+                                Your anonymous experience has been submitted successfully. Thank you for sharing.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                <button id="closeModalAnonymous" type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+     </div>
+         
+    </div>
+  </div>
+
+<hr class="border-t border-gray-500 mt-4">
+<p class="text-center text-gray-500 text-sm mt-2">Posting repeatedly may result in [permanent] IP ban.</p>
+
   <!-- STEP 1 -->
   <div class="border border-gray-300 rounded-lg overflow-hidden">
     <button class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-100 transition duration-300">
@@ -545,42 +618,14 @@ Plaintiff’s consent, outside judicial order, and against explicit, on-record o
       <p><strong>Reminder:</strong> If you submitted work but never signed a contract, you forfeit your right to collect. If you submitted fake, unverifiable, or derivative work, you may be blacklisted from future cases. This is a professional system—treat it that way.</p>
     </div>
   </div>
+
+  
+  
+<div>
+<hr class="border-t border-gray-500 mt-4">
+<p class="text-center text-gray-500 text-sm mt-2">*Note: All steps are subject to change based on legal requirements and system updates.</p>
 </div>
 
-</section>
-
-
-
-
-
-  
-
-
-
-  <section id="formSelect" class="py-12 bg-gray-100 text-black text-center">
-    <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-2xl font-bold mb-4">Select a TAP$ Form</h2>
-      
-      <select id="formDropdown" class="px-4 py-2 rounded border border-gray-300">
-        <option value="">-- Choose a Form --</option>
-        <option value="forms/policePlus.html">Positive Police Interaction</option>
-        <option value="forms/policeMinus.html">Report Officer Misconduct</option>
-        <option value="forms/classAction.html">Christ Connect Church</option>
-      </select>
-  
-      <div id="formContainer" class="mt-8 text-left"></div>
-    </div>
-  </section>
-  
-
-
-
-
-
-
-
-<section id="tools" class="py-20 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-2">
 
 
 
@@ -590,18 +635,12 @@ Plaintiff’s consent, outside judicial order, and against explicit, on-record o
       <span class="text-xl font-semibold text-black">Criminal Coercive Control</span>
       <i class="fas fa-chevron-down text-black transition-transform duration-300"></i>
     </button>
-    <div class="faq-content hidden px-6 pb-6 pt-0 text-gray-800 space-y-4">
+    <div class="faq-content hidden pb-6 pt-0 text-gray-800">
 
    
 <!-- FAQ Section -->
-<section id="FCACA" class="py-20 bg-white">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl font-bold text-secondary-900 mb-4">Criminal Coercive Control</h2>
-      <p class="text-xl text-secondary-600">Understanding the FCACA — Protection from Psychological Abuse in Family Systems</p>
-    </div>
-
-    <div class="space-y-4">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-2">
+   
       <!-- FAQ 1 -->
       <div class="border border-secondary-200 rounded-lg overflow-hidden">
         <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
@@ -686,13 +725,9 @@ Plaintiff’s consent, outside judicial order, and against explicit, on-record o
           <p>Yes. The FCACA mandates the development of optional AI intake tools in court systems to help pro se litigants (those representing themselves) identify coercive control dynamics. It also encourages courts to recognize patterns that don't rely on flashy legal teams or biased narratives.</p>
         </div>
       </div>
-    </div>
-
   </div>
-</section>
 
-
-
+    
 
 <!-- Features Section -->
 <section id="features" class="py-20 bg-secondary-50">
@@ -1177,11 +1212,8 @@ Plaintiff’s consent, outside judicial order, and against explicit, on-record o
       <!-- FAQ Section -->
   <section id="faq" class="py-20 bg-white">
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <p class="text-xl text-secondary-600">Everything you need to know about Data Schools.</p>
-      </div>
-
-      <div class="space-y-4">
+   
+      <div class="space-y-2">
         <!-- FAQ 1 -->
         <div class="border border-secondary-200 rounded-lg overflow-hidden">
           <button class="faq-toggle w-full flex justify-between items-center p-4 text-left bg-white hover:bg-secondary-50 transition duration-300">
@@ -1283,10 +1315,14 @@ Plaintiff’s consent, outside judicial order, and against explicit, on-record o
       </div>
     </div>
 
-      <div class="mt-12 text-center">
+    
+    </div>
+</div>
+
+  <div class="mt-12 text-center">
         <p class="text-secondary-600">Still have questions? <a href="mailto:luminafieldsnz@gmail.com?subject=Connect%20with%20Micheal%20Salmon&body=Let's%20get%20connected!%20Tell%20me%20why%20you%20need%20AI%20assistance%20or%20help%2C%20and%20I'll%20get%20back%20to%20you%20ASAP." class="text-primary-600 hover:text-primary-800 font-medium">Contact our support team</a></p>
       </div>
-    </div>
+</div>    
   </section>
 
     </div>
@@ -1546,7 +1582,6 @@ Plaintiff’s consent, outside judicial order, and against explicit, on-record o
 
 <script src="main.js"></script>
 <script src="script.js"></script>
-<script src="discord.js"></script>
 <script src="base.js"></script>
 <script src="black.js"></script>
 <script src="lumie.js"></script>
