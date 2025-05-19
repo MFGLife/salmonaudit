@@ -84,3 +84,5 @@ const swiper = new Swiper(".mySwiper", {
         }
       }, 6000); // 5000 milliseconds = 5 seconds
     };
+
+

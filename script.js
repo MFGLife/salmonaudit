@@ -550,48 +550,96 @@ function sendMessage() {
         addSystemMessage(response, timestamp); // Pass timestamp to system message
 
         
-replaceLinksWithIcon = () => {
+function replaceLinksWithIcon() {
   const divs = chatWindow.querySelectorAll("div:not(.fa-icon-replaced)");
 
   divs.forEach(div => {
     const text = div.textContent;
+    const urlMatches = text.match(/http[s]?:\/\/\S+/g);
 
-    // Match all URLs in the text
-    const urlMatches = text.match(/http[s]?:\/\/\S+/g); // Match all URLs starting with http or https
     if (urlMatches) {
-      div.textContent = ""; // Clear the div's text content
+      div.textContent = "";
       div.classList.add("fa-icon-replaced");
 
-          // Add a line before the icons
-      const header = document.createElement("p");
-      header.textContent = "Here are all the documents found:";
-      header.style.fontWeight = "bold";
-      header.style.marginBottom = "0.5rem";
-      div.appendChild(header);
 
-      // Iterate over each URL match
+      // To prevent duplicate cards if multiple links match same name
+      let hokuwaCardRendered = false;
+
       urlMatches.forEach(url => {
-        // Create the icon element
-        const icon = document.createElement("i");
-        icon.className = "fas fa-link text-green-500 ml-1"; // Tailwind green + FontAwesome icon
-        icon.style.marginLeft = "0.25rem";
+        // Find corresponding baseData entry
+        let match = baseData.find(row => url.includes(row[1].split("?")[0])); // Strip query params
+        let extractedName = match ? match[0] : "Document Record";
 
-        // Create the clickable link element
-        const link = document.createElement("a");
-        link.href = url;
-        link.target = "_blank";
-        link.appendChild(icon);
+        // Only insert card once
+        if (!hokuwaCardRendered) {
+          hokuwaCardRendered = true;
 
-        // Append the link (with the icon) to the div
-        div.appendChild(link);
+          // Hokuwa offenses
+          const hokuwaOffenses = {
+            "HOKUWA-L002": "Refusal to enforce valid court orders or subpoenas",
+            "HOKUWA-W002": "Threatening retaliation (legal, physical, reputational) to silence a witness",
+            "HOKUWA-W003": "Denying access to evidence in custody",
+            "HOKUWA-W011": "Withholding third-party statements until favorable manipulation can occur",
+            "HOKUWA-W013": "Refusing subpoena compliance by claiming \"unreasonable burden\" fraudulently"
+          };
 
-        // Add a space for better readability
-        const space = document.createTextNode(" ");
-        div.appendChild(space);
+          // Card HTML
+          let cardHTML = `
+            <div class="bg-gradient-to-br from-white via-primary-50 to-primary-100 border-l-8 border-primary-600 px-4 py-3 flex items-center justify-between">
+                    <i class="fas fa-scale-balanced text-2xl"></i>
+              <div class="ml-4">
+                <p class="text-sm text-black-600">
+                  <b>${extractedName}</b>
+                </p>
+              </div>
+            </div>
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden card-hover mb-4">
+              <div class="p-6">
+                <div class="flex items-center mb-4">
+                  <h3 class="text-xl font-bold text-secondary-900">Hokuwa Violations</h3>
+                </div>
+                <ul class="space-y-2 text-secondary-600">`;
+
+          for (const code in hokuwaOffenses) {
+            cardHTML += `
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-accent-600 mt-1 mr-2"></i>
+                    <span>${code} – ${hokuwaOffenses[code]}</span>
+                  </li>`;
+          }
+
+          cardHTML += `</ul></div></div>`;
+
+          // Inject card
+          const tempCard = document.createElement("div");
+          tempCard.innerHTML = cardHTML;
+          div.appendChild(tempCard);
+        }
+
+        // ✅ Now add the individual module card for the link
+        const linkCard = document.createElement("div");
+        linkCard.className = "border border-primary-200 rounded-lg px-4 py-2 mb-2 flex items-center justify-between bg-primary-50";
+
+        const leftText = document.createElement("span");
+        leftText.textContent = extractedName;
+        leftText.className = "font-semibold text-primary-800";
+
+        const linkIcon = document.createElement("a");
+        linkIcon.href = url;
+        linkIcon.target = "_blank";
+        linkIcon.className = "text-green-600 hover:text-green-800";
+        linkIcon.innerHTML = `<i class="fas fa-link fa-lg"></i>`;
+
+        linkCard.appendChild(leftText);
+        linkCard.appendChild(linkIcon);
+        div.appendChild(linkCard);
+
       });
     }
   });
-};
+}
+
+
 
   
 replaceLinksWithIcon();
