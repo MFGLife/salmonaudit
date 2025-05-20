@@ -50,8 +50,171 @@ baseData.push (
     "Attorneys must refuse to assist client perjury, even if it harms their case.",
     ["HOKUWA-O003", "HOKUWA-O015", "HOKUWA-O024", "HOKUWA-W001", "HOKUWA-W006", "HOKUWA-W019"]
   ],
-
-
+ [
+    "People v. Beckley, 185 Cal.App.4th 509 (2010)",
+    "Criminal conviction for custodial interference and false reports of abuse to alienate child from parent.",
+    ["HOKUWA-PA019", "HOKUWA-PA016", "HOKUWA-PA022"]
+  ],
+  [
+    "In re Marriage of Fajota, 2014 WL 1400887 (Cal. Ct. App.)",
+    "Court-ordered reversal of custody after proof of mother coaching child to fear father.",
+    ["HOKUWA-PA001", "HOKUWA-PA015", "HOKUWA-PA012"]
+  ],
+[
+    "Lassiter v. Dept. of Social Services, 452 U.S. 18 (1981)",
+    "Due process does not automatically require appointed counsel in parental termination cases, creating unequal access risks.",
+    ["HOKUWA-J008", "HOKUWA-G030", "HOKUWA-CA030"]
+  ],
+  [
+    "Stanley v. Illinois, 405 U.S. 645 (1972)",
+    "Unwed fathers have constitutional rights to custody hearings before losing parental rights.",
+    ["HOKUWA-CA026", "HOKUWA-J011", "HOKUWA-G014"]
+  ],
+  [
+    "Santosky v. Kramer, 455 U.S. 745 (1982)",
+    "Clear and convincing evidence standard required for parental rights termination.",
+    ["HOKUWA-G001", "HOKUWA-CA015", "HOKUWA-J022"]
+  ],
+  [
+    "Reno v. Flores, 507 U.S. 292 (1993)",
+    "Minimal due process requirements for child custody determinations of undocumented minors.",
+    ["HOKUWA-CA008", "HOKUWA-J007", "HOKUWA-P030"]
+  ],
+  [
+    "Troxel v. Granville, 530 U.S. 57 (2000)",
+    "Parents have fundamental right to make decisions about child's associations.",
+    ["HOKUWA-CA023", "HOKUWA-PA023", "HOKUWA-A014"]
+  ],
+  [
+    "Turner v. Rogers, 564 U.S. 431 (2011)",
+    "No automatic right to counsel in civil contempt hearings for child support.",
+    ["HOKUWA-J008", "HOKUWA-CA022", "HOKUWA-P029"]
+  ],
+  [
+    "J.E.B. v. Alabama, 511 U.S. 127 (1994)",
+    "Gender-based peremptory juror challenges violate Equal Protection.",
+    ["HOKUWA-J016", "HOKUWA-G016", "HOKUWA-A019"]
+  ],
+  [
+    "Michael H. v. Gerald D., 491 U.S. 110 (1989)",
+    "Biological paternity rights vs. marital presumption conflicts.",
+    ["HOKUWA-CA004", "HOKUWA-G004", "HOKUWA-J014"]
+  ],
+  [
+    "Nguyen v. INS, 533 U.S. 53 (2001)",
+    "Gender-based citizenship transmission rules held constitutional.",
+    ["HOKUWA-G016", "HOKUWA-J003", "HOKUWA-A019"]
+  ],
+  [
+    "Parham v. J.R., 442 U.S. 584 (1979)",
+    "Procedural safeguards for involuntary commitment of minors.",
+    ["HOKUWA-CA017", "HOKUWA-A017", "HOKUWA-J028"]
+  ],
+  [
+    "M.L.B. v. S.L.J., 519 U.S. 102 (1996)",
+    "Indigents must get free transcripts for parental rights appeals.",
+    ["HOKUWA-C010", "HOKUWA-P015", "HOKUWA-J011"]
+  ],
+  [
+    "Lehr v. Robertson, 463 U.S. 248 (1983)",
+    "Biological fathers must demonstrate commitment to claim parental rights.",
+    ["HOKUWA-CA013", "HOKUWA-G014", "HOKUWA-J010"]
+  ],
+  [
+    "Palmore v. Sidoti, 466 U.S. 429 (1984)",
+    "Race cannot factor into custody decisions.",
+    ["HOKUWA-G016", "HOKUWA-CA024", "HOKUWA-A019"]
+  ],
+  [
+    "Smith v. Organization of Foster Families, 431 U.S. 816 (1977)",
+    "Procedural protections required before removing children from foster homes.",
+    ["HOKUWA-CA026", "HOKUWA-P001", "HOKUWA-J007"]
+  ],
+  [
+    "DeShaney v. Winnebago County, 489 U.S. 189 (1989)",
+    "State's failure to protect child from parental abuse not constitutional violation.",
+    ["HOKUWA-CA030", "HOKUWA-J010", "HOKUWA-G002"]
+  ],
+  [
+    "Maryland v. Craig, 497 U.S. 836 (1990)",
+    "Child witnesses may testify via closed-circuit TV in abuse cases.",
+    ["HOKUWA-W010", "HOKUWA-PA012", "HOKUWA-CA021"]
+  ],
+  [
+    "Coy v. Iowa, 487 U.S. 1012 (1988)",
+    "Confrontation Clause requires face-to-face accuser confrontation.",
+    ["HOKUWA-W002", "HOKUWA-PA017", "HOKUWA-J010"]
+  ],
+  [
+    "In re Gault, 387 U.S. 1 (1967)",
+    "Juveniles get due process rights including counsel and confrontation.",
+    ["HOKUWA-PA012", "HOKUWA-CA012", "HOKUWA-J019"]
+  ],
+  [
+    "Prince v. Massachusetts, 321 U.S. 158 (1944)",
+    "State's interest in protecting children overrides parental religious freedom claims.",
+    ["HOKUWA-CA028", "HOKUWA-G005", "HOKUWA-J007"]
+  ],
+  [
+    "Wisconsin v. Yoder, 406 U.S. 205 (1972)",
+    "Parental religious freedom vs. compulsory education balance.",
+    ["HOKUWA-CA018", "HOKUWA-G021", "HOKUWA-J003"]
+  ],
+  [
+    "Meyer v. Nebraska, 262 U.S. 390 (1923)",
+    "Parental right to direct child's upbringing as fundamental liberty.",
+    ["HOKUWA-CA024", "HOKUWA-PA005", "HOKUWA-J016"]
+  ],
+  [
+    "Pierce v. Society of Sisters, 268 U.S. 510 (1925)",
+    "Parents' right to choose private schooling over state mandates.",
+    ["HOKUWA-CA017", "HOKUWA-PA025", "HOKUWA-J007"]
+  ],
+  [
+    "Glona v. American Guarantee Co., 391 U.S. 73 (1968)",
+    "Illegitimate children's rights to wrongful death benefits.",
+    ["HOKUWA-G016", "HOKUWA-CA019", "HOKUWA-J003"]
+  ],
+  [
+    "Lehr v. Robertson, 463 U.S. 248 (1983)",
+    "Biological fathers must demonstrate commitment to claim parental rights.",
+    ["HOKUWA-CA013", "HOKUWA-G014", "HOKUWA-J010"]
+  ],
+  [
+    "Quilloin v. Walcott, 434 U.S. 246 (1978)",
+    "Stepparent adoption standards and biological parent rights.",
+    ["HOKUWA-CA009", "HOKUWA-G019", "HOKUWA-J014"]
+  ],
+  [
+    "Smith v. OFFER, 431 U.S. 816 (1977)",
+    "Procedural protections before foster care removal.",
+    ["HOKUWA-CA026", "HOKUWA-P001", "HOKUWA-J007"]
+  ],
+  [
+    "Suter v. Artist M., 503 U.S. 347 (1992)",
+    "Limitations on private enforcement of Adoption Assistance Act.",
+    ["HOKUWA-CA030", "HOKUWA-J011", "HOKUWA-G010"]
+  ],
+  [
+    "Kingsley v. Kingsley, 623 So.2d 780 (Fla. 1993)",
+    "Child's limited right to terminate parental rights.",
+    ["HOKUWA-CA019", "HOKUWA-J028", "HOKUWA-G005"]
+  ],
+  [
+    "In re Marriage of Carney, 598 P.2d 36 (Cal. 1979)",
+    "Disabled parent custody rights preservation standards.",
+    ["HOKUWA-CA024", "HOKUWA-J003", "HOKUWA-G016"]
+  ],
+  [
+    "Painter v. Bannister, 140 N.W.2d 152 (Iowa 1966)",
+    "Grandparent custody based on 'stability' vs. biological parent.",
+    ["HOKUWA-CA008", "HOKUWA-J014", "HOKUWA-G021"]
+  ],
+  [
+    "In re Jessica Z., 135 Cal.Rptr.2d 918 (2003)",
+    "Presumption against custody for parents with mental disabilities.",
+    ["HOKUWA-CA028", "HOKUWA-J003", "HOKUWA-G021"]
+  ],
 [
 "Terry v. Ohio, 392 U.S. 1 (1968)",
 "Police may stop and frisk individuals without probable cause if they have reasonable suspicion of criminal activity and concern for officer safety.",
@@ -500,7 +663,62 @@ let hokuwaOffenses =
   "HOKUWA-W027": "Running character attacks to discredit truthful witnesses",
   "HOKUWA-W028": "Witnesses receiving direct or implied benefit for false statements",
   "HOKUWA-W029": "Targeting and retaliating against evidence submitters on social media",
-  "HOKUWA-W030": "Law enforcement refusing to preserve, retrieve, or submit evidence formally requested"
+  "HOKUWA-W030": "Law enforcement refusing to preserve, retrieve, or submit evidence formally requested",
+  "HOKUWA-CA001": "Systematic erasure of targeted parent's identity from child's life (photos, memories, references)",
+  "HOKUWA-CA002": "Court-ordered reunification therapy used punitively against targeted parent",
+  "HOKUWA-CA003": "Forcing child to choose between parents through ultimatums or emotional blackmail",
+  "HOKUWA-CA004": "Fabricating 'parental alienation' accusations against protective parents",
+  "HOKUWA-CA005": "Judges rubber-stamping GAL recommendations without independent review",
+  "HOKUWA-CA006": "Court-ordered no-contact orders without evidentiary hearing",
+  "HOKUWA-CA007": "Therapeutic visitation supervisors acting as enforcement agents for alienating parent",
+  "HOKUWA-CA008": "Family courts prioritizing parental 'rights' over child's documented trauma",
+  "HOKUWA-CA009": "Court-ordered custody evaluators refusing to interview critical witnesses",
+  "HOKUWA-CA010": "Judicial failure to enforce visitation orders for targeted parents",
+  "HOKUWA-CA011": "Court-appointed therapists adopting alienating parent's narrative without verification",
+  "HOKUWA-CA012": "GALs using child's temporary distress during transition as 'proof' of alienation",
+  "HOKUWA-CA013": "Courts punishing parents for children's refusal to visit without investigating causes",
+  "HOKUWA-CA014": "Mandated co-parenting classes used to indoctrinate acceptance of abusive dynamics",
+  "HOKUWA-CA015": "Judges ordering immediate custody reversal based on unverified alienation claims",
+  "HOKUWA-CA016": "Court professionals diagnosing 'alienation' without psychological qualifications",
+  "HOKUWA-CA017": "Withholding child's medical/educational records from targeted parent",
+  "HOKUWA-CA018": "Court-ordered 'neutral' providers financially dependent on repeat cases",
+  "HOKUWA-CA019": "Judicial override of child's mature preferences without factual basis",
+  "HOKUWA-CA020": "Court-ordered electronic monitoring of targeted parent-child communications",
+  "HOKUWA-CA021": "GALs refusing to review evidence of coaching or intimidation of child",
+  "HOKUWA-CA022": "Family courts permitting endless litigation to bankrupt targeted parent",
+  "HOKUWA-CA023": "Judges allowing introduction of unrelated prior relationships to prejudice cases",
+  "HOKUWA-CA024": "Court professionals pathologizing normal protective parenting as 'alienation'",
+  "HOKUWA-CA025": "Custody evaluators relying solely on alienating parent's provided 'evidence'",
+  "HOKUWA-CA026": "Courts ordering removal of children from primary caregiver without emergency",
+  "HOKUWA-CA027": "Judicial sanctions for parents attempting to document abuse/alienation",
+  "HOKUWA-CA028": "Court-ordered 'reunification camps' with unlicensed practitioners",
+  "HOKUWA-CA029": "GALs conflating child's resistance with alienation without abuse investigation",
+  "HOKUWA-CA030": "Systemic judicial bias against parents reporting child abuse during custody disputes",
+  "HOKUWA-PA001": "Forced Rejection Scripting: Coaching child to parrot phrases like 'I hate [parent]' or 'I'm scared of [parent]' without authentic feelings",
+  "HOKUWA-PA002": "False Memory Implantation: Telling child fabricated stories (e.g., '[Parent] abandoned you') to distort their perception",
+  "HOKUWA-PA003": "Emotional Blackmail: Threatening to withdraw love if child shows affection toward the other parent",
+  "HOKUWA-PA004": "Victimization Theater: Fake crying or panic attacks when child mentions the other parent",
+  "HOKUWA-PA005": "Trivializing Love: Mocking child's gifts/drawings for the other parent ('Why bother? They don't care about you')",
+  "HOKUWA-PA006": "Gatekeeping Milestones: Deliberately scheduling events (birthdays, graduations) during the other parent's custody time",
+  "HOKUWA-PA007": "Erasing Presence: Removing photos, deleting voicemails, or discarding the other parent's belongings from the home",
+  "HOKUWA-PA008": "Intercepted Communication: Blocking calls/texts or standing over child during calls to monitor conversations",
+  "HOKUWA-PA009": "Bribery for Loyalty: Rewarding child with gifts/trips for rejecting the other parent",
+  "HOKUWA-PA010": "False Emergencies: Creating crises (e.g., 'Grandma is dying!') to cancel visitation last-minute",
+  "HOKUWA-PA011": "Gaslighting the Child: Denying the other parent's positive actions ('They only visit to look good for court')",
+  "HOKUWA-PA012": "Adultification: Confiding in child about court cases or calling them 'my witness' against the other parent",
+  "HOKUWA-PA013": "Forced Betrayal: Making child choose between parents (e.g., 'If you see [parent], don't come back')",
+  "HOKUWA-PA014": "Conditional Love: Telling child 'You're just like [parent]' as an insult when angry",
+  "HOKUWA-PA015": "Fear-Mongering: Warning child the other parent will 'hurt you' or 'take you away forever' without basis",
+  "HOKUWA-PA016": "School Collusion: Instructing teachers to report benign incidents (e.g., 'Child cried at drop-off') as 'abuse'",
+  "HOKUWA-PA017": "Medical Misrepresentation: Lying to doctors/therapists that the other parent causes the child's stress",
+  "HOKUWA-PA018": "Religious Coercion: Using clergy to tell child 'God wants you to stay with me'",
+  "HOKUWA-PA019": "Lawfare Threats: Telling child 'If you visit [parent], I'll call the police'",
+  "HOKUWA-PA020": "Therapy Manipulation: Sending child to biased therapists who diagnose 'alienation' after one session",
+  "HOKUWA-PA021": "Staged Photos/Videos: Posing child crying after calls with the other parent for court evidence",
+  "HOKUWA-PA022": "Fake Journals: Writing 'Child said [parent] hit them' in a diary the child never kept",
+  "HOKUWA-PA023": "Isolation Enforcement: Banning child from mentioning the other parent's family (e.g., 'Don't talk about Grandma')",
+  "HOKUWA-PA024": "Rewriting History: Claiming the other parent 'never attended' events they did (provable via photos)",
+  "HOKUWA-PA025": "Social Media Warfare: Posting edited videos of child 'refusing' to go with the other parent"
 };
 
 
