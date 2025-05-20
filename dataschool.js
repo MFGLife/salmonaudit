@@ -104,11 +104,11 @@ const dataSchoolWebResources = {
   schools: {
     // 1. LEGAL DATA SCHOOL
     "legal": {
-      name: "Legal Data School",
+      name: "Hokuwa Index",
       description: "Court cases, precedents, and legal frameworks",
       resources: [
         {
-          url: "https://www.law.cornell.edu/wex",
+          url: "https://salmonaudit.info/legal/hokuwa.js",
           priority: 1,
           description: "Legal dictionary and encyclopedia",
           focusSections: ["definitions", "explanations"],
