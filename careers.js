@@ -249,7 +249,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <i class="fas fa-external-link-alt text-green-600 mt-1 mr-3"></i>
                                 </div>
                                 <div>
-                                    <p class="text-green-800 font-medium">Apply at <a href="https://www.linkedin.com/jobs/view/4228376249/" class="text-green-700 underline hover:text-green-800">LinkedIn Job Posting</a></p>
+                                    <p class="text-green-800 font-medium">Apply at <a href="careers.html" class="text-green-700 underline hover:text-green-800">Careers</a></p>
                                 </div>
                             </div>
                         </div>
