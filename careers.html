@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SalmonAudit™ Auditor Onboarding Checklist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .checklist-item {
+            transition: all 0.3s ease;
+        }
+        .checklist-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .drive-link-input {
+            opacity: 0;
+            max-height: 0;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        .drive-link-input.active {
+            opacity: 1;
+            max-height: 100px;
+        }
+        .progress-bar {
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- Header -->
+        <header class="mb-8 text-center">
+  
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">SalmonAudit™ Auditor Onboarding</h1>
+            <h2 class="text-xl text-gray-600">Paper Trail Checklist</h2>
+            <p class="mt-4 text-gray-500">Complete each step systematically and retain all documented proof.</p>
+        </header>
+
+        <!-- Progress Bar -->
+        <div class="mb-8 bg-white rounded-lg shadow p-4">
+            <div class="flex justify-between mb-2">
+                <span class="text-sm font-medium text-gray-700">Progress</span>
+                <span id="progress-percentage" class="text-sm font-medium text-gray-700">0%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div id="progress-bar" class="progress-bar bg-gradient-to-r from-red-500 to-orange-500 h-2.5 rounded-full" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- Checklist Form -->
+        <form id="audit-checklist" class="space-y-6">
+            <!-- Phase 1 -->
+            <div class="bg-white rounded-lg shadow overflow-hidden">
+                <div class="bg-gradient-to-r from-red-500 to-orange-500 p-4">
+                    <h3 class="text-lg font-semibold text-white">Phase 1: Formal Onboarding & Ethical Commitment</h3>
+                    <p class="text-red-100 text-sm">To establish your official status as a SalmonAudit™ auditor and confirm your understanding of our ethical standards.</p>
+                </div>
+                <div class="p-4 space-y-4">
+                    <div class="checklist-item bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <div class="flex items-start">
+                            <input type="checkbox" id="step-1" class="mt-1 h-5 w-5 text-red-600 rounded focus:ring-red-500" data-phase="1">
+                            <label for="step-1" class="ml-3 block text-gray-700">
+                                <span class="font-medium">1. Sign the SalmonAudit™ Auditor Agreements:</span>
+                                <ul class="mt-1 ml-6 space-y-2">
+                                    <li class="flex items-start">
+                                        <input type="checkbox" id="step-1a" class="mt-1 h-4 w-4 text-red-600 rounded focus:ring-red-500" data-parent="step-1">
+                                        <label for="step-1a" class="ml-2 text-gray-600">Code of Conduct & Confidentiality Agreement signed and submitted.</label>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <input type="checkbox" id="step-1b" class="mt-1 h-4 w-4 text-red-600 rounded focus:ring-red-500" data-parent="step-1">
+                                        <label for="step-1b" class="ml-2 text-gray-600">Data Handling & Ethical Practice Acknowledgment signed and submitted.</label>
+                                    </li>
+                                </ul>
+
+                                <i class="fas fa-link mt-2 pt-4 text-xs text-blue-500" onclick="window.open('https://docs.google.com/document/d/1fCSeiG3JTHsbo-mjyAz1AeR1f52wNs4vx61p9HR5LCY/edit?usp=sharing')"> Auditor Code of Conduct & Confidentiality Agreement</i>
+                                <i class="fas fa-link mt-2 pt-4 text-xs text-blue-500" onclick="window.open('https://docs.google.com/document/d/1VmWfDItESXt5aocd7ks3ODKptwMbJCnlVYmiBgGNuDM/edit?usp=sharing')"> Data Handling & Ethical Practice Acknowledgment</i>
+
+                                <p class="mt-2 text-sm text-gray-500">Proof: Retain your signed copies or confirmation of submission.</p>
+                            </label>
+                        </div>
+                        <div class="drive-link-input mt-3 ml-8">
+                            <label for="drive-link-1" class="block text-sm font-medium text-gray-700">Google Drive Link:</label>
+                            <div class="mt-1 flex rounded-md shadow-sm">
+                                <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                                    <i class="fas fa-link"></i>
+                                </span>
+                                <input type="url" id="drive-link-1" class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="https://drive.google.com/..." required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 2 -->
+            <div class="bg-white rounded-lg shadow overflow-hidden">
+                <div class="bg-gradient-to-r from-red-500 to-orange-500 p-4">
+                    <h3 class="text-lg font-semibold text-white">Phase 2: Public Records Access Setup</h3>
+                    <p class="text-red-100 text-sm">To ensure you have the necessary tools and knowledge to legally and ethically access public court documents.</p>
+                </div>
+                <div class="p-4 space-y-4">
+                    <div class="checklist-item bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <div class="flex items-start">
+                            <input type="checkbox" id="step-2" class="mt-1 h-5 w-5 text-red-600 rounded focus:ring-red-500" data-phase="2">
+                            <label for="step-2" class="ml-3 block text-gray-700">
+                                <span class="font-medium">2. Complete Required Legal Access Training:</span>
+                                <ul class="mt-1 ml-6 space-y-2">
+                                    <li class="flex items-start">
+                                        <input type="checkbox" id="step-2a" class="mt-1 h-4 w-4 text-red-600 rounded focus:ring-red-500" data-parent="step-2">
+                                        <label for="step-2a" class="ml-2 text-gray-600">Review training materials on Kansas Open Records Act (KORA) / Missouri Sunshine Law.</label>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <input type="checkbox" id="step-2b" class="mt-1 h-4 w-4 text-red-600 rounded focus:ring-red-500" data-parent="step-2">
+                                        <label for="step-2b" class="ml-2 text-gray-600">Review specific court access procedures for assigned counties (Wyandotte, Johnson, Jackson, etc.) and federal courts.</label>
+                                    </li>
+                                </ul>
+                                <p class="mt-2 text-sm text-gray-500">Proof: Completion certificate or internal acknowledgment of training review.</p>
+                            </label>
+                        </div>
+                        <div class="drive-link-input mt-3 ml-8">
+                            <label for="drive-link-2" class="block text-sm font-medium text-gray-700">Google Drive Link:</label>
+                            <div class="mt-1 flex rounded-md shadow-sm">
+                                <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                                    <i class="fas fa-link"></i>
+                                </span>
+                                <input type="url" id="drive-link-2" class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="https://drive.google.com/..." required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checklist-item bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <div class="flex items-start">
+                            <input type="checkbox" id="step-3" class="mt-1 h-5 w-5 text-red-600 rounded focus:ring-red-500" data-phase="2">
+                            <label for="step-3" class="ml-3 block text-gray-700">
+                                <span class="font-medium">3. Register for Official Court Access Accounts:</span>
+                                <ul class="mt-1 ml-6 space-y-2">
+                                    <li class="flex items-start">
+                                        <input type="checkbox" id="step-3a" class="mt-1 h-4 w-4 text-red-600 rounded focus:ring-red-500" data-parent="step-3">
+                                        <label for="step-3a" class="ml-2 text-gray-600">PACER Account created and confirmed (for federal court records).</label>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <input type="checkbox" id="step-3b" class="mt-1 h-4 w-4 text-red-600 rounded focus:ring-red-500" data-parent="step-3">
+                                        <label for="step-3b" class="ml-2 text-gray-600">Any relevant county-level online access accounts created and confirmed (if available for your assigned jurisdiction).</label>
+                                    </li>
+                                </ul>
+                                <p class="mt-2 text-sm text-gray-500">Proof: PACER registration confirmation email; screenshots or confirmation of county-level account setup.</p>
+                            </label>
+                        </div>
+                        <div class="drive-link-input mt-3 ml-8">
+                            <label for="drive-link-3" class="block text-sm font-medium text-gray-700">Google Drive Link:</label>
+                            <div class="mt-1 flex rounded-md shadow-sm">
+                                <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                                    <i class="fas fa-link"></i>
+                                </span>
+                                <input type="url" id="drive-link-3" class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="https://drive.google.com/..." required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checklist-item bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <div class="flex items-start">
+                            <input type="checkbox" id="step-4" class="mt-1 h-5 w-5 text-red-600 rounded focus:ring-red-500" data-phase="2">
+                            <label for="step-4" class="ml-3 block text-gray-700">
+                                <span class="font-medium">4. Acknowledge Public Records Request Protocol:</span>
+                                <ul class="mt-1 ml-6 space-y-2">
+                                    <li class="flex items-start">
+                                        <input type="checkbox" id="step-4a" class="mt-1 h-4 w-4 text-red-600 rounded focus:ring-red-500" data-parent="step-4">
+                                        <label for="step-4a" class="ml-2 text-gray-600">Read and sign the SalmonAudit™ Public Records Request Protocol Acknowledgment.</label>
+                                    </li>
+                                </ul>
+                                <i class="fas fa-link mt-2 pt-4 text-xs text-blue-500" onclick="window.open('https://docs.google.com/document/d/1N11CUeos9JWe_Ixv2exe2e38DC71N-pyMVFMnKtp3mw/edit?usp=sharing')"> Public Records Request Protocol Acknowledgment Form</i>
+                                <p class="mt-2 text-sm text-gray-500">Proof: Retain your signed copy or confirmation of submission.</p>
+                                
+                            </label>
+                        </div>
+                        <div class="drive-link-input mt-3 ml-8">
+                            <label for="drive-link-4" class="block text-sm font-medium text-gray-700">Google Drive Link:</label>
+                            <div class="mt-1 flex rounded-md shadow-sm">
+                                <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                                    <i class="fas fa-link"></i>
+                                </span>
+                                <input type="url" id="drive-link-4" class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="https://drive.google.com/..." required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 3 -->
+            <div class="bg-white rounded-lg shadow overflow-hidden">
+                <div class="bg-gradient-to-r from-red-500 to-orange-500 p-4">
+                    <h3 class="text-lg font-semibold text-white">Phase 3: Initial Paper Trail Generation - Your First Public Records Request</h3>
+                    <p class="text-red-100 text-sm">To perform a guided, legitimate public records request, creating your first verifiable audit paper trail.</p>
+                </div>
+                <div class="p-4 space-y-4">
+                    <div class="checklist-item bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <div class="flex items-start">
+                            <input type="checkbox" id="step-5" class="mt-1 h-5 w-5 text-red-600 rounded focus:ring-red-500" data-phase="3">
+                            <label for="step-5" class="ml-3 block text-gray-700">
+                                <span class="font-medium">5. Receive Assigned Case for Initial Request:</span>
+                                <ul class="mt-1 ml-6 space-y-2">
+                                    <li class="flex items-start">
+                                        <input type="checkbox" id="step-5a" class="mt-1 h-4 w-4 text-red-600 rounded focus:ring-red-500" data-parent="step-5">
+                                        <label for="step-5a" class="ml-2 text-gray-600">Obtain the specific case number and court jurisdiction for your first Public Records Request from your supervisor.</label>
+                                    </li>
+                                </ul>
+                                <p class="mt-2 text-sm text-gray-500">Proof: Internal assignment record or confirmation from supervisor.</p>
+                            </label>
+                        </div>
+                        <div class="drive-link-input mt-3 ml-8">
+                            <label for="drive-link-5" class="block text-sm font-medium text-gray-700">Google Drive Link:</label>
+                            <div class="mt-1 flex rounded-md shadow-sm">
+                                <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                                    <i class="fas fa-link"></i>
+                                </span>
+                                <input type="url" id="drive-link-5" class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="https://drive.google.com/..." required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checklist-item bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <div class="flex items-start">
+                            <input type="checkbox" id="step-6" class="mt-1 h-5 w-5 text-red-600 rounded focus:ring-red-500" data-phase="3">
+                            <label for="step-6" class="ml-3 block text-gray-700">
+                                <span class="font-medium">6. Draft Your Public Records Request:</span>
+                                <ul class="mt-1 ml-6 space-y-2">
+                                    <li class="flex items-start">
+                                        <input type="checkbox" id="step-6a" class="mt-1 h-4 w-4 text-red-600 rounded focus:ring-red-500" data-parent="step-6">
+                                        <label for="step-6a" class="ml-2 text-gray-600">Using the provided template, draft a formal written request to the Clerk of the District Court for the assigned case. Specify the exact documents needed (e.g., "all filings related to the 'Motion to Proceed In Forma Pauperis'").</label>
+                                    </li>
+                                </ul>
+                                <p class="mt-2 text-sm text-gray-500">Proof: Retain a copy of your drafted request.</p>
+                            </label>
+                        </div>
+                        <div class="drive-link-input mt-3 ml-8">
+                            <label for="drive-link-6" class="block text-sm font-medium text-gray-700">Google Drive Link:</label>
+                            <div class="mt-1 flex rounded-md shadow-sm">
+                                <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                                    <i class="fas fa-link"></i>
+                                </span>
+                                <input type="url" id="drive-link-6" class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="https://drive.google.com/..." required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checklist-item bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <div class="flex items-start">
+                            <input type="checkbox" id="step-7" class="mt-1 h-5 w-5 text-red-600 rounded focus:ring-red-500" data-phase="3">
+                            <label for="step-7" class="ml-3 block text-gray-700">
+                                <span class="font-medium">7. Submit Your Public Records Request:</span>
+                                <ul class="mt-1 ml-6 space-y-2">
+                                    <li class="flex items-start">
+                                        <input type="checkbox" id="step-7a" class="mt-1 h-4 w-4 text-red-600 rounded focus:ring-red-500" data-parent="step-7">
+                                        <label for="step-7a" class="ml-2 text-gray-600">Submit the drafted request via certified mail, email, or in person (with a date stamp from the clerk's office).</label>
+                                    </li>
+                                </ul>
+                                <p class="mt-2 text-sm text-gray-500">Proof: Keep all correspondence; retain copies of the received public documents.</p>
+                            </label>
+                        </div>
+                        <div class="drive-link-input mt-3 ml-8">
+                            <label for="drive-link-7" class="block text-sm font-medium text-gray-700">Google Drive Link:</label>
+                            <div class="mt-1 flex rounded-md shadow-sm">
+                                <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                                    <i class="fas fa-link"></i>
+                                </span>
+                                <input type="url" id="drive-link-7" class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="https://drive.google.com/..." required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checklist-item bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <div class="flex items-start">
+                            <input type="checkbox" id="step-8" class="mt-1 h-5 w-5 text-red-600 rounded focus:ring-red-500" data-phase="3">
+                            <label for="step-8" class="ml-3 block text-gray-700">
+                                <span class="font-medium">8. Track Request Status & Receive Documents:</span>
+                                <ul class="mt-1 ml-6 space-y-2">
+                                    <li class="flex items-start">
+                                        <input type="checkbox" id="step-8a" class="mt-1 h-4 w-4 text-red-600 rounded focus:ring-red-500" data-parent="step-8">
+                                        <label for="step-8a" class="ml-2 text-gray-600">Log all communication with the court regarding your request (acknowledgments, fee notifications).</label>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <input type="checkbox" id="step-8b" class="mt-1 h-4 w-4 text-red-600 rounded focus:ring-red-500" data-parent="step-8">
+                                        <label for="step-8b" class="ml-2 text-gray-600">Receive and verify the requested public documents from the court.</label>
+                                    </li>
+                                </ul>
+                                <p class="mt-2 text-sm text-gray-500">Proof: Keep all correspondence; retain copies of the received public documents.</p>
+                            </label>
+                        </div>
+                        <div class="drive-link-input mt-3 ml-8">
+                            <label for="drive-link-8" class="block text-sm font-medium text-gray-700">Google Drive Link:</label>
+                            <div class="mt-1 flex rounded-md shadow-sm">
+                                <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                                    <i class="fas fa-link"></i>
+                                </span>
+                                <input type="url" id="drive-link-8" class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="https://drive.google.com/..." required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checklist-item bg-gray-50 p-4 rounded-lg border border-gray-200">
+                        <div class="flex items-start">
+                            <input type="checkbox" id="step-9" class="mt-1 h-5 w-5 text-red-600 rounded focus:ring-red-500" data-phase="3">
+                            <label for="step-9" class="ml-3 block text-gray-700">
+                                <span class="font-medium">9. Complete Auditor Public Records Acquisition Log:</span>
+                                <ul class="mt-1 ml-6 space-y-2">
+                                    <li class="flex items-start">
+                                        <input type="checkbox" id="step-9a" class="mt-1 h-4 w-4 text-red-600 rounded focus:ring-red-500" data-parent="step-9">
+                                        <label for="step-9a" class="ml-2 text-gray-600">Fill out the "Auditor Public Records Acquisition Log" for this request, detailing the case, documents requested, documents received, dates, and any issues.</label>
+                                    </li>
+                                </ul>
+                                <p class="mt-2 text-sm text-gray-500">Proof: Your completed and submitted "Auditor Public Records Acquisition Log."</p>
+                            </label>
+                        </div>
+                        <div class="drive-link-input mt-3 ml-8">
+                            <label for="drive-link-9" class="block text-sm font-medium text-gray-700">Google Drive Link:</label>
+                            <div class="mt-1 flex rounded-md shadow-sm">
+                                <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                                    <i class="fas fa-link"></i>
+                                </span>
+                                <input type="url" id="drive-link-9" class="focus:ring-red-500 focus:border-red-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="https://drive.google.com/..." required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submission -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="text-center">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">Ready to Submit Your Audit Checklist?</h3>
+                    <p class="text-sm text-gray-500 mb-6">Once you've completed all steps and provided all Google Drive links, click below to generate your submission email.</p>
+                    <button type="button" id="submit-btn" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                        <i class="fas fa-paper-plane mr-2"></i> Generate Submission Email
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle drive link input when checkbox is checked
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    updateDriveLinkVisibility(this);
+                    updateProgress();
+                });
+            });
+
+            // Submit button handler
+            document.getElementById('submit-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                submitChecklist();
+            });
+
+            function updateDriveLinkVisibility(checkbox) {
+                const parentId = checkbox.getAttribute('data-parent');
+                if (parentId) {
+                    // This is a sub-checkbox, we need to check if all siblings are checked
+                    const parentCheckbox = document.getElementById(parentId);
+                    const siblingCheckboxes = document.querySelectorAll(`input[data-parent="${parentId}"]`);
+                    let allChecked = true;
+                    
+                    siblingCheckboxes.forEach(sibling => {
+                        if (!sibling.checked) allChecked = false;
+                    });
+
+                    if (allChecked) {
+                        parentCheckbox.checked = true;
+                        const driveLinkInput = parentCheckbox.closest('.checklist-item').querySelector('.drive-link-input');
+                        driveLinkInput.classList.add('active');
+                    } else {
+                        parentCheckbox.checked = false;
+                        const driveLinkInput = parentCheckbox.closest('.checklist-item').querySelector('.drive-link-input');
+                        driveLinkInput.classList.remove('active');
+                    }
+                } else {
+                    // This is a main checkbox
+                    const driveLinkInput = checkbox.closest('.checklist-item').querySelector('.drive-link-input');
+                    if (checkbox.checked) {
+                        driveLinkInput.classList.add('active');
+                    } else {
+                        driveLinkInput.classList.remove('active');
+                    }
+                }
+            }
+
+            function updateProgress() {
+                const totalMainCheckboxes = document.querySelectorAll('input[type="checkbox"]:not([data-parent])').length;
+                const checkedMainCheckboxes = document.querySelectorAll('input[type="checkbox"]:not([data-parent]):checked').length;
+                const progressPercentage = Math.round((checkedMainCheckboxes / totalMainCheckboxes) * 100);
+                
+                document.getElementById('progress-bar').style.width = `${progressPercentage}%`;
+                document.getElementById('progress-percentage').textContent = `${progressPercentage}%`;
+            }
+
+            function submitChecklist() {
+                // Validate all required fields
+                const allCheckboxes = document.querySelectorAll('input[type="checkbox"]:not([data-parent])');
+                let isValid = true;
+                let missingFields = [];
+                
+                allCheckboxes.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        const driveLinkInput = checkbox.closest('.checklist-item').querySelector('input[type="url"]');
+                        if (!driveLinkInput.value) {
+                            isValid = false;
+                            const label = checkbox.closest('label').querySelector('span').textContent;
+                            missingFields.push(label);
+                        }
+                    }
+                });
+
+                if (!isValid) {
+                    alert(`Please provide Google Drive links for the following completed steps:\n\n${missingFields.join('\n')}`);
+                    return;
+                }
+
+                // Collect all data
+                const checklistData = [];
+                allCheckboxes.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        const item = {
+                            step: checkbox.id.replace('step-', ''),
+                            description: checkbox.closest('label').querySelector('span').textContent.trim(),
+                            driveLink: checkbox.closest('.checklist-item').querySelector('input[type="url"]').value
+                        };
+                        checklistData.push(item);
+                    }
+                });
+
+                // Generate email content
+                const subject = "SalmonAudit Careers Body";
+                let body = "Here is my completed SalmonAudit™ Auditor Onboarding Checklist:\n\n";
+
+                checklistData.forEach(item => {
+                    body += `${item.step}. ${item.description}\n`;
+                    body += `Google Drive Link: ${item.driveLink}\n\n`;
+                });
+
+                body += "\n\nBest regards,\n[Your Name]";
+
+                // Create mailto link
+                const mailtoLink = `mailto:classactionabuse@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                
+                // Open email client
+                window.location.href = mailtoLink;
+            }
+        });
+    </script>
+</body>
+</html>
