@@ -122,7 +122,23 @@
         }
       }
   </script>
-    
+    <style>
+            /* Optional: Add some basic custom styles if needed, e.g., for the Hokuwa card */
+        .hokuwa-card {
+            background: linear-gradient(135deg, #2a4365 0%, #1e3a8a 100%); /* Dark blue gradient */
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInAnimation 0.8s ease-out forwards;
+        }
+        @keyframes fadeInAnimation {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+      </style>
 <!-- Include SwiperJS -->
 <link
   rel="stylesheet"
@@ -625,6 +641,19 @@ Plaintiff’s consent, outside judicial order, and against explicit, on-record o
 
      </div>
          
+    </div>
+  </div>
+
+      <!-- STEP 1 -->
+  <div class="border border-gray-300 rounded-lg overflow-hidden">
+    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-100 transition duration-300">
+      <span class="text-xl font-semibold text-black">Become an Auditor</span>
+      <i class="fas fa-chevron-down text-black transition-transform duration-300"></i>
+    </button>
+    <div class="faq-content hidden px-6 pb-6 pt-0 text-gray-800 space-y-4">
+<div class="container mx-auto p-4 max-w-3xl">
+        <div id="careersContent"></div>
+    </div>
     </div>
   </div>
 
@@ -1264,6 +1293,10 @@ Plaintiff’s consent, outside judicial order, and against explicit, on-record o
     </div>
   </div>
 
+
+
+
+
     <!-- STEP 1 -->
   <div class="border border-gray-300 rounded-lg overflow-hidden">
     <button class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-100 transition duration-300">
@@ -1666,6 +1699,7 @@ Plaintiff’s consent, outside judicial order, and against explicit, on-record o
 <script src="messages.js"></script>
 <script src="legal/app.js"></script>
 <script src="dataschool.js"></script>
+<script src="careers.js"></script>
 
   <script defer src="legal/motion.js"></script>
   <script defer src="legal/cases/25DM781.js"></script>
