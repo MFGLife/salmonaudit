@@ -267,6 +267,79 @@ Given my current financial situation, I am unable to pay the $405 filing fee wit
 NOTICE WITH CERTIFIED SERVICE
 Micheal Salmon certifies that this motion is filed in good faith and with intent to preserve the integrity of the judicial process and constitutional rights afforded to all litigants. A Self-Represented Litigant Certification form (OJA-218) is attached per Rule. All copies, evidence, and videos related to this motion are available at SalmonAudit.info. Please note that videos may take up to 48 hours to appear online after being recorded. Access to this information is provided for transparency and legal audit purposes. All materials are available for public review in accordance with applicable laws. I hereby certify that a true and correct copy was sent via Email: ksd_clerks_kansascity@ksd.uscourts.gov Tina.Rockey@kscourts.gov court.schedule@courts.mo.gov daocfeedback@wycokck.org l Date of Service: 5/21/2025
 Clerk, US District Court 500 State Avenue, Rm. 259 Kansas City, KS 66101`
-}
+},
+{
+  id: "Pending",
+  title: "DECLARATION OF TRUST FOR THE PROTECTION AND BENEFIT OF MICHEAL LAWRENCE SALMON AND FELIX DAY SALMON",
+  date: "2025-05-22",
+  type: "Declaration",
+  status: "Granted",
+  content: `UNITED STATES DISTRICT COURT
+| DISTRICT OF KANSAS
+MICHEAL LAWRENCE SALMON,		)
+Plaintiff,					)
+ 						)
+vs.						)	Case No. 
+ 						)
+WYANDOTTE/STONE DISTRICT, et al.	)
+Defendant.					)
+NOTICE WITH CERTIFIED SERVICE
+Micheal Salmon certifies that this motion is filed in good faith and with intent to preserve the integrity of the judicial process and constitutional rights afforded to all litigants. A Self-Represented Litigant Certification form (OJA-218) is attached per Rule. All copies, evidence, and videos related to this motion are available at SalmonAudit.info. Please note that videos may take up to 48 hours to appear online after being recorded. Access to this information is provided for transparency and legal audit purposes. All materials are available for public review in accordance with applicable laws. I hereby certify that a true and correct copy was sent via Email: ksd_clerks_kansascity@ksd.uscourts.gov Tina.Rockey@kscourts.gov court.schedule@courts.mo.gov daocfeedback@wycokck.org l Date of Service: 5/22/2025
+Clerk, US District Court 500 State Avenue, Rm. 259 Kansas City, KS 66101
+Respectfully submitted,
+Micheal Lawrence Salmon
+4120 Adams Street Kansas City, Kansas 66103
+(913) 280-2336 micheal.mfg@gmail.com
+DECLARATION OF TRUST FOR THE PROTECTION AND BENEFIT OF MICHEAL LAWRENCE SALMON AND FELIX DAY SALMON
+COMES NOW Micheal Lawrence Salmon, residing at 4120 Adams Street, Kansas City, KS 66103, and hereby declares and establishes this trust for his own benefit during his lifetime and for the benefit of his minor son, Felix Day Salmon (DOB: December 20, 2022), pursuant to Kansas law and the inherent equitable powers of this Court. This Declaration is intended to direct the disposition of any and all proceeds, settlements, judgments, or awards arising from any and all pending or future litigation in which Micheal Lawrence Salmon is a party, including but not limited to the above-captioned cases.
 
+I. TRUST DECLARATION
+Trust Name:
+The Micheal Lawrence Salmon & Felix Day Salmon Protection Trust
+Settlor:
+Micheal Lawrence Salmon
+Primary Beneficiary:
+Micheal Lawrence Salmon, during his lifetime and while competent.
+Secondary Beneficiary:
+Felix Day Salmon (DOB: December 20, 2022), upon the death, incapacity, or inability of Micheal Lawrence Salmon to collect or manage said funds.
+Trust Property:
+All proceeds, settlements, judgments, awards, or other funds received by or due to Micheal Lawrence Salmon as a result of any litigation, claim, or settlement in any court, including but not limited to the above-captioned cases, and any related actions.
+Trust Purpose:
+To provide for the health, safety, education, maintenance, and support of Micheal Lawrence Salmon and, upon his death or incapacity, for the exclusive benefit and protection of Felix Day Salmon.
+It is expressly intended that this trust serve as a safeguard against any undue influence, coercion, psychological manipulation, harassment, or retaliatory conduct by any party—including but not limited to family members, former partners, or any person acting under color of law or judicial process.
+The trust is established to ensure that neither the Settlor nor the Beneficiary is deprived of their rights, safety, or well-being through extralegal or psychological means.
+
+II. TRUSTEE DESIGNATION
+Initial Trustee:
+Micheal Lawrence Salmon shall serve as trustee during his lifetime and while competent.
+Successor Trustee:
+In the event of the death or incapacity of Micheal Lawrence Salmon, Shameon Harris shall serve as successor trustee, with full authority to collect, manage, and distribute trust property for the sole benefit of Felix Day Salmon.
+
+III. DISTRIBUTION OF TRUST PROPERTY
+Distribution Standard:
+All trust property shall be held, managed, and distributed exclusively for the health, safety, education, maintenance, and support of Micheal Lawrence Salmon during his lifetime, and thereafter for Felix Day Salmon, until Felix reaches the age of 14, at which time any remaining trust property shall be distributed outright to him.
+Early Distribution:
+The trustee may, in their sole discretion, make distributions for the benefit of Felix Day Salmon at any time prior to age 14, as needed for his welfare and safety.
+
+IV. COURT NOTICE AND DIRECTION
+Notice to Court:
+This Declaration is filed with the Court to provide notice to all parties, the Clerk, and any future payors or obligors that any funds due to Micheal Lawrence Salmon in any of the above-captioned cases, or any future related litigation, are to be paid to and held in trust for the benefit of Micheal Lawrence Salmon during his lifetime, and thereafter for Felix Day Salmon, and not to any other person or estate.
+Direction to Clerk:
+The Clerk of the District Court is hereby directed, in the event of the Settlor’s death or incapacity, to pay or transfer any funds held or received in these matters to the successor trustee named above, for the benefit of Felix Day Salmon.
+
+V. PROTECTIVE PROVISIONS
+Protection from Undue Influence and Harassment:
+It is a condition of this trust that neither the Settlor nor the Beneficiary shall be subject to any form of coercion, psychological pressure, forced examination, retaliatory legal action, or manipulative conduct by any party, including but not limited to family members, former partners, or court actors.
+Any attempt to interfere with the administration of this trust, or to deprive the Settlor or Beneficiary of their rights or property through psychological, extralegal, or abusive legal tactics, shall be deemed a violation of this trust and reported to the Court for protective intervention.
+Judicial Oversight for Safety:
+The Court is respectfully requested to exercise ongoing oversight to ensure the safety and well-being of both the Settlor and Beneficiary, and to intervene as necessary to prevent or remedy any form of harassment, intimidation, or undue influence affecting the trust or its administration.
+
+VI. MISCELLANEOUS
+Governing Law:
+This trust shall be governed by the laws of the State of Kansas.
+Amendment and Revocation:
+This trust may be amended or revoked by Micheal Lawrence Salmon in writing at any time prior to his death or incapacity.
+Severability:
+If any provision of this trust is held invalid, the remaining provisions shall remain in full force and effect.`
+}
 )
