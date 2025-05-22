@@ -233,6 +233,40 @@ Public or private character assassination targeting employment, custody, or hous
 The Layne Project, Trina Nudson, Institutional actors
 2025CV325
 Defamation, reputational harm to class members`
+},
+{
+  id: "Pending",
+  title: "MOTION TO PROCEED IN FORMA PAUPERIS",
+  date: "2025-05-22",
+  type: "Motion",
+  status: "Pending",
+  content: `Plaintiff, Micheal Lawrence Salmon, respectfully moves this Court for leave to proceed in forma pauperis pursuant to 28 U.S.C. § 1915, and in support states as follows:
+Plaintiff is unable to pay the costs of these proceedings due to financial hardship. Plaintiff’s income is insufficient to cover the filing fee and necessary living expenses.
+Plaintiff’s affidavit of financial status is submitted herewith, setting forth all sources of income, assets, and liabilities, as required by law.
+Plaintiff’s complaint alleges ongoing violations of civil rights, due process, and access to the courts, as detailed in the accompanying complaint and emergency motions.
+Plaintiff respectfully requests the Court grant this motion and allow this action to proceed without prepayment of fees or costs, and for such other and further relief as the Court deems just and proper.
+WHEREFORE, Plaintiff prays the Court grant leave to proceed in forma pauperis and accept the complaint for filing without prepayment of the filing fee.
+
+
+Statement of Financial Status in Support of Motion to Proceed In Forma Pauperis
+I, Micheal Lawrence Salmon, submit this statement in support of my Motion to Proceed In Forma Pauperis:
+Employment and Income:
+I am currently employed full-time at SalmonAudit.info. However, due to the ongoing deprivation of my rights and the retaliatory actions described in my complaint, I have suffered significant financial hardship. My current income is insufficient to meet my basic needs and to pay the court’s filing fee.
+Supplemental Work:
+In addition to my primary employment, I perform part-time gig work, including food delivery for DoorDash. This supplemental work is necessary to cover essential expenses such as food and bills.
+Financial Hardship:
+These circumstances have persisted for approximately seven months. During this period, my ability to earn and maintain savings has been severely impacted. I am currently relying on my remaining savings, which are being rapidly depleted to cover basic living expenses.
+Inability to Pay Filing Fee:
+Given my current financial situation, I am unable to pay the $405 filing fee without sacrificing essential needs. I respectfully request that the Court grant my motion to proceed in forma pauperis so that I may pursue this action for damages and relief.
+
+
+
+
+
+
+NOTICE WITH CERTIFIED SERVICE
+Micheal Salmon certifies that this motion is filed in good faith and with intent to preserve the integrity of the judicial process and constitutional rights afforded to all litigants. A Self-Represented Litigant Certification form (OJA-218) is attached per Rule. All copies, evidence, and videos related to this motion are available at SalmonAudit.info. Please note that videos may take up to 48 hours to appear online after being recorded. Access to this information is provided for transparency and legal audit purposes. All materials are available for public review in accordance with applicable laws. I hereby certify that a true and correct copy was sent via Email: ksd_clerks_kansascity@ksd.uscourts.gov Tina.Rockey@kscourts.gov court.schedule@courts.mo.gov daocfeedback@wycokck.org l Date of Service: 5/21/2025
+Clerk, US District Court 500 State Avenue, Rm. 259 Kansas City, KS 66101`
 }
 
 )

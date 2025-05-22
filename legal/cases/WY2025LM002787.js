@@ -310,6 +310,125 @@ Subsequently, Josh Garrett, under oath, confirmed that Kelly Truelove had delega
 Plaintiff’s arguments against Defendant’s Motions are procedurally rigid, legally unfounded, and factually misrepresentative of Defendant’s position. Defendant’s Motions are aimed at ensuring a fair and just adjudication of the matter, allowing for the presentation of relevant evidence and the exercise of his right to a jury trial on disputed factual issues.
 NOTICE WITH CERTIFIED SERVICE
 Micheal Salmon certifies that this motion is filed in good faith and with intent to preserve the integrity of the judicial process and constitutional rights afforded to all litigants. A Self-Represented Litigant Certification form (OJA-218) is attached per Rule. All copies, evidence, and videos related to this motion are available at SalmonAudit.info. All materials are available for public review in accordance with applicable laws. I hereby certify that a true and correct copy was sent via Email: julie@mokslaw.com l Date of Service: May 16, 2025`
+},
+{
+  id: "WY2025LM002787",
+  title: "MOTION TO COMPEL PLAINTIFF TO ESTABLISH IDENTITY AND STANDING",
+  date: "2025-05-21",
+  type: "Motion",
+  status: "Pending",
+  content: `MOTION TO COMPEL PLAINTIFF TO ESTABLISH IDENTITY AND STANDING
+COMES NOW, Defendant, Micheal Lawrence Salmon, pro se, and respectfully moves this Court to order Plaintiff “Kelly Truelove” to produce the following within three (3) days:
+Valid government-issued photo identification;
+All documents proving ownership, management, or agency authority for the property at issue;
+Any written lease or rental agreement alleged to exist between Plaintiff and Defendant.
+Defendant asserts that Plaintiff’s legal identity and standing as landlord are in question, and that proceeding without such proof constitutes a denial of due process under Kansas law and the United States Constitution.
+WHEREFORE, Defendant respectfully requests the Court to compel Plaintiff to produce the above documentation and grant such other relief as the Court deems just and proper.
+MOTION TO RECONSIDER AND RENEW PREVIOUSLY DENIED MOTIONS
+COMES NOW, Defendant, Micheal Lawrence Salmon, pro se, and respectfully moves this Court to reconsider and formally rule on all previously filed and ignored motions, including but not limited to:
+Motion for Jury Trial
+Motion to Dismiss for Lack of Standing
+Motion to Compel Discovery
+Motion for Early Depositions
+Motion to Submit Prior Dismissal as Evidence of Bad Faith
+Defendant requests that the Court issue written findings of fact and conclusions of law on each motion, pursuant to Kansas law and the Due Process Clause of the Fourteenth Amendment to the United States Constitution.
+Failure to address these motions constitutes reversible error and a violation of Defendant’s constitutional rights to due process and a fair trial.
+WHEREFORE, Defendant respectfully requests the Court reconsider and rule on all previously filed motions and grant such other relief as the Court deems just and proper.`
+},
+{
+  id: "WY2025LM002787",
+  title: "EMERGENCY MOTION TO DISMISS FOR LACK OF STANDING, BAD FAITH, AND RETALIATORY CONDUCT",
+  date: "2025-05-22",
+  type: "Motion",
+  status: "Pending",
+  content: `COMES NOW Defendant, Micheal Lawrence Salmon, pro se, and respectfully moves this Court to dismiss Plaintiff’s Petition for Forcible Detainer for lack of standing, bad faith, and retaliatory conduct. In support, Defendant states as follows:
+I. PLAINTIFF LACKS STANDING TO EVICT
+Plaintiff refused to act as landlord:
+Plaintiff, Kelly Truelove, delegated all landlord responsibilities to a third party, Jozef Hanratty, who has since disappeared and is not a party to this action.
+No valid landlord-tenant relationship:
+Plaintiff never signed a lease with Defendant, never accepted rent directly, and never established mutual assent as required by K.S.A. § 58-2543(b) (“A rental agreement shall be enforceable only if there is mutual assent between landlord and tenant.”).
+No continuous landlord authority:
+Plaintiff cannot retroactively claim landlord status after abandoning her role. See Smith v. Marshall, 222 Kan. 91, 563 P.2d 1021 (1977) (“Landlord authority must be continuous and not subject to arbitrary withdrawal or reassignment.”).
+Improper party:
+Plaintiff’s petition fails to establish that she is the real party in interest, as required by K.S.A. § 60-217(a).
+II. PLAINTIFF ENGAGED IN BAD FAITH AND RETALIATION
+Failure to perform landlord duties:
+Plaintiff refused to perform essential landlord duties, including repairs and lease formation, while demanding rent—violating K.S.A. § 58-2553 (landlord obligations).
+Retaliatory eviction:
+Plaintiff’s eviction filing is retaliatory under K.S.A. § 58-2572, as it follows Defendant’s involvement in related custody litigation against her associate, Crycella Freitag.
+Harassment and constructive eviction:
+Plaintiff engaged in coercive tactics, including harassment at all hours, taping doors, and property damage, in violation of the covenant of quiet enjoyment (K.S.A. § 58-2555).
+Constructive eviction:
+Plaintiff’s conduct forced Defendant to escrow rent and created an uninhabitable environment, amounting to constructive eviction.
+III. PROCEDURAL ABUSE AND JUDICIAL NOTICE REQUESTED
+Improper denial of standing challenge:
+The Court improperly denied Defendant’s right to challenge Plaintiff’s standing, despite clear evidence of Plaintiff’s contradictory conduct—denying landlord status while seeking eviction.
+Failure to address dispositive motions:
+Defendant’s emergency motions, including requests for jury trial, discovery, and dismissal, have not been ruled on in writing, violating K.S.A. 60-252(a) and Supreme Court Rule 165.
+Request for judicial notice:
+Defendant requests the Court take judicial notice of:
+Plaintiff’s prior refusal to act as landlord (see Exhibit A: emails and texts);
+The March 21, 2025, dismissal of an identical eviction claim (Exhibit B);
+The retaliatory pattern linked to custody case 2025DM781 (Exhibit C).
+IV. REQUEST FOR WRITTEN FINDINGS AND PRESERVATION OF OBJECTIONS
+Request for written findings:
+Pursuant to K.S.A. 60-252(a) and Kansas Supreme Court Rule 165, Defendant requests written findings of fact and conclusions of law on each pending motion, including this motion and all previously filed motions (see Supplement filed herewith).
+Preservation of objections:
+Defendant objects to any further proceedings until all dispositive motions are ruled on in writing and requests the record reflect this continuing objection for appellate purposes.
+Due process violation:
+The Court’s failure to rule on dispositive motions, including the request for jury trial, constitutes reversible error and a violation of the Due Process Clause of the Fourteenth Amendment to the United States Constitution.
+WHEREFORE, Defendant respectfully requests that this Court:
+A. Dismiss Plaintiff’s Petition for Forcible Detainer with prejudice for lack of standing, bad faith, and retaliatory conduct;
+B. Impose sanctions against Plaintiff for abuse of process;
+C. Take judicial notice of Plaintiff’s contradictory conduct and prior case history;
+D. Issue written findings of fact and conclusions of law on this and all pending motions;
+E. Preserve all objections for appellate review;
+F. Grant such other and further relief as the Court deems just and proper.`
+},
+{
+  id: "WY2025LM002787",
+  title: "MOTION TO COMPEL DISCLOSURE OF ALL COURTROOM ATTENDEES AND THEIR ROLES",
+  date: "2025-05-22",
+  type: "Motion",
+  status: "Pending",
+  content: `COMES NOW Defendant, Micheal Lawrence Salmon, pro se, and respectfully moves this Court to order the disclosure of the names, titles, and official roles of all persons present in the courtroom (physically or virtually) during the hearing held on May 21, 2025. In support, Defendant states as follows:
+I. BACKGROUND
+During the hearing on May 21, 2025, Defendant observed and noted the presence of multiple individuals whose roles and authority were not disclosed on the record.
+Specifically, Defendant observed:
+One individual in the witness chair who appeared to be a psychologist or mental health professional;
+Two individuals who presented themselves as special agents or law enforcement investigators;
+One individual acting as legal counsel (identity not confirmed on the record);
+Six uniformed officers whose agency and purpose were not stated;
+One individual presiding as judge whose credentials and authority are disputed by Defendant.
+Defendant was not provided with a list of attendees or their official capacity, nor was there any explanation for the presence of certain individuals not typically required for a forcible detainer (eviction) hearing.
+II. LEGAL BASIS
+Defendant has a fundamental right to a fair and transparent proceeding under the Due Process Clause of the Fourteenth Amendment to the United States Constitution and Section 18 of the Kansas Bill of Rights.
+Kansas Supreme Court Rule 1001 and K.S.A. 60-241 require that all proceedings be conducted openly and that the parties be informed of the identity and role of all persons participating in or observing the proceedings.
+The presence of undisclosed law enforcement, mental health professionals, or other government agents raises serious concerns about the impartiality and integrity of the proceedings, and may constitute grounds for judicial disqualification or further legal action if not properly explained.
+EMERGENCY MOTION FOR TEMPORARY STAY OF EVICTION AND PROTECTIVE ORDER
+COMES NOW Defendant, Micheal Lawrence Salmon, pro se, and respectfully requests this Court to enter a temporary stay of any eviction, removal, or enforcement action for a period of sixty (60) days, and to issue a protective order against further harassment or intimidation by Plaintiff or her agents. In support, Defendant states as follows:
+I. BACKGROUND
+Defendant is actively seeking alternative housing but requires additional time to secure safe and stable accommodations due to the ongoing legal disputes and the retaliatory nature of Plaintiff’s conduct.
+Immediate eviction or removal would cause irreparable harm to Defendant, including potential homelessness, loss of property, and further exposure to harassment and intimidation.
+II. LEGAL BASIS
+Pursuant to K.S.A. 60-906 (Injunctions and Restraining Orders), the Court has authority to stay enforcement of any judgment or order where immediate action would cause irreparable harm or where the interests of justice so require.
+The Due Process Clause of the Fourteenth Amendment to the United States Constitution and Section 18 of the Kansas Bill of Rights guarantee Defendant the right to be free from arbitrary deprivation of property and to have a meaningful opportunity to secure alternative housing.
+Kansas courts have inherent authority to issue stays and protective orders to prevent harassment, intimidation, or retaliation during the pendency of legal proceedings. See K.S.A. 60-31a05 (Protection from Stalking or Harassment Act).
+III. REQUEST FOR RELIEF
+WHEREFORE, Defendant respectfully requests that the Court:
+A. Enter a temporary stay of any eviction, removal, or enforcement action for a period of sixty (60) days from the date of this motion, to allow Defendant time to secure alternative housing and protect his property and safety;
+B. Issue a protective order prohibiting Plaintiff, her agents, or any third parties acting on her behalf from engaging in further harassment, intimidation, or disruptive conduct toward Defendant during this period;
+C. Order that any further attempts at removal or harassment without court approval shall be deemed contempt of court and subject to sanctions;
+D. Preserve Defendant’s objections and rights for appellate review;
+E. Grant such other and further relief as the Court deems just and proper.
+F. Order the Clerk of Court and/or the presiding judge to provide a complete list of all individuals present at the May 21, 2025 hearing, including:
+Full name,
+Title or rank,
+Agency or employer,
+Official role or purpose for attending;
+G. Require the Court to state on the record the necessity for the presence of each non-party or non-court staff member;
+H. Preserve Defendant’s objections to the presence of any unauthorized or undisclosed individuals for appellate review;
+I. Grant such other and further relief as the Court deems just and proper.`
 }
 
 )

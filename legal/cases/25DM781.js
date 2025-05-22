@@ -195,6 +195,124 @@ WHEREFORE, I respectfully request that the Court:
 Issue an order compelling the Clerk’s Office to provide equal access to litigation tools;
 Declare that forcing use of pre-selected forms, when proper motions are filed, is not supported by rule or statute;
 Enter this Motion on the docket to preserve the timeline and financial harm incurred from ongoing obstruction, and refrain from further obfuscation.`
+},
+{
+  id: "2025DM781",
+  title: "PETITION TO ESTABLISH CUSTODY AND PARENTING TIME",
+  date: "2025-05-21",
+  type: "Petition",
+  status: "Pending",
+  content: `COMES NOW Petitioner, Micheal Lawrence Salmon, natural father of the minor child Felix Day Salmon, and respectfully submits this verified Petition pursuant to K.S.A. 23-2707 et seq. and K.S.A. 23-37,101 et seq. to formally establish legal custody, parenting time, and court oversight of parental rights. In support thereof, Petitioner states as follows:
+I. PARTIES & JURISDICTION
+1. Petitioner is the biological father of the minor child, Felix Day Salmon (DOB: December 20, 2022), and resides at 4120 Adams Street, Kansas City, KS 66103.
+2. Respondent, Crycella Elizabeth Freitag, is the biological mother of Felix and resides at 512 Madison Street, Pomona, KS 66076.
+3. There is no existing custody, parenting time, or child support order in any jurisdiction concerning the child.
+4. Both Petitioner and Respondent are legal residents of the State of Kansas. The minor child has resided in Kansas for the majority of his life, and Kansas is his home state under the Uniform Child Custody Jurisdiction and Enforcement Act (UCCJEA).
+5. Venue and jurisdiction are proper in Wyandotte County, Kansas.
+II. BACKGROUND
+6. Petitioner has been the child’s primary caregiver and provider for most of his life. He maintained a consistent, developmentally supportive routine and was solely responsible for food, medical, and educational care from birth until the mother unilaterally restricted all access.
+7. Felix has been wrongfully withheld from Petitioner for over four (4) months without legal cause, court order, or due process.
+8. Respondent has made two prior attempts to unlawfully interfere with custody, including threatening to leave the state and weaponizing police contact. Despite these actions, Petitioner has continued to seek resolution through lawful means and court process.
+9. Petitioner has attempted to resolve this matter through Missouri’s courts, but voluntarily withdrew from that docket due to procedural injustice and both parties now residing in Kansas.
+
+III. RELIEF REQUESTED
+
+Petitioner respectfully requests the following:
+A. That the Court exercise exclusive jurisdiction over custody, parenting time, and all parental rights related to Felix Day Salmon pursuant to K.S.A. 23-37,201;
+B. That Petitioner be granted sole legal and physical custody of Felix Day Salmon;
+C. That the Court enter a temporary order granting Petitioner immediate, uninterrupted parenting time to restore the parent-child bond pending further hearing.
+D. That the Court waive appointment of a Guardian ad Litem, as both parties are competent and willing to present direct evidence;
+E. That no child support be ordered at this time, and the parties each bear their own costs unless otherwise ordered;
+F. That this matter be set for an evidentiary hearing at the earliest possible date;
+G. That the Court grant such further and equitable relief as justice requires.
+
+IV. UCCJEA AFFIDAVIT 
+Petitioner affirms that the attached UCCJEA affidavit is complete, accurate, and filed concurrently with this petition to establish proper jurisdiction.
+
+WHEREFORE, Petitioner respectfully prays that the Court enter orders consistent with the relief requested above and schedule this matter for emergency review.
+
+IN THE DISTRICT COURT OF WYANDOTTE COUNTY, KANSAS
+In the Matter of: FELIX DAY SALMON, a minor child
+Case No. 25DM781
+PROPOSED PARENTING PLAN
+Submitted by Petitioner: Micheal Lawrence Salmon
+I. Legal Custody
+Petitioner requests that he be awarded sole legal and physical custody of the minor child, Felix Day Salmon.
+II. Parenting Time (Visitation) for Respondent
+Petitioner proposes that Respondent, Crycella Elizabeth Freitag, have the following parenting time:
+One four-hour visit per week with the minor child.
+Parenting time shall occur every [choose a day, e.g., Saturday] from [choose a time, e.g., 12:00 p.m. to 4:00 p.m.].
+All exchanges shall occur at a neutral, public location agreed upon by both parties (or specify a location if you prefer, such as a police station or library parking lot).
+If either party cannot attend the scheduled parenting time, they must notify the other party at least 24 hours in advance.
+III. Holiday and Special Occasion Parenting Time
+Unless otherwise agreed in writing, the standard weekly schedule will apply to holidays and special occasions.
+The parties may agree in writing to additional or alternative parenting time as mutually desired.
+IV. Communication
+Both parents may communicate with the child by phone, video call, or text at reasonable times when the child is not in their care.
+V. Transportation
+Each parent shall be responsible for their own transportation to and from the exchange location unless otherwise agreed.
+VI. Safety and Supervision
+If the court finds it necessary for the child’s safety, Petitioner is open to supervised parenting time at a court-approved facility or with a mutually agreed-upon supervisor.
+VII. Modifications
+The parties may modify this plan in writing at any time by mutual agreement.
+Either party may petition the court for modification if circumstances change.
+VIII. Other Provisions
+No child support is requested at this time.
+No Guardian ad Litem is requested.
+
+VERIFICATION
+
+I, Micheal Lawrence Salmon, declare under penalty of perjury under the laws of the State of Kansas that the foregoing is true and correct to the best of my knowledge and belief.`
+},
+{
+  id: "2025DM781",
+  title: "VERIFIED PETITION FOR EMERGENCY WRIT AND SANCTIONS",
+  date: "2025-05-21",
+  type: "Petition",
+  status: "Pending",
+  content: `VERIFIED PETITION FOR EMERGENCY WRIT AND SANCTIONS
+(Due Process Violations, Procedural Manipulation, and Request for Immediate Relief)
+COMES NOW the Petitioner, Micheal Lawrence Salmon, and respectfully moves this Court for the immediate issuance of an Emergency Writ and Sanctions, on grounds of administrative tampering, judicial misconduct, denial of due process, and obstruction of fundamental access to justice. Petitioner seeks urgent relief to prevent further harm, and in support states the following:
+
+I. PARTIES & JURISDICTION
+Petitioner, Micheal Lawrence Salmon, is the biological father of Felix Day Salmon (DOB: December 20, 2022), and resides at 4120 Adams Street, Kansas City, KS 66103.
+Respondent is the biological mother of Felix and resides at 512 Madison Street, Pomona, KS 66076.
+Venue and jurisdiction are proper in Wyandotte County, Kansas pursuant to K.S.A. 23-37,201, as this matter involves parental rights and both parties currently reside in the State of Kansas.
+
+II. DETAILED SUMMARY OF PROCEDURAL IRREGULARITIES
+On the morning of May 21, 2025, Petitioner proactively contacted court staff to verify whether the custody hearing in case 2025-DM781 was still scheduled to occur as planned.
+A clerk confirmed that the hearing remained on the schedule. However, Petitioner discovered that the docket entry had been removed from the public-facing court records, creating confusion about its status.
+Petitioner requested formal proof of this removal. Adrianne, a court clerk, subsequently provided a screenshot of the internal docket system, which confirmed that the hearing had been removed—contrary to prior assurances by Christina “Tina” Rockley, who explicitly indicated that the hearing would be reinstated.
+Petitioner had anticipated this form of administrative sabotage and had preserved a detailed email record of prior confirmations and staff communications. Despite the removal, Petitioner appeared at the Zoom hearing to preserve his rights.
+Upon joining the Zoom call, Petitioner attempted to address his custody petition. However, Judge Kathleen Lynch abruptly refused to proceed, citing a purported failure to file a “petition for jurisdiction.”
+Petitioner objected on the record, asserting that all required documents had already been submitted in accordance with court rules. Rather than allowing further clarification or argument, Judge Lynch immediately terminated the hearing, cutting off the Zoom session and violating Petitioner’s First Amendment right to be heard and his constitutional right to procedural due process.
+Within minutes of this abrupt termination, Petitioner submitted the required jurisdictional petition via both email and fax, and called the clerk’s office to confirm and document this emergency submission.
+Simultaneously, Petitioner was required to attend a separate live hearing for a related eviction case (WY2025LM002787) involving co-conspirator Kelly Truelove.
+During this hearing, Petitioner encountered additional irregularities:
+An unfamiliar judge presided over the matter without any formal introduction or record of substitution.
+The proceeding was rushed, suggesting either predetermined intent or an attempt to limit scrutiny.
+Petitioner’s filed motions were entirely ignored and no record of their existence was acknowledged on the call.
+Various unnamed agents were present, and all recording and first amendment protections were under threat of arrest from six (6) uniformed officers.
+These parallel events establish a clear pattern of procedural manipulation, denial of access, and collusion among judicial officers and staff to suppress Petitioner’s lawful attempts to assert parental rights and defend his legal position.
+
+III. LEGAL BASIS FOR RELIEF
+Petitioner’s rights to due process, access to courts, and a fair hearing are enshrined in the U.S. Constitution (Amendments I and XIV) and the Kansas Constitution (Bill of Rights §18).
+The actions and omissions described above amount to intentional administrative sabotage, obstruction of justice, and judicial misconduct.
+Under K.S.A. 60-1501 (Habeas Corpus) and 60-1507 (Post-Conviction Remedies), the Court has full authority to issue writs and impose sanctions in cases where parties are deprived of fundamental rights by unlawful court or government actions.
+The failure to provide a public docket, the termination of hearing access without cause, and the refusal to acknowledge motions collectively violate the core tenets of procedural fairness, court transparency, and judicial accountability.
+
+IV. REQUEST FOR EMERGENCY WRIT AND SANCTIONS
+WHEREFORE, Petitioner respectfully requests the Court to:
+A. Issue an Emergency Writ compelling the Court to restore Petitioner’s right to a meaningful custody hearing without further delay or administrative obstruction;
+B. Reinstate all previously scheduled hearings, ensuring they occur on the record, are open to public observation, and are docketed transparently;
+C. Direct the Clerk of the Court to produce a full and unredacted docket history, including all administrative alterations, removals, and technical edits since this case was filed;
+D. Order all judicial officers and court personnel involved in the removal of Petitioner’s hearing and the interference with his legal access to show cause and justify their actions under oath;
+E. Impose sanctions against any personnel or judicial officer found to have acted in bad faith or in violation of the Kansas Code of Judicial Conduct or court administrative policy;
+F. Award temporary parenting time to Petitioner pending a full evidentiary hearing on the merits;
+G. Grant any further relief this Court deems just, proper, and necessary to prevent continued harm and restore integrity to the proceedings.
+
+V. VERIFICATION
+I, Micheal Lawrence Salmon, declare under penalty of perjury under the laws of the State of Kansas that the foregoing is true and correct to the best of my knowledge and belief.`
 }
 
 )
