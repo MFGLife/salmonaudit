@@ -244,6 +244,29 @@
     ["P025", "Ignoring jurisdictional challenges"]
   ]
 },
+{
+  "judgeName": "Matt Alan Selby",
+  "judgeCourt": "Circuit Court, Stone County",
+  "judgeImage": "pics/mattselby.jpg",
+  "caseNumber": "24SN-DR00104",
+  "summaryText": "Judge Matt Selby failed to address custody violations, ignored critical filings, and obstructed Missouri–Kansas transition clarity. His refusal to rule or take action on emergency motions enabled systemic child withholding for months and facilitated forum shopping by opposing parties.",
+  "auditorName": "Micheal Salmon",
+  "auditorImage": "pics/micheal.png",
+  "offenses": [
+    ["J003", "Bias or prejudice on the record (verbal or behavioral)"],
+    ["J006", "Intentionally mischaracterizing facts to justify ruling"],
+    ["J010", "Ignoring evidence or testimony without stating legal grounds"],
+    ["J011", "Denying remedy or relief with no explanation or legal citation"],
+    ["J022", "Refusing to correct errors once demonstrated on record"],
+    ["J026", "Ignoring void judgments or prior unlawful orders"],
+    ["J027", "Allowing coercion or threats in courtroom unaddressed"],
+    ["P003", "Ignoring filed motions entirely"],
+    ["P004", "Issuing rulings on motions without citing rule or law"],
+    ["P006", "Failure to rule on time-sensitive motions (e.g., emergency custody)"],
+    ["P023", "Issuing orders that contradict standing rules or law"],
+    ["P025", "Ignoring jurisdictional challenges"]
+  ]
+},
 
    {
   "judgeName": "Court Clerks",
@@ -355,3 +378,46 @@ cardData.forEach((data, index) => {
   const container = document.getElementById(`cards-container-${index}`);
   if (container) container.innerHTML = html;
 });
+
+
+document.querySelectorAll('.violation-code').forEach(el => {
+  el.addEventListener('click', () => {
+    const code = 'HOKUWA-' + el.textContent.trim();
+    const contentDiv = document.getElementById('modalContent');
+
+    // Filter all valid baseData entries that include the clicked code
+    const matchingCitations = baseData.filter(entry =>
+      Array.isArray(entry[2]) && entry[2].includes(code)
+    );
+
+    if (matchingCitations.length > 0) {
+      // Build HTML for each matching citation
+      const citationsHtml = matchingCitations.map(citation => {
+        const [title, desc, codes] = citation;
+        const relatedCodes = codes.map(c =>
+          `<code class="bg-gray-200 text-xs rounded px-1 py-0.5">${c}</code>`
+        ).join(" ");
+
+        return `
+          <div class="mb-4 p-2 border border-gray-300 rounded-lg">
+            <strong>${title}</strong><br>
+            <p class="mb-1 text-sm">${desc}</p>
+            <div class="mt-1 text-xs text-gray-500">Applies to: ${relatedCodes}</div>
+          </div>
+        `;
+      }).join(""); // Join all citation HTML blocks together
+
+      contentDiv.innerHTML = citationsHtml;
+    } else {
+      contentDiv.innerHTML = `<p class="p-2">No valid legal citation linked to <strong>${code}</strong>.</p>`;
+    }
+
+    document.getElementById('citationModal').classList.remove('hidden');
+  });
+});
+
+
+  function closeModal() {
+    document.getElementById('citationModal').classList.add('hidden');
+  }
+

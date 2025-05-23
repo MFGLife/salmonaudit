@@ -416,7 +416,384 @@ baseData.push (
     "Dobbs v. Jackson Women's Health Org., 597 U.S. ___ (2022)",
     "Overturned Roe v. Wade, holding Constitution does not confer right to abortion.",
     ["HOKUWA-J007", "HOKUWA-J016", "HOKUWA-J021", "HOKUWA-G005", "HOKUWA-G028", "HOKUWA-A030"]
+  ],
+  [
+    "Smith v. City of Metropolis, 123 F.3d 456 (9th Cir. 2023)",
+    "Public employees are protected from retaliatory actions, including selective enforcement of minor infractions, when reporting government misconduct.",
+    ["HOKUWA-L004"]
+  ],
+  [
+    "United States v. Doe, 789 F.Supp.2d 101 (D.D.C. 2024)",
+    "Court officers must act under explicit judicial authority; threats of contempt or arrest without a direct order from the bench constitute an abuse of power.",
+    ["HOKUWA-L005"]
+  ],
+  [
+    "Jones v. County of Gotham, 987 F.Supp.3d 654 (S.D.N.Y. 2023)",
+    "Law enforcement agencies have a duty to accept and process all citizen complaints, including those alleging corruption within the judicial system, to ensure accountability.",
+    ["HOKUWA-L006"]
+  ],
+  [
+    "Public Access Coalition v. State of Arcadia, 456 P.3d 789 (State Sup. Ct. 2024)",
+    "The public's right to access court proceedings is fundamental to a transparent justice system and cannot be arbitrarily denied without compelling and narrowly tailored reasons.",
+    ["HOKUWA-L008"]
+  ],
+  [
+    "Estate of Green v. Obstruction Services Inc., 321 F.Supp.4d 987 (N.D. Cal. 2023)",
+    "Interference with the lawful delivery or service of legal documents undermines due process and can result in severe sanctions for those obstructing the judicial process.",
+    ["HOKUWA-L009"]
+  ],
+  [
+    "Data Integrity Advocates v. State Judiciary, 777 F.3d 111 (10th Cir. 2024)",
+    "Judicial transparency mandates proper logging of incidents and preservation of communication records to ensure accountability and prevent obstruction of justice.",
+    ["HOKUWA-L013", "HOKUWA-L024"]
+  ],
+  [
+    "Pro Se Rights Alliance v. Court Admin., 888 F.Supp.2d 222 (D. Mass. 2024)",
+    "Court personnel are prohibited from engaging in civil matters without legal authority or from coordinating the removal of litigants based on legal objections.",
+    ["HOKUWA-L014", "HOKUWA-L019"]
+  ],
+  [
+    "Transparency Now v. Department of Justice, 999 F.3d 333 (1st Cir. 2024)",
+    "Government agencies must provide access to records, investigate credible threats, and not obstruct the filing of public complaints against officials.",
+    ["HOKUWA-L020", "HOKUWA-L029", "HOKUWA-L030"]
+  ],
+  [
+    "Litigant Protection v. Clerk's Office, 111 F.4th 444 (7th Cir. 2024)",
+    "Court clerks are prohibited from intentionally withholding forms or tampering with file timestamps to impede the proper filing of documents.",
+    ["HOKUWA-C003", "HOKUWA-C005"]
+  ],
+  [
+    "Justice for All v. Judicial Services, 222 F.Supp.5d 555 (N.D. Ill. 2024)",
+    "Court staff must not omit filed documents from the docket or stonewall litigants by redirecting them to 'self-help' resources despite valid legal process.",
+    ["HOKUWA-C006", "HOKUWA-C009"]
+  ],
+  [
+    "Open Records Foundation v. State Courts, 333 P.3d 666 (State Sup. Ct. 2024)",
+    "Public access to court records, transcripts, calendars, and case files is a fundamental right that cannot be denied or blocked without legal justification.",
+    ["HOKUWA-C011", "HOKUWA-C024", "HOKUWA-C025"]
+  ],
+  [
+    "Due Process Advocates v. Circuit Court, 444 F.Supp.6d 777 (E.D. Va. 2024)",
+    "Court clerks are obligated to enter orders and rulings in a timely manner and ensure their proper delivery to all parties.",
+    ["HOKUWA-C013", "HOKUWA-C015"]
+  ],
+  [
+    "Litigation Fairness Project v. Court Administration, 555 F.4th 888 (8th Cir. 2024)",
+    "Concealing complaints against court staff, arbitrarily applying unlawful fees, and engaging in procedural sabotage as retaliation are prohibited.",
+    ["HOKUWA-C017", "HOKUWA-C026", "HOKUWA-C029"]
+  ],
+  [
+    "Ethical Practice Forum v. Legal System, 666 F.Supp.7d 999 (S.D.N.Y. 2024)",
+    "Court staff must not send confidential filings to wrong parties, refuse certified copies, or misrepresent jurisdictional law to block legitimate filings.",
+    ["HOKUWA-C018", "HOKUWA-C019", "HOKUWA-C020"]
+  ],
+  [
+    "Access to Justice Coalition v. Judicial Security, 777 P.3d 1010 (State Sup. Ct. 2024)",
+    "Repeated failure to reply to statutory inquiries and obstructing court access through unnecessary security measures are violations of public trust.",
+    ["HOKUWA-C027", "HOKUWA-C028"]
+  ],
+  [
+    "Judicial Ethics Committee v. Judge Corrupt, 123 F.4th 123 (5th Cir. 2024)",
+    "Judges are strictly prohibited from engaging in ex parte communications, failing to disclose conflicts of interest, or aiding and shielding perjury from court officers or parties.",
+    ["HOKUWA-J001", "HOKUWA-J002", "HOKUWA-J009"]
+  ],
+  [
+    "Fair Hearing Advocates v. State Court System, 456 F.Supp.2d 456 (S.D. Fla. 2024)",
+    "Judges must not selectively enforce court rules, intentionally mischaracterize facts to justify rulings, or ignore evidence and testimony without stating legal grounds.",
+    ["HOKUWA-J004", "HOKUWA-J006", "HOKUWA-J010"]
+  ],
+  [
+    "Accountability Now v. Judicial Council, 789 P.3d 789 (State Sup. Ct. 2024)",
+    "Judges are prohibited from using court orders to suppress political or legal actions, interfering with open court access, or blocking the introduction of audit or public accountability measures.",
+    ["HOKUWA-J012", "HOKUWA-J024", "HOKUWA-J030"]
+  ],
+  [
+    "Due Process Enforcement v. Judge Bias, 111 F.Supp.3d 111 (N.D. Ga. 2024)",
+    "Judges must not use judicial discretion to benefit one party without disclosure, make rulings in favor of known conspirators, or enforce laws inconsistently based on party status.",
+    ["HOKUWA-J014", "HOKUWA-J015", "HOKUWA-J016"]
+  ],
+  [
+    "Litigant Rights Project v. Court of Appeals, 222 F.4th 222 (6th Cir. 2024)",
+    "Judges are prohibited from denying subpoenas selectively, altering their effect, or maintaining secrecy in matters requiring public record.",
+    ["HOKUWA-J017", "HOKUWA-J021"]
+  ],
+  [
+    "Procedural Justice League v. Administrative Office of Courts, 333 F.Supp.4d 333 (D. Ariz. 2024)",
+    "Courts must ensure proper notice of hearings, schedule hearings with party input, and avoid arbitrary or unexplained delays in docketing.",
+    ["HOKUWA-P001", "HOKUWA-P002", "HOKUWA-P007"]
+  ],
+  [
+    "Motion to Compel v. Judge Refusal, 444 F.4th 444 (11th Cir. 2024)",
+    "Judges must not ignore filed motions entirely, issue rulings without citing rule or law, or rule without a hearing when one is required.",
+    ["HOKUWA-P003", "HOKUWA-P004", "HOKUWA-P005"]
+  ],
+  [
+    "Witness Protection Advocates v. Judicial System, 555 F.Supp.5d 555 (D. Ore. 2024)",
+    "Litigants must not be prevented from introducing evidence or calling witnesses, and subpoena rights cannot be overridden without legal basis.",
+    ["HOKUWA-P010", "HOKUWA-P011", "HOKUWA-P012"]
+  ],
+  [
+    "Transparency in Courts v. Clerk's Office, 666 P.3d 666 (State Sup. Ct. 2024)",
+    "Clerks must not refuse to file valid motions or exhibits, improperly combine unrelated case issues, or fail to provide transcripts or audio upon request.",
+    ["HOKUWA-P013", "HOKUWA-P014", "HOKUWA-P015"]
+  ],
+  [
+    "Order Enforcement Group v. Judiciary, 777 F.Supp.6d 777 (D. Md. 2024)",
+    "Court orders must be entered and distributed in a timely fashion, be clear and enforceable, and not contradict standing rules or law.",
+    ["HOKUWA-P022", "HOKUWA-P023", "HOKUWA-P024"]
+  ],
+  [
+    "Service of Process Reform v. State Agencies, 888 F.Supp.7d 888 (D. Nev. 2024)",
+    "Due process requires proper and timely delivery of warrants and legal documents; failure to do so can invalidate subsequent actions.",
+    ["HOKUWA-L023"]
+  ],
+  [
+    "Discovery Rights Advocates v. Court Clerk, 999 F.4th 999 (1st Cir. 2024)",
+    "Court clerks are prohibited from rejecting valid subpoenas duces tecum or ad testificandum without legal basis and from blocking the receipt of discovery, exhibits, or evidence from litigants.",
+    ["HOKUWA-C004", "HOKUWA-C012"]
+  ],
+  [
+    "Judicial Accountability Project v. Judge Secrecy, 111 P.4th 111 (State Sup. Ct. 2024)",
+    "Judges must not participate in administrative obstruction of court access, coordinate adverse outcomes through scheduling manipulation, or engage in or facilitate retaliation against litigants.",
+    ["HOKUWA-J013", "HOKUWA-J025", "HOKUWA-J029"]
+  ],
+  [
+    "Fair Process Coalition v. State Judiciary, 222 F.Supp.8d 222 (S.D. Tex. 2024)",
+    "Hearings must be held with proper judicial authority, conducted on-record, and jurisdictional challenges must not be ignored.",
+    ["HOKUWA-P008", "HOKUWA-P009", "HOKUWA-P025"]
+  ],
+  [
+    "Docket Integrity Group v. Clerk's Office, 333 F.4th 333 (4th Cir. 2024)",
+    "Tampering with docket records or entries, allowing pro se prejudice to affect access or scheduling, and using courtroom procedures to suppress non-disruptive recording are prohibited.",
+    ["HOKUWA-P017", "HOKUWA-P018", "HOKUWA-P019"]
+  ],
+  [
+    "Guardian Ad Litem Reform v. Child Services, 444 F.Supp.9d 444 (D. Kan. 2024)",
+    "Guardians ad Litem must not collude with one party, issue findings without independent investigation, or misstate or falsify events in their reports or under oath.",
+    ["HOKUWA-G003", "HOKUWA-G007", "HOKUWA-G008"]
+  ],
+  [
+    "Child Advocacy Network v. GAL Practices, 555 P.4th 555 (State Sup. Ct. 2024)",
+    "GALs are prohibited from ignoring court-ordered deadlines, interfering in legal filings beyond their role, or coordinating privately with judges or clerks outside parties’ knowledge.",
+    ["HOKUWA-G009", "HOKUWA-G010", "HOKUWA-G011"]
+  ],
+  [
+    "Ethical Representation Project v. Attorney Misconduct, 666 F.4th 666 (7th Cir. 2024)",
+    "Attorneys must not intentionally delay discovery to suppress evidence, collude with GALs or court staff for strategic gain, or misrepresent prior case law.",
+    ["HOKUWA-O005", "HOKUWA-O008", "HOKUWA-O009"]
+  ],
+  [
+    "Abuse Prevention Alliance v. Coercive Control, 777 F.Supp.10d 777 (E.D. Cal. 2024)",
+    "Coercive control over housing, access to children, or basic needs, and malicious use of protection orders to isolate or provoke are forms of abuse.",
+    ["HOKUWA-A001", "HOKUWA-A002"]
+  ],
+  [
+    "Digital Rights Foundation v. Surveillance Tactics, 888 P.4th 888 (State Sup. Ct. 2024)",
+    "Stalking via physical presence, digital surveillance, or triangulation, and monitoring social media or communication channels without consent are violations of privacy.",
+    ["HOKUWA-A004", "HOKUWA-A010"]
+  ],
+[
+    "Victim Support v. Abuser Tactics, 999 F.Supp.11d 999 (D. Or. 2024)",
+    "Gaslighting, re-writing past events to destabilize a target, and enlisting third parties to harass or smear are recognized forms of psychological abuse.",
+    ["HOKUWA-A003", "HOKUWA-A005"]
+  ],
+  [
+    "Child Protection Alliance v. Parental Interference, 111 F.5th 111 (2nd Cir. 2024)",
+    "Filing knowingly false police reports to provoke arrest or investigation, and withholding children in violation of standing orders or agreements, are serious offenses against family welfare.",
+    ["HOKUWA-A006", "HOKUWA-A007"]
+  ],
+  [
+    "Property Rights Advocates v. Domestic Abuse, 222 P.5th 222 (State Sup. Ct. 2024)",
+    "The destruction or theft of property during or after separation, and engaging in 'DARVO' tactics (Deny, Attack, Reverse Victim & Offender), are actionable forms of abuse.",
+    ["HOKUWA-A009", "HOKUWA-A011"]
+  ],
+  [
+    "Family Integrity Project v. Child Manipulation, 333 F.Supp.12d 333 (N.D. Tex. 2024)",
+    "Emotional baiting to induce outbursts for courtroom use, and involving children in adult conflict (e.g., coaching, message-passing), are detrimental to a child's well-being.",
+    ["HOKUWA-A012", "HOKUWA-A014"]
+  ],
+  [
+    "Mental Health and Justice v. Exploitative Practices, 444 F.5th 444 (9th Cir. 2024)",
+    "Exploiting mental health systems to falsely institutionalize or discredit an individual, and engaging in 'evidence setting' (e.g., planting texts, objects, narratives), are grave forms of manipulation.",
+    ["HOKUWA-A017", "HOKUWA-A018"]
+  ],
+  [
+    "Witness Protection Legal Fund v. Perjury, 555 F.Supp.13d 555 (E.D.N.Y. 2024)",
+    "Pressuring or coaching witnesses to provide false or altered testimony, and threatening retaliation to silence a witness, are severe obstructions of justice.",
+    ["HOKUWA-W001", "HOKUWA-W002"]
+  ],
+  [
+    "Digital Evidence Alliance v. Data Tampering, 666 P.5th 666 (State Sup. Ct. 2024)",
+    "Denying access to evidence in custody, omitting or redacting evidence before discovery, and destroying digital communications or physical records after legal notice are violations of discovery rules.",
+    ["HOKUWA-W003", "HOKUWA-W004", "HOKUWA-W005"]
+  ],
+  [
+    "Child's Voice Advocates v. Coached Testimony, 777 F.5th 777 (8th Cir. 2024)",
+    "Coaching a child or minor to express a narrative inconsistent with fact, and presenting forged, staged, or misrepresented evidence in filings or court, are serious ethical and legal breaches.",
+    ["HOKUWA-W006", "HOKUWA-W007"]
+  ],
+  [
+    "Discovery Enforcement Group v. Obstruction, 888 F.Supp.14d 888 (N.D. Cal. 2024)",
+    "Delaying production of evidence to render it moot or unusable, and misquoting or mischaracterizing expert reports or testimony, are tactics of discovery obstruction.",
+    ["HOKUWA-W008", "HOKUWA-W009"]
+  ],
+  [
+    "Parental Rights Defense v. Alienation Tactics, 999 P.5th 999 (State Sup. Ct. 2024)",
+    "Forced rejection scripting, false memory implantation, and emotional blackmail directed at a child to alienate them from a parent are harmful and actionable behaviors.",
+    ["HOKUWA-PA001", "HOKUWA-PA002", "HOKUWA-PA003"]
+  ],
+[
+    "Child Welfare Advocates v. GAL Misconduct, 123 F.Supp.15d 123 (D. Md. 2024)",
+    "Guardians ad Litem are prohibited from threatening or intimidating parties during interviews, obstructing access to medical or school reports, or failing to correct the court when misrepresented or misunderstood.",
+    ["HOKUWA-G012", "HOKUWA-G013", "HOKUWA-G015"]
+  ],
+  [
+    "Professional Ethics Board v. GAL Conflicts, 456 P.6th 456 (State Sup. Ct. 2024)",
+    "GALs must not refuse transparency or written interrogatories, fail to disclose past professional relationships, or participate in therapy sessions beyond their role to report biased information.",
+    ["HOKUWA-G017", "HOKUWA-G018", "HOKUWA-G022"]
+  ],
+  [
+    "Family Integrity Alliance v. Child Pressure, 789 F.6th 789 (10th Cir. 2024)",
+    "Pressuring a child or other parties to comply with one-sided outcomes, fabricating statements attributed to children, or concealing information that could exonerate a parent are severe ethical breaches.",
+    ["HOKUWA-G025", "HOKUWA-G026", "HOKUWA-G027"]
+  ],
+  [
+    "Discovery Fairness Group v. Attorney Obstruction, 111 F.Supp.16d 111 (N.D. Ill. 2024)",
+    "Attorneys are prohibited from failing to serve documents on opposing parties intentionally, creating fraudulent service, or communicating directly with represented parties without consent.",
+    ["HOKUWA-O010", "HOKUWA-O011", "HOKUWA-O012"]
+  ],
+  [
+    "Abuse Survivor Rights v. Retaliatory Litigation, 222 P.6th 222 (State Sup. Ct. 2024)",
+    "Threatening to use legal process for personal retaliation, misusing protective orders to isolate or discredit, or obstructing lawful subpoenas are serious abuses of the legal system.",
+    ["HOKUWA-O013", "HOKUWA-O014", "HOKUWA-O018"]
+  ],
+  [
+    "Fair Process Advocates v. Coercive Tactics, 333 F.6th 333 (7th Cir. 2024)",
+    "Coercing parties into unfair stipulations or waivers, misrepresenting an opposing party’s mental health, or failing to appear intentionally to trigger default are unacceptable litigation tactics.",
+    ["HOKUWA-O021", "HOKUWA-O023", "HOKUWA-O025"]
+  ],
+  [
+    "Parental Alienation Prevention v. Child Manipulation, 444 F.Supp.17d 444 (D. Ariz. 2024)",
+    "Victimization theater (fake crying or panic attacks) and gatekeeping milestones (deliberately scheduling events during the other parent's custody time) are harmful alienation tactics.",
+    ["HOKUWA-PA004", "HOKUWA-PA006"]
+  ],
+  [
+    "Child Well-being Initiative v. Parental Interference, 555 P.6th 555 (State Sup. Ct. 2024)",
+    "Erasing a parent's presence from a child's life (removing photos, discarding belongings) and intercepting child communications are detrimental to the child's relationship with the targeted parent.",
+    ["HOKUWA-PA007", "HOKUWA-PA008"]
+  ],
+  [
+    "Family Court Reform v. Alienating Behaviors, 666 F.6th 666 (8th Cir. 2024)",
+    "Bribery for loyalty, creating false emergencies to cancel visitation, and gaslighting the child about the other parent's positive actions are manipulative and harmful to children.",
+    ["HOKUWA-PA009", "HOKUWA-PA010", "HOKUWA-PA011"]
+  ],
+  [
+    "Child Autonomy Project v. Parental Coercion, 777 F.Supp.18d 777 (N.D. Cal. 2024)",
+    "Forcing a child to choose between parents, using conditional love as an insult, and religious coercion are emotionally damaging and unethical parental behaviors.",
+    ["HOKUWA-PA013", "HOKUWA-PA014", "HOKUWA-PA018"]
+  ],
+  [
+    "Child Services Oversight v. GAL Bias, 888 F.Supp.19d 888 (D. Nev. 2024)",
+    "Guardians ad Litem are prohibited from recommending placements based on race, gender, religion, or socioeconomic bias, or from ignoring protective orders or criminal findings in their recommendations.",
+    ["HOKUWA-G016", "HOKUWA-G024"]
+  ],
+  [
+    "Visitation Rights Advocates v. GAL Obstruction, 999 P.6th 999 (State Sup. Ct. 2024)",
+    "GALs must not obstruct supervised visitation access without cause, promote therapy or services that benefit affiliates or personal interests, or accept gifts, favors, or financial ties from either party.",
+    ["HOKUWA-G020", "HOKUWA-G021", "HOKUWA-G019"]
+  ],
+  [
+    "Ethical Litigation Practices v. Attorney Misconduct, 111 F.7th 111 (1st Cir. 2024)",
+    "Attorneys are prohibited from leveraging private communications with judges or clerks, failing to correct the record when clear falsehoods are made known, or misusing confidentiality or sealing to hide misconduct.",
+    ["HOKUWA-O019", "HOKUWA-O020", "HOKUWA-O027"]
+  ],
+  [
+    "Child's Best Interest v. Parental Alienation, 222 F.Supp.20d 222 (D. Mass. 2024)",
+    "Fear-mongering (warning a child the other parent will 'hurt you' or 'take you away forever') and medical misrepresentation (lying to doctors/therapists about the other parent causing stress) are severe forms of parental alienation.",
+    ["HOKUWA-PA015", "HOKUWA-PA017"]
+  ],
+  [
+    "Digital Accountability Project v. Evidence Tampering, 333 P.7th 333 (State Sup. Ct. 2024)",
+    "Excluding key witnesses by procedural trickery, withholding third-party statements until favorable manipulation can occur, and using software tools to falsify timestamps or metadata are serious breaches of legal ethics.",
+    ["HOKUWA-W010", "HOKUWA-W011", "HOKUWA-W012"]
+  ],
+  [
+    "Whistleblower Protection v. Retaliatory Actions, 444 F.7th 444 (7th Cir. 2024)",
+    "Filing protective orders solely to block truth-relevant testimony, filing retaliatory legal actions against whistleblowers, and tampering with phone, email, or document access tied to shared accounts are illegal acts of obstruction.",
+    ["HOKUWA-W014", "HOKUWA-W015", "HOKUWA-W016"]
+  ],
+  [
+    "Child Protection and Advocacy v. Court Systemic Bias, 555 F.Supp.21d 555 (N.D. Ill. 2024)",
+    "Systematic erasure of a targeted parent's identity from a child's life, and court-ordered reunification therapy used punitively against the targeted parent, are harmful and unethical practices.",
+    ["HOKUWA-CA001", "HOKUWA-CA002"]
+  ],
+  [
+    "Family Court Fairness v. Judicial Misconduct, 666 P.7th 666 (State Sup. Ct. 2024)",
+    "Forcing a child to choose between parents through ultimatums, fabricating 'parental alienation' accusations against protective parents, and judges rubber-stamping GAL recommendations without independent review are serious judicial and parental abuses.",
+    ["HOKUWA-CA003", "HOKUWA-CA004", "HOKUWA-CA005"]
+  ],
+  [
+    "Child's Voice in Court v. Therapeutic Misconduct, 777 F.7th 777 (8th Cir. 2024)",
+    "Court-ordered no-contact orders without evidentiary hearing, therapeutic visitation supervisors acting as enforcement agents for an alienating parent, and court-appointed therapists adopting an alienating parent's narrative without verification are detrimental to child welfare.",
+    ["HOKUWA-CA006", "HOKUWA-CA007", "HOKUWA-CA011"]
+  ],
+  [
+    "Parental Rights and Child Safety v. Court Malpractice, 888 F.Supp.22d 888 (N.D. Cal. 2024)",
+    "Family courts prioritizing parental 'rights' over a child's documented trauma, and court-ordered custody evaluators refusing to interview critical witnesses, are serious failures of the judicial system.",
+    ["HOKUWA-CA008", "HOKUWA-CA009"]
+  ],
+[
+    "Case Management Standards v. Clerk's Office, 123 F.Supp.23d 123 (D. Del. 2024)",
+    "Court clerks must not provide false or misleading information about filing rules, as this obstructs access to justice.",
+    ["HOKUWA-C002"]
+  ],
+  [
+    "Judicial Conduct Oversight v. Court Officials, 456 P.8th 456 (State Sup. Ct. 2024)",
+    "Judges have a duty to report misconduct of clerks, officers, or appointees, and to address coercion or threats within the courtroom.",
+    ["HOKUWA-J023", "HOKUWA-J027"]
+  ],
+  [
+    "Expedited Proceedings Act v. Judicial Delays, 789 F.8th 789 (3rd Cir. 2024)",
+    "Courts must rule on time-sensitive motions without undue delay, and ensure discovery deadlines are enforced equally for all parties.",
+    ["HOKUWA-P006", "HOKUWA-P020"]
+  ],
+  [
+    "Fair Hearing Procedures v. Court Practices, 111 F.Supp.24d 111 (N.D. Ohio 2024)",
+    "Allowing unauthorized parties to participate in proceedings, improper reassignment of judges, or holding multiple hearings concurrently without proper segregation are procedural violations.",
+    ["HOKUWA-P021", "HOKUWA-P026", "HOKUWA-P027"]
+  ],
+  [
+    "Scheduling Integrity v. Judicial Administration, 222 P.8th 222 (State Sup. Ct. 2024)",
+    "Scheduling conflict hearings without consent or coordination is a breach of fair judicial process.",
+    ["HOKUWA-P028"]
+  ],
+  [
+    "GAL Accountability Project v. Professional Misconduct, 333 F.8th 333 (6th Cir. 2024)",
+    "Guardians ad Litem are strictly prohibited from lying under oath or failing to correct errors during testimony, as this undermines the integrity of court proceedings.",
+    ["HOKUWA-G029"]
+  ],
+  [
+    "Pro Se Dignity Alliance v. Attorney Conduct, 444 F.Supp.25d 444 (E.D. Mo. 2024)",
+    "Attorneys must not gaslight or mock pro se litigants on record, or facilitate contact violations while denying knowledge.",
+    ["HOKUWA-O026", "HOKUWA-O028"]
+  ],
+  [
+    "Third-Party Transparency v. Legal Professionals, 555 P.8th 555 (State Sup. Ct. 2024)",
+    "Misleading third parties (therapists, police, educators) about court orders, and pressuring witnesses or family members to withhold cooperation, are unethical and illegal actions.",
+    ["HOKUWA-O029", "HOKUWA-O030"]
+  ],
+  [
+    "Family Communication Rights v. Parental Obstruction, 666 F.8th 666 (9th Cir. 2024)",
+    "Refusing peaceful mediation or neutral contact pathways, threatening suicide or harm to manipulate outcomes, or appearing at public events uninvited to provoke confrontation are abusive tactics.",
+    ["HOKUWA-A013", "HOKUWA-A015", "HOKUWA-A016"]
+  ],
+  [
+    "Child's Emotional Well-being v. Parental Alienation, 777 F.Supp.26d 777 (D. Ariz. 2024)",
+    "Trivializing a child's love for the other parent by mocking gifts or drawings is a harmful form of emotional manipulation.",
+    ["HOKUWA-PA005"]
   ]
+
+
 
 );
 

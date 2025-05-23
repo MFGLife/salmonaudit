@@ -102,59 +102,116 @@ document.addEventListener('DOMContentLoaded', function() {
 
                         <p class="text-gray-700 mb-4">Auditors will also produce "Hokuwa Cards," much like trading cards, that include:</p>
 
-                        <div class="shimmer-container max-w-md mx-auto mb-8">
-  <div class="hokuwa-card text-white p-6 rounded-lg relative overflow-hidden">
-    <!-- Shimmer overlay -->
-    <div class="shimmer-overlay"></div>
+                        <div class="hokuwa-card text-white p-6 relative overflow-hidden">
+      <div class="shimmer-overlay"></div>
 
-    <!-- Judge Info -->
-    <div class="flex items-center mb-4 z-10 relative">
-      <div class="w-16 h-16 rounded-full bg-gray-300 mr-4 overflow-hidden">
-        <img src="pics/stone2.png" alt="Judge" class="w-full h-full object-cover">
-      </div>
-      <div>
-        <h4 class="font-bold text-xl">Judge John Doe</h4>
-        <p class="text-blue-200">District Court, Johnson County</p>
-      </div>
-    </div>
-
-    <!-- Offenses -->
-    <div class="mb-4 z-10 relative">
-      <h5 class="font-semibold mb-2">Key Offenses:</h5>
-      
-        <div class="space-y-2">
-          <div class="flex items-center pl-6">
-                                <span class="px-2"><img class="h-6 w-6 rounded-full border-2 border-primary-600" src="pics/micheal.png"></span>
-            <span class="violation-code px-2 py-1 rounded text-xs mr-2 bg-red-600">HOKUWA-L030</span>
-            <span>Obstructing complaints</span>
-
-          </div>
-          <div class="flex items-center pl-6">
-                                <span class="px-2"><img class="h-6 w-6 rounded-full border-2 border-primary-600" src="pics/micheal.png"></span>
-            <span class="violation-code px-2 py-1 rounded text-xs mr-2 bg-red-600">HOKUWA-C001</span>
-            <span>Refusing valid motions</span>
-
-          </div>
+      <!-- Judge Header -->
+      <div class="flex items-center z-10 relative mb-4">
+        <div class="w-16 h-16 rounded-full bg-gray-300 overflow-hidden flex-shrink-0">
+          <img src="pics/stone2.png" class="w-full h-full object-cover" alt="Judge Court Clerks">
         </div>
+        <div class="ml-4 min-w-0">
+          <h4 class="font-bold text-xl truncate">Court Clerks</h4>
+          <p class="text-blue-200 truncate">Circuit Court, Stone County</p>
+        </div>
+      </div>
 
-     
+      <!-- Dropdown Button -->
+<button class="faq-toggle w-full flex justify-between items-center py-2 px-4 text-left bg-white text-black rounded hover:bg-gray-100 transition duration-300" 
+        onclick="document.getElementById('faq-content-10').classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180');">        <span class="text-lg font-semibold">Case No: 24SNDR00104</span>
+        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+      </button>
+      <!-- Dropdown Content -->
+      <div id="faq-content-10" class="faq-content hidden pt-4 text-gray-100 space-y-4">
+
+        <div>
+          <h5 class="font-semibold mb-2">Key Offenses:</h5>
+          <div class="space-y-2">
+    <div class="flex items-center">
+      <img class="h-8 w-8 rounded-full border-2 border-primary-600" src="pics/micheal.png">
+      <span class="px-2"><span class="violation-code px-1 py-1 rounded text-xs mr-2 bg-red-600">C001</span></span>
+      <span>Refusal to accept validly formatted motion or pleading</span>
     </div>
-
-    <!-- Summary -->
-    <div class="mb-4 z-10 relative">
-      <h5 class="font-semibold mb-1">Summary:</h5>
-      <p class="text-blue-100 text-sm">Repeated pattern of dismissing valid motions without cause, documented in 12 cases since 2020.</p>
+  
+    <div class="flex items-center">
+      <img class="h-8 w-8 rounded-full border-2 border-primary-600" src="pics/micheal.png">
+      <span class="px-2"><span class="violation-code px-1 py-1 rounded text-xs mr-2 bg-red-600">C002</span></span>
+      <span>Providing false or misleading information about filing rules</span>
     </div>
-
-    <!-- Footer -->
-    <div class="flex justify-between items-center z-10 relative">
-      <span class="bg-red-500 px-3 py-1 rounded-full text-xs font-bold">Active</span>
-      <span class="text-blue-200 text-sm">Case No: 2025CV325</span>
+  
+    <div class="flex items-center">
+      <img class="h-8 w-8 rounded-full border-2 border-primary-600" src="pics/micheal.png">
+      <span class="px-2"><span class="violation-code px-1 py-1 rounded text-xs mr-2 bg-red-600">C006</span></span>
+      <span>Omitting filed documents from docket or scanning queue</span>
+    </div>
+  
+    <div class="flex items-center">
+      <img class="h-8 w-8 rounded-full border-2 border-primary-600" src="pics/micheal.png">
+      <span class="px-2"><span class="violation-code px-1 py-1 rounded text-xs mr-2 bg-red-600">C008</span></span>
+      <span>Refusing to assist pro se litigants while assisting represented parties</span>
+    </div>
+  
+    <div class="flex items-center">
+      <img class="h-8 w-8 rounded-full border-2 border-primary-600" src="pics/micheal.png">
+      <span class="px-2"><span class="violation-code px-1 py-1 rounded text-xs mr-2 bg-red-600">C011</span></span>
+      <span>Denying access to public records or transcripts</span>
+    </div>
+  
+    <div class="flex items-center">
+      <img class="h-8 w-8 rounded-full border-2 border-primary-600" src="pics/micheal.png">
+      <span class="px-2"><span class="violation-code px-1 py-1 rounded text-xs mr-2 bg-red-600">C017</span></span>
+      <span>Concealing or misfiling complaints against court staff</span>
+    </div>
+  
+    <div class="flex items-center">
+      <img class="h-8 w-8 rounded-full border-2 border-primary-600" src="pics/micheal.png">
+      <span class="px-2"><span class="violation-code px-1 py-1 rounded text-xs mr-2 bg-red-600">C019</span></span>
+      <span>Refusing certified copies or refusing to stamp ‘filed’ documents</span>
+    </div>
+  
+    <div class="flex items-center">
+      <img class="h-8 w-8 rounded-full border-2 border-primary-600" src="pics/micheal.png">
+      <span class="px-2"><span class="violation-code px-1 py-1 rounded text-xs mr-2 bg-red-600">C020</span></span>
+      <span>Misrepresenting jurisdictional or procedural law to block filings</span>
+    </div>
+  
+    <div class="flex items-center">
+      <img class="h-8 w-8 rounded-full border-2 border-primary-600" src="pics/micheal.png">
+      <span class="px-2"><span class="violation-code px-1 py-1 rounded text-xs mr-2 bg-red-600">C022</span></span>
+      <span>Tampering with delivery of service, summons, or notice</span>
+    </div>
+  
+    <div class="flex items-center">
+      <img class="h-8 w-8 rounded-full border-2 border-primary-600" src="pics/micheal.png">
+      <span class="px-2"><span class="violation-code px-1 py-1 rounded text-xs mr-2 bg-red-600">C023</span></span>
+      <span>Burying appeals or objections through delayed transmission</span>
+    </div>
+  
+    <div class="flex items-center">
+      <img class="h-8 w-8 rounded-full border-2 border-primary-600" src="pics/micheal.png">
+      <span class="px-2"><span class="violation-code px-1 py-1 rounded text-xs mr-2 bg-red-600">C025</span></span>
+      <span>Blocking or failing to provide access to case files on request</span>
+    </div>
+  
+    <div class="flex items-center">
+      <img class="h-8 w-8 rounded-full border-2 border-primary-600" src="pics/micheal.png">
+      <span class="px-2"><span class="violation-code px-1 py-1 rounded text-xs mr-2 bg-red-600">C030</span></span>
+      <span>Ignoring written complaints or ethics submissions</span>
     </div>
   </div>
-</div>
+        </div>
 
-                </div>
+        <div>
+          <h5 class="font-semibold mb-1">Summary:</h5>
+          <p class="text-blue-100 text-sm">Clerks in Stone County have engaged in systemic suppression of filings, refusal to accept motions, selective withholding of court records, and misinformation regarding custody transfers to Kansas. These acts have directly aided obstruction of due process and created record asymmetry between states.</p>
+        </div>
+
+        <div class="flex justify-between items-center">
+          <span class="bg-green-500 px-3 py-1 rounded-full text-xs font-bold">Active</span>
+          <span class="text-blue-200 text-sm">Case No: 24SNDR00104</span>
+        </div>
+      </div>
+    </div>
 
                 <div id="section4" class="bg-white rounded-lg shadow-md p-6 mb-6 section-card fade-in">
                     <div class="flex items-center mb-4">
@@ -338,4 +395,44 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Assign the HTML string to the innerHTML of the div
             careersContentDiv.innerHTML = careerDataHTML;
+
+
+document.querySelectorAll('.violation-code').forEach(el => {
+  el.addEventListener('click', () => {
+    const code = 'HOKUWA-' + el.textContent.trim();
+    const contentDiv = document.getElementById('modalContent');
+
+    // Filter all valid baseData entries that include the clicked code
+    const matchingCitations = baseData.filter(entry =>
+      Array.isArray(entry[2]) && entry[2].includes(code)
+    );
+
+    if (matchingCitations.length > 0) {
+      // Build HTML for each matching citation
+      const citationsHtml = matchingCitations.map(citation => {
+        const [title, desc, codes] = citation;
+        const relatedCodes = codes.map(c =>
+          `<code class="bg-gray-200 text-xs rounded px-1 py-0.5">${c}</code>`
+        ).join(" ");
+
+        return `
+          <div class="mb-4 p-2 border border-gray-300 rounded-lg">
+            <strong>${title}</strong><br>
+            <p class="mb-1 text-sm">${desc}</p>
+            <div class="mt-1 text-xs text-gray-500">Applies to: ${relatedCodes}</div>
+          </div>
+        `;
+      }).join(""); // Join all citation HTML blocks together
+
+      contentDiv.innerHTML = citationsHtml;
+    } else {
+      contentDiv.innerHTML = `<p class="p-2">No valid legal citation linked to <strong>${code}</strong>.</p>`;
+    }
+
+    document.getElementById('citationModal').classList.remove('hidden');
+  });
+});
+
         });
+
+        
