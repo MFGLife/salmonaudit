@@ -313,6 +313,50 @@ G. Grant any further relief this Court deems just, proper, and necessary to prev
 
 V. VERIFICATION
 I, Micheal Lawrence Salmon, declare under penalty of perjury under the laws of the State of Kansas that the foregoing is true and correct to the best of my knowledge and belief.`
+},
+{
+  id: "2025DM781",
+  title: "MOTION TO REOPEN CASE, FOR EMERGENCY RELIEF, AND FOR IMMEDIATE EVIDENTIARY HEARING DUE TO PROCEDURAL VIOLATIONS",
+  date: "2025-05-23",
+  type: "Motion",
+  status: "Pending",
+  content: `MOTION TO REOPEN CASE, FOR EMERGENCY RELIEF, AND FOR IMMEDIATE EVIDENTIARY HEARING DUE TO PROCEDURAL VIOLATIONS
+COMES NOW Petitioner, Micheal Lawrence Salmon, and respectfully moves this Court to reopen the above-captioned case, grant emergency relief, and schedule an immediate evidentiary hearing. In support, Petitioner states as follows:
+I. GROUNDS
+1. Denial of Due Process:
+Petitioner was denied notice and an opportunity to be heard as required by the Fourteenth Amendment, Goldberg v. Kelly, 397 U.S. 254; Mullane v. Central Hanover Bank, 339 U.S. 306; and HOKUWA-P001, HOKUWA-P005, HOKUWA-P010, HOKUWA-J007, HOKUWA-J0111.
+2. Arbitrary Case Closure:
+The case was closed before Petitioner could file an emergency petition, despite clear notice of an ongoing emergency, violating HOKUWA-C001, HOKUWA-C010, and HOKUWA-J0191.
+3. Judicial Refusal to Rule and Procedural Runaround:
+The presiding judge refused to rule on Petitioner’s original motion, then directed Petitioner to file an emergency petition, only for the case to be closed before the petition could be filed—constituting a forced procedural runaround and denial of access to justice (HOKUWA-J008, HOKUWA-P003, HOKUWA-J022)1.
+4. Harm to Parent-Child Relationship:
+Petitioner has been deprived of contact with his child for five months, resulting in irreparable harm to the parent-child bond and risk of erroneous deprivation of rights, in violation of Mathews v. Eldridge, 424 U.S. 319; HOKUWA-J007, HOKUWA-P0011.
+II. REQUESTED RELIEF
+Petitioner respectfully requests that the Court:
+A. Immediately reopen the case and restore the matter to the active docket;
+B. Schedule an evidentiary hearing at the earliest possible date to address all outstanding issues, including due process violations and the merits of custody and parenting time;
+C. Enter temporary orders for make-up parenting time to compensate for the five months of denied contact and to protect the best interests of the child;
+D. Provide a judicial explanation on the record for the closure of the case and refusal to rule on Petitioner’s filings, as required by law and judicial ethics;
+E. Order that all future filings from Petitioner be accepted and docketed immediately, with written confirmation from the clerk to prevent further procedural sabotage (HOKUWA-C001, HOKUWA-C010, HOKUWA-C005, HOKUWA-C006)1.
+III. LEGAL AUTHORITY AND HOKUWA INDEX CITATIONS
+Haines v. Kerner, 404 U.S. 519 (pro se filings must be liberally construed and not dismissed without opportunity to present evidence)
+Santosky v. Kramer, 455 U.S. 745 (clear and convincing evidence required for parental rights termination)
+Stanley v. Illinois, 405 U.S. 645 (unwed fathers have a right to a hearing before losing custody)
+Goldberg v. Kelly, 397 U.S. 254; Mathews v. Eldridge, 424 U.S. 319 (due process and right to be heard)
+HOKUWA Index:
+HOKUWA-C001 (Refusal to accept validly formatted motion or pleading)
+HOKUWA-C010 (Refusal to process in forma pauperis applications properly)
+HOKUWA-C005, C006 (Tampering with file timestamps, omitting documents from docket)
+HOKUWA-J007 (Overruling constitutional rights without lawful justification)
+HOKUWA-J008 (Denying self-representation without cause)
+HOKUWA-J019 (Harassing or intimidating pro se litigants)
+HOKUWA-J022 (Refusing to correct errors once demonstrated on record)
+HOKUWA-P001, P003, P005, P010 (Failure to provide notice, ignoring motions, ruling without hearing, preventing introduction of evidence)1.
+IV. DEMAND FOR ACCOUNTABILITY
+Petitioner hereby demands that the Court and Clerk’s Office:
+Explain, on the record, why Petitioner’s emergency petition was not accepted and why the case was closed without review;
+Certify that all future filings will be accepted and docketed without delay, and that Petitioner will receive written confirmation of every filing;
+Acknowledge that the Court, the presiding judge, and the Clerk’s Office are now formally attached as named parties to the pending federal lawsuit (United States District Court for the District of Kansas, Salmon v. Dupree et al.), and that all further procedural violations will be documented and submitted as evidence of systemic due process deprivation.`
 }
 
 )

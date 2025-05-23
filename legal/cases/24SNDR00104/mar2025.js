@@ -217,6 +217,93 @@ motionData.push (
     type: "Notice",
     status: "Pending",
     content: `COMES NOW, Movant Micheal Lawrence Salmon, and submits this formal Notice of Judicial Noncompliance and Obstruction of Due Process, as this Court has engaged in an ongoing and deliberate pattern of failing to act in accordance with the law.\r\nThis Court has refused to rule on multiple critical motions that directly impact the fundamental rights of Movant and his child.\r\nThis Court has knowingly upheld fraudulent orders, despite having full awareness of their unlawful nature.\r\nThis Court has allowed Respondent, Crycella Freitag, to violate four separate court orders with complete impunity, including her most recent violation on March 26, 2025, when she unlawfully prevented Movant�s court-ordered phone calls with his son.\r\nThe judge presiding over this matter has intentionally delayed proceedings despite having open hearing dates available sooner, demonstrating an intentional strategy to obstruct justice.\r\nThis Court�s inaction serves no legal purpose except to harm Movant and further enable Respondent�s continued violations of the law.\r\nBy failing to rule on these matters, the Court is now engaging in judicial obstruction, violating Movant�s right to due process under both state and federal law.\r\nMovant has exhausted all proper channels for relief, including filing a Writ of Mandamus, Motion to Disqualify, Motion for Judicial Notice of Fraud, and Request for Immediate Hearing�all of which this Court has deliberately ignored.\r\nAs such, Movant hereby places this Court on official notice that this continued refusal to act will be documented for appellate review, judicial oversight committees, and potential federal litigation under 42 U.S.C. � 1983 for due process violations.\r\nDEMAND FOR IMMEDIATE ACTION\r\nI am not requesting a hearing, as the law is clear. I demand the following immediate relief:\r\nAn immediate ruling on all pending motions, without further delay.\r\nAn immediate default judgment in my favor, due to this Court�s failure to act and uphold the law.\r\nA formal finding of contempt against Crycella Freitag and Josh Garrett for repeated violations of this Court�s orders.\r\nA written justification for any further delay in ruling, to be entered into the case record for appellate review.`
-  }
+  },
+  {
+  id: "24SNDR00104",
+  title: "PETITION AND MOTION TO VACATE/SET ASIDE CONTEMPT ORDER, FOR STAY OF ENFORCEMENT, AND FOR OTHER RELIEF",
+  date: "2025-05-23",
+  type: "Petition",
+  status: "Pending",
+  content: `PETITION AND MOTION TO VACATE/SET ASIDE CONTEMPT ORDER, FOR STAY OF ENFORCEMENT, AND FOR OTHER RELIEF
+COMES NOW Respondent, Micheal Salmon, and respectfully petitions this Court to vacate and set aside its Order for Commitment entered on May 22, 2025, and for such other and further relief as the Court deems just, and as grounds therefore states:
+
+I. INTRODUCTION & SUMMARY
+Respondent is a judicial auditor and public interest advocate, whose work is focused on transparency and accountability in Missouri’s courts, including the 39th Judicial Circuit.
+Respondent’s due process rights were violated when the Court conducted a contempt hearing in his absence, after canceling his WebEx access two days before trial and providing no alternative means to attend.
+Respondent objects to all findings and conclusions in the Order for Commitment, except that he does not presently challenge the custody order, reserving his right to do so in Kansas.
+
+II. OBJECTIONS TO THE ORDER FOR COMMITMENT
+A. Lack of Due Process – U.S. Const. Amend. XIV; Mo. Const. Art. I, § 10
+The Fourteenth Amendment to the United States Constitution and Article I, Section 10 of the Missouri Constitution guarantee due process of law before deprivation of liberty.
+Respondent was denied due process when:
+The Court canceled his WebEx access two days before the hearing (see attached Exhibit A: WebEx cancellation notice).
+No alternative means to participate were provided, despite Respondent’s out-of-state residence and inability to appear in person.
+The Court proceeded in absentia, without ensuring Respondent had notice and a meaningful opportunity to be heard, in violation of In re Marriage of Hendrix, 183 S.W.3d 582, 589 (Mo. banc 2006) (due process requires notice and opportunity to be heard).
+B. Improper Notice and Service – Mo. Sup. Ct. R. 43.01, 43.02
+Missouri Supreme Court Rules 43.01 and 43.02 require proper service and notice of hearings. Respondent did not receive adequate notice of the contempt hearing, nor was he given a reasonable opportunity to prepare and respond.
+C. Violation of Open Courts and Public Interest – Mo. Const. Art. I, § 14; RSMo § 476.170
+Missouri’s Constitution and statutes guarantee open courts and public access to judicial proceedings, except in narrowly defined circumstances. The blanket application of confidentiality to all paternity actions (RSMo § 210.846) does not override the public’s right to scrutinize judicial conduct, especially where the focus is on judicial accountability, not private party information.
+D. Overbreadth and Prior Restraint – U.S. Const. Amend. I; Mo. Const. Art. I, § 8
+The Court’s order to “immediately remove all videos” is unconstitutionally overbroad and constitutes a prior restraint on speech, in violation of the First Amendment and Article I, Section 8 of the Missouri Constitution. See Nebraska Press Ass’n v. Stuart, 427 U.S. 539 (1976).
+E. Impossibility of Compliance – RSMo § 476.110; Mo. Sup. Ct. R. 41.02
+Respondent made good faith efforts to comply but was unable to remove all content due to technical impossibility and third-party republication. Missouri law does not permit contempt sanctions where compliance is impossible. See State ex rel. Mo. State Highway Comm’n v. Weinstein, 322 S.W.2d 778, 783 (Mo. 1959).
+F. Improper Findings of Willfulness – RSMo § 476.110
+The Court’s findings of willfulness are unsupported by evidence and contrary to the record, which shows Respondent’s repeated attempts to communicate, comply, and request accommodations.
+G. Improper Application of Local Rules – Mo. Sup. Ct. R. 1.02
+Local court rules cannot override constitutional rights or state statutes. The Court’s reliance on local rules to prohibit recording is unlawful where such rules conflict with higher authority.
+H. Contempt Directed at the Courts
+The assertion that Respondent’s actions show “a complete lack of respect for the courts” is unfounded and punitive. Respondent’s conduct is motivated by a good faith belief in the necessity of public oversight and judicial accountability.
+
+III. PRAYER FOR RELIEF
+WHEREFORE, Respondent respectfully requests that this Court:
+A. Vacate and set aside the Order for Commitment entered May 22, 2025;
+B. Stay enforcement of any capias or commitment order pending resolution of this motion and any appeal or collateral challenge in Kansas;
+C. Order a new hearing with proper notice and access, ensuring Respondent’s participation by remote means if necessary;
+D. Make findings of fact and conclusions of law as to each of Respondent’s objections;
+E. Grant such other and further relief as the Court deems just and proper.
+
+IV. AUTHORITIES (HOKUWA VIOLATIONS INDEX)
+Due Process: U.S. Const. Amend. XIV; Mo. Const. Art. I, § 10; In re Marriage of Hendrix, 183 S.W.3d 582 (Mo. banc 2006)
+Notice/Service: Mo. Sup. Ct. R. 43.01, 43.02
+Open Courts: Mo. Const. Art. I, § 14; RSMo § 476.170
+Prior Restraint/Free Speech: U.S. Const. Amend. I; Mo. Const. Art. I, § 8; Nebraska Press Ass’n v. Stuart, 427 U.S. 539 (1976)
+Impossibility: RSMo § 476.110; Mo. Sup. Ct. R. 41.02; State ex rel. Mo. State Highway Comm’n v. Weinstein, 322 S.W.2d 778 (Mo. 1959)
+Local Rules: Mo. Sup. Ct. R. 1.02
+General Judicial Conduct: RSMo § 476.110
+The following indexed violations have been identified for classification under the HOKUWA Offense Index, to assist in internal audit, judicial review, and systemic reform:
+Code
+Description
+Incident Summary
+HOK-101
+Docket Tampering
+Removal of Petitioner’s hearing from public docket despite confirmation of scheduling.
+HOK-104
+Clerk Misrepresentation
+Conflicting information given by Christina “Tina” Rockley and Adrian regarding docket restoration.
+HOK-202
+Denial of Hearing
+Judge Lynch’s refusal to proceed based on false claim of missing filing.
+HOK-203
+Abrupt Termination of Hearing
+Judge ended Zoom call during Petitioner’s lawful objections.
+HOK-301
+Violation of Right to Be Heard (First Amendment)
+Termination prevented Petitioner from presenting or clarifying legal position.
+HOK-312
+Administrative Obstruction
+Failure to process and acknowledge faxed and emailed petitions.
+HOK-411
+Failure to Acknowledge Filed Motions
+Entire record of filed motions ignored in eviction case.
+HOK-501
+Unlawful Judge Substitution
+Unnamed/unknown judge presided over WY2025LM002787 without introduction or record.
+HOK-601
+Coordinated Suppression of Evidence
+Combined actions across both hearings prevented lawful presentation of claims.
+HOK-999
+Pattern of Procedural Sabotage
+Cumulative indication of bad-faith administrative and judicial obstruction.`
+}
 
 )

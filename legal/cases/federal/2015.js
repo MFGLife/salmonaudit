@@ -1,6 +1,6 @@
 motionData.push (
 {
-  id: "Pending",
+  id: "25CV02276DDCTJJ",
   title: "COMPLAINT FOR DEPRIVATION OF CIVIL RIGHTS, PETITION FOR WRIT, AND MOTION FOR EMERGENCY RELIEF",
   date: "2025-05-20",
   type: "Petition",
@@ -235,7 +235,7 @@ The Layne Project, Trina Nudson, Institutional actors
 Defamation, reputational harm to class members`
 },
 {
-  id: "Pending",
+  id: "25CV02276DDCTJJ",
   title: "MOTION TO PROCEED IN FORMA PAUPERIS",
   date: "2025-05-22",
   type: "Motion",
@@ -269,7 +269,7 @@ Micheal Salmon certifies that this motion is filed in good faith and with intent
 Clerk, US District Court 500 State Avenue, Rm. 259 Kansas City, KS 66101`
 },
 {
-  id: "Pending",
+  id: "25CV02276DDCTJJ",
   title: "DECLARATION OF TRUST FOR THE PROTECTION AND BENEFIT OF MICHEAL LAWRENCE SALMON AND FELIX DAY SALMON",
   date: "2025-05-22",
   type: "Declaration",
@@ -341,5 +341,271 @@ Amendment and Revocation:
 This trust may be amended or revoked by Micheal Lawrence Salmon in writing at any time prior to his death or incapacity.
 Severability:
 If any provision of this trust is held invalid, the remaining provisions shall remain in full force and effect.`
+},
+{
+  id: "25CV02276DDCTJJ",
+  title: "VERIFIED COMPLAINT FOR DECLARATORY AND INJUNCTIVE RELIEF",
+  date: "2025-05-23",
+  type: "Order",
+  status: "Pending",
+  content: `VERIFIED COMPLAINT FOR DECLARATORY AND INJUNCTIVE RELIEF
+AND EMERGENCY MOTION FOR TEMPORARY RESTRAINING ORDER AND PRELIMINARY INJUNCTION
+INTRODUCTION
+Plaintiff, Micheal Lawrence Salmon, a resident of Kansas, is a judicial auditor and public interest advocate focused on exposing systemic misconduct in state courts, particularly in Missouri.
+
+
+Plaintiff brings this civil rights action under 42 U.S.C. § 1983 seeking declaratory and injunctive relief against enforcement of a contempt order and associated capias warrant issued by the Circuit Court of Stone County, Missouri (Case No. 24SN-DR00104), which orders Plaintiff incarcerated for thirty (30) days for alleged criminal contempt.
+
+
+Plaintiff asserts that the underlying order and enforcement mechanisms violate his rights under the First and Fourteenth Amendments to the United States Constitution, and seeks emergency relief to prevent irreparable harm.
+
+
+
+JURISDICTION AND VENUE
+This Court has subject matter jurisdiction pursuant to 28 U.S.C. §§ 1331 and 1343, as this action arises under the Constitution and laws of the United States, including 42 U.S.C. § 1983.
+
+
+Venue is proper in this District under 28 U.S.C. § 1391(b)(2) because a substantial part of the events giving rise to the claims occurred within this District and in Missouri, and because Plaintiff resides in this District.
+
+
+
+PARTIES
+Plaintiff: Micheal Lawrence Salmon, an individual residing in Kansas and engaged in constitutionally protected public interest reporting and auditing of the judiciary.
+
+
+Defendant Judge: MATT ALAN SELBY, a state Circuit Judge in Stone County, Missouri, acting under color of state law and sued in official capacity.
+
+
+Defendant Stone County: A political subdivision of the State of Missouri responsible for law enforcement and administration of court orders.
+
+
+Defendant Sheriff: Sheriff of Stone County, Missouri, responsible for executing court-issued warrants, sued in official capacity.
+
+
+
+FACTUAL ALLEGATIONS
+Plaintiff documents and reports on judicial irregularities, including constitutional and procedural violations in Missouri courts.
+
+
+On April 28, 2025, the Stone County Circuit Court issued an order demanding the removal of Plaintiff’s videos documenting judicial proceedings from online platforms.
+
+
+On May 9, 2025, a contempt hearing was scheduled. Two days prior, Plaintiff’s authorized WebEx access was unilaterally canceled, and no alternative means of participation were provided despite Plaintiff residing in Kansas and asserting his inability to attend in person.
+
+
+The court proceeded with the hearing in absentia and, on May 22, 2025, issued a Commitment Order and Capias Warrant (Exhibit A), finding Plaintiff in criminal contempt for alleged noncompliance with the April 28 order and nonappearance.
+
+
+Plaintiff was not given telephonic, email, or written notice of the access changes and was denied the opportunity to present a defense.
+
+
+Plaintiff made substantial efforts to comply with the underlying order, including the removal or de-indexing of content within his control, but was unable to remove materials reposted by third parties beyond his control.
+
+
+The contempt order imposes incarceration without a hearing or due process, violating clearly established rights under the Fourteenth Amendment.
+
+
+The order’s demand that Plaintiff remove videos critical of judicial behavior constitutes an unconstitutional prior restraint and viewpoint-based censorship, infringing his First Amendment rights.
+
+
+The threat of immediate arrest has chilled Plaintiff’s constitutionally protected speech and obstructed his public interest investigations, which involve documenting systemic access denials in multiple Missouri courtrooms.
+
+
+Defendants acted under color of state law and in disregard of clearly established constitutional rights.
+
+
+Plaintiff has exhausted state remedies including appeals and writ filings, but the contempt order remains active and enforceable.
+
+
+Plaintiff has no adequate remedy at law and faces imminent and irreparable harm absent emergency relief from this Court.
+
+
+
+CLAIMS FOR RELIEF
+Count I – Violation of Due Process
+(14th Amendment; 42 U.S.C. § 1983)
+Plaintiff realleges all preceding paragraphs.
+
+
+Defendants violated Plaintiff’s procedural due process rights by:
+
+
+a. Canceling remote hearing access without notice or alternative;
+b. Proceeding in absentia without ensuring the opportunity to be heard;
+c. Issuing an incarceration order without proper service, participation, or evidentiary hearing.
+These actions contravene clearly established due process protections under the Fourteenth Amendment.
+
+
+
+Count II – First Amendment Violation: Prior Restraint and Viewpoint Discrimination
+(1st Amendment; 42 U.S.C. § 1983)
+Plaintiff realleges all preceding paragraphs.
+
+
+Defendants’ April 28 order and subsequent contempt enforcement constitute unlawful prior restraint and retaliation against Plaintiff’s constitutionally protected speech.
+
+
+Defendants targeted Plaintiff’s speech due to its critical content concerning judicial conduct, amounting to viewpoint discrimination and unconstitutional censorship.
+
+
+
+Count III – Declaratory Judgment
+(28 U.S.C. §§ 2201–2202)
+Plaintiff seeks a declaration that the contempt order and capias warrant are unconstitutional on their face and as applied.
+
+
+
+Count IV – Injunctive Relief
+(Fed. R. Civ. P. 65)
+Plaintiff seeks immediate and permanent injunctive relief enjoining the enforcement of the contempt order and capias warrant to prevent irreparable constitutional harm.
+
+
+
+EMERGENCY MOTION FOR TEMPORARY RESTRAINING ORDER
+AND PRELIMINARY INJUNCTION
+Plaintiff incorporates by reference all allegations set forth above.
+
+
+Pursuant to Rule 65 of the Federal Rules of Civil Procedure, Plaintiff requests that the Court issue a Temporary Restraining Order and Preliminary Injunction:
+
+
+a. Enjoining enforcement of the May 22, 2025 Commitment Order and capias warrant;
+b. Restraining Defendants from arresting or detaining Plaintiff pursuant to the contempt order;
+c. Preserving Plaintiff’s right to publish and disseminate information related to judicial accountability;
+d. Requiring Defendants to show cause why preliminary relief should not be made permanent.
+Plaintiff is likely to succeed on the merits, has no adequate remedy at law, and faces imminent irreparable harm. The balance of equities and public interest overwhelmingly favor protection of fundamental constitutional rights.
+
+
+
+PRAYER FOR RELIEF
+WHEREFORE, Plaintiff respectfully requests that this Court:
+A. Issue an Emergency Temporary Restraining Order enjoining Defendants from enforcing the May 22, 2025 contempt order and capias warrant;
+B. Set a prompt hearing on the request for preliminary injunction;
+C. Declare that the contempt order and associated enforcement violate Plaintiff’s constitutional rights under the First and Fourteenth Amendments;
+D. Permanently enjoin Defendants from enforcing the contempt order or capias warrant;
+E. Award Plaintiff costs and, if applicable, reasonable attorneys’ fees pursuant to 42 U.S.C. § 1988;
+F. Grant such other relief as the Court deems just and proper.
+
+
+NOTICE WITH CERTIFIED SERVICE
+Micheal Salmon certifies that this motion is filed in good faith and with intent to preserve the integrity of the judicial process and constitutional rights afforded to all litigants. A Self-Represented Litigant Certification form (OJA-218) is attached per Rule. All copies, evidence, and videos related to this motion are available at SalmonAudit.info. Please note that videos may take up to 48 hours to appear online after being recorded. Access to this information is provided for transparency and legal audit purposes. All materials are available for public review in accordance with applicable laws. I hereby certify that a true and correct copy was sent via Email: ksd_clerks_kansascity@ksd.uscourts.gov Tina.Rockey@kscourts.gov court.schedule@courts.mo.gov daocfeedback@wycokck.org l Date of Service: 5/23/2025
+Clerk, US District Court 500 State Avenue, Rm. 259 Kansas City, KS 66101
+Respectfully submitted,
+Micheal Lawrence Salmon
+Kansas City, Kansas 66103
+Exhibit A:
+
+
+IN THE CIRCUIT COURT OF STONE COUNTY, MISSOURI  AT GALENA  
+CRYCELLA FREITAG, )  
+Petitioner,  
+)  )  )  
+v. Case No. 24SN-DR00104  )  
+MICHEAL SALMON,  
+Respondent.  
+)  )  )  )  
+ORDER FOR COMMITMENT  
+NOW on this12.._ day of May, 2025, the Court's Order for Respondent Micheal  Salmon to appear and show cause why he should not be held in contempt for having violated the  Court's order of April 28, 2025, to immediately remove video recordings of confidential  judicial proceedings, having been heard on May 9, 2025 and taken under advisement as more  specifically set forth in the Judgment of Contempt filed contemporaneously herewith, this cause  
+is taken from under advisement and the Court finds that:  
+1. Local court rule prohibits the recording of judicial proceedings in the 39th Judicial Circuit. 2. Paternity actions are confidential proceedings by the Revised Statutes of Missouri, section 210.846. 
+3. This Court did not consent to the recording or dissemination of any recordings of any hearing in this paternity case. 
+4. The Respondent recorded multiple court hearings without permission of the Court and published at least some of those recordings to the public. 
+5. The Respondent had actual knowledge of the Court's order of April 29, 2025, to immediately remove the videos of the confidential court proceedings from all social media locations where it had been posted. 
+6. Respondent willfully, intentionally and contumaciously refused to comply with the Court's order of April 29, 2025, as evidenced by his various court filings and the evidence 
+presented at the May 9, 2025 trial and hearings, specifically: 
+FILED  
+CIRCUIT COURT  
+MAY 2 2 2025  
+STONE COUNTY 
+a. Respondent willfully disobeyed the order of this court by not removing all videos of court proceedings immediately; and 
+b. Respondent had notice of the Court's order to remove the videos; and c. Respondent understood the Court's order of April 29, 2025; and 
+d. Respondent was able to comply with the Court's order and intentionally chose not 
+to comply with the order. 
+e. Respondent posted additional videos of confidential court proceedings after the Court's order of April 29, 2025. 
+7. The Respondent had adequate notice that on May 9, 2025, a hearing would be held to determine if Respondent should be held in contempt for refusing to comply with the court's April 29, 2025 order, and clearly, based on Respondent's subsequent filings, had knowledge of the essential facts upon which he was being accused of contempt. 
+8. The Defendant's contempt is directed at the Courts of this State and all courts in general, and not at any one judicial officer in particular, in that the Respondent intentionally engaged in a course of conduct showing a complete lack of respect for the courts, court personnel, and the rules and orders of the court. 
+9. The Respondent received notice of the hearing and failed to appear. 
+IT IS THEREFORE ORDERED, ADJUDGED and DECREED that the Respondent Micheal Lawrence Salmon is in criminal contempt of this Court for his intentional and willful  refusal to comply with the Court's specific Order of April 28, 2025, that ordered him to  immediately remove video recordings of a confidentialjudicial proceeding from social media and  other internet sites and indirect criminal contempt of the court for having intentionally refused to  appear on May 9, 2025 at 10:00 a.m. as ordered by the court on May 1, 2025.  
+The Defendant is sentenced to serve a term of 30 days in the Stone County jail for his criminal contempt. The costs of his incarceration shall be paid by the Defendant.  The clerk is directed to issue a Capias Warrant forthwith for the arrest of Micheal  Lawrence Salmon for criminal contempt.  
+IT IS FURTHER ORDERED, ADJUDGED and DECREED that the person of the  Respondent Micheal Lawrence Salmon be attached and that he be committed to the custody of  the Stone County Sheriff to serve 30 days incarceration in the Stone County jail for his  
+intentional and willful refusal to comply with the Court's specific orders of April 28, 2025, and  that he remain in FILED  
+CIRCUIT COURT  
+MAY ·2 2 2025  
+STONE COUNTY`
+},
+{
+  id: "25CV02276DDCTJJ",
+  title: "TEMPORARY RESTRAINING ORDER AND ORDER TO SHOW CAUSE",
+  date: "2025-05-23",
+  type: "Order",
+  status: "Pending",
+  content: `TEMPORARY RESTRAINING ORDER AND ORDER TO SHOW CAUSE
+Plaintiff Micheal Lawrence Salmon, proceeding pro se, has moved for a Temporary Restraining Order pursuant to Rule 65(b) of the Federal Rules of Civil Procedure. Having reviewed the Verified Complaint, supporting declaration, and memorandum in support of emergency relief, the Court finds:
+1. Plaintiff has demonstrated a substantial likelihood of success on the merits of his constitutional claims under the First, Fourth, and Fourteenth Amendments;
+2. Plaintiff faces immediate and irreparable injury in the form of unlawful arrest, incarceration, and deprivation of fundamental rights without due process;
+3. The balance of equities favors the Plaintiff, as Defendants will suffer no injury from a temporary restraint;
+4. The public interest is served by enforcement of constitutional protections and judicial accountability.
+Accordingly, IT IS HEREBY ORDERED:
+1. That Defendants, including any agents of the Stone County Circuit Court, the Stone County Sheriff's Office, or any other Missouri agency, are TEMPORARILY RESTRAINED from enforcing or executing the "Order for Commitment" entered in Case No. 24SN-DR00104 or any related capias warrant against Micheal Lawrence Salmon;
+2. That Defendants shall SHOW CAUSE in writing on or before [insert date 10 days from entry] why a preliminary injunction should not issue;
+3. That this Temporary Restraining Order shall remain in effect for fourteen (14) days from the date of entry, unless extended for good cause shown, or by agreement of the parties.
+IT IS SO ORDERED.
+
+NOTICE OF RELATED STATE COURT PROCEEDINGS
+Plaintiff Micheal Lawrence Salmon hereby gives notice pursuant to Fed. R. Civ. P. 65 and Local Rule 3.2 of the following ongoing state court proceedings which are directly related to the facts and relief sought in this federal action:
+1. **Missouri Case No. 24SN-DR00104**  
+   Court: Stone County Circuit Court (Missouri)  
+   Nature: Family law custody matter. Subject of unconstitutional "Order for Commitment" and arrest warrant issued without hearing.  
+   Status: Appeal, Writ of Mandamus, and Judicial Discipline Letter pending.
+2. **Kansas Case No. 2025DM781**  
+   Court: District Court of Johnson County, Kansas  
+   Nature: Ongoing custody proceedings involving same parties. This case was moved from Missouri jurisdiction.  
+   Status: Emergency hearing held May 21, 2025; constitutional violations from Missouri proceedings actively referenced.
+3. **Kansas Case No. WY2025LM002787**  
+   Court: Wyandotte County District Court  
+   Nature: Eviction proceeding involving overlapping parties and alleged retaliatory conduct designed to undermine custody jurisdiction.
+Plaintiff reserves the right to supplement this Notice as additional related matters develop. These proceedings are introduced to assist the Court in understanding the ongoing, multi-jurisdictional nature of the coercive and unconstitutional conduct at issue.
+ORDER PROTECTING PLAINTIFF'S RIGHT TO RECORD, DOCUMENT, AND PUBLISH PUBLIC PROCEEDINGS
+This matter comes before the Court on Plaintiff’s request for an order affirming his constitutional right to record and publish material involving public actors, court proceedings, and governmental conduct, which Plaintiff asserts is essential for his safety and necessary to document a pattern of systemic abuse.
+Having reviewed the Verified Complaint and supporting materials, and recognizing the public interest in transparency and First Amendment protections, the Court hereby FINDS:
+1. Plaintiff is engaged in protected First Amendment activity, including the right to record, document, and publish governmental proceedings and public events, particularly those involving alleged constitutional violations;
+2. Plaintiff has alleged a sustained pattern of governmental targeting and coercion that elevates the need for documentation as a form of self-defense and evidence preservation;
+3. Plaintiff has incorporated automated publication tools and artificial intelligence-based systems that may publicly disseminate materials without continuous direct control;
+4. Any attempt to hold Plaintiff in contempt or retaliate for such publication—particularly where there is no direct or knowing intent—would chill constitutionally protected expression and pose an undue risk of further rights violations.
+IT IS HEREBY ORDERED:
+1. Plaintiff shall not be sanctioned, detained, or held in contempt of court in any jurisdiction solely for recording, documenting, or publishing material related to this or related proceedings, especially when such publication results from automated tools or third-party platforms outside Plaintiff’s direct control.
+2. Government officials and court actors are enjoined from using contempt powers, gag orders, or collateral retaliatory actions to suppress such activity, unless narrowly tailored and subject to this Court’s review.
+3. This Order is without prejudice to any party seeking a future clarification of publication boundaries, but no such request shall justify suppression of public interest reporting or documentation of official conduct without strict scrutiny.
+IT IS SO ORDERED.`
+},
+{
+  id: "25CV02276DDCTJJ",
+  title: "PLAINTIFF’S MOTION TO DECLARE MISSOURI ORDERS VOID FOR LACK OF JURISDICTION AND TO ENJOIN UNLAWFUL ENFORCEMENT ACTIONS",
+  date: "2025-05-23",
+  type: "Motion",
+  status: "Pending",
+  content: `PLAINTIFF’S MOTION TO DECLARE MISSOURI ORDERS VOID FOR LACK OF JURISDICTION AND TO ENJOIN UNLAWFUL ENFORCEMENT ACTIONS
+COMES NOW the Plaintiff, Micheal Lawrence Salmon, and moves this Court for declaratory and injunctive relief to declare orders issued by Stone County, Missouri—including any warrants or contempt actions—as void ab initio due to lack of personal and subject-matter jurisdiction, and to enjoin any further enforcement thereof.
+I. NO JURISDICTION OVER PLAINTIFF EXISTED AT TIME OF ORDERS
+At all relevant times, Plaintiff was neither domiciled in nor present within the State of Missouri. Plaintiff did not appear in any hearing, did not consent to Missouri jurisdiction, and was not properly served. Missouri courts therefore lacked both **personal** and **subject-matter** jurisdiction to issue any enforceable custody or contempt order against him.
+Plaintiff’s residence has remained continuously in Kansas since his relocation. Under well-established federal and constitutional law, **a court cannot impose binding legal obligations on a non-consenting, non-resident party without proper service and jurisdiction**. *Burnham v. Superior Court*, 495 U.S. 604 (1990); *Kulko v. California Superior Court*, 436 U.S. 84 (1978).
+II. MISSOURI LOST SUBJECT-MATTER JURISDICTION UNDER UCCJEA
+Missouri's own statutory regime—the Uniform Child Custody Jurisdiction and Enforcement Act (UCCJEA)—mandates that jurisdiction over custody transfers to the "home state" where the child and both parents now reside. That home state is now Kansas.
+Per Mo. Rev. Stat. § 452.750, Missouri’s continuing jurisdiction was terminated once both parents and the child ceased residing in the state. The Stone County Court never formally relinquished jurisdiction, but it ceased to exist by operation of law.
+III. STONE COUNTY’S ORDERS ARE VOID AB INITIO
+Because Stone County lacked both personal and subject-matter jurisdiction, all orders and warrants issued against Plaintiff are void. See *United States v. Bigford*, 365 F.3d 859 (10th Cir. 2004) (“A void order is one that is a nullity from the outset and has no legal effect.”).
+Void orders cannot be enforced and cannot form the basis for contempt, arrest, or denial of custody rights. Yet these orders have been systematically used to deprive Plaintiff of constitutional rights—including access to his child—without due process.
+IV. ONGOING HARM AND NEED FOR INJUNCTIVE RELIEF
+Plaintiff is currently facing repeated threats of arrest and loss of parental access based solely on unlawful Missouri actions. The existence of an unenforceable warrant—issued absent jurisdiction—has become a tool of coercion and psychological warfare. Plaintiff has documented a pattern of judicial retaliation, procedural obstruction, and coordinated legal abuse.
+Immediate federal protection is required to prevent further violations of constitutional rights under 42 U.S.C. § 1983 and to preserve the integrity of concurrent Kansas proceedings.
+
+V. PRAYER FOR RELIEF
+WHEREFORE, Plaintiff respectfully requests that this Court:
+1. DECLARE that Stone County, Missouri lacked jurisdiction to issue any orders or warrants against Plaintiff;
+2. DECLARE that such orders are void ab initio and legally unenforceable;
+3. ISSUE a preliminary and permanent injunction against enforcement of any Missouri contempt actions or warrants against Plaintiff;
+4. ORDER any Missouri-based Defendant(s) to cease reliance on void orders for custody or criminal matters;
+5. AWARD such further relief as the Court deems just and proper.`
 }
+
 )
