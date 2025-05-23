@@ -244,6 +244,29 @@
     ["P025", "Ignoring jurisdictional challenges"]
   ]
 },
+   {
+  "judgeName": "Court Clerks",
+  "judgeCourt": "Circuit Court, Stone County",
+  "judgeImage": "pics/stone2.png",
+  "caseNumber": "24SNDR00104",
+  "summaryText": "Clerks in Stone County have engaged in systemic suppression of filings, refusal to accept motions, selective withholding of court records, and misinformation regarding custody transfers to Kansas. These acts have directly aided obstruction of due process and created record asymmetry between states.",
+  "auditorName": "Micheal Salmon",
+  "auditorImage": "pics/micheal.png",
+  "offenses": [
+    ["C001", "Refusal to accept validly formatted motion or pleading"],
+    ["C002", "Providing false or misleading information about filing rules"],
+    ["C006", "Omitting filed documents from docket or scanning queue"],
+    ["C008", "Refusing to assist pro se litigants while assisting represented parties"],
+    ["C011", "Denying access to public records or transcripts"],
+    ["C017", "Concealing or misfiling complaints against court staff"],
+    ["C019", "Refusing certified copies or refusing to stamp ‘filed’ documents"],
+    ["C020", "Misrepresenting jurisdictional or procedural law to block filings"],
+    ["C022", "Tampering with delivery of service, summons, or notice"],
+    ["C023", "Burying appeals or objections through delayed transmission"],
+    ["C025", "Blocking or failing to provide access to case files on request"],
+    ["C030", "Ignoring written complaints or ethics submissions"]
+  ]
+},
 {
   "judgeName": "Matt Alan Selby",
   "judgeCourt": "Circuit Court, Stone County",
@@ -268,29 +291,7 @@
   ]
 },
 
-   {
-  "judgeName": "Court Clerks",
-  "judgeCourt": "Circuit Court, Stone County",
-  "judgeImage": "pics/stone2.png",
-  "caseNumber": "24SNDR00104",
-  "summaryText": "Clerks in Stone County have engaged in systemic suppression of filings, refusal to accept motions, selective withholding of court records, and misinformation regarding custody transfers to Kansas. These acts have directly aided obstruction of due process and created record asymmetry between states.",
-  "auditorName": "Micheal Salmon",
-  "auditorImage": "pics/micheal.png",
-  "offenses": [
-    ["C001", "Refusal to accept validly formatted motion or pleading"],
-    ["C002", "Providing false or misleading information about filing rules"],
-    ["C006", "Omitting filed documents from docket or scanning queue"],
-    ["C008", "Refusing to assist pro se litigants while assisting represented parties"],
-    ["C011", "Denying access to public records or transcripts"],
-    ["C017", "Concealing or misfiling complaints against court staff"],
-    ["C019", "Refusing certified copies or refusing to stamp ‘filed’ documents"],
-    ["C020", "Misrepresenting jurisdictional or procedural law to block filings"],
-    ["C022", "Tampering with delivery of service, summons, or notice"],
-    ["C023", "Burying appeals or objections through delayed transmission"],
-    ["C025", "Blocking or failing to provide access to case files on request"],
-    ["C030", "Ignoring written complaints or ethics submissions"]
-  ]
-},
+
     {
       judgeName: "Trina Nudson",
       judgeCourt: "The Lanye Project, Johnson County",
