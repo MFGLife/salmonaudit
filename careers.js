@@ -102,33 +102,58 @@ document.addEventListener('DOMContentLoaded', function() {
 
                         <p class="text-gray-700 mb-4">Auditors will also produce "Hokuwa Cards," much like trading cards, that include:</p>
 
-                        <div class="hokuwa-card text-white p-6 rounded-lg max-w-md mx-auto">
-                            <div class="flex items-center mb-4">
-                                <div class="w-16 h-16 rounded-full bg-gray-300 mr-4 overflow-hidden">
-                                    <img src="pics/stone2.png" alt="Judge" class="w-full h-full object-cover">
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-xl">Judge John Doe</h4>
-                                    <p class="text-blue-200">District Court, Johnson County</p>
-                                </div>
-                            </div>
-                            <div class="mb-4">
-                                <h5 class="font-semibold mb-2">Key Offenses:</h5>
-                                <ul class="space-y-1">
-                                    <li class="flex items-center"><span class="violation-code px-2 py-1 rounded text-xs mr-2">HOKUWA-L030</span> Obstructing complaints</li>
-                                    <li class="flex items-center"><span class="violation-code px-2 py-1 rounded text-xs mr-2">HOKUWA-C001</span> Refusing valid motions</li>
-                                </ul>
-                            </div>
-                            <div class="mb-4">
-                                <h5 class="font-semibold mb-1">Summary:</h5>
-                                <p class="text-blue-100 text-sm">Repeated pattern of dismissing valid motions without cause, documented in 12 cases since 2020.</p>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span class="bg-red-500 px-3 py-1 rounded-full text-xs font-bold">Active</span>
-                                <span class="text-blue-200 text-sm">Last updated: 06/15/2023</span>
-                            </div>
-                        </div>
-                    </div>
+                        <div class="shimmer-container max-w-md mx-auto mb-8">
+  <div class="hokuwa-card text-white p-6 rounded-lg relative overflow-hidden">
+    <!-- Shimmer overlay -->
+    <div class="shimmer-overlay"></div>
+
+    <!-- Judge Info -->
+    <div class="flex items-center mb-4 z-10 relative">
+      <div class="w-16 h-16 rounded-full bg-gray-300 mr-4 overflow-hidden">
+        <img src="pics/stone2.png" alt="Judge" class="w-full h-full object-cover">
+      </div>
+      <div>
+        <h4 class="font-bold text-xl">Judge John Doe</h4>
+        <p class="text-blue-200">District Court, Johnson County</p>
+      </div>
+    </div>
+
+    <!-- Offenses -->
+    <div class="mb-4 z-10 relative">
+      <h5 class="font-semibold mb-2">Key Offenses:</h5>
+      
+        <div class="space-y-2">
+          <div class="flex items-center pl-6">
+                                <span class="px-2"><img class="h-6 w-6 rounded-full border-2 border-primary-600" src="pics/micheal.png"></span>
+            <span class="violation-code px-2 py-1 rounded text-xs mr-2 bg-red-600">HOKUWA-L030</span>
+            <span>Obstructing complaints</span>
+
+          </div>
+          <div class="flex items-center pl-6">
+                                <span class="px-2"><img class="h-6 w-6 rounded-full border-2 border-primary-600" src="pics/micheal.png"></span>
+            <span class="violation-code px-2 py-1 rounded text-xs mr-2 bg-red-600">HOKUWA-C001</span>
+            <span>Refusing valid motions</span>
+
+          </div>
+        </div>
+
+     
+    </div>
+
+    <!-- Summary -->
+    <div class="mb-4 z-10 relative">
+      <h5 class="font-semibold mb-1">Summary:</h5>
+      <p class="text-blue-100 text-sm">Repeated pattern of dismissing valid motions without cause, documented in 12 cases since 2020.</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="flex justify-between items-center z-10 relative">
+      <span class="bg-red-500 px-3 py-1 rounded-full text-xs font-bold">Active</span>
+      <span class="text-blue-200 text-sm">Case No: 2025CV325</span>
+    </div>
+  </div>
+</div>
+
                 </div>
 
                 <div id="section4" class="bg-white rounded-lg shadow-md p-6 mb-6 section-card fade-in">
