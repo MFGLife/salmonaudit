@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SalmonAudit Ledger Demo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center">
+  <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
+    <h1 class="text-2xl font-bold mb-4">SalmonAudit Ledger</h1>
+    <button onclick="fetchLedger()" class="mb-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Refresh Ledger</button>
+    <ul id="ledger" class="space-y-2"></ul>
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script>
+  async function fetchLedger() {
+    const res = await fetch('https://mfglife.github.io/message/ledger.csv');
+    const csvText = await res.text();
+    const data = Papa.parse(csvText, { header: true }).data;
+    // Now use `data` to render your ledger
+    console.log(data);
+  }
+  fetchLedger();
+</script>
+
+</body>
+</html>
