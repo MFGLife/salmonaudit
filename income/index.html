@@ -14,11 +14,12 @@
 <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 <script>
   async function fetchLedger() {
-    const res = await fetch('https://mfglife.github.io/messages/ledger.csv'); // Make sure this path is correct!
+    const res = await fetch('https://mfglife.github.io/message/ledger.csv');
     const csvText = await res.text();
     const data = Papa.parse(csvText, { header: true, skipEmptyLines: true }).data;
-    console.log(data); // You still get your console output
+    console.log(data);
 
+    // FIX: Get the UL element, not the data array!
     const ledger = document.getElementById('ledger');
     ledger.innerHTML = '';
     data.forEach(entry => {
@@ -36,6 +37,5 @@
   }
   fetchLedger();
 </script>
-
 </body>
 </html>
