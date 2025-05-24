@@ -12,16 +12,32 @@
     <ul id="ledger" class="space-y-2"></ul>
   </div>
 <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+
 <script>
   async function fetchLedger() {
-    const res = await fetch('https://mfglife.github.io/message/ledger.csv');
+    const res = await fetch('https://mfglife.github.io/messages/ledger.csv');
     const csvText = await res.text();
     const data = Papa.parse(csvText, { header: true }).data;
-    // Now use `data` to render your ledger
-    console.log(data);
+    const ledger = document.getElementById('ledger');
+    ledger.innerHTML = '';
+    data.forEach(entry => {
+      // Only display if there's a hash (skip empty rows)
+      if (entry.hash) {
+        ledger.innerHTML += `
+          <li class="bg-gray-50 p-3 rounded border">
+            <div><strong>Hash:</strong> ${entry.hash}</div>
+            <div><strong>Metadata:</strong> ${entry.metadata}</div>
+            <div><strong>Timestamp:</strong> ${entry.timestamp}</div>
+            <div><a href="${entry.commitUrl}" class="text-blue-600 underline" target="_blank">View GitHub Commit</a></div>
+          </li>
+        `;
+      }
+    });
   }
   fetchLedger();
 </script>
+
 
 </body>
 </html>
