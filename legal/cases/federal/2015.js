@@ -736,6 +736,68 @@ Haines v. Kerner, 404 U.S. 519 (1972)1
 Chambers v. NASCO, Inc., 501 U.S. 32 (1991)1
 HOKUWA Violation Reports (HOKUWA-O001, O015, C005, C006, J003, J022, J026)
 WHEREFORE, Plaintiff respectfully requests the Court grant all requested relief, set this matter for expedited hearing, and issue all necessary writs and orders to preserve the integrity of the judicial process and protect the rights of all parties.`
+},
+{
+  id: "2025CV02276DDCTJJ",
+  title: "EMERGENCY RIGHTS ACT STATEMENT AND DEMAND FOR FEDERAL RELIEF",
+  date: "2025-05-27",
+  type: "Order",
+  status: "Pending",
+  content: `EMERGENCY RIGHTS ACT STATEMENT AND DEMAND FOR FEDERAL RELIEF
+Emergency Demand Under 42 U.S.C. § 1983 – Illegal Deprivation of Parental Rights, Retaliatory Policing, and Systemic Due Process Violations (Felix Salmon, Case 2025DM781)
+
+I. INTRODUCTION
+For 167 days as of May 27, 2025, I have been unlawfully barred from all contact with my son, Felix Salmon, due to a coordinated campaign involving:
+Fraudulent court orders: An uncertified Missouri no-contact order misapplied in Kansas.
+Judicial retaliation: Actions taken in Stone County Circuit Court Case No. [REDACTED].
+Collusion between law enforcement and Respondent: Documented in Wyandotte County Sheriff’s Incident Report #SM-AUDIT-05272025-001.
+No court date has been set, and I have received no response from the court or opposing parties to my repeated requests for hearing or clarification. I am unable to obtain a complete, accurate copy of the docket despite multiple formal requests.
+These actions constitute a flagrant violation of my Fourteenth Amendment rights and necessitate immediate federal intervention under 42 U.S.C. § 1983 and the Parental Kidnapping Prevention Act. All primary evidence and incident logs are maintained and available at SalmonAudit.info.
+
+II. INCIDENT SUMMARY (MAY 27, 2025)
+At approximately 10:15 AM CST on May 27, 2025, I attempted to verify Felix’s safety at Crycella Freitag’s mother's residence (Kansas City, KS). Despite:
+No valid Kansas custody order presented;
+No domestic violence allegations or adjudicated risks;
+Documented compliance with all prior court requests (SalmonAudit: Timestamped communications);
+Wyandotte County officers threatened arrest, citing a void Missouri no-contact order (Order lacks Kansas certification under K.S.A. 60-3106). Bodycam footage (requested for preservation) captures officers stating: SGT Tanner Hendrickson and Jesse Vega.
+“We know this is a Missouri order, but we’re enforcing it anyway.”
+“We know this order isn’t Kansas certified/adjusted, but we’re enforcing it still ”
+This mirrors prior incidents (HOKUWA-L003, L005) where law enforcement refused to verify order validity.
+
+III. SYSTEMIC CIVIL RIGHTS VIOLATIONS
+A. Judicial Misconduct (Stone County Circuit Court)
+Judge Matt Alan Selby ignored 28 motions (Exhibit D: Docket Entries 14–42), including:
+Emergency Motion to Enforce Visitation (March 21, 2025)
+Motion to Strike Fraudulent Psychological Evaluation (April 4, 2025)
+Ex parte communications with Respondent’s counsel, Josh Garrett, are evidenced in email logs.
+B. Law Enforcement Collusion
+Retaliatory arrests without probable cause (HOKUWA-L0281)
+Selective enforcement of invalid orders
+C. Parental Alienation
+Respondent blocked all contact
+
+IV. LEGAL BASIS FOR FEDERAL INTERVENTION
+A. 42 U.S.C. § 1983: Deprivation of Rights Under Color of Law
+B. Fourteenth Amendment: Arbitrary Denial of Parenting Time (Troxel v. Granville, 530 U.S. 57)
+C. Parental Kidnapping Prevention Act (28 U.S.C. § 1738A): Invalid Out-of-State Order Enforcement
+D. Obstruction of Justice (18 U.S.C. § 1505): Evidence Tampering
+E. Conspiracy Against Rights (18 U.S.C. § 241): Civil Rights Conspiracy
+
+V. DEMANDED RELIEF
+Emergency Injunction: Immediate restoration of parenting time; federal marshals to supervise visits pending investigation.
+Preservation Orders: All bodycam and dispatch records from the May 27 incident; judicial communications between Judge Selby, Klapper, Lynch and Attorney Garrett.
+Investigative Actions: DOJ review of Stone County and Wyandotte Counties pattern of bias; grand jury indictment for civil rights conspiracy under 18 U.S.C. § 241.
+Damages: $500,000 in compensatory damages for emotional distress; punitive sanctions against retaliatory actors.
+Docket Access: Immediate production of a certified, complete docket for Case 25CV02276, including all filings, motions, and orders to date.
+
+VI. URGENT REQUEST
+Every hour without action inflicts irreparable harm on Felix and me. I respectfully request:
+A response from the DOJ within 48 hours;
+An expedited hearing in the U.S. District Court;
+Confirmation that all evidence and filings listed at SalmonAudit.info are entered into the record and preserved for review.
+NOTICE WITH CERTIFIED SERVICE
+Micheal Salmon certifies that this motion is filed in good faith and with intent to preserve the integrity of the judicial process and constitutional rights afforded to all litigants. A Self-Represented Litigant Certification form (OJA-218) is attached per Rule. All copies, evidence, and videos related to this motion are available at SalmonAudit.info. Please note that videos may take up to 48 hours to appear online after being recorded. Access to this information is provided for transparency and legal audit purposes. All materials are available for public review in accordance with applicable laws. I hereby certify that a true and correct copy was sent via Email: ksd_clerks_kansascity@ksd.uscourts.gov Tina.Rockey@kscourts.gov court.schedule@courts.mo.gov daocfeedback@wycokck.org l Date of Service: 5/27/2025
+Clerk, US District Court 500 State Avenue, Rm. 259 Kansas City, KS 66101`
 }
 
 )
