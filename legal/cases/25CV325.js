@@ -395,5 +395,31 @@ That the Court issue an order preserving all surveillance footage and audio from
 That the Court issue an order compelling the Wyandotte County Sheriff’s Office to preserve and produce body camera footage of officers who interacted with the Petitioner on May 16, 2025.
 That the Court document this event on the official record for all relevant case dockets to protect against future obstruction or retaliation.
 That the Court admonish or require remedial training for court clerks involved in the incident to prevent recurrences.`
+},
+{
+  id: "2025CV325",
+  title: "FIRST AMENDED CLASS ACTION AND CIVIL RICO COMPLAINT",
+  date: "2025-05-27",
+  type: "Order",
+  status: "Pending",
+  content: `FIRST AMENDED CLASS ACTION AND CIVIL RICO COMPLAINT
+Nature of Action:
+This is a class action on behalf of all parents and litigants denied due process in custody or family law proceedings due to systemic fraud, perjury, and coordinated racketeering by judicial officers, court staff, and court-appointed professionals.
+Class Allegations:
+The proposed class consists of all similarly situated individuals affected by the same pattern of racketeering activity, including but not limited to:
+Document tampering and destruction (18 U.S.C. § 1519; HOKUWA-C005, C006, C025)
+Submitting false statements and perjury (HOKUWA-O001, O015)
+Color of law violations and conspiracy (18 U.S.C. §§ 241, 242; HOKUWA-J003, J020)
+RICO Allegations:
+Defendants, through an enterprise, engaged in a pattern of racketeering activity in violation of 18 U.S.C. § 1962(c), including:
+Fraud on the court (Kougasian v. TMSL, 359 F.3d 1136)
+Destruction/alteration of court records (18 U.S.C. § 1519)
+Conspiracy to deprive civil rights (18 U.S.C. § 241)
+Prayer for Relief:
+Certification of the class
+Damages and injunctive relief
+Appointment of class representative
+Expedited discovery on systemic fraud
+NOTICE WITH CERTIFIED SERVICE`
 }
     )

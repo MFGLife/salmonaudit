@@ -606,6 +606,136 @@ WHEREFORE, Plaintiff respectfully requests that this Court:
 3. ISSUE a preliminary and permanent injunction against enforcement of any Missouri contempt actions or warrants against Plaintiff;
 4. ORDER any Missouri-based Defendant(s) to cease reliance on void orders for custody or criminal matters;
 5. AWARD such further relief as the Court deems just and proper.`
+},
+{
+  id: "2025CV02276DDCTJJ",
+  title: "MOTION TO EXPEDITE HEARING",
+  date: "2025-05-27",
+  type: "Motion",
+  status: "Pending",
+  content: `MOTION TO EXPEDITE HEARING
+Plaintiff respectfully moves this Court to set an expedited hearing on all pending motions, including the Motion for Declaratory and Injunctive Relief, due to ongoing irreparable harm, continuing deprivation of parental rights, and the urgent need to preserve evidence and protect the minor child, Felix. Expedited consideration is warranted under the Court’s inherent authority to prevent injustice and to ensure effective relief1.`
+},
+{
+  id: "2025CV02276DDCTJJ",
+  title: "SUPERVISORY MANDAMUS PETITION",
+  date: "2025-05-27",
+  type: "Petition",
+  status: "Pending",
+  content: `SUPERVISORY MANDAMUS PETITION
+Plaintiff petitions this Court for a writ of supervisory mandamus, compelling the District Court and all subordinate officers to:
+Immediately cease enforcement of all orders in Kansas District Court Case 2025DM781 that are alleged to be void due to extrinsic fraud and deprivation of rights.
+Take all necessary actions to restore access to the minor child and to ensure due process is observed in all further proceedings.
+Preserve all records, communications, and evidence relevant to these matters, in accordance with federal law and the Court’s supervisory powers1.
+Legal grounds include the All Writs Act, 28 U.S.C. § 1651, and the Court’s inherent authority to supervise and correct abuses of lower courts (see Chambers v. NASCO, Inc., 501 U.S. 32 (1991); Throckmorton v. U.S., 98 U.S. 61 (1878))1.`
+},
+{
+  id: "2025CV02276DDCTJJ",
+  title: "ALL WRITS MOTION WITH ATTACHED FRAUD ON THE COURT",
+  date: "2025-05-27",
+  type: "Motion",
+  status: "Pending",
+  content: `ALL WRITS MOTION WITH ATTACHED FRAUD ON THE COURT
+Pursuant to the All Writs Act (28 U.S.C. § 1651), Plaintiff moves for issuance of all necessary writs to:
+Prevent further fraud on the court, including the submission of false documents, perjury, and tampering with court records.
+Compel the production and preservation of all relevant evidence, including SalmonAudit logs, HOKUWA Violation Reports, and related exhibits.
+Enjoin any party or court officer from retaliating against whistleblowers or obstructing federal rights.
+Plaintiff attaches a detailed “Fraud on the Court” memorandum, documenting the following:
+Perjury and submission of false evidence by officers of the court (HOKUWA-O001, O015)
+Tampering and destruction of records (18 U.S.C. § 1519; HOKUWA-C005, C006, C025)
+Denial of access and refusal to process filings (HOKUWA-C001, C010, C026)
+Judicial bias and refusal to correct errors (HOKUWA-J003, J022, J026)`
+},
+{
+  id: "2025CV02276DDCTJJ",
+  title: "FEDERAL MOTION FOR DECLARATORY AND INJUNCTIVE RELIEF",
+  date: "2025-05-27",
+  type: "Motion",
+  status: "Pending",
+  content: `FEDERAL MOTION FOR DECLARATORY AND INJUNCTIVE RELIEF
+Plaintiff incorporates by reference all previously filed motions and evidence, and reiterates the following relief sought:
+Immediate Order for Access to Minor Child:
+Grant immediate access to Felix due to ongoing irreparable harm and denial of due process.
+Declaration of Void State Orders:
+Declare all orders in Kansas District Court Case 2025DM781 void ab initio due to extrinsic fraud, perjury, and deprivation of civil rights.
+Legal Grounds:
+42 U.S.C. § 1983 (deprivation of rights under color of law)
+FRCP 60(d)(3) (fraud on the court)
+Throckmorton v. U.S., 98 U.S. 61 (1878)
+Monell v. Dept. of Soc. Servs., 436 U.S. 658 (1978)1
+Supporting Evidence:
+SalmonAudit logs
+HOKUWA Violation Reports
+Exhibits (see above for specific codes and incidents)`
+},
+{
+  id: "2025CV02276DDCTJJ",
+  title: "NOTICE OF SYSTEMIC FRAUD AND MOTION TO NOTIFY COURT",
+  date: "2025-05-27",
+  type: "Motion",
+  status: "Pending",
+  content: `NOTICE OF SYSTEMIC FRAUD AND MOTION TO NOTIFY COURT
+Plaintiff notifies the Court of ongoing systemic fraud, perjury, and due process violations in related state proceedings (2025DM781), including:
+Submission of false documents and perjury (Rule 11(b); HOKUWA-O001, O015)
+Tampering with and destruction of records (18 U.S.C. § 1519; HOKUWA-C005, C006)
+Judicial bias and refusal to correct errors (HOKUWA-J003, J022)
+Extrinsic fraud and denial of access to minor child
+Plaintiff requests the Court take judicial notice, set expedited hearing, and issue all appropriate orders to preserve rights and evidence.`
+},
+{
+  id: "2025CV02276DDCTJJ",
+  title: "FOIA AND PRIVACY ACT DEMAND",
+  date: "2025-05-27",
+  type: "Order",
+  status: "Pending",
+  content: `FOIA AND PRIVACY ACT DEMAND
+To: [Clerk’s Office/Records Custodian]
+Subject: FOIA/Public Records Request
+Pursuant to 5 U.S.C. § 552 and applicable state open records laws, Plaintiff requests:
+All communications, logs, and metadata related to case 2025DM781
+All Guardian ad Litem reports and recommendations
+All ex parte communications, internal memos, and docketing records
+Please produce these records within the statutory timeframe. This request is made in furtherance of ongoing federal litigation and public audit.`
+},
+{
+  id: "2025CV02276DDCTJJ",
+  title: "Writ of Federal Protection (Provisional Habeas Logic)",
+  date: "2025-05-27",
+  type: "Petition",
+  status: "Pending",
+  content: `Writ of Federal Protection (Provisional Habeas Logic)
+Petition for Provisional Writ of Habeas Corpus and Federal Protective Relief
+Citing Exhaustion Futility Due to State Fraud (28 U.S.C. § 2241)
+Plaintiff respectfully petitions this Court for a provisional writ of federal protection, invoking habeas corpus logic under 28 U.S.C. § 2241, based on the futility of further state remedies due to documented systemic fraud and deprivation of federal rights.
+Legal Basis and Context
+28 U.S.C. § 2241 authorizes federal courts to grant habeas relief to individuals in custody in violation of the Constitution or federal law, and is available in exceptional circumstances where state remedies are ineffective or unavailable due to obstruction, fraud, or bad faith by state actors.
+The exhaustion requirement for state remedies may be excused where further pursuit would be futile, especially when the state process itself is tainted by fraud, bias, or ongoing violations of fundamental rights (see Haines v. Kerner, 404 U.S. 519 (1972) – pro se complaints must be liberally construed and not dismissed without opportunity to present evidence of rights violations; Chambers v. NASCO, Inc., 501 U.S. 32 (1991) – courts have inherent power to sanction bad-faith litigation conduct that abuses the judicial process)1.
+In this matter, Plaintiff has made repeated attempts to obtain relief in Kansas District Court Case 2025DM781, but state proceedings have been irreparably compromised by:
+Systemic fraud on the court, including perjury and destruction of records (see HOKUWA-O001, O015; HOKUWA-C005, C006)1.
+Judicial bias, refusal to correct errors, and denial of due process (see HOKUWA-J003, J022, J026)1.
+Retaliation against whistleblowers and obstruction of federal rights.`
+},
+{
+  id: "2025CV02276DDCTJJ",
+  title: "Exhaustion Futility Argument",
+  date: "2025-05-27",
+  type: "Brief",
+  status: "Pending",
+  content: `Exhaustion Futility Argument
+The Supreme Court recognizes that exhaustion of state remedies is not required where such efforts would be futile or where the process is rendered ineffective by state misconduct (see Haines v. Kerner; Chambers v. NASCO, Inc.)1.
+Plaintiff’s documented evidence establishes that further state court actions would not provide an adequate or fair opportunity for relief, and that continued state proceedings would only perpetuate irreparable harm and denial of federal rights.
+Plaintiff respectfully requests that this Court:
+Issue a provisional writ of federal protection, enjoining enforcement of all state orders arising from tainted proceedings in Case 2025DM781.
+Grant immediate access to the minor child, Felix, pending full federal review.
+Order preservation of all relevant records and evidence.
+Set this matter for expedited hearing and grant such further relief as justice requires.
+
+Citations:
+28 U.S.C. § 2241
+Haines v. Kerner, 404 U.S. 519 (1972)1
+Chambers v. NASCO, Inc., 501 U.S. 32 (1991)1
+HOKUWA Violation Reports (HOKUWA-O001, O015, C005, C006, J003, J022, J026)
+WHEREFORE, Plaintiff respectfully requests the Court grant all requested relief, set this matter for expedited hearing, and issue all necessary writs and orders to preserve the integrity of the judicial process and protect the rights of all parties.`
 }
 
 )
