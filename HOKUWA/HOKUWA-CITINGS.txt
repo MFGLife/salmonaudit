@@ -1,0 +1,428 @@
+﻿baseData.push (
+
+  [
+    "Bivens v. Six Unknown Named Agents, 403 U.S. 388 (1971)",
+    "While no explicit right exists to sue federal officials for Fourth Amendment violations, this right can be inferred because constitutional protections require enforceable remedies.",
+    ["HOKUWA-L001", "HOKUWA-L002", "HOKUWA-L003", "HOKUWA-L016", "HOKUWA-L022"]
+  ],
+  [
+    "Haines v. Kerner, 404 U.S. 519 (1972)",
+    "Pro se complaints (especially from prisoners) must be liberally construed and not dismissed without opportunity to present evidence of rights violations.",
+    ["HOKUWA-C001", "HOKUWA-C007", "HOKUWA-C008", "HOKUWA-C010", "HOKUWA-C014", "HOKUWA-J008", "HOKUWA-J019"]
+  ],
+  [
+    "Monell v. Dept. of Social Services, 436 U.S. 658 (1978)",
+    "Local governments can be sued for constitutional violations when their policies/customs cause the harm, not just for employee actions.",
+    ["HOKUWA-L007", "HOKUWA-L012", "HOKUWA-L017", "HOKUWA-L028", "HOKUWA-C016", "HOKUWA-C030"]
+  ],
+  [
+    "Chambers v. NASCO, Inc., 501 U.S. 32 (1991)",
+    "Courts have inherent power to sanction bad-faith litigation conduct that abuses the judicial process.",
+    ["HOKUWA-O001", "HOKUWA-O002", "HOKUWA-O007", "HOKUWA-O016", "HOKUWA-O022", "HOKUWA-W007", "HOKUWA-W021"]
+  ],
+  [
+    "Santosky v. Kramer, 455 U.S. 745 (1982)",
+    "Terminating parental rights requires 'clear and convincing evidence' standard, not just a preponderance.",
+    ["HOKUWA-G001", "HOKUWA-G004", "HOKUWA-G014", "HOKUWA-G023", "HOKUWA-G030", "HOKUWA-J011", "HOKUWA-J020"]
+  ],
+  [
+    "Brady v. Maryland, 373 U.S. 83 (1963)",
+    "Prosecutors must disclose exculpatory evidence to defendants; suppression violates due process.",
+    ["HOKUWA-W003", "HOKUWA-W004", "HOKUWA-W006", "HOKUWA-W012", "HOKUWA-W027", "HOKUWA-O006", "HOKUWA-O020"]
+  ],
+  [
+    "Liteky v. United States, 510 U.S. 540 (1994)",
+    "Judicial rulings alone rarely show bias unless they reveal deep-seated favoritism or antagonism.",
+    ["HOKUWA-J003", "HOKUWA-J004", "HOKUWA-J014", "HOKUWA-J016", "HOKUWA-J022", "HOKUWA-J026"]
+  ],
+  [
+    "Mullane v. Central Hanover Bank, 339 U.S. 306 (1950)",
+    "Due process requires notice reasonably calculated to inform interested parties of pending actions.",
+    ["HOKUWA-P001", "HOKUWA-P002", "HOKUWA-P016", "HOKUWA-P022", "HOKUWA-P030", "HOKUWA-C022", "HOKUWA-C023"]
+  ],
+  [
+    "Palmore v. Sidoti, 466 U.S. 429 (1984)",
+    "Custody decisions cannot be based on racial prejudice or community biases.",
+    ["HOKUWA-G016", "HOKUWA-G021", "HOKUWA-G024", "HOKUWA-J016", "HOKUWA-A019", "HOKUWA-A029"]
+  ],
+  [
+    "Nix v. Whiteside, 475 U.S. 157 (1986)",
+    "Attorneys must refuse to assist client perjury, even if it harms their case.",
+    ["HOKUWA-O003", "HOKUWA-O015", "HOKUWA-O024", "HOKUWA-W001", "HOKUWA-W006", "HOKUWA-W019"]
+  ],
+ [
+    "People v. Beckley, 185 Cal.App.4th 509 (2010)",
+    "Criminal conviction for custodial interference and false reports of abuse to alienate child from parent.",
+    ["HOKUWA-PA019", "HOKUWA-PA016", "HOKUWA-PA022"]
+  ],
+  [
+    "In re Marriage of Fajota, 2014 WL 1400887 (Cal. Ct. App.)",
+    "Court-ordered reversal of custody after proof of mother coaching child to fear father.",
+    ["HOKUWA-PA001", "HOKUWA-PA015", "HOKUWA-PA012"]
+  ],
+[
+    "Lassiter v. Dept. of Social Services, 452 U.S. 18 (1981)",
+    "Due process does not automatically require appointed counsel in parental termination cases, creating unequal access risks.",
+    ["HOKUWA-J008", "HOKUWA-G030", "HOKUWA-CA030"]
+  ],
+  [
+    "Stanley v. Illinois, 405 U.S. 645 (1972)",
+    "Unwed fathers have constitutional rights to custody hearings before losing parental rights.",
+    ["HOKUWA-CA026", "HOKUWA-J011", "HOKUWA-G014"]
+  ],
+  [
+    "Santosky v. Kramer, 455 U.S. 745 (1982)",
+    "Clear and convincing evidence standard required for parental rights termination.",
+    ["HOKUWA-G001", "HOKUWA-CA015", "HOKUWA-J022"]
+  ],
+  [
+    "Reno v. Flores, 507 U.S. 292 (1993)",
+    "Minimal due process requirements for child custody determinations of undocumented minors.",
+    ["HOKUWA-CA008", "HOKUWA-J007", "HOKUWA-P030"]
+  ],
+  [
+    "Troxel v. Granville, 530 U.S. 57 (2000)",
+    "Parents have fundamental right to make decisions about child's associations.",
+    ["HOKUWA-CA023", "HOKUWA-PA023", "HOKUWA-A014"]
+  ],
+  [
+    "Turner v. Rogers, 564 U.S. 431 (2011)",
+    "No automatic right to counsel in civil contempt hearings for child support.",
+    ["HOKUWA-J008", "HOKUWA-CA022", "HOKUWA-P029"]
+  ],
+  [
+    "J.E.B. v. Alabama, 511 U.S. 127 (1994)",
+    "Gender-based peremptory juror challenges violate Equal Protection.",
+    ["HOKUWA-J016", "HOKUWA-G016", "HOKUWA-A019"]
+  ],
+  [
+    "Michael H. v. Gerald D., 491 U.S. 110 (1989)",
+    "Biological paternity rights vs. marital presumption conflicts.",
+    ["HOKUWA-CA004", "HOKUWA-G004", "HOKUWA-J014"]
+  ],
+  [
+    "Nguyen v. INS, 533 U.S. 53 (2001)",
+    "Gender-based citizenship transmission rules held constitutional.",
+    ["HOKUWA-G016", "HOKUWA-J003", "HOKUWA-A019"]
+  ],
+  [
+    "Parham v. J.R., 442 U.S. 584 (1979)",
+    "Procedural safeguards for involuntary commitment of minors.",
+    ["HOKUWA-CA017", "HOKUWA-A017", "HOKUWA-J028"]
+  ],
+  [
+    "M.L.B. v. S.L.J., 519 U.S. 102 (1996)",
+    "Indigents must get free transcripts for parental rights appeals.",
+    ["HOKUWA-C010", "HOKUWA-P015", "HOKUWA-J011"]
+  ],
+  [
+    "Lehr v. Robertson, 463 U.S. 248 (1983)",
+    "Biological fathers must demonstrate commitment to claim parental rights.",
+    ["HOKUWA-CA013", "HOKUWA-G014", "HOKUWA-J010"]
+  ],
+  [
+    "Palmore v. Sidoti, 466 U.S. 429 (1984)",
+    "Race cannot factor into custody decisions.",
+    ["HOKUWA-G016", "HOKUWA-CA024", "HOKUWA-A019"]
+  ],
+  [
+    "Smith v. Organization of Foster Families, 431 U.S. 816 (1977)",
+    "Procedural protections required before removing children from foster homes.",
+    ["HOKUWA-CA026", "HOKUWA-P001", "HOKUWA-J007"]
+  ],
+  [
+    "DeShaney v. Winnebago County, 489 U.S. 189 (1989)",
+    "State's failure to protect child from parental abuse not constitutional violation.",
+    ["HOKUWA-CA030", "HOKUWA-J010", "HOKUWA-G002"]
+  ],
+  [
+    "Maryland v. Craig, 497 U.S. 836 (1990)",
+    "Child witnesses may testify via closed-circuit TV in abuse cases.",
+    ["HOKUWA-W010", "HOKUWA-PA012", "HOKUWA-CA021"]
+  ],
+  [
+    "Coy v. Iowa, 487 U.S. 1012 (1988)",
+    "Confrontation Clause requires face-to-face accuser confrontation.",
+    ["HOKUWA-W002", "HOKUWA-PA017", "HOKUWA-J010"]
+  ],
+  [
+    "In re Gault, 387 U.S. 1 (1967)",
+    "Juveniles get due process rights including counsel and confrontation.",
+    ["HOKUWA-PA012", "HOKUWA-CA012", "HOKUWA-J019"]
+  ],
+  [
+    "Prince v. Massachusetts, 321 U.S. 158 (1944)",
+    "State's interest in protecting children overrides parental religious freedom claims.",
+    ["HOKUWA-CA028", "HOKUWA-G005", "HOKUWA-J007"]
+  ],
+  [
+    "Wisconsin v. Yoder, 406 U.S. 205 (1972)",
+    "Parental religious freedom vs. compulsory education balance.",
+    ["HOKUWA-CA018", "HOKUWA-G021", "HOKUWA-J003"]
+  ],
+  [
+    "Meyer v. Nebraska, 262 U.S. 390 (1923)",
+    "Parental right to direct child's upbringing as fundamental liberty.",
+    ["HOKUWA-CA024", "HOKUWA-PA005", "HOKUWA-J016"]
+  ],
+  [
+    "Pierce v. Society of Sisters, 268 U.S. 510 (1925)",
+    "Parents' right to choose private schooling over state mandates.",
+    ["HOKUWA-CA017", "HOKUWA-PA025", "HOKUWA-J007"]
+  ],
+  [
+    "Glona v. American Guarantee Co., 391 U.S. 73 (1968)",
+    "Illegitimate children's rights to wrongful death benefits.",
+    ["HOKUWA-G016", "HOKUWA-CA019", "HOKUWA-J003"]
+  ],
+  [
+    "Lehr v. Robertson, 463 U.S. 248 (1983)",
+    "Biological fathers must demonstrate commitment to claim parental rights.",
+    ["HOKUWA-CA013", "HOKUWA-G014", "HOKUWA-J010"]
+  ],
+  [
+    "Quilloin v. Walcott, 434 U.S. 246 (1978)",
+    "Stepparent adoption standards and biological parent rights.",
+    ["HOKUWA-CA009", "HOKUWA-G019", "HOKUWA-J014"]
+  ],
+  [
+    "Smith v. OFFER, 431 U.S. 816 (1977)",
+    "Procedural protections before foster care removal.",
+    ["HOKUWA-CA026", "HOKUWA-P001", "HOKUWA-J007"]
+  ],
+  [
+    "Suter v. Artist M., 503 U.S. 347 (1992)",
+    "Limitations on private enforcement of Adoption Assistance Act.",
+    ["HOKUWA-CA030", "HOKUWA-J011", "HOKUWA-G010"]
+  ],
+  [
+    "Kingsley v. Kingsley, 623 So.2d 780 (Fla. 1993)",
+    "Child's limited right to terminate parental rights.",
+    ["HOKUWA-CA019", "HOKUWA-J028", "HOKUWA-G005"]
+  ],
+  [
+    "In re Marriage of Carney, 598 P.2d 36 (Cal. 1979)",
+    "Disabled parent custody rights preservation standards.",
+    ["HOKUWA-CA024", "HOKUWA-J003", "HOKUWA-G016"]
+  ],
+  [
+    "Painter v. Bannister, 140 N.W.2d 152 (Iowa 1966)",
+    "Grandparent custody based on 'stability' vs. biological parent.",
+    ["HOKUWA-CA008", "HOKUWA-J014", "HOKUWA-G021"]
+  ],
+  [
+    "In re Jessica Z., 135 Cal.Rptr.2d 918 (2003)",
+    "Presumption against custody for parents with mental disabilities.",
+    ["HOKUWA-CA028", "HOKUWA-J003", "HOKUWA-G021"]
+  ],
+[
+"Terry v. Ohio, 392 U.S. 1 (1968)",
+"Police may stop and frisk individuals without probable cause if they have reasonable suspicion of criminal activity and concern for officer safety.",
+["HOKUWA-L003", "HOKUWA-L015", "HOKUWA-L022", "HOKUWA-L026", "HOKUWA-P012"]
+],
+[
+"Goldberg v. Kelly, 397 U.S. 254 (1970)",
+"Due process requires evidentiary hearings before termination of welfare benefits, establishing that government benefits are a protected property interest.",
+["HOKUWA-P001", "HOKUWA-P005", "HOKUWA-P010", "HOKUWA-P011", "HOKUWA-J007", "HOKUWA-J010"]
+],
+[
+"Fuentes v. Shevin, 407 U.S. 67 (1972)",
+"Prejudgment seizure of property without notice or hearing violates due process, requiring safeguards against wrongful deprivation.",
+["HOKUWA-L016", "HOKUWA-P001", "HOKUWA-P004", "HOKUWA-P023", "HOKUWA-J007", "HOKUWA-J011"]
+],
+[
+"Mathews v. Eldridge, 424 U.S. 319 (1976)",
+"Three-factor test for due process: private interest affected, risk of erroneous deprivation, and government's interest.",
+["HOKUWA-J007", "HOKUWA-J010", "HOKUWA-J011", "HOKUWA-P001", "HOKUWA-P004", "HOKUWA-P030"]
+],
+[
+"Tennessee v. Garner, 471 U.S. 1 (1985)",
+"Deadly force against fleeing suspects violates Fourth Amendment unless officer has probable cause to believe suspect poses significant threat.",
+["HOKUWA-L001", "HOKUWA-L003", "HOKUWA-L010", "HOKUWA-L015", "HOKUWA-L021"]
+],
+[
+"Graham v. Connor, 490 U.S. 386 (1989)",
+"Excessive force claims must be analyzed under Fourth Amendment's 'objective reasonableness' standard, not substantive due process.",
+["HOKUWA-L001", "HOKUWA-L003", "HOKUWA-L011", "HOKUWA-L015", "HOKUWA-L025"]
+],
+[
+"Crawford v. Washington, 541 U.S. 36 (2004)",
+"Confrontation Clause prohibits admission of testimonial hearsay unless witness is unavailable and defendant had prior cross-examination opportunity.",
+["HOKUWA-W001", "HOKUWA-W002", "HOKUWA-W010", "HOKUWA-W017", "HOKUWA-P011", "HOKUWA-J010"]
+],
+[
+"Hamdi v. Rumsfeld, 542 U.S. 507 (2004)",
+"Due process requires meaningful opportunity for detainees to contest factual basis for their detention before neutral decision-maker.",
+["HOKUWA-J007", "HOKUWA-J008", "HOKUWA-J010", "HOKUWA-P001", "HOKUWA-P005", "HOKUWA-P011"]
+],
+[
+"Ashcroft v. Iqbal, 556 U.S. 662 (2009)",
+"Pleadings must contain sufficient factual matter to state plausible claim for relief, establishing higher pleading standard.",
+["HOKUWA-C001", "HOKUWA-C002", "HOKUWA-C008", "HOKUWA-C021", "HOKUWA-O007", "HOKUWA-O017"]
+],
+[
+"Obergefell v. Hodges, 576 U.S. 644 (2015)",
+"Fundamental right to marry is guaranteed to same-sex couples by Due Process and Equal Protection Clauses.",
+["HOKUWA-J003", "HOKUWA-J007", "HOKUWA-J016", "HOKUWA-J018", "HOKUWA-G016", "HOKUWA-A019"]
+],
+
+[
+"Gideon v. Wainwright, 372 U.S. 335 (1963)",
+"The Sixth Amendment guarantees the right to counsel in criminal cases, requiring states to provide attorneys for indigent defendants.",
+["HOKUWA-J008", "HOKUWA-J019", "HOKUWA-O004", "HOKUWA-O026", "HOKUWA-P011", "HOKUWA-P030"]
+],
+[
+"Miranda v. Arizona, 384 U.S. 436 (1966)",
+"Suspects in custody must be informed of their rights against self-incrimination and to counsel before interrogation.",
+["HOKUWA-L003", "HOKUWA-L012", "HOKUWA-L027", "HOKUWA-W001", "HOKUWA-W019", "HOKUWA-O003"]
+],
+[
+"Katz v. United States, 389 U.S. 347 (1967)",
+"Fourth Amendment protects people, not places, establishing reasonable expectation of privacy test for searches.",
+["HOKUWA-L001", "HOKUWA-L016", "HOKUWA-L026", "HOKUWA-W003", "HOKUWA-W005", "HOKUWA-W012"]
+],
+[
+"In re Gault, 387 U.S. 1 (1967)",
+"Juveniles have due process rights including notice of charges, right to counsel, and right against self-incrimination.",
+["HOKUWA-J007", "HOKUWA-J008", "HOKUWA-J010", "HOKUWA-P001", "HOKUWA-P011", "HOKUWA-G006"]
+],
+[
+"Roe v. Wade, 410 U.S. 113 (1973)",
+"Constitutional right to privacy encompasses woman's decision to have abortion, subject to state regulation in later trimesters.",
+["HOKUWA-J007", "HOKUWA-J016", "HOKUWA-J021", "HOKUWA-G028", "HOKUWA-A020", "HOKUWA-A030"]
+],
+[
+"United States v. Nixon, 418 U.S. 683 (1974)",
+"Executive privilege cannot prevent disclosure of evidence needed for criminal trial, establishing limits on presidential immunity.",
+["HOKUWA-W003", "HOKUWA-W004", "HOKUWA-W020", "HOKUWA-W025", "HOKUWA-O006", "HOKUWA-O027"]
+],
+[
+"Gregg v. Georgia, 428 U.S. 153 (1976)",
+"Capital punishment is constitutional when imposed for murder with proper sentencing guidelines and procedures.",
+["HOKUWA-J007", "HOKUWA-J010", "HOKUWA-J011", "HOKUWA-P004", "HOKUWA-P006", "HOKUWA-P030"]
+],
+[
+"Batson v. Kentucky, 476 U.S. 79 (1986)",
+"Prosecutors cannot use peremptory challenges to exclude jurors based solely on race, establishing Batson challenges.",
+["HOKUWA-J003", "HOKUWA-J016", "HOKUWA-O019", "HOKUWA-W028", "HOKUWA-A019", "HOKUWA-G016"]
+],
+[
+"Roper v. Simmons, 543 U.S. 551 (2005)",
+"Execution of juvenile offenders violates Eighth Amendment's prohibition of cruel and unusual punishment.",
+["HOKUWA-J007", "HOKUWA-J016", "HOKUWA-J028", "HOKUWA-G005", "HOKUWA-G016", "HOKUWA-G030"]
+],
+[
+"Citizens United v. FEC, 558 U.S. 310 (2010)",
+"Political spending is protected free speech under First Amendment, prohibiting government from restricting independent expenditures.",
+["HOKUWA-J007", "HOKUWA-J012", "HOKUWA-J018", "HOKUWA-L018", "HOKUWA-O027", "HOKUWA-W025"]
+],
+
+[
+    "New York Times Co. v. Sullivan, 376 U.S. 254 (1964)",
+    "First Amendment protects publication of all statements about public officials unless made with actual malice (knowledge of falsity or reckless disregard for truth).",
+    ["HOKUWA-J012", "HOKUWA-J018", "HOKUWA-L018", "HOKUWA-A008", "HOKUWA-A028", "HOKUWA-W027"]
+  ],
+  [
+    "Mapp v. Ohio, 367 U.S. 643 (1961)",
+    "Evidence obtained through unconstitutional searches and seizures is inadmissible in state courts (exclusionary rule application to states).",
+    ["HOKUWA-L001", "HOKUWA-L003", "HOKUWA-L016", "HOKUWA-W003", "HOKUWA-W007", "HOKUWA-W030"]
+  ],
+  [
+    "Escobedo v. Illinois, 378 U.S. 478 (1964)",
+    "Right to counsel attaches when investigation focuses on accused and custody begins, not just at trial.",
+    ["HOKUWA-L003", "HOKUWA-L027", "HOKUWA-J008", "HOKUWA-P011", "HOKUWA-O004", "HOKUWA-W001"]
+  ],
+  [
+    "Brandenburg v. Ohio, 395 U.S. 444 (1969)",
+    "First Amendment protects advocacy of illegal action unless directed to incite imminent lawless action and likely to produce such action.",
+    ["HOKUWA-J005", "HOKUWA-J007", "HOKUWA-J012", "HOKUWA-L018", "HOKUWA-A011", "HOKUWA-A026"]
+  ],
+  [
+    "Lemon v. Kurtzman, 403 U.S. 602 (1971)",
+    "Three-part test for Establishment Clause violations: secular purpose, primary effect neither advances nor inhibits religion, no excessive entanglement.",
+    ["HOKUWA-J003", "HOKUWA-J007", "HOKUWA-J016", "HOKUWA-G016", "HOKUWA-A019", "HOKUWA-A029"]
+  ],
+  [
+    "Roe v. Wade, 410 U.S. 113 (1973)",
+    "Constitutional right to privacy encompasses woman's decision to have abortion, subject to state regulation in later trimesters.",
+    ["HOKUWA-J007", "HOKUWA-J016", "HOKUWA-J021", "HOKUWA-G028", "HOKUWA-A020", "HOKUWA-A030"]
+  ],
+  [
+    "Miller v. California, 413 U.S. 15 (1973)",
+    "Three-prong obscenity test: appeals to prurient interest, depicts sexual conduct patently offensive by community standards, lacks serious value.",
+    ["HOKUWA-J007", "HOKUWA-J018", "HOKUWA-L018", "HOKUWA-W007", "HOKUWA-W018", "HOKUWA-W025"]
+  ],
+  [
+    "United States v. Leon, 468 U.S. 897 (1984)",
+    "Good faith exception to exclusionary rule when police reasonably rely on defective search warrant.",
+    ["HOKUWA-L001", "HOKUWA-L003", "HOKUWA-L012", "HOKUWA-L022", "HOKUWA-W003", "HOKUWA-W007"]
+  ],
+  [
+    "Texas v. Johnson, 491 U.S. 397 (1989)",
+    "Flag burning constitutes symbolic speech protected by First Amendment.",
+    ["HOKUWA-J005", "HOKUWA-J007", "HOKUWA-J012", "HOKUWA-J018", "HOKUWA-L018", "HOKUWA-A008"]
+  ],
+  [
+    "Planned Parenthood v. Casey, 505 U.S. 833 (1992)",
+    "Reaffirmed Roe's central holding while replacing trimester framework with undue burden standard for abortion regulations.",
+    ["HOKUWA-J007", "HOKUWA-J016", "HOKUWA-J021", "HOKUWA-G005", "HOKUWA-G028", "HOKUWA-A030"]
+  ],
+  [
+    "Lawrence v. Texas, 539 U.S. 558 (2003)",
+    "Criminal prohibition of private consensual same-sex intimacy violates Due Process Clause.",
+    ["HOKUWA-J003", "HOKUWA-J007", "HOKUWA-J016", "HOKUWA-G016", "HOKUWA-A019", "HOKUWA-A021"]
+  ],
+  [
+    "District of Columbia v. Heller, 554 U.S. 570 (2008)",
+    "Second Amendment protects individual right to possess firearm unconnected with militia service for lawful purposes like self-defense.",
+    ["HOKUWA-J007", "HOKUWA-J016", "HOKUWA-L001", "HOKUWA-L003", "HOKUWA-L015", "HOKUWA-L016"]
+  ],
+  [
+    "McDonald v. Chicago, 561 U.S. 742 (2010)",
+    "Second Amendment right to keep and bear arms applies to state and local governments through Fourteenth Amendment incorporation.",
+    ["HOKUWA-J007", "HOKUWA-J016", "HOKUWA-L001", "HOKUWA-L003", "HOKUWA-L015", "HOKUWA-L016"]
+  ],
+  [
+    "Snyder v. Phelps, 562 U.S. 443 (2011)",
+    "First Amendment protects even hurtful speech on public issues (Westboro Baptist Church funeral protests case).",
+    ["HOKUWA-J005", "HOKUWA-J012", "HOKUWA-J018", "HOKUWA-L018", "HOKUWA-A008", "HOKUWA-A028"]
+  ],
+  [
+    "Riley v. California, 573 U.S. 373 (2014)",
+    "Warrant generally required to search digital information on cell phone seized incident to arrest.",
+    ["HOKUWA-L001", "HOKUWA-L003", "HOKUWA-L016", "HOKUWA-W003", "HOKUWA-W005", "HOKUWA-W012"]
+  ],
+  [
+    "Obergefell v. Hodges, 576 U.S. 644 (2015)",
+    "Fundamental right to marry is guaranteed to same-sex couples by Due Process and Equal Protection Clauses.",
+    ["HOKUWA-J003", "HOKUWA-J007", "HOKUWA-J016", "HOKUWA-J018", "HOKUWA-G016", "HOKUWA-A019"]
+  ],
+  [
+    "Janus v. AFSCME, 585 U.S. ___ (2018)",
+    "Mandatory public sector union fees violate First Amendment by compelling political speech.",
+    ["HOKUWA-J007", "HOKUWA-J012", "HOKUWA-J018", "HOKUWA-L018", "HOKUWA-A008", "HOKUWA-A021"]
+  ],
+  [
+    "Rucho v. Common Cause, 588 U.S. ___ (2019)",
+    "Partisan gerrymandering claims present political questions beyond reach of federal courts.",
+    ["HOKUWA-J003", "HOKUWA-J004", "HOKUWA-J016", "HOKUWA-J021", "HOKUWA-J024", "HOKUWA-J030"]
+  ],
+  [
+    "Bostock v. Clayton County, 590 U.S. ___ (2020)",
+    "Title VII prohibits employment discrimination based on sexual orientation or gender identity.",
+    ["HOKUWA-J003", "HOKUWA-J007", "HOKUWA-J016", "HOKUWA-L018", "HOKUWA-G016", "HOKUWA-A019"]
+  ],
+  [
+    "Dobbs v. Jackson Women's Health Org., 597 U.S. ___ (2022)",
+    "Overturned Roe v. Wade, holding Constitution does not confer right to abortion.",
+    ["HOKUWA-J007", "HOKUWA-J016", "HOKUWA-J021", "HOKUWA-G005", "HOKUWA-G028", "HOKUWA-A030"]
+  ]
+
+);
+
+
+
+
+
+
+
