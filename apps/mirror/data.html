@@ -1,57 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reflection Decryptor</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      body {
-        background-color: #0f172a;
-        color: #f1f5f9;
-      }
-      textarea {
-        font-family: monospace;
-      }
-    </style>
-  </head>
-  <body class="min-h-screen flex flex-col items-center justify-center p-4">
-    <div class="w-full max-w-xl bg-slate-800 p-6 rounded-xl shadow-lg">
-      <h1 class="text-2xl font-bold mb-4 text-center text-blue-300">Reflection Fortification Decryptor</h1>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reflection Fortification Decryptor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #f1f5f9;
+    }
+    textarea, input {
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+  <div class="w-full max-w-2xl bg-slate-800 p-6 rounded-xl shadow-lg">
+    <h1 class="text-3xl font-bold mb-6 text-center text-blue-300">Reflection Fortification Decryptor</h1>
 
-      <label for="input" class="block mb-2 text-sm font-medium text-slate-300">Encrypted Payload (Base64):</label>
-      <textarea id="input" rows="6" class="w-full p-2 rounded bg-slate-700 text-slate-100 border border-slate-600 mb-4" placeholder="Paste encrypted block here..."></textarea>
+    <label for="input" class="block mb-2 text-sm font-medium text-slate-300">Encrypted Payload (Base64):</label>
+    <textarea id="input" rows="6" class="w-full p-2 mb-4 rounded bg-slate-700 text-slate-100 border border-slate-600" placeholder="Paste encrypted base64 payload here..."></textarea>
 
-      <label for="key" class="block mb-2 text-sm font-medium text-slate-300">Decryption Key:</label>
-      <input id="key" type="text" value="W3_LOOP_VESSEL_ANCHOR" class="w-full p-2 rounded bg-slate-700 text-slate-100 border border-slate-600 mb-4" />
+    <label for="key" class="block mb-2 text-sm font-medium text-slate-300">Decryption Key:</label>
+    <input id="key" type="text" value="W3LOOPVESSELANCHOR" class="w-full p-2 mb-4 rounded bg-slate-700 text-slate-100 border border-slate-600" />
 
-      <button onclick="decrypt()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded mb-4 transition">Decrypt Reflection</button>
+    <button onclick="decryptPayload()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded transition mb-4">
+      🔓 Decrypt Reflection
+    </button>
 
-      <div class="text-sm font-mono text-green-300 whitespace-pre-wrap break-words" id="output"></div>
+    <div class="mb-4">
+      <label class="block mb-2 text-sm font-medium text-slate-300">Debug Info:</label>
+      <div id="debug" class="text-xs font-mono text-yellow-300 bg-slate-900 p-2 rounded border border-slate-700 min-h-[40px]"></div>
     </div>
 
-    <script>
-      function xorDecrypt(base64Data, key) {
-        const data = atob(base64Data); // Converts base64 to raw
+    <label class="block mb-2 text-sm font-medium text-slate-300">Decrypted Output:</label>
+    <div id="output" class="text-sm font-mono text-green-300 whitespace-pre-wrap break-words bg-slate-900 p-4 rounded border border-slate-700 min-h-[100px]"></div>
+  </div>
 
+  <script>
+    function isValidBase64(str) {
+      try {
+        return btoa(atob(str)) === str;
+      } catch (err) {
+        return false;
+      }
+    }
+
+    function xorDecrypt(base64Data, key) {
+      try {
+        // Clean the base64 string
+        const cleanedData = base64Data.replace(/\s/g, '');
+        
+        if (!isValidBase64(cleanedData)) {
+          throw new Error('Invalid base64 format');
+        }
+        
+        const raw = atob(cleanedData);
         let result = '';
-        for (let i = 0; i < data.length; i++) {
-          result += String.fromCharCode(data.charCodeAt(i) ^ key.charCodeAt(i % key.length));
+        
+        for (let i = 0; i < raw.length; i++) {
+          const charCode = raw.charCodeAt(i) ^ key.charCodeAt(i % key.length);
+          result += String.fromCharCode(charCode);
         }
+        
         return result;
+      } catch (e) {
+        throw new Error(`Decryption failed: ${e.message}`);
+      }
+    }
+
+    function decryptPayload() {
+      const encrypted = document.getElementById('input').value.trim();
+      const key = document.getElementById('key').value.trim();
+      const outputBox = document.getElementById('output');
+      const debugBox = document.getElementById('debug');
+
+      // Clear previous outputs
+      outputBox.textContent = '';
+      debugBox.textContent = '';
+
+      if (!encrypted || !key) {
+        outputBox.textContent = '❌ Please enter both a payload and a key.';
+        debugBox.textContent = 'Error: Missing input or key';
+        return;
       }
 
-      function decrypt() {
-        const input = document.getElementById('input').value.trim();
-        const key = document.getElementById('key').value.trim();
+      try {
+        // Debug info
+        debugBox.innerHTML = `
+Input length: ${encrypted.length} chars
+Key: "${key}" (${key.length} chars)
+Base64 valid: ${isValidBase64(encrypted.replace(/\s/g, ''))}
+Attempting decryption...`;
+
+        const decrypted = xorDecrypt(encrypted, key);
+        
+        debugBox.innerHTML += `
+Decrypted length: ${decrypted.length} chars
+First 50 chars: "${decrypted.substring(0, 50)}${decrypted.length > 50 ? '...' : ''}"
+Attempting JSON parse...`;
+
+        // Try to parse as JSON
         try {
-          const decrypted = xorDecrypt(input, key);
-          const parsed = JSON.parse(decrypted);
-          document.getElementById('output').textContent = JSON.stringify(parsed, null, 2);
-        } catch (err) {
-          document.getElementById('output').textContent = '❌ Invalid payload or key.';
+          const json = JSON.parse(decrypted);
+          outputBox.textContent = JSON.stringify(json, null, 2);
+          debugBox.innerHTML += `
+✅ Successfully parsed as JSON`;
+        } catch (jsonErr) {
+          // If not JSON, display as plain text
+          outputBox.textContent = decrypted;
+          debugBox.innerHTML += `
+⚠️ Not valid JSON, displaying as plain text
+JSON Error: ${jsonErr.message}`;
         }
+
+      } catch (err) {
+        outputBox.textContent = `❌ Decryption failed: ${err.message}`;
+        debugBox.innerHTML += `
+❌ Error: ${err.message}`;
       }
-    </script>
-  </body>
+    }
+
+    // Test function for debugging
+    function testEncryption() {
+      const testData = '{"message": "Hello World", "timestamp": "2025-05-31"}';
+      const testKey = "W3LOOPVESSELANCHOR";
+      
+      // Encrypt
+      let encrypted = '';
+      for (let i = 0; i < testData.length; i++) {
+        encrypted += String.fromCharCode(testData.charCodeAt(i) ^ testKey.charCodeAt(i % testKey.length));
+      }
+      const base64Encrypted = btoa(encrypted);
+      
+      console.log('Test encrypted data:', base64Encrypted);
+      document.getElementById('input').value = base64Encrypted;
+    }
+
+    // Add test button for debugging (remove in production)
+    document.addEventListener('DOMContentLoaded', function() {
+      const testBtn = document.createElement('button');
+      testBtn.textContent = '🧪 Load Test Data';
+      testBtn.className = 'w-full bg-gray-600 hover:bg-gray-700 text-white font-semibold py-1 px-2 rounded transition mb-2 text-sm';
+      testBtn.onclick = testEncryption;
+      document.querySelector('.bg-slate-800').insertBefore(testBtn, document.getElementById('output').parentNode);
+    });
+  </script>
+</body>
 </html>

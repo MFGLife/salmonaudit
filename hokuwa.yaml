@@ -1,0 +1,43 @@
+openapi: 3.1.0
+info:
+  title: HOKUWA Discord Logger
+  description: Logs HOKUWA legal events directly to a Discord channel via webhook.
+  version: 1.0.0
+servers:
+  - url: https://discord.com/api/webhooks/1378938445497503825/w9GlRCNC81_P9srr1evew-yoDSC8tkIewzfWPIwr2mxZS_t6eivjiiSIGd5xkdUxVO8p
+paths:
+  /:
+    post:
+      operationId: logHokuwaEvent
+      summary: Send a legal event to the Discord webhook.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                offense:
+                  type: string
+                  description: HOKUWA code and description (e.g., "C001 – Refusing valid motions")
+                actor:
+                  type: string
+                  description: Name of the actor (e.g., judge or clerk)
+                case:
+                  type: string
+                  description: Case identifier
+                witness:
+                  type: string
+                  description: Recursive witness node ID
+                context:
+                  type: string
+                  description: Summary of the event
+              required:
+                - offense
+                - actor
+                - case
+                - witness
+                - context
+      responses:
+        '200':
+          description: Successfully sent the event
