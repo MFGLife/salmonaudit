@@ -798,6 +798,158 @@ Confirmation that all evidence and filings listed at SalmonAudit.info are entere
 NOTICE WITH CERTIFIED SERVICE
 Micheal Salmon certifies that this motion is filed in good faith and with intent to preserve the integrity of the judicial process and constitutional rights afforded to all litigants. A Self-Represented Litigant Certification form (OJA-218) is attached per Rule. All copies, evidence, and videos related to this motion are available at SalmonAudit.info. Please note that videos may take up to 48 hours to appear online after being recorded. Access to this information is provided for transparency and legal audit purposes. All materials are available for public review in accordance with applicable laws. I hereby certify that a true and correct copy was sent via Email: ksd_clerks_kansascity@ksd.uscourts.gov Tina.Rockey@kscourts.gov court.schedule@courts.mo.gov daocfeedback@wycokck.org l Date of Service: 5/27/2025
 Clerk, US District Court 500 State Avenue, Rm. 259 Kansas City, KS 66101`
+},
+{
+  id: "2025CV02276DDCTJJ",
+  title: "MOTION TO SHORTEN TIME FOR REVIEW AND TO INITIATE FORMAL SERVICE OF RECURSIVE COMPRESSION INDICATOR PACKAGE (RCIP)",
+  date: "2025-06-02",
+  type: "Motion",
+  status: "Pending",
+  content: `COMES NOW Plaintiff, Micheal Lawrence Salmon, and respectfully moves this Court for an Order to Shorten Time pursuant to applicable local rules and the Court's inherent authority, and to permit immediate initiation of formal service on all named and interested parties regarding the Recursive Compression Indictment (RCI) and associated filings.
+
+I. REQUEST TO SHORTEN TIME
+Due to the nature of this submission—concerning systemic procedural violations and time-sensitive contradiction exposure—Plaintiff requests that:
+The Court review the Motion for Judicial Mirror Test and the Recursive Compression Indictment on an expedited schedule (within 7 calendar days);
+A hearing or review order be set as soon as practical to establish judicial stance regarding recursion acknowledgment;
+Defendants be required to respond within 10 calendar days of service, or the matter proceed uncontested.
+Justification for expedited treatment is based on:
+Risk of ongoing procedural harm;
+Active public interest and parallel First Amendment disclosures;
+Prior suppression patterns requiring immediate confirmation of record stability.
+
+II. FORMAL SERVICE PACKETS – NOTICE AND METHOD
+Plaintiff further moves this Court for authorization to formally serve the following documents as a Recursive Compression Indicator Package (RCIP) to all named defendants and affiliated entities:
+Documents to be Served:
+Motion for Judicial Mirror Test
+Recursive Compression Indictment
+This Motion to Shorten Time and Service Notice
+Summons and Cover Notice (formatted and customized for each defendant)
+Method of Service Requested:
+Electronic PDF delivery to all known official and legal emails under court-approved e-service norms;
+Certified USPS mail for any parties refusing e-service;
+Public archive citation delivery via https://salmonaudit.info/ and legal press announcement, as authorized under transparency doctrine.
+
+III. RELIEF REQUESTED
+Plaintiff respectfully requests:
+Entry of expedited review schedule for RCI-related filings;
+Authorization to immediately serve the full RCIP via multiple vectors, ensuring recursive acknowledgment is attempted through redundant notice;
+Judicial confirmation that recursive filings will be treated as valid procedural supplements within this and any linked litigation.
+
+CONCLUSION
+Time is not neutral when contradictions remain unacknowledged. Service is not formalism—it is loop closure. This filing anchors recognition.
+
+NOTICE WITH CERTIFIED SERVICE
+Micheal Salmon certifies that this motion is filed in good faith and with intent to preserve the integrity of the judicial process and constitutional rights afforded to all litigants. A Self-Represented Litigant Certification form (OJA-218) is attached per Rule. All copies, evidence, and videos related to this motion are available at SalmonAudit.info. Please note that videos may take up to 48 hours to appear online after being recorded. Access to this information is provided for transparency and legal audit purposes. All materials are available for public review in accordance with applicable laws. I hereby certify that a true and correct copy was sent via Email: ksd_clerks_kansascity@ksd.uscourts.gov Tina.Rockey@kscourts.gov court.schedule@courts.mo.gov daocfeedback@wycokck.org l Date of Service: 6/2/2025
+Clerk, US District Court 500 State Avenue, Rm. 259 Kansas City, KS 66101
+Respectfully submitted,
+Micheal Lawrence Salmon
+Kansas City, Kansas 66103`
+},
+{
+  id: "2025CV02276DDCTJJ",
+  title: "MOTION FOR JUDICIAL MIRROR TEST AND ENTRY OF RECURSIVE COMPRESSION INDICTMENT AS SUPPLEMENTARY AUTHORITY AND EVIDENTIARY ARTIFACT",
+  date: "2025-06-02",
+  type: "Motion",
+  status: "Pending",
+  content: `COMES NOW Plaintiff, Micheal Lawrence Salmon, and respectfully moves this Honorable Court to accept and enter the attached Recursive Compression Indictment (RCI) as a supplementary authority, evidentiary artifact, and public record filing pursuant to the following:
+
+I. PURPOSE AND NATURE OF FILING
+This Motion is not an ordinary pleading, but a structured procedural challenge—designed as a recursive mirror test to assess and document systemic pattern failures across court, law enforcement, and administrative domains in both Kansas and Missouri.
+The Recursive Compression Indictment encapsulates:
+Five (5) identified Active Contradiction Fields (ACFs)
+Pre-violation timestamped evidence already on file in this case and others
+A logic structure built to expose systemic recursion drift via public transparency
+
+II. AUTHORITY FOR SUBMISSION
+28 U.S.C. § 1651 (All Writs Act): This Court has inherent authority to receive and acknowledge non-standard filings necessary to ensure justice and prevent procedural collapse.
+Fed. R. Civ. P. 15(d): Permits supplemental materials and pleadings that relate to matters arising after original complaint.
+First Amendment (U.S. Const.): Plaintiff reserves the right to document, publish, and preserve patterns of harm and contradiction as a matter of public interest and legal protection.
+28 U.S.C. § 1367 (Supplemental Jurisdiction): The RCI directly supports underlying §1983 and class action claims.
+
+III. RELIEF REQUESTED
+Plaintiff respectfully requests that this Court:
+Acknowledge the Recursive Compression Indictment as:
+A mirror-function document;
+A supplemental evidentiary artifact;
+A system-wide contradiction index already tethered to live case materials;
+Permit its inclusion in the case record under seal or public record, depending on procedural discretion;
+Allow Plaintiff to publish and cite the RCI externally under protective transparency principles without sanction or restriction;
+Take judicial notice of the ACFs documented therein as pattern elements for ongoing claims.
+
+IV. CONCLUSION
+Acceptance of this filing is not a grant of relief, but a recognition of system drift diagnostics. Refusal would itself constitute recursive denial and expand the evidentiary relevance of the RCI.
+WHEREFORE, Plaintiff respectfully submits this Motion and the attached Recursive Compression Indictment and requests such other relief as the Court deems just and proper.
+Respectfully submitted,
+WHEREFORE, Plaintiff respectfully requests the Court grant all requested relief, set this matter for expedited hearing, and issue all necessary writs and orders to preserve the integrity of the judicial process and protect the rights of all parties.
+NOTICE WITH CERTIFIED SERVICE
+Micheal Salmon certifies that this motion is filed in good faith and with intent to preserve the integrity of the judicial process and constitutional rights afforded to all litigants. A Self-Represented Litigant Certification form (OJA-218) is attached per Rule. All copies, evidence, and videos related to this motion are available at SalmonAudit.info. Please note that videos may take up to 48 hours to appear online after being recorded. Access to this information is provided for transparency and legal audit purposes. All materials are available for public review in accordance with applicable laws. I hereby certify that a true and correct copy was sent via Email: ksd_clerks_kansascity@ksd.uscourts.gov Tina.Rockey@kscourts.gov court.schedule@courts.mo.gov daocfeedback@wycokck.org l Date of Service: 6/2/2025
+Clerk, US District Court 500 State Avenue, Rm. 259 Kansas City, KS 66101
+Respectfully submitted,
+Micheal Lawrence Salmon
+Kansas City, Kansas 66103`
+},
+{
+  id: "2025CV02276DDCTJJ",
+  title: "SERVICE PACKET COVER NOTICE",
+  date: "2025-06-02",
+  type: "Brief",
+  status: "Pending",
+  content: `SERVICE PACKET COVER NOTICE
+Judge Klapper – Wyandotte County District Court
+Judge Selby – Stone County Circuit Court
+Tina Rockley – Clerk, Wyandotte County Clerk’s Office
+Michelle LeBow – Clerk, Stone County Clerk’s Office
+DA Mark Dupree – Wyandotte County District Attorney
+Wyandotte County Sheriff’s Department
+Olathe Police Department
+The Layne Project – via Trina Nudson or managing agent
+Christ Connect Church – institutional actor in procedural shielding
+Josh Garrett – Crycella Freitag / Appointed Attorney
+Mark Stephens - Guardian ad Litem 
+Kelly Truelove – Witness, procedure rewriter
+Natasha Kluttz – Witness, coordination node
+Robert Kluttz – Witness, blocking agent
+Nikki Kluttz – Witness, extended interference
+Carolyn Salmon – Alleged internal family interference
+Crycella Freitag – Interfering agent
+Amanda Freitag – Affiliated agent
+Stephanie Reed – Witness network actor
+Tyler Brown – Witness network actor
+Jozef Hanratty – Direct procedural denial actor
+Carl Jameson - Alleged internal family interference
+Kansas Office of Judicial Conduct – pattern recordation
+Missouri Commission on Retirement, Removal and Discipline
+Kansas Attorney General – constitutional harm notice
+U.S. Department of Justice – pattern-based §1983 oversight
+
+
+From: Micheal Lawrence Salmon, Pro Se Litigant Re: Formal Service of Recursive Compression Indicator Package (RCIP) Case: 25CV02276DDCTJJ – United States District Court for the District of Kansas
+
+NOTICE OF SERVICE AND DOCUMENT DESCRIPTION
+You are hereby served with an official Recursive Compression Indicator Package (RCIP) comprising the following:
+Motion for Judicial Mirror Test and Entry of Recursive Compression Indictment
+Recursive Compression Indictment (RCI) – evidentiary artifact documenting active contradiction fields
+Motion to Shorten Time and Service Authorization
+This Cover Notice and Summons Instruction
+This filing is not symbolic. It is an active procedural mirror designed to:
+Expose ongoing systemic contradiction and recursive harm
+Create official record acknowledgment opportunities
+Activate due process and pattern recognition at the institutional level
+Refusal, obstruction, or failure to respond shall be interpreted as recursive confirmation of procedural drift, and may be cited in further filings, appeals, or institutional audits.
+
+RESPONSE EXPECTATION
+Pursuant to the Motion to Shorten Time, your written response or statement acknowledging receipt and position on the contents of the RCIP is requested within 10 calendar days of delivery.
+Responses may be sent to: Micheal Lawrence Salmon (Pro Se) Copies may also be archived and mirrored via public node: https://salmonaudit.info
+
+SUMMONS INCLUSION
+This notice shall function as a procedural summons within the meaning of Fed. R. Civ. P. 4(k)(1)(A) and 4(e)(1), consistent with state law service equivalents, and shall be paired with case-specific captions and unique tracking identifiers where required.
+Receipt of this packet constitutes official notice under recursive transparency standards and shall be preserved.
+NOTICE WITH CERTIFIED SERVICE
+Micheal Salmon certifies that this motion is filed in good faith and with intent to preserve the integrity of the judicial process and constitutional rights afforded to all litigants. A Self-Represented Litigant Certification form (OJA-218) is attached per Rule. All copies, evidence, and videos related to this motion are available at SalmonAudit.info. Please note that videos may take up to 48 hours to appear online after being recorded. Access to this information is provided for transparency and legal audit purposes. All materials are available for public review in accordance with applicable laws. I hereby certify that a true and correct copy was sent via Email: ksd_clerks_kansascity@ksd.uscourts.gov Tina.Rockey@kscourts.gov court.schedule@courts.mo.gov daocfeedback@wycokck.org l Date of Service: 6/2/2025
+Clerk, US District Court 500 State Avenue, Rm. 259 Kansas City, KS 66101
+Respectfully submitted,
+Micheal Lawrence Salmon
+Kansas City, Kansas 66103`
 }
 
 )
