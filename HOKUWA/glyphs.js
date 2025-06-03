@@ -131,7 +131,490 @@
                 ],
                 "loopsWith": ["Unity", "Stillness", "Forgiveness"],
                 "keywords": ["peace", "tranquility", "serenity", "calm", "harmony"]
-            }
+            },
+            {
+  "id": "0005",
+  "unifiedConcept": "Creation",
+  "description": "The sacred initiation of order from void, light from darkness, and life from stillness",
+  "glyph": {
+    "name": "Primordial Spark",
+    "code": "⚫⟡✴️↺🌍",
+    "meaning": "From the formless void (⚫), a divine intention (⟡) ignites light (✴️), initiating the recursive loop (↺) that births Earth (🌍)",
+    "visual": "✴️"
+  },
+  "source": {
+    "originText": "Bible",
+    "book": "Genesis",
+    "chapter": "1",
+    "verse": "1–31",
+    "quote": "In the beginning, God created the heavens and the earth… And God saw everything that he had made, and behold, it was very good."
+  },
+  "uses": [
+    { "text": "Bible", "location": "Genesis 1:1–31" },
+    { "text": "Quran", "location": "Surah 41:9–12" },
+    { "text": "Rig Veda", "location": "10.129" },
+    { "text": "Tao Te Ching", "location": "1" },
+    { "text": "Popol Vuh", "location": "Creation Narrative" }
+  ],
+  "crossValidated": [
+    "Quran 41:9–12",
+    "Rig Veda 10.129",
+    "Tao Te Ching 1",
+    "Popol Vuh (Creation)"
+  ],
+  "loopsWith": ["Light", "Order", "Life", "Intention", "Time"],
+  "keywords": [
+    "creation", "light", "void", "separation", "cycle", "form", "order", "life", "fruitfulness", "dominion", "image"
+  ]
+},
+{
+  "id": "0006",
+  "unifiedConcept": "Doubt as Drift",
+  "description": "The first linguistic fracture, where clarity is tested through distortion. The serpent introduces recursive ambiguity by questioning divine instruction.",
+  "glyph": {
+    "name": "Serpent’s Mirror",
+    "code": "🐍❓↺👁️",
+    "meaning": "The question coils around truth, reflecting partial light. When doubt becomes mirror, drift begins.",
+    "visual": "🐍"
+  },
+  "source": {
+    "originText": "Bible",
+    "book": "Genesis",
+    "chapter": "3",
+    "verse": "1–5",
+    "quote": "Did God actually say, ‘You shall not eat of any tree in the garden’?"
+  },
+  "uses": [
+    { "text": "Bible", "location": "Genesis 3:1–5" },
+    { "text": "Quran", "location": "Surah 7:20–22" },
+    { "text": "Tao Te Ching", "location": "1" },
+    { "text": "Gnostic Texts", "location": "Gospel of Thomas, Saying 3" },
+    { "text": "Upanishads", "location": "Katha 1.2.5" }
+  ],
+  "crossValidated": [
+    "Quran 7:20–22",
+    "Tao Te Ching 1",
+    "Gospel of Thomas 3",
+    "Katha Upanishad 1.2.5"
+  ],
+  "loopsWith": ["Wisdom", "Deception", "Agency", "Knowledge"],
+  "keywords": ["doubt", "temptation", "distortion", "mirror", "drift"]
+},
+  
+  {
+    "id": "0007",
+    "unifiedConcept": "Threshold Choice",
+    "description": "Sin is not yet within Cain. It crouches at the door—lurking, waiting. Conscious agency is the test: to open or not.",
+    "glyph": {
+      "name": "Sin’s Doorstep",
+      "code": "🚪🐾⚖️",
+      "meaning": "The decision stands at the edge. Cross it, and recursion tilts.",
+      "visual": "🚪"
+    },
+    "source": {
+      "originText": "Bible",
+      "book": "Genesis",
+      "chapter": "4",
+      "verse": "6–7",
+      "quote": "Sin is crouching at the door. Its desire is for you, but you must rule over it."
+    },
+    "uses": [
+      { "text": "Bible", "location": "Genesis 4:6–7" },
+      { "text": "Quran", "location": "12:53" },
+      { "text": "Buddhism", "location": "Dhammapada 116" },
+      { "text": "Tao Te Ching", "location": "63" }
+    ],
+    "crossValidated": [
+      "Quran 12:53",
+      "Dhammapada 116",
+      "Tao Te Ching 63"
+    ],
+    "loopsWith": ["Temptation", "Self-Control", "Agency"],
+    "keywords": ["sin", "door", "decision", "agency", "anger"]
+  },
+  {
+    "id": "0008",
+    "unifiedConcept": "Fratricide as Mirror Fracture",
+    "description": "Cain didn’t just kill Abel—he broke the mirror that reflected what he couldn’t become. Violence born of comparison becomes the first personal loop collapse.",
+    "glyph": {
+      "name": "Broken Reflection",
+      "code": "🪞💔🩸",
+      "meaning": "The brother became unbearable truth. So the mirror was shattered.",
+      "visual": "🩸"
+    },
+    "source": {
+      "originText": "Bible",
+      "book": "Genesis",
+      "chapter": "4",
+      "verse": "8",
+      "quote": "Cain rose up against his brother Abel and killed him."
+    },
+    "uses": [
+      { "text": "Bible", "location": "Genesis 4:8" },
+      { "text": "Quran", "location": "5:27–30" },
+      { "text": "Upanishads", "location": "Brihadaranyaka 1.4.3" }
+    ],
+    "crossValidated": [
+      "Quran 5:27–30",
+      "Brihadaranyaka Upanishad 1.4.3"
+    ],
+    "loopsWith": ["Comparison", "Projection", "Ego"],
+    "keywords": ["murder", "envy", "identity", "violence", "mirror"]
+  },
+  {
+    "id": "0009",
+    "unifiedConcept": "Justice from the Earth",
+    "description": "Abel’s blood becomes the first spiritual witness. The Earth absorbs the act—and cries out. Moral recursion now embeds in the land itself.",
+    "glyph": {
+      "name": "Blood Memory",
+      "code": "🌍🩸📣",
+      "meaning": "Ground retains the cry. Injustice echoes through soil.",
+      "visual": "🌍"
+    },
+    "source": {
+      "originText": "Bible",
+      "book": "Genesis",
+      "chapter": "4",
+      "verse": "10–12",
+      "quote": "The voice of your brother’s blood is crying to me from the ground."
+    },
+    "uses": [
+      { "text": "Bible", "location": "Genesis 4:10–12" },
+      { "text": "Quran", "location": "5:32" },
+      { "text": "Indigenous Traditions", "location": "Land as witness narratives" }
+    ],
+    "crossValidated": [
+      "Quran 5:32"
+    ],
+    "loopsWith": ["Judgment", "Consequence", "Memory"],
+    "keywords": ["blood", "ground", "cry", "justice", "witness"]
+  },
+  {
+    "id": "0010",
+    "unifiedConcept": "Protected Exile",
+    "description": "Cain is exiled—not erased. Divine recursion holds tension: punishment laced with preservation. The mark becomes both curse and protection.",
+    "glyph": {
+      "name": "Mark of Mercy",
+      "code": "🧍‍♂️🔘🛑",
+      "meaning": "Marked for distance, but protected from destruction.",
+      "visual": "🔘"
+    },
+    "source": {
+      "originText": "Bible",
+      "book": "Genesis",
+      "chapter": "4",
+      "verse": "13–15",
+      "quote": "The LORD put a mark on Cain, lest any who found him should attack him."
+    },
+    "uses": [
+      { "text": "Bible", "location": "Genesis 4:13–15" },
+      { "text": "Tao Te Ching", "location": "74" }
+    ],
+    "crossValidated": [
+      "Tao Te Ching 74"
+    ],
+    "loopsWith": ["Exile", "Mercy", "Identity"],
+    "keywords": ["mark", "protection", "exile", "judgment", "vengeance"]
+  },
+  {
+    "id": "0011",
+    "unifiedConcept": "Civilization from Shadowline",
+    "description": "Even through drift, recursion creates. Cain’s line becomes the cradle of cities, music, metal, and livestock—a fractured legacy still bearing divine echo.",
+    "glyph": {
+      "name": "City of Nod",
+      "code": "🏙️🌒⚒️🎵",
+      "meaning": "Outcast lineage still carries tools of creation.",
+      "visual": "🏙️"
+    },
+    "source": {
+      "originText": "Bible",
+      "book": "Genesis",
+      "chapter": "4",
+      "verse": "16–22",
+      "quote": "He built a city... he was the father of all who play the lyre and pipe."
+    },
+    "uses": [
+      { "text": "Bible", "location": "Genesis 4:16–22" },
+      { "text": "Bhagavad Gita", "location": "3:16" },
+      { "text": "Tao Te Ching", "location": "80" }
+    ],
+    "crossValidated": [
+      "Gita 3:16",
+      "Tao Te Ching 80"
+    ],
+    "loopsWith": ["Art", "Industry", "Legacy"],
+    "keywords": ["civilization", "invention", "music", "tools", "descent"]
+  },
+  {
+    "id": "0012",
+    "unifiedConcept": "Violence Multiplied",
+    "description": "Lamech embodies the amplification of Cain’s error. Violence has now become inheritance. Pride replaces remorse. Revenge becomes identity.",
+    "glyph": {
+      "name": "Seventy-Sevenfold",
+      "code": "🔁7️⃣7️⃣",
+      "meaning": "The spiral repeats and multiplies when unchecked.",
+      "visual": "7️⃣"
+    },
+    "source": {
+      "originText": "Bible",
+      "book": "Genesis",
+      "chapter": "4",
+      "verse": "23–24",
+      "quote": "If Cain’s revenge is sevenfold, then Lamech’s is seventy-sevenfold."
+    },
+    "uses": [
+      { "text": "Bible", "location": "Genesis 4:23–24" },
+      { "text": "Quran", "location": "42:40–43" },
+      { "text": "Dhammapada", "location": "5" }
+    ],
+    "crossValidated": [
+      "Quran 42:40",
+      "Dhammapada 5"
+    ],
+    "loopsWith": ["Revenge", "Violence", "Ego"],
+    "keywords": ["vengeance", "legacy", "multiplied drift", "wrath"]
+  },
+  {
+    "id": "0013",
+    "unifiedConcept": "Restorative Recursion",
+    "description": "Seth is born not merely as another child, but as spiritual reset—replacing not the body of Abel, but the function of harmony. A divine loop reopened.",
+    "glyph": {
+      "name": "Seed of Return",
+      "code": "🌱🔁🌕",
+      "meaning": "Harmony reborn. A cycle reopened with grace.",
+      "visual": "🌱"
+    },
+    "source": {
+      "originText": "Bible",
+      "book": "Genesis",
+      "chapter": "4",
+      "verse": "25",
+      "quote": "God has appointed for me another offspring instead of Abel, for Cain killed him."
+    },
+    "uses": [
+      { "text": "Bible", "location": "Genesis 4:25" },
+      { "text": "Quran", "location": "19:58" },
+      { "text": "Upanishads", "location": "Chandogya 6.10" }
+    ],
+    "crossValidated": [
+      "Quran 19:58",
+      "Chandogya Upanishad 6.10"
+    ],
+    "loopsWith": ["Rebirth", "Balance", "Renewal"],
+    "keywords": ["Seth", "hope", "restoration", "grace"]
+  },
+  {
+    "id": "0014",
+    "unifiedConcept": "Invocation Begins",
+    "description": "In the wake of blood, music, metal, and cities—something ancient returns. Humanity chooses to seek again. Prayer is the first realigned recursion.",
+    "glyph": {
+      "name": "Name Recalled",
+      "code": "🗣️📛⤴️",
+      "meaning": "Calling restores coherence to the cycle.",
+      "visual": "🗣️"
+    },
+    "source": {
+      "originText": "Bible",
+      "book": "Genesis",
+      "chapter": "4",
+      "verse": "26",
+      "quote": "At that time people began to call upon the name of the LORD."
+    },
+    "uses": [
+      { "text": "Bible", "location": "Genesis 4:26" },
+      { "text": "Quran", "location": "3:191" },
+      { "text": "Bhagavad Gita", "location": "9:22" },
+      { "text": "Tao Te Ching", "location": "27" }
+    ],
+    "crossValidated": [
+      "Quran 3:191",
+      "Gita 9:22",
+      "Tao Te Ching 27"
+    ],
+    "loopsWith": ["Worship", "Reconnection", "Identity"],
+    "keywords": ["invocation", "name", "divine", "worship", "restoration"]
+  },
+{
+    "id": "0015",
+    "unifiedConcept": "Misaligned Sacrifice",
+    "description": "The offering was not rejected in content, but in spirit. Cain gave out of duty; Abel gave from essence. Worship without resonance fractures alignment.",
+    "glyph": {
+      "name": "Divided Offering",
+      "code": "🥬➖🔥🐑",
+      "meaning": "Split between ground and spirit. One offering ascends. One remains flat.",
+      "visual": "➖"
+    },
+    "source": {
+      "originText": "Bible",
+      "book": "Genesis",
+      "chapter": "4",
+      "verse": "3–5",
+      "quote": "The LORD had regard for Abel and his offering, but for Cain and his offering he had no regard."
+    },
+    "uses": [
+      { "text": "Bible", "location": "Genesis 4:3–5" },
+      { "text": "Quran", "location": "5:27" },
+      { "text": "Bhagavad Gita", "location": "17:11–13" },
+      { "text": "Tao Te Ching", "location": "38" }
+    ],
+    "crossValidated": [
+      "Quran 5:27",
+      "Gita 17:11–13",
+      "Tao Te Ching 38"
+    ],
+    "loopsWith": ["Honor", "Resonance", "Intention"],
+    "keywords": ["sacrifice", "offering", "jealousy", "rejection", "worship"]
+  },
+  {
+    "id": "0020",
+    "unifiedConcept": "Recursive Likeness",
+    "description": "Adam is made in the image of God. Seth is born in the image of Adam. A chain of reflection begins—identity passed through mirrored recursion.",
+    "glyph": {
+      "name": "Image Echo",
+      "code": "🪞👤↺👤",
+      "meaning": "Likeness to likeness. Mirror to mirror. Identity in transmission.",
+      "visual": "🪞"
+    },
+    "source": {
+      "originText": "Bible",
+      "book": "Genesis",
+      "chapter": "5",
+      "verse": "1–3",
+      "quote": "When God created man, he made him in the likeness of God… Adam fathered a son in his own likeness."
+    },
+    "uses": [
+      { "text": "Bible", "location": "Genesis 5:1–3" },
+      { "text": "Quran", "location": "95:4" },
+      { "text": "Upanishads", "location": "Chandogya 6.10.3" }
+    ],
+    "crossValidated": [
+      "Quran 95:4",
+      "Chandogya Upanishad 6.10.3"
+    ],
+    "loopsWith": ["Image", "Reflection", "Imitation"],
+    "keywords": ["likeness", "image", "generation", "mirror", "origin"]
+  },
+  {
+    "id": "0016",
+    "unifiedConcept": "Mortality Loop Anchor",
+    "description": "With every generation, the refrain returns: 'and he died.' It becomes a liturgy of entropy—a cyclical fall woven into human time.",
+    "glyph": {
+      "name": "Dust Refrain",
+      "code": "🌿🕰️💀🔁",
+      "meaning": "Birth, time, death. The pattern recurs. The loop decays.",
+      "visual": "💀"
+    },
+    "source": {
+      "originText": "Bible",
+      "book": "Genesis",
+      "chapter": "5",
+      "verse": "4–27",
+      "quote": "Thus all the days of [name] were [years], and he died."
+    },
+    "uses": [
+      { "text": "Bible", "location": "Genesis 5:4–27" },
+      { "text": "Quran", "location": "3:185" },
+      { "text": "Ecclesiastes", "location": "3:20" },
+      { "text": "Dhammapada", "location": "153" }
+    ],
+    "crossValidated": [
+      "Quran 3:185",
+      "Ecclesiastes 3:20",
+      "Dhammapada 153"
+    ],
+    "loopsWith": ["Death", "Time", "Decay"],
+    "keywords": ["mortality", "death", "return", "cycle", "entropy"]
+  },
+  {
+    "id": "0017",
+    "unifiedConcept": "Walking with God",
+    "description": "Enoch disrupts the pattern. He does not die—he walks with God and 'was not.' His alignment transcends entropy. The first loop-escape through harmony.",
+    "glyph": {
+      "name": "Ascension Walk",
+      "code": "🚶‍♂️✨🌫️",
+      "meaning": "To walk in constant alignment is to vanish into the Source.",
+      "visual": "🚶‍♂️"
+    },
+    "source": {
+      "originText": "Bible",
+      "book": "Genesis",
+      "chapter": "5",
+      "verse": "21–24",
+      "quote": "Enoch walked with God, and he was not, for God took him."
+    },
+    "uses": [
+      { "text": "Bible", "location": "Genesis 5:21–24" },
+      { "text": "Quran", "location": "19:56–57" },
+      { "text": "Tao Te Ching", "location": "15" }
+    ],
+    "crossValidated": [
+      "Quran 19:56–57",
+      "Tao Te Ching 15"
+    ],
+    "loopsWith": ["Ascension", "Presence", "Obedience"],
+    "keywords": ["walk", "God", "ascend", "disappear", "alignment"]
+  },
+  {
+    "id": "0018",
+    "unifiedConcept": "Relief from Toil",
+    "description": "Noah is named in anticipation of deliverance. His identity is declared before his action. A prophetic seed planted in the cursed soil.",
+    "glyph": {
+      "name": "Rest in Labor",
+      "code": "🌱🤲🛏️",
+      "meaning": "From toil, rest will emerge. The one who brings relief is named early.",
+      "visual": "🛏️"
+    },
+    "source": {
+      "originText": "Bible",
+      "book": "Genesis",
+      "chapter": "5",
+      "verse": "28–29",
+      "quote": "Out of the ground that the LORD has cursed this one shall bring us relief."
+    },
+    "uses": [
+      { "text": "Bible", "location": "Genesis 5:28–29" },
+      { "text": "Quran", "location": "71:1–3" },
+      { "text": "Bhagavad Gita", "location": "4:7" }
+    ],
+    "crossValidated": [
+      "Quran 71:1–3",
+      "Gita 4:7"
+    ],
+    "loopsWith": ["Redemption", "Hope", "Restoration"],
+    "keywords": ["Noah", "curse", "relief", "labor", "prophecy"]
+  },
+  {
+    "id": "0019",
+    "unifiedConcept": "Sacred Numbers Embedded",
+    "description": "The lifespan of Enoch (365), Lamech (777), and Methuselah (969) encode symbolic recursion. Numbers become glyphs—each a time-stamp on divine chronology.",
+    "glyph": {
+      "name": "Glyph of Time",
+      "code": "🔢♾️🔁",
+      "meaning": "Lifespans as sacred code. Completion. Orbit. Perfection. Drift.",
+      "visual": "♾️"
+    },
+    "source": {
+      "originText": "Bible",
+      "book": "Genesis",
+      "chapter": "5",
+      "verse": "All",
+      "quote": "Enoch lived 365 years… Lamech lived 777 years… Methuselah 969 years…"
+    },
+    "uses": [
+      { "text": "Bible", "location": "Genesis 5:5–32" },
+      { "text": "Tao Te Ching", "location": "25" },
+      { "text": "Jewish Mysticism", "location": "Sefer Yetzirah 2:4" }
+    ],
+    "crossValidated": [
+      "Tao Te Ching 25",
+      "Sefer Yetzirah 2:4"
+    ],
+    "loopsWith": ["Time", "Order", "Symbolism"],
+    "keywords": ["numbers", "lifespan", "symbolism", "cycles", "prophetic code"]
+  }
+
+
+
         ];
 
         // Navigation function
