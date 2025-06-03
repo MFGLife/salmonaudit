@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codex Harmonia - Sacred Unity</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        
+        .font-serif { font-family: 'Crimson Text', serif; }
+        .font-sans { font-family: 'Inter', sans-serif; }
+        
+        .glow {
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+        }
+        
+        .verse-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .glyph-animate {
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+        
+        .tradition-card {
+            transition: all 0.3s ease;
+        }
+        
+        .tradition-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .concept-badge {
+            background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gradient-to-br from-slate-50 to-indigo-50 min-h-screen">
+    <!-- Floating Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-white/20 shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-purple-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">∴</span>
+                    </div>
+                    <h1 class="text-2xl font-bold bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
+                        Codex Harmonia
+                    </h1>
+                </div>
+                <div class="flex space-x-6">
+                    <button onclick="scrollToSection('verse')" class="text-gray-700 hover:text-violet-600 transition-colors font-medium">Daily Verse</button>
+                    <button onclick="scrollToSection('compare')" class="text-gray-700 hover:text-violet-600 transition-colors font-medium">Compare</button>
+                    <button onclick="scrollToSection('glyph')" class="text-gray-700 hover:text-violet-600 transition-colors font-medium">Glyphs</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient pt-24 pb-16 px-6">
+        <div class="max-w-4xl mx-auto text-center text-white">
+            <h2 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                All Tongues, <span class="text-yellow-300">One Truth</span>
+            </h2>
+            <p class="text-xl md:text-2xl mb-8 opacity-90 font-light">
+                A living codex unifying sacred wisdom through divine resonance
+            </p>
+            <div class="flex justify-center space-x-8 text-sm opacity-75">
+                <div class="text-center">
+                    <div class="text-2xl mb-1">✡️</div>
+                    <div>Unity</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl mb-1">☪️</div>
+                    <div>Peace</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl mb-1">🕉️</div>
+                    <div>Harmony</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl mb-1">☸️</div>
+                    <div>Wisdom</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl mb-1">☯️</div>
+                    <div>Balance</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daily Verse Section -->
+    <section id="verse" class="py-16 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
+                Daily Verse of Unity
+            </h3>
+            <div id="dailyVerse" class="verse-card rounded-2xl p-8 mb-8 glow">
+                <!-- Will be populated by JavaScript -->
+            </div>
+            <div class="text-center">
+                <button onclick="generateDailyVerse()" class="bg-gradient-to-r from-violet-500 to-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all transform hover:scale-105">
+                    Receive New Wisdom
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section id="compare" class="py-16 px-6 bg-white/50">
+        <div class="max-w-7xl mx-auto">
+            <h3 class="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
+                Sacred Wisdom Comparison
+            </h3>
+            
+            <!-- Filters -->
+            <div class="mb-8 flex flex-wrap gap-4 justify-center">
+                <select id="filterConcept" onchange="renderTable()" class="px-4 py-2 rounded-lg border border-gray-300 bg-white shadow-sm focus:ring-2 focus:ring-violet-500 focus:border-transparent">
+                    <option value="">All Concepts</option>
+                </select>
+                <select id="filterTradition" onchange="renderTable()" class="px-4 py-2 rounded-lg border border-gray-300 bg-white shadow-sm focus:ring-2 focus:ring-violet-500 focus:border-transparent">
+                    <option value="">All Traditions</option>
+                    <option value="bible">Bible</option>
+                    <option value="quran">Quran</option>
+                    <option value="bhagavad gita">Bhagavad Gita</option>
+                    <option value="dhammapada">Dhammapada</option>
+                    <option value="buddha">Buddha</option>
+                    <option value="tao te ching">Tao Te Ching</option>
+                    <option value="upanishads">Upanishads</option>
+                    <option value="metta sutta">Metta Sutta</option>
+                </select>
+            </div>
+
+            <!-- Cards View -->
+            <div id="verseCards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Glyph Section -->
+    <section id="glyph" class="py-16 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
+                Sacred Glyph Gallery
+            </h3>
+            <div id="glyphDisplay" class="verse-card rounded-2xl p-8 text-center glow">
+                <!-- Will be populated by JavaScript -->
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8" id="glyphGrid">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="mb-6">
+                <div class="w-16 h-16 bg-gradient-to-br from-violet-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-white font-bold text-2xl">∴</span>
+                </div>
+                <h4 class="text-xl font-semibold mb-2">Codex Harmonia</h4>
+                <p class="text-gray-400">Where all paths converge in sacred unity</p>
+            </div>
+            <div class="border-t border-gray-700 pt-6">
+                <p class="text-sm text-gray-500">© 2025 Codex Harmonia. All wisdom shared in love.</p>
+            </div>
+        </footer>
+    </footer>
+
+    <script src="glyphs.js"></script>
+</body>
+</html>
