@@ -102,7 +102,20 @@
                 </div>
             </div>
         </div>
+
+        <div class="p-4">
+    <label for="bookSelect" class="block font-bold mb-1">Book:</label>
+    <select id="bookSelect" class="mb-4 p-2 border rounded w-full"></select>
+
+    <label for="chapterSelect" class="block font-bold mb-1">Chapter:</label>
+    <select id="chapterSelect" class="mb-4 p-2 border rounded w-full"></select>
+
+    <div id="verseDisplay" class="prose max-w-none"></div>
+</div>
+
     </section>
+
+
 
     <!-- Daily Verse Section -->
     <section id="verse" class="py-16 px-6">
@@ -168,6 +181,100 @@
         </div>
     </section>
 
+
+<!-- Codex Harmonia Embed Script -->
+<div id="codexEmbedContainer" style="font-family: sans-serif; text-align: center; margin-top: 2em;">
+  <iframe id="codexDailyIframe"
+          src="https://salmonaudit.info/HOKUWA/index.html"
+          width="100%"
+          height="360"
+          frameborder="0"
+          style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); max-width: 500px; margin: 0 auto;">
+  </iframe>
+
+  <button onclick="generateCodexEmbedCode()"
+          style="margin-top: 1em; padding: 10px 20px; background: #6D28D9; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">
+    Copy Embed Code
+  </button>
+
+  <textarea id="codexEmbedOutput"
+            style="margin-top: 1em; width: 100%; max-width: 500px; height: 140px; border: 1px solid #ccc; border-radius: 6px; padding: 10px; font-family: monospace; display: none;">
+  </textarea>
+</div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    fetch("ESV.xml")
+        .then(response => response.text())
+        .then(xmlString => {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xmlString, "text/xml");
+
+            const books = Array.from(xmlDoc.getElementsByTagName("b"));
+            const bookSelect = document.getElementById("bookSelect");
+            const chapterSelect = document.getElementById("chapterSelect");
+            const verseDisplay = document.getElementById("verseDisplay");
+
+            // Populate book dropdown
+            books.forEach((book, index) => {
+                const option = document.createElement("option");
+                option.value = index;
+                option.textContent = book.getAttribute("n");
+                bookSelect.appendChild(option);
+            });
+
+            // On book change, populate chapters
+            bookSelect.addEventListener("change", () => {
+                chapterSelect.innerHTML = `<option value="">Select Chapter</option>`;
+                verseDisplay.textContent = "";
+
+                const bookIndex = bookSelect.value;
+                if (!bookIndex) return;
+
+                const chapters = Array.from(books[bookIndex].getElementsByTagName("c"));
+                chapters.forEach((chapter, cIndex) => {
+                    const option = document.createElement("option");
+                    option.value = cIndex;
+                    option.textContent = chapter.getAttribute("n");
+                    chapterSelect.appendChild(option);
+                });
+            });
+
+            // On chapter change, show verses
+            chapterSelect.addEventListener("change", () => {
+                verseDisplay.innerHTML = "";
+                const bookIndex = bookSelect.value;
+                const chapterIndex = chapterSelect.value;
+                if (!bookIndex || !chapterIndex) return;
+
+                const chapter = books[bookIndex].getElementsByTagName("c")[chapterIndex];
+                const verses = Array.from(chapter.getElementsByTagName("v"));
+
+                verses.forEach(v => {
+                    const p = document.createElement("p");
+                    p.innerHTML = `<strong>${v.getAttribute("n")}:</strong> ${v.textContent}`;
+                    verseDisplay.appendChild(p);
+                });
+            });
+        });
+});
+</script>
+
+
+<script>
+function generateCodexEmbedCode() {
+  const iframeHTML = `<iframe src="index.html" width="100%" height="360" frameborder="0" style="border-radius: 12px; overflow: hidden; max-width: 500px;"></iframe>`;
+  const output = document.getElementById('codexEmbedOutput');
+  output.style.display = 'block';
+  output.value = iframeHTML;
+  output.select();
+  document.execCommand('copy');
+  alert("Embed code copied! You can now paste this onto any website.");
+}
+</script>
+
+
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12 px-6">
         <div class="max-w-4xl mx-auto text-center">
@@ -182,7 +289,8 @@
                 <p class="text-sm text-gray-500">© 2025 Codex Harmonia. All wisdom shared in love.</p>
             </div>
         </footer>
-    </footer>
+   
+        
 
     <script src="glyphs.js"></script>
 </body>
