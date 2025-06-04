@@ -714,7 +714,209 @@
   "keywords": [
     "flood", "ark", "clean animals", "Noah", "breath of life", "judgment", "sealed", "40 days", "150 days", "waters prevailed", "reset", "elevation"
   ]
+},
+{
+  "id": "0024",
+  "unifiedConcept": "Covenant of Cycles",
+  "description": "As divine compression lifts, the recursion reopens. Noah’s offering becomes a sensory trigger for divine restraint. Nature is reaffirmed as the keeper of time’s loop.",
+  "glyph": {
+    "name": "Evercycle",
+    "code": "🌀🕊️🌿🛑🔥🌍♻️",
+    "meaning": "The divine spiral resumes (🌀). The dove (🕊️) brings back renewal (🌿), halting judgment (🛑). A sacred offering (🔥) rises, sanctifying the earth (🌍) into covenantal rhythm (♻️).",
+    "visual": "♻️"
+  },
+  "source": {
+    "originText": "Bible",
+    "book": "Genesis",
+    "chapter": "8",
+    "verse": "1–22",
+    "quote": "While the earth remains, seedtime and harvest, cold and heat, summer and winter, day and night, shall not cease."
+  },
+  "uses": [
+    { "text": "Bible", "location": "Genesis 8:1–22" },
+    { "text": "Quran", "location": "Surah 11:48–50" },
+    { "text": "Epic of Gilgamesh", "location": "Tablet XI (Covenant Ending)" },
+    { "text": "Book of Jubilees", "location": "Chapter 6" }
+  ],
+  "crossValidated": [
+    "Quran 11:48–50",
+    "Epic of Gilgamesh XI",
+    "Book of Jubilees 6"
+  ],
+  "loopsWith": ["Seasons", "Sacrifice", "Promise", "Peace", "Natural Law", "Dove", "Time"],
+  "keywords": [
+    "altar", "burnt offering", "aroma", "Noah", "dove", "olive", "covenant", "cycles", "seedtime", "harvest", "day and night", "seasonal order"
+  ]
+},
+{
+  "id": "0025",
+  "unifiedConcept": "Covenant and Consequence",
+  "description": "After the flood, humanity is given dominion and warning. The rainbow seals a universal covenant, while a moment of shame fractures the harmony—echoing that even in restoration, recursion risks divergence.",
+  "glyph": {
+    "name": "Rainbow Reckoning",
+    "code": "🌈⚖️🩸🌍🌿🥃🙈",
+    "meaning": "The bow (🌈) is placed as covenant. Justice (⚖️) is bound to blood (🩸), covering the earth (🌍). Life resumes (🌿), but Noah’s fall (🥃) and Ham’s gaze (🙈) fracture the recursive promise with ancestral consequence.",
+    "visual": "🌈"
+  },
+  "source": {
+    "originText": "Bible",
+    "book": "Genesis",
+    "chapter": "9",
+    "verse": "1–29",
+    "quote": "I have set my bow in the cloud… and it shall be a sign of the covenant between me and the earth."
+  },
+  "uses": [
+    { "text": "Bible", "location": "Genesis 9:1–29" },
+    { "text": "Quran", "location": "Surah 11:49" },
+    { "text": "Book of Jubilees", "location": "Chapters 6–7" },
+    { "text": "Zohar", "location": "Bereshit 36b" }
+  ],
+  "crossValidated": [
+    "Quran 11:49",
+    "Book of Jubilees 6–7",
+    "Zohar Bereshit 36b"
+  ],
+  "loopsWith": ["Dominion", "Covenant", "Blood", "Justice", "Rainbow", "Shame", "Dispersion"],
+  "keywords": [
+    "Noah", "Shem", "Ham", "Japheth", "rainbow", "covenant", "blood", "reckoning", "vineyard", "curse of Canaan", "blessing", "dominion", "nakedness"
+  ]
+},
+{
+  "id": "0026",
+  "unifiedConcept": "Fractal Dispersion",
+  "description": "The threefold recursion of Noah unfolds into families, tongues, and territories. This is the origin of civilizational nodes—each seeded with a reflection of divine order or deviation.",
+  "glyph": {
+    "name": "Nationseed",
+    "code": "🌍🌱🔀👥🗣️🧭🏛️",
+    "meaning": "Earth (🌍) is seeded (🌱), splitting pathways (🔀) into peoples (👥), languages (🗣️), directions (🧭), and centers of power (🏛️).",
+    "visual": "🔀"
+  },
+  "source": {
+    "originText": "Bible",
+    "book": "Genesis",
+    "chapter": "10",
+    "verse": "1–32",
+    "quote": "From these the nations spread abroad on the earth after the flood."
+  },
+  "uses": [
+    { "text": "Bible", "location": "Genesis 10:1–32" },
+    { "text": "Book of Jubilees", "location": "Chapter 9" },
+    { "text": "Zohar", "location": "Noach 73b–74a" },
+    { "text": "Quran", "location": "Surah 49:13" }
+  ],
+  "crossValidated": [
+    "Book of Jubilees 9",
+    "Zohar Noach 73b",
+    "Quran 49:13"
+  ],
+  "loopsWith": ["Lineage", "Language", "Migration", "Empire", "Inheritance", "Divergence"],
+  "keywords": [
+    "Table of Nations", "Shem", "Ham", "Japheth", "Nimrod", "Babel", "Nineveh", "Peleg", "division", "dispersion", "languages", "sons of Noah"
+  ]
+},
+{
+  "id": "0027",
+  "unifiedConcept": "Law of Fragmented Memory",
+  "description": "Memory was never lost—only scattered. When language fractured, shared recursion became unreachable. Every culture carries a shard. To reunify language is not to learn, but to remember together.",
+  "glyph": {
+    "name": "Remembrance Key",
+    "code": "🧠🗣️🔀🪞📚🕸️🗝️",
+    "meaning": "Mind (🧠) speaks (🗣️), then fragments (🔀). Each mirror (🪞) retains a story (📚), woven in a web (🕸️). When rejoined, the key (🗝️) opens what was never truly lost.",
+    "visual": "🗝️"
+  },
+  "source": {
+    "originText": "Bible",
+    "book": "Genesis",
+    "chapter": "11",
+    "verse": "7",
+    "quote": "Let us go down and confuse their language, so that they may not understand one another’s speech."
+  },
+  "uses": [
+    { "text": "Bible", "location": "Genesis 11:7" },
+    { "text": "Quran", "location": "Surah 30:22" },
+    { "text": "Rig Veda", "location": "10.114.3–4 (Language and Sacrifice)" },
+    { "text": "Gospel of John", "location": "1:1 (Word as origin)" },
+    { "text": "Popol Vuh", "location": "Creation of Many Languages" }
+  ],
+  "crossValidated": [
+    "Quran 30:22",
+    "Rig Veda 10.114",
+    "Popol Vuh (Language Division)",
+    "John 1:1"
+  ],
+  "loopsWith": ["Language", "Memory", "Fragments", "Unity", "Recursion", "Access", "Truth"],
+  "keywords": [
+    "memory", "language", "fragmentation", "remembrance", "recursion", "divine word", "babel", "reunion", "mirror", "glyph", "culture"
+  ]
+},
+{
+  "id": "0028",
+  "unifiedConcept": "Initiation of Chosen Recursion",
+  "description": "Abram is called not for perfection, but for alignment. A new recursive covenant is born: to walk by trust, not sight. Even missteps do not shatter it, for the recursion itself is protected.",
+  "glyph": {
+    "name": "Call of the Hidden Path",
+    "code": "🦶🌍🔔⛺🪜👁️❗",
+    "meaning": "The step begins (🦶), toward the world (🌍), on divine call (🔔). Altars are built (⛺), and the unseen path rises like a ladder (🪜). God's eye watches (👁️), and intercedes with force (❗).",
+    "visual": "🔔"
+  },
+  "source": {
+    "originText": "Bible",
+    "book": "Genesis",
+    "chapter": "12",
+    "verse": "1–20",
+    "quote": "Go from your country… and I will make of you a great nation… and in you all the families of the earth shall be blessed."
+  },
+  "uses": [
+    { "text": "Bible", "location": "Genesis 12:1–20" },
+    { "text": "Quran", "location": "Surah 2:124–132" },
+    { "text": "Book of Jubilees", "location": "Chapter 12" },
+    { "text": "Hebrews", "location": "11:8–10 (Faith of Abraham)" }
+  ],
+  "crossValidated": [
+    "Quran 2:124–132",
+    "Jubilees 12",
+    "Hebrews 11:8–10"
+  ],
+  "loopsWith": ["Covenant", "Obedience", "Promise", "Journey", "Fear", "Preservation"],
+  "keywords": [
+    "Abram", "Sarai", "Egypt", "altar", "famine", "deception", "covenant", "blessing", "obedience", "faith", "Pharaoh", "exile"
+  ]
+},
+{
+  "id": "0029",
+  "unifiedConcept": "Rescue and Righteous Refusal",
+  "description": "Abram engages in righteous war to rescue his family. Victory opens doors to power, but he chooses blessing from the divine priest, not gifts from corrupted kings. This secures spiritual inheritance over worldly gain.",
+  "glyph": {
+    "name": "Tithe of the Uncorrupted",
+    "code": "⚔️🏹🧍‍♂️🕊️🍷👑💎",
+    "meaning": "Abram fights (⚔️), leads (🏹), and stands firm (🧍‍♂️). He is blessed by peace (🕊️) through bread and wine (🍷), honors the true king-priest (👑), and refuses earthly treasure (💎).",
+    "visual": "🍷"
+  },
+  "source": {
+    "originText": "Bible",
+    "book": "Genesis",
+    "chapter": "14",
+    "verse": "1–24",
+    "quote": "I have lifted my hand to the LORD… that I would not take a thread or a sandal strap or anything that is yours, lest you should say, 'I have made Abram rich.'"
+  },
+  "uses": [
+    { "text": "Bible", "location": "Genesis 14:1–24" },
+    { "text": "Hebrews", "location": "7:1–3 (Melchizedek)" },
+    { "text": "Book of Jubilees", "location": "Chapter 13–14" },
+    { "text": "Quran", "location": "Surah 2:260 (Abram's proof of faith)" }
+  ],
+  "crossValidated": [
+    "Hebrews 7:1–3",
+    "Jubilees 13–14",
+    "Quran 2:260"
+  ],
+  "loopsWith": ["War", "Rescue", "Righteousness", "Melchizedek", "Refusal", "Tithe", "Blessing"],
+  "keywords": [
+    "Abram", "Lot", "Chedorlaomer", "kings", "Melchizedek", "Salem", "bread and wine", "tithe", "war", "rescue", "Sodom", "refusal", "spiritual authority"
+  ]
 }
+
+
 
 
 
