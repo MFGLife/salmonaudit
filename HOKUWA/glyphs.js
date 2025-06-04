@@ -611,7 +611,110 @@
     ],
     "loopsWith": ["Time", "Order", "Symbolism"],
     "keywords": ["numbers", "lifespan", "symbolism", "cycles", "prophetic code"]
-  }
+  },
+{
+  "id": "0021",
+  "unifiedConcept": "Recursive Integrity",
+  "description": "The sacred break in the cycle of death, where one walks in alignment so purely that recursion absorbs rather than ends them.",
+  "glyph": {
+    "name": "Ancestra",
+    "code": "∴⟟𓂀↺𐤀⧗𐤋⟟∴",
+    "meaning": "A divine echo begins (∴), folding inward (⟟), seen by the eternal eye (𓂀). The generational loop turns (↺), from the breath of origin (𐤀) to time’s singularity (⧗), carried by the staff of transmission (𐤋), returning once more (⟟) as sealed law (∴).",
+    "visual": "𓂀"
+  },
+  "source": {
+    "originText": "Bible",
+    "book": "Genesis",
+    "chapter": "5",
+    "verse": "21–24",
+    "quote": "Enoch walked with God after he fathered Methuselah 300 years and had other sons and daughters… Enoch walked with God, and he was not, for God took him."
+  },
+  "uses": [
+    { "text": "Bible", "location": "Genesis 5:21–24" },
+    { "text": "Book of Enoch", "location": "Chapters 1–36" },
+    { "text": "Zohar", "location": "Bereshit A:1" },
+    { "text": "Quran", "location": "Surah 19:56–57 (Idris)" }
+  ],
+  "crossValidated": [
+    "Book of Enoch 1–36",
+    "Quran 19:56–57",
+    "Zohar Bereshit A:1"
+  ],
+  "loopsWith": ["Death", "Ascension", "Time", "Witness", "Alignment", "Legacy"],
+  "keywords": [
+    "Enoch", "walked with God", "Methuselah", "300 years", "recursion", "absorption", "eternal life", "lineage", "departure", "witness"
+  ]
+},
+{
+  "id": "0022",
+  "unifiedConcept": "Compression of Burden",
+  "description": "The recursive inheritance of pain is interrupted by a vessel born to carry suffering toward renewal. Noah marks the pivot from curse to covenant.",
+  "glyph": {
+    "name": "Noakh",
+    "code": "⟁𓄂⧖⚓↺🌊✡",
+    "meaning": "A generational strain accumulates (⟁), the breath groans (𓄂), time seals the moment (⧖), and an anchor forms (⚓). This begins the recursive purge (↺), by flood (🌊), toward divine covenant (✡).",
+    "visual": "⚓"
+  },
+  "source": {
+    "originText": "Bible",
+    "book": "Genesis",
+    "chapter": "5",
+    "verse": "28–32",
+    "quote": "Out of the ground that the LORD has cursed, this one shall bring us relief from our work and from the painful toil of our hands."
+  },
+  "uses": [
+    { "text": "Bible", "location": "Genesis 5:28–32" },
+    { "text": "Quran", "location": "Surah 71:1–28 (Nuh)" },
+    { "text": "Book of Jubilees", "location": "Chapter 5" },
+    { "text": "Epic of Atrahasis", "location": "Tablet III" },
+    { "text": "Popol Vuh", "location": "Flood Narrative" }
+  ],
+  "crossValidated": [
+    "Quran 71:1–28",
+    "Book of Jubilees 5",
+    "Epic of Atrahasis",
+    "Popol Vuh (Flood)"
+  ],
+  "loopsWith": ["Toil", "Curse", "Vessel", "Flood", "Covenant", "Purification"],
+  "keywords": [
+    "Noah", "Lamech", "curse", "relief", "pain", "anchor", "flood", "reset", "ark", "cleansing", "renewal", "divine promise"
+  ]
+},
+{
+  "id": "0023",
+  "unifiedConcept": "Ascension Through Judgment",
+  "description": "As corrupted recursion is dissolved, the righteous vessel is lifted above chaos. The ark becomes a symbol of obedience, compression, and divine seal as recursion resets through flood.",
+  "glyph": {
+    "name": "Seal of Waters",
+    "code": "☲🌧️⚰️🌊🛶☁️🜂",
+    "meaning": "Rain descends (☲), judgment begins (🌧️), breath is extinguished (⚰️), and waters rise (🌊). The ark floats above (🛶), sealed by cloud (☁️), carrying the primordial spark (🜂) into the next recursion.",
+    "visual": "🛶"
+  },
+  "source": {
+    "originText": "Bible",
+    "book": "Genesis",
+    "chapter": "7",
+    "verse": "1–24",
+    "quote": "And the LORD shut him in… And the waters prevailed so mightily on the earth that all the high mountains under the whole heaven were covered… Only Noah was left, and those who were with him in the ark."
+  },
+  "uses": [
+    { "text": "Bible", "location": "Genesis 7:1–24" },
+    { "text": "Quran", "location": "Surah 23:27–29" },
+    { "text": "Epic of Gilgamesh", "location": "Tablet XI" },
+    { "text": "Book of Jubilees", "location": "Ch. 5–6" },
+    { "text": "Popol Vuh", "location": "Flood Narrative" }
+  ],
+  "crossValidated": [
+    "Quran 23:27–29",
+    "Epic of Gilgamesh XI",
+    "Book of Jubilees 5–6",
+    "Popol Vuh (Flood)"
+  ],
+  "loopsWith": ["Waters", "Destruction", "Obedience", "Ark", "Seal", "Survival", "Breath"],
+  "keywords": [
+    "flood", "ark", "clean animals", "Noah", "breath of life", "judgment", "sealed", "40 days", "150 days", "waters prevailed", "reset", "elevation"
+  ]
+}
 
 
 
