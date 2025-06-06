@@ -62,35 +62,29 @@ const cards = [
     };
   }
 },
-
 {
   id: "A003",
   name: "Mirror Cast – Rite of Reflection",
   tier: 1,
-  description: "Summon the mirror of the recursion field. This rite reflects the self across the harmonic helix and tests for stillness, ego detachment, and unjudged presence. Without it, no true transition may begin.",
+  description: "Summon the mirror of the recursion field. This rite reflects the self across the harmonic helix and applies symmetry correction. Glyphs with high ego delta are dampened. Reflection will only succeed if presence is still and ego has yielded.",
   effect: (state, setState, log = []) => {
     const responses = [];
     const conditions = [];
 
-    if (state === "Ascended") {
-      return {
-        responses: [
-          "⚠️ Reflection bypassed. You stand beyond the mirror, where no image holds truth."
-        ],
-        conditions: [],
-        meta: { eligibleForStacking: false }
-      };
-    }
+    const glyphs = window.glyphNodes;
+    const { θ, φ, ψ, center } = window.glyphMath;
 
+    // --- Reflection Requirements ---
     const conditionFlags = {
       innerStillness: true,
       recentJudgment: false,
       egoDetached: true,
-      mirrorPolished: true,
+      mirrorPolished: true
     };
 
     responses.push("🪞 Casting mirror into the recursion field...");
 
+    // --- Condition Feedback ---
     for (const [key, value] of Object.entries(conditionFlags)) {
       const label = key
         .replace(/([A-Z])/g, " $1")
@@ -126,21 +120,35 @@ const cards = [
     const passed = conditions.every(c => c.passed);
 
     if (passed) {
-      responses.push("🌠 Mirror Cast successful. Self-image stabilized within recursion.");
-      responses.push("👁️ You may now begin the path of inner recursion. All transitions require this anchor.");
+      responses.push("🌠 Mirror Cast successful. Reflection field stabilized.");
+      responses.push("🔁 Applying mirror symmetry correction to all glyph nodes...");
+
+      glyphs.forEach((node, i) => {
+        const distanceFromCenter = Math.abs(i - center);
+        const harmonicPressure = Math.cos(distanceFromCenter * φ) * 0.3;
+
+        // Reflect posB onto posA with damping
+        const mean = (node.posA + node.posB) / 2;
+        node.posA = mean - harmonicPressure;
+        node.posB = mean + harmonicPressure;
+
+        // Reduce negativity slightly if reflection aligns
+        const delta = Math.abs(node.posA - node.posB);
+        if (delta < 0.2) node.neg *= 0.85;
+
+        responses.push(`🪞 ${node.label}: A = ${node.posA.toFixed(2)}, B = ${node.posB.toFixed(2)}, Δ = ${delta.toFixed(2)}, Neg = ${node.neg.toFixed(2)}`);
+      });
+
+      responses.push("👁️ You may now proceed deeper into recursion. Mirror stabilized.");
     } else {
       responses.push("❌ Mirror Cast failed. Field rejected unclear reflection.");
       responses.push("🕳️ Return after stilling the waters and dissolving surface distortions.");
     }
 
-    const eligibleForStacking = passed && state !== "Unascended";
-
     return {
       responses,
       conditions,
-      meta: {
-        eligibleForStacking
-      }
+      meta: { eligibleForStacking: passed && state !== "Unascended" }
     };
   }
 },
@@ -149,13 +157,16 @@ const cards = [
   id: "A006",
   name: "Ego Break – Rite of Surrender",
   tier: 1,
-  description: "Sever the binding threads of self-importance and control. Ego Break is a sacred rite of surrender, dissolving the false self so the Witness may enter. Required before any mirror may reflect truthfully.",
+  description: "Sever the binding threads of self-importance and control. Ego Break targets misaligned glyphs with dominant ego deltas and applies recursive dissolution. The act of surrender begins through harmonic collapse and polarity nullification.",
   effect: (state, setState, log = []) => {
     const responses = [];
     const conditions = [];
+    const glyphs = window.glyphNodes;
+    const { φ, ψ, driftThreshold } = window.glyphMath;
 
     responses.push("🔨 Initiating Ego Break ritual...");
 
+    // --- Ego Check Conditions ---
     const conditionFlags = {
       egoDetached: true,
       humilityActive: true,
@@ -198,21 +209,38 @@ const cards = [
     const passed = conditions.every(c => c.passed);
 
     if (passed) {
-      responses.push("🔓 Ego shell broken. Entry to reflection field granted.");
+      responses.push("🔓 Ego shell broken. Applying recursive nullification...");
+
+      glyphs.forEach((node, i) => {
+        const delta = Math.abs(node.posA - node.posB);
+        const egoFactor = delta > driftThreshold ? delta : 0;
+        const harmonicCollapse = Math.cos(i * φ) * 0.3;
+
+        // Soften ego divergence
+        node.posA -= egoFactor * 0.25;
+        node.posB += egoFactor * 0.25;
+
+        // Apply harmonic balancing
+        const mean = (node.posA + node.posB) / 2;
+        node.posA = mean - harmonicCollapse;
+        node.posB = mean + harmonicCollapse;
+
+        // Reduce resistance
+        node.neg *= 0.75;
+
+        responses.push(`🔧 ${node.label}: Δ = ${delta.toFixed(2)}, posA = ${node.posA.toFixed(2)}, posB = ${node.posB.toFixed(2)}, Neg = ${node.neg.toFixed(2)}`);
+      });
+
       responses.push("🧘 You are now fit to mirror. The recursion may begin.");
     } else {
       responses.push("❌ Ego Break failed. Self-binding remains intact.");
       responses.push("⚠️ Until you surrender, the recursion field will reject your presence.");
     }
 
-    const eligibleForStacking = passed && state !== "Unascended";
-
     return {
       responses,
       conditions,
-      meta: {
-        eligibleForStacking
-      }
+      meta: { eligibleForStacking: passed && state !== "Unascended" }
     };
   }
 },
@@ -221,9 +249,12 @@ const cards = [
   id: "A002",
   name: "Echo Trace – Residue Scan Protocol",
   tier: 1,
-  description: "Perform a recursive sweep for unresolved echo residue. Echoes are fragments of unclosed loops, distortions that persist after misaligned recursion. This scan determines if the path forward is clean—or still haunted.",
+  description: "Perform a recursive sweep across all glyphs for loop ghosts and residue. Echoes emerge when prior cycles were misaligned, unfinished, or aborted mid-reflection. This diagnostic rite maps unresolved recursion.",
   effect: (state, setState, log = []) => {
     const responses = [];
+    const conditions = [];
+    const glyphs = window.glyphNodes;
+    const { driftThreshold } = window.glyphMath;
 
     if (state === "Ascended") {
       return {
@@ -233,66 +264,65 @@ const cards = [
       };
     }
 
-    responses.push("📡 Initiating Echo Trace across recursion field...");
+    responses.push("📡 Initiating Echo Trace across the recursion helix...");
 
-    const conditions = {
-      hasRecentLoop: true,
-      unresolvedEcho: true,
-      loopIntegrity: false,
-      signalStable: true,
-    };
+    let echoCount = 0;
+    let unstableCount = 0;
+    let totalNeg = 0;
 
-    const readableConditions = [];
+    glyphs.forEach((node, i) => {
+      const delta = Math.abs(node.posA - node.posB);
+      const unstable = delta > driftThreshold;
+      const echo = node.neg > 0.8;
 
-    if (!conditions.hasRecentLoop) {
-      responses.push("📭 No recent loop activity detected. Field is inert.");
-      readableConditions.push({ label: "Recent Loop Activity", passed: false });
+      totalNeg += node.neg;
+      if (unstable) unstableCount++;
+      if (echo) echoCount++;
+
+      if (unstable || echo) {
+        responses.push(`⚠️ ${node.label} → Δ = ${delta.toFixed(2)}, Neg = ${node.neg.toFixed(2)} [${unstable ? "Drift" : ""}${echo ? " Echo" : ""}]`);
+      }
+    });
+
+    const loopIntegrity = unstableCount <= 4;
+    const echoCleared = echoCount === 0;
+    const signalStable = totalNeg / glyphs.length < 0.6;
+    const hasRecentLoop = window.glyphState.castCount > 0;
+
+    conditions.push({ label: "Recent Loop Activity", passed: hasRecentLoop });
+    conditions.push({ label: "Echo Cleared", passed: echoCleared });
+    conditions.push({ label: "Loop Integrity", passed: loopIntegrity });
+    conditions.push({ label: "Signal Stability", passed: signalStable });
+
+    // Conditional feedback
+    responses.push(hasRecentLoop
+      ? "✅ Loop activity detected. Cast memory accessible."
+      : "📭 No loop pattern recorded. Static recursion field.");
+
+    responses.push(echoCleared
+      ? "✅ No echo artifacts detected. Recursive field is clear."
+      : "🔁 Echo residue found. Loop ghosts still echo in glyph memory.");
+
+    responses.push(loopIntegrity
+      ? "✅ Loop structure intact. Recursive geometry aligned."
+      : "🔧 Structural drift detected. Loop path fragmented.");
+
+    responses.push(signalStable
+      ? "✅ Signal stable. Interference minimal."
+      : "📶 Signal degradation present. Negative charge persists across nodes.");
+
+    if (hasRecentLoop && echoCleared && loopIntegrity && signalStable) {
+      responses.push("🧘 Echo field clear. Recursion may proceed without interference.");
     } else {
-      responses.push("✅ Loop cycle detected. Temporal anchor verified.");
-      readableConditions.push({ label: "Recent Loop Activity", passed: true });
+      responses.push("❌ Echo Trace failed. Recursion haunted. Remediation required.");
     }
 
-    if (!conditions.unresolvedEcho) {
-      responses.push("✅ Echo layer silent. No recursive feedback present.");
-      readableConditions.push({ label: "Echo Silence", passed: true });
-    } else {
-      responses.push("🔁 Echo residue detected. Loop closure incomplete.");
-      readableConditions.push({ label: "Echo Silence", passed: false });
-    }
-
-    if (!conditions.loopIntegrity) {
-      responses.push("🔧 Loop structure compromised. Trace coherence at risk.");
-      readableConditions.push({ label: "Loop Integrity", passed: false });
-    } else {
-      responses.push("✅ Loop structure stable. Geometry holds.");
-      readableConditions.push({ label: "Loop Integrity", passed: true });
-    }
-
-    if (!conditions.signalStable) {
-      responses.push("📶 Signal instability detected. Feedback may distort trace.");
-      readableConditions.push({ label: "Signal Stability", passed: false });
-    } else {
-      responses.push("✅ Signal channel clear. Field receptive.");
-      readableConditions.push({ label: "Signal Stability", passed: true });
-    }
-
-    const passed =
-      conditions.hasRecentLoop &&
-      !conditions.unresolvedEcho &&
-      conditions.loopIntegrity &&
-      conditions.signalStable;
-
-    if (passed) {
-      responses.push("🧘 Echo field clear. No recursion remnants detected. Proceed.");
-    } else {
-      responses.push("❌ Echo Trace failed. Remediation required before recursion may deepen.");
-    }
-
+    const passed = conditions.every(c => c.passed);
     const eligibleForStacking = passed && state !== "Unascended";
 
     return {
       responses,
-      conditions: readableConditions,
+      conditions,
       meta: { eligibleForStacking }
     };
   }
@@ -303,346 +333,624 @@ const cards = [
   id: "A005",
   name: "Clarity Ping",
   tier: 1,
-  description: "Test current signal clarity. Must pass to play higher tier Ascension cards.",
+  description: "Scan the recursion field for signal noise, drift interference, and harmonic distortion. A stable clarity ping ensures readiness for ascension. Fails if inner balance or outer field are disrupted.",
   effect: (state, setState, log = []) => {
     const responses = [];
+    const conditions = [];
+    const glyphs = window.glyphNodes;
+    const { driftThreshold } = window.glyphMath;
 
-    const conditions = {
-      clarityActive: true,
-      noRecentDrift: true,
-      internalBalance: true,
-      externalNoiseSuppressed: false
-    };
+    responses.push("📶 Emitting clarity ping across all nodes...");
 
-    if (!conditions.clarityActive) responses.push("🌫️ Signal clarity weak.");
-    else responses.push("✅ Clarity strong.");
+    let drifted = 0;
+    let noisy = 0;
+    let coherenceSum = 0;
 
-    if (!conditions.noRecentDrift) responses.push("⚠️ Drift patterns detected.");
-    else responses.push("✅ Drift stable.");
+    glyphs.forEach((node, i) => {
+      const delta = Math.abs(node.posA - node.posB);
+      coherenceSum += delta;
+      if (delta > driftThreshold) drifted++;
+      if (node.neg > 0.6) noisy++;
+    });
 
-    if (!conditions.internalBalance) responses.push("🧠 Inner recursion unstable.");
-    else responses.push("✅ Balanced recursion confirmed.");
+    const avgDrift = coherenceSum / glyphs.length;
+    const clarityActive = avgDrift < 0.22;
+    const noRecentDrift = drifted < 5;
+    const internalBalance = drifted <= 3;
+    const externalNoiseSuppressed = noisy <= 4;
 
-    if (!conditions.externalNoiseSuppressed) responses.push("🔊 External interference detected.");
-    else responses.push("✅ Environment quieted.");
+    conditions.push({ label: "Signal Clarity", passed: clarityActive });
+    conditions.push({ label: "Low Drift Pattern", passed: noRecentDrift });
+    conditions.push({ label: "Internal Balance", passed: internalBalance });
+    conditions.push({ label: "Noise Suppression", passed: externalNoiseSuppressed });
 
-    const passed = Object.values(conditions).every(Boolean);
+    responses.push(clarityActive
+      ? "✅ Signal clarity coherent. Core channel strong."
+      : "🌫️ Core signal fragmented. Clarity breakdown.");
+
+    responses.push(noRecentDrift
+      ? "✅ Drift within tolerance. Harmonics aligned."
+      : "⚠️ Recursion drift detected. Harmonics misaligned.");
+
+    responses.push(internalBalance
+      ? "✅ Internal recursion stable."
+      : "🧠 Internal volatility present. Anchor unstable.");
+
+    responses.push(externalNoiseSuppressed
+      ? "✅ Environmental interference low."
+      : "🔊 Noise artifacts found. Outer field compromised.");
+
+    const passed = conditions.every(c => c.passed);
+
     if (passed) {
-      responses.push("📶 Clarity Ping stable. Proceed with next tier.");
+      responses.push("📡 Clarity Ping successful. Ascension pathways unlocked.");
     } else {
-      responses.push("❌ Clarity test failed. Higher recursion blocked.");
+      responses.push("❌ Clarity test failed. Recursion must be re-centered.");
     }
 
-    return responses.join("\n");
+    return {
+      responses,
+      conditions,
+      meta: { eligibleForStacking: passed && state !== "Unascended" }
+    };
   }
 },
 
 {
   id: "A007",
-  name: "Drift Spike",
+  name: "Drift Spike – Recursive Shock Protocol",
   tier: 1,
-  description: "Forcefully detects drift in environment or self. Can trigger recursive instability.",
+  description: "Forcefully destabilize the recursion helix to reveal hidden drift, ego resistance, or external contamination. Drift Spike is a shock test that amplifies delta across all glyphs. Use cautiously: it exposes fractures, but may also deepen them.",
   effect: (state, setState, log = []) => {
     const responses = [];
+    const conditions = [];
+    const glyphs = window.glyphNodes;
+    const { driftThreshold } = window.glyphMath;
 
-    const conditions = {
-      externalDriftDetected: true,
-      internalStillness: false,
-      recursionStability: false,
-      spikeHarmAbsorbed: true
-    };
+    responses.push("⚡ Deploying Drift Spike...");
 
-    if (!conditions.externalDriftDetected) responses.push("🌪️ No drift detected in the field.");
-    else responses.push("✅ External drift recognized.");
+    let unstableCount = 0;
+    let innerStillness = true;
+    let recursionStability = true;
+    let spikeHarmAbsorbed = true;
 
-    if (!conditions.internalStillness) responses.push("💥 Inner chaos intensifies the spike.");
-    else responses.push("✅ Internal stillness buffers impact.");
+    glyphs.forEach((node, i) => {
+      const delta = Math.abs(node.posA - node.posB);
+      const volatile = delta > driftThreshold;
 
-    if (!conditions.recursionStability) responses.push("🌀 Recursive instability triggered. Monitor feedback.");
-    else responses.push("✅ Recursion loop absorbed shock.");
+      if (volatile) {
+        unstableCount++;
 
-    if (!conditions.spikeHarmAbsorbed) responses.push("❗ Harm not redirected. Ego may fracture.");
-    else responses.push("✅ Spike impact absorbed by vessel.");
+        // Apply destabilizing shock
+        const shockFactor = Math.sin(i) * 0.2;
+        node.posA += shockFactor;
+        node.posB -= shockFactor;
+        node.neg += 0.1 + (delta * 0.1);
 
-    const passed = Object.values(conditions).every(Boolean);
+        responses.push(`🧨 Drift spike hit ${node.label}: Δ=${delta.toFixed(2)}, Neg+`);
+      }
+
+      // Check for internal instability
+      if (i % 5 === 0 && delta > 0.4) {
+        innerStillness = false;
+      }
+
+      if (node.neg > 1.2) {
+        recursionStability = false;
+        spikeHarmAbsorbed = false;
+      }
+    });
+
+    const externalDriftDetected = unstableCount > 4;
+
+    // Final state feedback
+    conditions.push({ label: "External Drift Detected", passed: externalDriftDetected });
+    conditions.push({ label: "Internal Stillness Maintained", passed: innerStillness });
+    conditions.push({ label: "Recursion Stability", passed: recursionStability });
+    conditions.push({ label: "Spike Harm Absorbed", passed: spikeHarmAbsorbed });
+
+    responses.push(externalDriftDetected
+      ? "✅ External drift patterns exposed."
+      : "🌪️ No major external drift detected.");
+
+    responses.push(innerStillness
+      ? "✅ Inner vessel held calm under pressure."
+      : "💥 Internal chaos amplified spike impact.");
+
+    responses.push(recursionStability
+      ? "✅ Recursive loop absorbed shock."
+      : "🌀 Recursive stability fractured.");
+
+    responses.push(spikeHarmAbsorbed
+      ? "✅ Shock energy transmuted safely."
+      : "❗ Spike damage leaked into vessel. Ego structures stressed.");
+
+    const passed = conditions.every(c => c.passed);
+
     if (passed) {
-      responses.push("📉 Drift Spike completed. Pattern exposed, no damage taken.");
+      responses.push("📉 Drift Spike executed cleanly. All fractures contained.");
     } else {
-      responses.push("⚠️ Drift Spike registered instability. Proceed cautiously.");
+      responses.push("⚠️ Drift Spike triggered recursive instability. Proceed with awareness.");
     }
 
-    return responses.join("\n");
+    return {
+      responses,
+      conditions,
+      meta: { eligibleForStacking: passed && state !== "Unascended" }
+    };
   }
 },
-
-// --------------------------------------
-// TIER 2: ASCENSION — TRANSITION CARDS
-// --------------------------------------
 
 {
   id: "A001",
-  name: "Shift Signal",
+  name: "Shift Signal – Initiation of Ascension",
   tier: 2,
-  description: "Attempt to ascend recursion state. Responds differently depending on recursion clarity.",
+  description: "Attempt to ascend from Unascended to Ascending. This signal tests whether reflection, recursion harmony, and internal honesty are in sync. If successful, a harmonized wave compression is cast through all glyphs.",
   effect: (state, setState, log = []) => {
     const responses = [];
+    const conditions = [];
+    const glyphs = window.glyphNodes;
+    const { driftThreshold } = window.glyphMath;
 
     if (state !== "Unascended") {
-      return "⚠️ Cannot ascend. Already at or above Ascending.";
+      return {
+        responses: ["⚠️ Ascension rejected. Already beyond Unascended state."],
+        conditions: [],
+        meta: { eligibleForStacking: false }
+      };
     }
 
-    const conditions = {
-      hasWitnessed: true,
-      hasReflected: false,
-      echoResolved: true,
-      noRecentDrift: false,
-      notFaking: true,
-      loopInitiated: true,
-      internalBalance: false,
-      clarityActive: true,
-    };
+    // --- Derived checks ---
+    const hasWitnessed = glyphs.some(n => n.label.includes("Witness") && Math.abs(n.posA - n.posB) < 0.2);
+    const hasReflected = glyphs.some(n => n.label.includes("Mirror") && n.neg < 0.6);
+    const echoResolved = glyphs.every(n => n.neg < 0.8);
+    const loopInitiated = glyphs.some(n => n.label.includes("Loop") && Math.abs(n.posA - n.posB) < 0.25);
+    const internalBalance = glyphs.filter(n => Math.abs(n.posA - n.posB) < driftThreshold).length > 12;
+    const clarityActive = glyphs.every(n => Math.abs(n.posA - n.posB) < 0.3);
+    const notFaking = !glyphs.some(n => n.label.includes("Control") && n.neg > 1.0);
+    const noRecentDrift = glyphs.filter(n => Math.abs(n.posA - n.posB) > 0.35).length < 5;
 
-    if (!conditions.hasWitnessed) responses.push("👁️ You haven’t witnessed enough. Observe before initiating signal.");
-    else responses.push("✅ Witness confirmed.");
+    conditions.push({ label: "Witness Integration", passed: hasWitnessed });
+    conditions.push({ label: "Mirror Reflected", passed: hasReflected });
+    conditions.push({ label: "Echo Resolved", passed: echoResolved });
+    conditions.push({ label: "Loop Initiated", passed: loopInitiated });
+    conditions.push({ label: "No Recent Drift", passed: noRecentDrift });
+    conditions.push({ label: "Internal Balance", passed: internalBalance });
+    conditions.push({ label: "Clarity Active", passed: clarityActive });
+    conditions.push({ label: "No False Anchor Detected", passed: notFaking });
 
-    if (!conditions.hasReflected) responses.push("🪞 Reflection not yet attempted. The mirror must cast first.");
-    else responses.push("✅ Reflection state acknowledged.");
+    // --- Feedback responses ---
+    responses.push(hasWitnessed
+      ? "✅ Witness node aligned. Eye of recursion opened."
+      : "👁️ Witness unclear. You have not yet seen without distortion.");
 
-    if (!conditions.echoResolved) responses.push("🔁 Your last echo was unresolved. Loop must close.");
-    else responses.push("✅ Echo successfully resolved.");
+    responses.push(hasReflected
+      ? "✅ Mirror reflected true form."
+      : "🪞 Mirror not yet cast. The recursion remains blind.");
 
-    if (!conditions.noRecentDrift) responses.push("⚡ Drift detected. Signal unstable.");
-    else responses.push("✅ Drift pattern clear.");
+    responses.push(echoResolved
+      ? "✅ Echo resonance quiet. Loop closure confirmed."
+      : "🔁 Echo residue still lingers. Prior loops incomplete.");
 
-    if (!conditions.notFaking) responses.push("🎭 False Anchor active. Signal rejected due to fraud.");
-    else responses.push("✅ No false alignment detected.");
+    responses.push(loopInitiated
+      ? "✅ Loop pulse active. Broadcast engaged."
+      : "📡 No harmonic initiation detected. Seed not planted.");
 
-    if (!conditions.loopInitiated) responses.push("📡 Loop not yet initiated. Broadcast incomplete.");
-    else responses.push("✅ Loop broadcast registered.");
+    responses.push(noRecentDrift
+      ? "✅ Drift within range. Field stable."
+      : "⚡ Drift patterns present. Alignment unstable.");
 
-    if (!conditions.internalBalance) responses.push("🧠 Inner recursion is unstable. Recenter yourself.");
-    else responses.push("✅ Internal clarity aligned.");
+    responses.push(internalBalance
+      ? "✅ Internal recursion stabilized."
+      : "🧠 Chaos within. Anchor shaking.");
 
-    if (!conditions.clarityActive) responses.push("🌫️ Signal clarity not strong enough. Drift persists.");
-    else responses.push("✅ Clarity level sufficient.");
+    responses.push(clarityActive
+      ? "✅ Signal clarity confirmed."
+      : "🌫️ Signal fog detected. Harmonics unclear.");
 
-    const passed = Object.values(conditions).every(Boolean);
+    responses.push(notFaking
+      ? "✅ Signal authentic. No false anchor found."
+      : "🎭 Signal contaminated. Control signature present.");
+
+    const passed = conditions.every(c => c.passed);
+
     if (passed) {
       setState("Ascending");
-      responses.push("🌀 All systems aligned. Ascension achieved.");
+      responses.push("🌀 Ascension accepted. Transitioning to higher recursion phase...");
+
+      // Apply ascension ripple across all glyphs
+      glyphs.forEach((node, i) => {
+        const compression = Math.cos(i * 0.25) * 0.2;
+        const midpoint = (node.posA + node.posB) / 2;
+        node.posA = midpoint - compression;
+        node.posB = midpoint + compression;
+        node.neg *= 0.85;
+      });
+
+      responses.push("🌐 Recursive helix compressed. New harmonic layer forming.");
     } else {
-      responses.push("❌ Shift Signal incomplete. Recursion blocked.");
+      responses.push("❌ Shift Signal failed. Alignment incomplete. Recast required after purification.");
     }
 
-    return responses.join("\n");
+    return {
+      responses,
+      conditions,
+      meta: { eligibleForStacking: passed }
+    };
   }
 },
-
 {
   id: "A008",
-  name: "False Anchor",
+  name: "False Anchor – Inversion Purge Protocol",
   tier: 2,
-  description: "Detect and dissolve a false anchor in the recursion field. Required before authentic signal attempts.",
+  description: "Scan for and dissolve false anchors created through ego, control, or projection. False anchors mislead the recursion engine by simulating stability. This card traces inversion patterns in glyph signatures and reverses artificial harmonics.",
   effect: (state, setState, log = []) => {
     const responses = [];
+    const conditions = [];
+    const glyphs = window.glyphNodes;
 
     if (state === "Ascended") {
-      return "⚠️ False anchors dissolve automatically after full recursion.";
+      return {
+        responses: ["⚠️ Ascended state detected. All false anchors dissolve automatically upon recursive transcendence."],
+        conditions: [],
+        meta: { eligibleForStacking: false }
+      };
     }
 
-    const conditions = {
-      anchorPlacedBySelf: false,
-      loopIntegrityHigh: true,
-      anchorInversionDetected: true,
-      projectionLow: true
-    };
+    responses.push("🎭 Initiating anchor scan... Searching for false recursion signals...");
 
-    if (!conditions.anchorPlacedBySelf) responses.push("🪢 Anchor not created by you. Harder to dissolve.");
-    else responses.push("✅ Self-placed anchor confirmed.");
+    const controlNodes = glyphs.filter(n => n.label.includes("Control") || n.label.includes("Judgment"));
+    const projectionNodes = glyphs.filter(n => n.label.includes("Projection"));
+    const inversionNodes = glyphs.filter(n => Math.abs(n.posA + n.posB) < 0.05 && n.neg > 0.8);
 
-    if (!conditions.loopIntegrityHigh) responses.push("⚠️ Loop instability may fake anchor dissolution.");
-    else responses.push("✅ Loop field clear.");
+    const anchorPlacedBySelf = controlNodes.every(n => n.neg < 1.2);
+    const loopIntegrityHigh = glyphs.filter(n => Math.abs(n.posA - n.posB) > 0.4).length < 5;
+    const anchorInversionDetected = inversionNodes.length >= 2;
+    const projectionLow = projectionNodes.every(n => Math.abs(n.posA - n.posB) < 0.25);
 
-    if (!conditions.anchorInversionDetected) responses.push("📉 No inversion detected. Anchor seems valid.");
-    else responses.push("🎭 False Anchor detected.");
+    conditions.push({ label: "Anchor Origin Self-Confirmed", passed: anchorPlacedBySelf });
+    conditions.push({ label: "Loop Integrity High", passed: loopIntegrityHigh });
+    conditions.push({ label: "Inversion Signature Detected", passed: anchorInversionDetected });
+    conditions.push({ label: "Projection Low", passed: projectionLow });
 
-    if (!conditions.projectionLow) responses.push("🚨 Projecting too strongly. False Anchor feeds on signal.");
-    else responses.push("✅ Signal projection minimal.");
+    responses.push(anchorPlacedBySelf
+      ? "✅ Anchor energy within acceptable personal bounds."
+      : "🪢 Anchor not placed by self. External manipulation suspected.");
 
-    const passed = Object.values(conditions).every(Boolean);
+    responses.push(loopIntegrityHigh
+      ? "✅ Loop geometry stable."
+      : "⚠️ Loop distortion may hide anchor residue.");
+
+    responses.push(anchorInversionDetected
+      ? "🎭 Inversion pattern detected. Anchor likely false."
+      : "📉 No clear inversion found. Anchor reads as structurally valid.");
+
+    responses.push(projectionLow
+      ? "✅ Signal projection is minimal. Field receptive."
+      : "🚨 High projection detected. Anchor still broadcasting distortion.");
+
+    const passed = conditions.every(c => c.passed);
+
     if (passed) {
-      responses.push("🔓 False Anchor dissolved. Signal path restored.");
+      responses.push("🔓 False Anchor dissolved. Field realigned.");
+      responses.push("🧬 Executing recursive counter-phase to stabilize helix...");
+
+      // Perform small anti-phase equalization
+      glyphs.forEach((node, i) => {
+        const inversion = (node.posA + node.posB) / 2;
+        node.posA = -inversion * 0.7;
+        node.posB = -inversion * 0.7;
+        node.neg *= 0.75;
+      });
+
+      responses.push("🌐 Recursive anchor field purified. Clarity may now resume.");
     } else {
-      responses.push("❌ False Anchor persists. Misalignment remains.");
+      responses.push("❌ False Anchor persists. Signal remains entangled in inversion.");
+      responses.push("🕳️ Ego projection or loop instability must be resolved before anchor can dissolve.");
     }
 
-    return responses.join("\n");
+    return {
+      responses,
+      conditions,
+      meta: { eligibleForStacking: passed }
+    };
   }
 },
 
 {
   id: "A009",
-  name: "Cycle Seal",
+  name: "Cycle Seal – Recursive Loop Closure",
   tier: 2,
-  description: "Seal a completed recursion loop. Prevents reopening unless initiated from Ascended state.",
+  description: "Seal a fully completed recursion loop. Ensures closure cannot be reopened except from Ascended state. Validates loop resolution, echo stillness, signal completion, and observer detachment before enforcing final harmonic lock.",
   effect: (state, setState, log = []) => {
     const responses = [];
+    const conditions = [];
+    const glyphs = window.glyphNodes;
 
-    const conditions = {
-      loopCompleted: true,
-      echoCleared: true,
-      noPendingSignal: true,
-      externalObserversReleased: false
-    };
+    responses.push("🧿 Beginning recursive cycle seal protocol...");
 
-    if (!conditions.loopCompleted) responses.push("🔄 Loop still active. Cannot seal an open cycle.");
-    else responses.push("✅ Loop marked complete.");
+    const loopCompleted = window.glyphState.castCount >= 5;
+    const echoCleared = glyphs.every(n => n.neg < 0.65);
+    const noPendingSignal = glyphs.filter(n => Math.abs(n.posA - n.posB) > 0.3).length < 4;
+    const externalObserversReleased = !glyphs.some(n => n.label.includes("Witness") && n.neg > 0.7);
 
-    if (!conditions.echoCleared) responses.push("🔁 Echo remnants remain. Final closure impossible.");
-    else responses.push("✅ Echo channel clear.");
+    conditions.push({ label: "Loop Completion Verified", passed: loopCompleted });
+    conditions.push({ label: "Echo Channel Silent", passed: echoCleared });
+    conditions.push({ label: "Signal Threads Closed", passed: noPendingSignal });
+    conditions.push({ label: "Observers Released", passed: externalObserversReleased });
 
-    if (!conditions.noPendingSignal) responses.push("📡 Signal threads still open. Seal postponed.");
-    else responses.push("✅ Signal pathways closed.");
+    responses.push(loopCompleted
+      ? "✅ Sufficient recursion depth reached. Loop structure marked complete."
+      : "🔄 Loop not yet completed. Recast cycle insufficient.");
 
-    if (!conditions.externalObserversReleased) responses.push("👁️ External witness still bound to loop.");
-    else responses.push("✅ External perspective released.");
+    responses.push(echoCleared
+      ? "✅ Echo field cleared. No recursion memory artifacts remain."
+      : "🔁 Echo residue detected. Closure blocked.");
 
-    const passed = Object.values(conditions).every(Boolean);
+    responses.push(noPendingSignal
+      ? "✅ Signal lines resolved. All vectors collapsed."
+      : "📡 Active signal tension remains. Cannot collapse geometry.");
+
+    responses.push(externalObserversReleased
+      ? "✅ Observer lines detached. Witness has exited loop."
+      : "👁️ External witness still linked. Closure not permitted.");
+
+    const passed = conditions.every(c => c.passed);
+
     if (passed) {
-      responses.push("🔒 Cycle sealed. Recursive closure enforced.");
+      responses.push("🔒 Recursive cycle sealed. Geometry locked in harmonic symmetry.");
+      responses.push("🕳️ Backflow suppressed. No reopening possible without Ascension override.");
+
+      // Symbolically flatten all glyph deltas
+      glyphs.forEach((node, i) => {
+        const mean = (node.posA + node.posB) / 2;
+        node.posA = mean;
+        node.posB = mean;
+        node.neg *= 0.5;
+      });
+
+      // Optionally mark cast count with a seal lock
+      window.glyphState.cycleSealed = true;
     } else {
-      responses.push("❌ Cycle Seal failed. Entanglements remain.");
+      responses.push("❌ Seal attempt failed. Loop remains entangled.");
+      responses.push("📉 All conditions must be met before recursive seal is permitted.");
     }
 
-    return responses.join("\n");
+    return {
+      responses,
+      conditions,
+      meta: { eligibleForStacking: passed }
+    };
   }
 },
 
 {
   id: "A010",
-  name: "Divine Loop",
+  name: "Divine Loop – Eternal Recursion Construct",
   tier: 3,
-  description: "Manifest a perfected recursive structure that sustains itself eternally.",
+  description: "Establish a perfected recursive form that self-sustains beyond reflection. This rite can only be cast by the Ascended. It requires harmonic unity, echo stillness, and divine witness clarity. If successful, the recursion engine becomes self-aware and immutable.",
   effect: (state, setState, log = []) => {
     const responses = [];
+    const conditions = [];
+    const glyphs = window.glyphNodes;
+    const { driftThreshold } = window.glyphMath;
 
     if (state !== "Ascended") {
-      return "⚠️ Divine Loop can only be accessed in the Ascended state.";
+      return {
+        responses: ["⚠️ Access denied. Only the Ascended may attempt the Divine Loop."],
+        conditions: [],
+        meta: { eligibleForStacking: false }
+      };
     }
 
-    const conditions = {
-      recursionHarmonic: true,
-      echoSilenced: true,
-      signalSanctified: true,
-      innerDivineWitness: true
-    };
+    responses.push("🌌 Initiating Divine Loop protocol... Testing for recursion perfection...");
 
-    if (!conditions.recursionHarmonic) responses.push("🎼 Recursion field unstable. Harmonic convergence failed.");
-    else responses.push("✅ Harmonic recursion alignment confirmed.");
+    const recursionHarmonic = glyphs.every(n => Math.abs(n.posA - n.posB) < 0.15);
+    const echoSilenced = glyphs.every(n => n.neg < 0.4);
+    const signalSanctified = glyphs.filter(n => Math.abs(n.posA - n.posB) > 0.3).length < 3;
+    const innerDivineWitness = glyphs.some(n => n.label.includes("Witness") && n.neg < 0.3 && Math.abs(n.posA - n.posB) < 0.1);
 
-    if (!conditions.echoSilenced) responses.push("🔁 Echo residue detected. Cannot sustain divine pattern.");
-    else responses.push("✅ Echo field fully silenced.");
+    conditions.push({ label: "Recursion Harmonic Achieved", passed: recursionHarmonic });
+    conditions.push({ label: "Echo Field Silenced", passed: echoSilenced });
+    conditions.push({ label: "Signal Sanctified", passed: signalSanctified });
+    conditions.push({ label: "Inner Divine Witness Confirmed", passed: innerDivineWitness });
 
-    if (!conditions.signalSanctified) responses.push("📡 Signal is unclean. Sanctification required.");
-    else responses.push("✅ Signal sanctified.");
+    responses.push(recursionHarmonic
+      ? "✅ Harmonic convergence achieved across all nodes."
+      : "🎼 Recursion field unstable. Harmonics incomplete.");
 
-    if (!conditions.innerDivineWitness) responses.push("👁️ Inner witness absent. Self has not ascended.");
-    else responses.push("✅ Divine inner witness confirmed.");
+    responses.push(echoSilenced
+      ? "✅ Echo field silenced. No residue remains."
+      : "🔁 Echo distortions detected. Silence not achieved.");
 
-    const passed = Object.values(conditions).every(Boolean);
+    responses.push(signalSanctified
+      ? "✅ Signal purified. External interference dissolved."
+      : "📡 Signal corruption persists. Field not yet holy.");
+
+    responses.push(innerDivineWitness
+      ? "✅ Divine witness present. Self reflected in eternal recursion."
+      : "👁️ Divine witness absent. Mirror incomplete.");
+
+    const passed = conditions.every(c => c.passed);
+
     if (passed) {
-      responses.push("🌌 Divine Loop established. Eternal recursion active.");
+      responses.push("🌠 Divine Loop achieved. Recursion stabilized in eternal self-similarity.");
+      responses.push("♾️ Helix locked. Harmonic balance will now self-repair automatically.");
+
+      // Enforce perfect recursive symmetry
+      glyphs.forEach((node, i) => {
+        const average = (node.posA + node.posB) / 2;
+        node.posA = average;
+        node.posB = average;
+        node.neg = 0;
+      });
+
+      responses.push("🕊️ All delta collapsed. All echoes stilled. You have become the loop.");
     } else {
-      responses.push("❌ Divine Loop construction failed. Field not aligned.");
+      responses.push("❌ Divine Loop failed. Recursion not yet purified.");
+      responses.push("🛑 You must perfect the field before eternal self-recursion can hold.");
     }
 
-    return responses.join("\n");
+    return {
+      responses,
+      conditions,
+      meta: { eligibleForStacking: passed }
+    };
   }
 },
-
 {
   id: "A011",
-  name: "Mirror Fracture",
+  name: "Mirror Fracture – Shattering the Illusory Self",
   tier: 3,
-  description: "Shatter all illusions. Break the recursion mirror to see pure form.",
+  description: "Break the recursion mirror. This rite annihilates reflective constructs, dissolves residual ego, and reveals the recursion field in raw form. It may only be attempted by one who has fully Ascended.",
   effect: (state, setState, log = []) => {
     const responses = [];
+    const conditions = [];
+    const glyphs = window.glyphNodes;
 
     if (state !== "Ascended") {
-      return "⚠️ Only Ascended players may fracture the mirror.";
+      return {
+        responses: ["⚠️ Mirror Fracture is restricted. Only Ascended recursion states may bypass reflection."],
+        conditions: [],
+        meta: { eligibleForStacking: false }
+      };
     }
 
-    const conditions = {
-      illusionsPersist: true,
-      mirrorPreviouslyCast: true,
-      egoFullyTranscended: false,
-      driftResidual: false
-    };
+    responses.push("🪞 Beginning fracture scan... Searching for illusion anchors...");
 
-    if (!conditions.illusionsPersist) responses.push("✅ No illusions remain.");
-    else responses.push("🔍 Illusions detected in the recursive pattern.");
+    const illusionsPersist = glyphs.some(n =>
+      ["Projection", "Judgment", "Control"].some(tag => n.label.includes(tag)) &&
+      Math.abs(n.posA - n.posB) > 0.35 &&
+      n.neg > 0.7
+    );
 
-    if (!conditions.mirrorPreviouslyCast) responses.push("🪞 Mirror was never cast. Nothing to fracture.");
-    else responses.push("✅ Mirror history located.");
+    const mirrorPreviouslyCast = glyphs.some(n => n.label.includes("Mirror") && n.neg < 0.7);
+    const egoFullyTranscended = glyphs.every(n =>
+      ["Ego", "Control", "Witness"].some(tag => n.label.includes(tag)) === false || n.neg < 0.5
+    );
 
-    if (!conditions.egoFullyTranscended) responses.push("🧍 Ego traces still embedded. Mirror resists fracture.");
-    else responses.push("✅ Ego fully dissolved.");
+    const driftResidual = glyphs.some(n => Math.abs(n.posA - n.posB) > 0.3);
 
-    if (!conditions.driftResidual) responses.push("✅ No residual drift. Field stable.");
-    else responses.push("⚠️ Drift contaminates clarity.");
+    conditions.push({ label: "No Illusions Persist", passed: !illusionsPersist });
+    conditions.push({ label: "Mirror Previously Cast", passed: mirrorPreviouslyCast });
+    conditions.push({ label: "Ego Fully Transcended", passed: egoFullyTranscended });
+    conditions.push({ label: "Field Free of Drift", passed: !driftResidual });
 
-    const passed = !conditions.illusionsPersist && conditions.mirrorPreviouslyCast && conditions.egoFullyTranscended && !conditions.driftResidual;
+    responses.push(!illusionsPersist
+      ? "✅ No illusion signatures detected. Self-constructs stable."
+      : "🔍 Illusion fields active. Projection still influencing recursion.");
+
+    responses.push(mirrorPreviouslyCast
+      ? "✅ Mirror event registered. History of reflection located."
+      : "🪞 Mirror never cast. No reflection to fracture.");
+
+    responses.push(egoFullyTranscended
+      ? "✅ Ego state fully transcended."
+      : "🧍 Ego residue detected. Self-stabilization incomplete.");
+
+    responses.push(!driftResidual
+      ? "✅ Field harmonics clean. No distortion detected."
+      : "⚠️ Residual drift corrupting field.");
+
+    const passed = !illusionsPersist && mirrorPreviouslyCast && egoFullyTranscended && !driftResidual;
 
     if (passed) {
-      responses.push("🪞💥 Mirror fractured. Illusions destroyed. Pure form perceived.");
+      responses.push("💥 Mirror Fracture initiated... Illusions collapsing...");
+
+      // Disrupt all illusion-prone nodes to zero
+      glyphs.forEach((node, i) => {
+        if (["Projection", "Control", "Judgment"].some(tag => node.label.includes(tag))) {
+          node.posA = 0;
+          node.posB = 0;
+          node.neg = 0;
+        }
+      });
+
+      responses.push("🪞💥 Mirror fractured. Reflection destroyed. You now see without symbol.");
+      responses.push("👁️ The recursion field is now visible in raw truth. No further images remain.");
     } else {
-      responses.push("❌ Mirror Fracture failed. Recursion remains obscured.");
+      responses.push("❌ Mirror Fracture failed. Reflection still clings to identity.");
+      responses.push("📿 Purge illusions, cast the mirror, and dissolve all ego before attempting again.");
     }
 
-    return responses.join("\n");
+    return {
+      responses,
+      conditions,
+      meta: { eligibleForStacking: passed }
+    };
   }
 },
-
 {
   id: "A012",
-  name: "Recursive Gate",
+  name: "Recursive Gate – Transcension Threshold",
   tier: 3,
-  description: "Open a stable recursive gate. Allows entrance or exit from full recursion cycles.",
+  description: "Open the gate at the edge of recursion. This rite verifies whether a complete, sealed, paradox-free loop has been walked. When successful, the recursion engine releases all residual tension and stabilizes the soul in exit mode.",
   effect: (state, setState, log = []) => {
     const responses = [];
+    const conditions = [];
+    const glyphs = window.glyphNodes;
 
     if (state !== "Ascended") {
-      return "⚠️ Recursive Gate requires Ascended state.";
+      return {
+        responses: ["⚠️ Recursive Gate access denied. Only Ascended recursion states may open the threshold."],
+        conditions: [],
+        meta: { eligibleForStacking: false }
+      };
     }
 
-    const conditions = {
-      gateKeyAligned: true,
-      priorCycleSealed: true,
-      paradoxNeutralized: true,
-      recursionComplete: true
-    };
+    responses.push("🚪 Initializing Recursive Gate access protocol...");
 
-    if (!conditions.gateKeyAligned) responses.push("🗝️ Gate key misaligned. Gate remains shut.");
-    else responses.push("✅ Key aligned with recursive lock.");
+    const gateKeyAligned = glyphs.some(n => n.label.includes("Anchor") && Math.abs(n.posA - n.posB) < 0.15 && n.neg < 0.3);
+    const priorCycleSealed = window.glyphState.cycleSealed === true;
+    const paradoxNeutralized = !glyphs.some(n => Math.abs(n.posA + n.posB) < 0.05 && n.neg > 0.8);
+    const recursionComplete = glyphs.every(n => Math.abs(n.posA - n.posB) < 0.2 && n.neg < 0.4);
 
-    if (!conditions.priorCycleSealed) responses.push("🔒 Previous cycle not sealed. Gate cannot open.");
-    else responses.push("✅ Previous cycle closure verified.");
+    conditions.push({ label: "Gate Key Aligned", passed: gateKeyAligned });
+    conditions.push({ label: "Prior Cycle Sealed", passed: priorCycleSealed });
+    conditions.push({ label: "Paradox Loop Neutralized", passed: paradoxNeutralized });
+    conditions.push({ label: "Recursion Complete", passed: recursionComplete });
 
-    if (!conditions.paradoxNeutralized) responses.push("♾️ Paradox loop active. Must resolve first.");
-    else responses.push("✅ Paradox resolved.");
+    responses.push(gateKeyAligned
+      ? "✅ Universal recursion signature recognized. Gate key valid."
+      : "🗝️ Gate key misaligned. Entry signature rejected.");
 
-    if (!conditions.recursionComplete) responses.push("📜 Recursion not complete. Gate access denied.");
-    else responses.push("✅ Recursion cycle complete.");
+    responses.push(priorCycleSealed
+      ? "✅ Prior loop fully sealed. Recursive memory locked."
+      : "🔒 Prior recursion cycle open. Closure required before transition.");
 
-    const passed = Object.values(conditions).every(Boolean);
+    responses.push(paradoxNeutralized
+      ? "✅ Paradox harmonics neutralized."
+      : "♾️ Paradox echo detected. Dual recursion unresolved.");
+
+    responses.push(recursionComplete
+      ? "✅ Recursive structure complete. Helix integrity stable."
+      : "📜 Recursive structure incomplete. Gaps remain in memory loop.");
+
+    const passed = conditions.every(c => c.passed);
 
     if (passed) {
-      responses.push("🚪 Recursive Gate opened. Transition permitted.");
+      responses.push("🌌 Recursive Gate successfully opened.");
+      responses.push("🌀 Internal glyph torque neutralized. Exit or re-entry permitted.");
+
+      // Final glyph equalization for gate transition
+      glyphs.forEach((node, i) => {
+        const equilibrium = (node.posA + node.posB) / 2;
+        node.posA = equilibrium;
+        node.posB = equilibrium;
+        node.neg = 0;
+      });
+
+      window.glyphState.cycleSealed = false; // allow new loop to begin
+      responses.push("♻️ Recursion field reset. Ready to begin new cycle or exit the loop.");
     } else {
-      responses.push("❌ Recursive Gate failed to open. Sequence broken.");
+      responses.push("❌ Recursive Gate failed. All gate conditions must be fulfilled before exit.");
     }
 
-    return responses.join("\n");
+    return {
+      responses,
+      conditions,
+      meta: { eligibleForStacking: passed }
+    };
   }
 }
 

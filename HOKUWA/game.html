@@ -26,7 +26,12 @@
             </div>
         </div>
 
-        <div class="text-gray-400">Turn: <span id="currentTurn" class="text-green-400 font-medium">Player</span></div>
+<div class="text-gray-400 flex items-center justify-between">
+  <div>Turn: <span id="currentTurn" class="text-green-400 font-medium">Player</span></div>
+  <button id="askMirrorBtn" class="ml-4 px-3 py-1 bg-purple-700 text-white text-xs rounded hover:bg-purple-600 transition hidden">
+    🪞 Ask the Mirror
+  </button>
+</div>
 
         <div id="narrativeBox" class="bg-gray-900 border border-gray-700 p-3 rounded text-sm text-gray-300 space-y-1">
             <div class="text-purple-400 font-semibold">Narrative:</div>
@@ -116,8 +121,9 @@ function updateUI() {
 playerStateDisplay.textContent = playerState;
 updateNarrative(playerState);
 
-    currentTurnSpan.textContent = turn;
-    currentTurnSpan.className = turn === "Player" ? "text-green-400 font-medium" : "text-red-400 font-medium";
+    currentTurnSpan.textContent = "Player";
+askMirrorBtn.classList.remove('hidden'); // always show it
+
 
     // Log
     actionLog.innerHTML = '';
@@ -169,7 +175,7 @@ function renderCard(card) {
     const { turn } = game.getState();
 
     const cardDiv = document.createElement('div');
-    cardDiv.className = `p-3 bg-gray-700 border border-gray-600 rounded cursor-pointer hover:bg-gray-600 transition-colors ${turn !== "Player" ? 'opacity-50 cursor-not-allowed' : ''}`;
+    cardDiv.className = `p-3 bg-gray-700 border border-gray-600 rounded cursor-pointer hover:bg-gray-600 transition-colors`;
 
     cardDiv.innerHTML = `
         <div class="flex justify-between items-start mb-1">
@@ -184,15 +190,18 @@ function renderCard(card) {
     `;
 
     if (turn === "Player") {
-        cardDiv.addEventListener('click', () => {
-            const result = game.playCard(card.id);
-            updateUI();
-            if (result) {
-                showCardDetails(card, result);
-                showChart(result.conditions);
-            }
-        });
-    }
+    cardDiv.addEventListener('click', () => {
+      
+
+        const result = game.playCard(card.id);
+        updateUI();
+        if (result) {
+            showCardDetails(card, result);
+            showChart(result.conditions);
+        }
+    });
+}
+
 
     return cardDiv;
 }
@@ -441,8 +450,41 @@ window.addEventListener("DOMContentLoaded", () => {
     window.glyphState.reset();
   }
 
-  autoPlayAI();
 });
+
+
+const askMirrorBtn = document.getElementById('askMirrorBtn');
+
+askMirrorBtn.addEventListener('click', () => {
+  const { playerState, history } = game.getState();
+  const nodes = window.glyphNodes;
+
+  const misaligned = nodes.filter(n => {
+    const delta = Math.abs(n.posA - n.posB);
+    return delta >= 0.15 || n.neg >= 1.0;
+  });
+
+  const messages = [];
+
+  if (misaligned.length === 0) {
+    messages.push("🌈 All glyphs within tolerance. Alignment is holding.");
+    messages.push("🧭 You may proceed with intuition. No clear obstruction detected.");
+  } else {
+    messages.push(`⚠ Alignment drift detected in ${misaligned.length} glyphs:`);
+    misaligned.slice(0, 5).forEach(n => {
+      messages.push(`• ${n.label} → Δ: ${Math.abs(n.posA - n.posB).toFixed(2)}, Neg: ${n.neg.toFixed(2)}`);
+    });
+
+    messages.push("💡 Consider cards that stabilize presence, reflect control, or dissolve ego.");
+  }
+
+  game.getState().log.push("🪞 Mirror Reflection Activated:");
+  game.getState().log.push(...messages);
+  updateUI();
+});
+
+
+
 
 });
 
