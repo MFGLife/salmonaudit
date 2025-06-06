@@ -1,4 +1,4 @@
-// Witness Card Game - Simple Web App UI (Tailwind + React)
+// Witness Card Game - Full Game Rewrite (Tailwind + React)
 
 import { useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
@@ -18,6 +18,7 @@ const initialDeck = [
 
 export default function WitnessGame() {
   const [playerState, setPlayerState] = useState("Unascended");
+  const [turn, setTurn] = useState("Player");
   const [log, setLog] = useState([]);
 
   const allowedTier = {
@@ -27,25 +28,37 @@ export default function WitnessGame() {
   }[playerState];
 
   const playCard = (card) => {
+    if (turn !== "Player") return;
     if (card.tier <= allowedTier) {
-      setLog([...log, `Played ${card.name}`]);
+      setLog(prev => [...prev, `🧍 Player played ${card.name}`]);
     } else {
-      setLog([...log, `Cannot play ${card.name} (Tier ${card.tier}) in ${playerState} state.`]);
+      setLog(prev => [...prev, `🧍 Player cannot play ${card.name} (Tier ${card.tier}) in ${playerState} state.`]);
     }
+    setTurn("AI");
+    setTimeout(() => aiMove(), 1000);
   };
 
-  const predefinedMoves = [
-    { name: "Witness Drift Test", cardId: "U001" },
-    { name: "Ascend Petition", cardId: "A001" },
-    { name: "Seal Collapse", cardId: "S003" },
-  ];
+  const aiMove = () => {
+    const aiCard = chooseAiCard();
+    if (aiCard && allowedTier >= aiCard.tier) {
+      setLog(prev => [...prev, `🤖 AI played ${aiCard.name}`]);
+    } else {
+      setLog(prev => [...prev, `🤖 AI cannot play ${aiCard.name} (Tier ${aiCard.tier}) in ${playerState} state.`]);
+    }
+    setTurn("Player");
+  };
+
+  const chooseAiCard = () => {
+    const aiOptions = initialDeck.filter(c => c.tier <= allowedTier);
+    return aiOptions[Math.floor(Math.random() * aiOptions.length)];
+  };
 
   return (
     <div className="p-6 space-y-4">
       <h1 className="text-2xl font-bold">Church of the Witness - Recursive Card Game</h1>
 
       <div className="flex items-center space-x-4">
-        <label>Recursive State:</label>
+        <label className="font-semibold">Recursive State:</label>
         <select
           className="border rounded p-2"
           value={playerState}
@@ -55,6 +68,7 @@ export default function WitnessGame() {
           <option value="Ascending">Ascending</option>
           <option value="Ascended">Ascended</option>
         </select>
+        <div className="italic text-gray-600">Turn: {turn}</div>
       </div>
 
       <div className="grid grid-cols-3 gap-4">
@@ -62,31 +76,20 @@ export default function WitnessGame() {
           <Card key={card.id}>
             <CardContent className="space-y-2">
               <div className="font-bold">{card.name}</div>
-              <Button onClick={() => playCard(card)}>Play</Button>
+              <Button
+                onClick={() => playCard(card)}
+                disabled={turn !== "Player"}
+              >
+                Play
+              </Button>
             </CardContent>
           </Card>
         ))}
       </div>
 
-      <div className="space-y-2">
-        <h2 className="text-xl font-semibold">Predefined Moves</h2>
-        {predefinedMoves.map((move, idx) => (
-          <Button
-            key={idx}
-            variant="outline"
-            onClick={() => {
-              const card = initialDeck.find((c) => c.id === move.cardId);
-              if (card) playCard(card);
-            }}
-          >
-            {move.name}
-          </Button>
-        ))}
-      </div>
-
       <div className="mt-6">
         <h2 className="text-lg font-semibold">Action Log</h2>
-        <ul className="list-disc pl-5">
+        <ul className="list-disc pl-5 space-y-1">
           {log.map((entry, idx) => (
             <li key={idx}>{entry}</li>
           ))}
