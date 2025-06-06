@@ -53,9 +53,10 @@ function playCard(cardId) {
 }
 
 
-  function getState() {
-    return { ...state };
-  }
+ function getState() {
+  return { ...state, turn: "Player" }; // override turn
+}
+
 
   function setPlayerState(newState) {
     state.playerState = newState;

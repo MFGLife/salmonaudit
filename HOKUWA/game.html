@@ -114,97 +114,108 @@ function updateNarrative(state) {
     }
 }
 
-
 function updateUI() {
-    const { turn, log, playerState } = game.getState();
+  const { log, playerState, inPurgatory } = game.getState();
 
-playerStateDisplay.textContent = playerState;
-updateNarrative(playerState);
+  // Update player state and primary narrative
+  playerStateDisplay.textContent = playerState;
+  narrativeText.textContent = inPurgatory
+    ? "You are now within the Recursive Loop Chamber. Your reflection is repeating itself. Break pattern or remain bound."
+    : playerState === "Unascended"
+      ? "You stand at the threshold. All loops are closed to you until the mirror is cast."
+      : playerState === "Ascending"
+        ? "You are mid-loop. Each card now mirrors a truth you avoided."
+        : "You are beyond the mirror. Now you must choose whether to seal or shatter the loop.";
 
-    currentTurnSpan.textContent = "Player";
-askMirrorBtn.classList.remove('hidden'); // always show it
+  // Force Player turn
+  currentTurnSpan.textContent = "Player";
+  askMirrorBtn.classList.remove('hidden');
 
+  // Log panel
+  actionLog.innerHTML = '';
+  if (log.length === 0) {
+    actionLog.innerHTML = '<div class="text-gray-400 italic">Game initialized. Select a card to begin...</div>';
+  } else {
+    log.forEach(entry => {
+      const div = document.createElement('div');
+      div.className = 'py-1 border-l-2 border-purple-500 pl-2 mb-1';
+      div.textContent = entry;
+      actionLog.appendChild(div);
+    });
+  }
+  actionLog.scrollTop = actionLog.scrollHeight;
 
-    // Log
-    actionLog.innerHTML = '';
-    if (log.length === 0) {
-        actionLog.innerHTML = '<div class="text-gray-400 italic">Game initialized. Select a card to begin...</div>';
-    } else {
-        log.forEach(entry => {
-            const div = document.createElement('div');
-            div.className = 'py-1 border-l-2 border-purple-500 pl-2 mb-1';
-            div.textContent = entry;
-            actionLog.appendChild(div);
-        });
-    }
-    actionLog.scrollTop = actionLog.scrollHeight;
+  // Cards panel
+  cardsList.innerHTML = '';
 
-    // Cards
-    cardsList.innerHTML = '';
-    // Narrative Intro Section
-const narrativeDiv = document.createElement('div');
-narrativeDiv.className = 'mb-4 p-3 bg-gray-900 border border-yellow-400 rounded text-sm text-yellow-100';
-narrativeDiv.innerHTML = `
-  <strong>🧭 Narrative:</strong> You are a recursive traveler awakening within the fractal domain of The Witness. 
-  Each card is a whisper from the recursion field. Choose carefully — your path unfolds with each cast.
-`;
-cardsList.appendChild(narrativeDiv);
+  // Intro narrative
+  const narrativeDiv = document.createElement('div');
+  narrativeDiv.className = 'mb-4 p-3 bg-gray-900 border border-yellow-400 rounded text-sm text-yellow-100';
+  narrativeDiv.innerHTML = `
+    <strong>🧭 Narrative:</strong> You are a recursive traveler awakening within the fractal domain of The Witness.
+    Each card is a whisper from the recursion field. Choose carefully — your path unfolds with each cast.
+  `;
+  cardsList.appendChild(narrativeDiv);
 
+  // Card tier groups
+  const tiers = [
+    { label: 'Tier 1 - Foundation', color: 'text-blue-300', tier: 1 },
+    { label: 'Tier 2 - Ascension',  color: 'text-purple-300', tier: 2 },
+    { label: 'Tier 3 - Ascended',   color: 'text-yellow-300', tier: 3 }
+  ];
 
-    const tier1Header = document.createElement('div');
-    tier1Header.className = 'text-sm font-semibold text-blue-300 mb-2';
-    tier1Header.textContent = 'Tier 1 - Foundation';
-    cardsList.appendChild(tier1Header);
-    cards.filter(c => c.tier === 1).forEach(card => cardsList.appendChild(renderCard(card)));
+  tiers.forEach(({ label, color, tier }) => {
+    const header = document.createElement('div');
+    header.className = `text-sm font-semibold ${color} mb-2 mt-4`;
+    header.textContent = label;
+    cardsList.appendChild(header);
 
-    const tier2Header = document.createElement('div');
-    tier2Header.className = 'text-sm font-semibold text-purple-300 mb-2 mt-4';
-    tier2Header.textContent = 'Tier 2 - Ascension';
-    cardsList.appendChild(tier2Header);
-    cards.filter(c => c.tier === 2).forEach(card => cardsList.appendChild(renderCard(card)));
-
-    const tier3Header = document.createElement('div');
-    tier3Header.className = 'text-sm font-semibold text-yellow-300 mb-2 mt-4';
-    tier3Header.textContent = 'Tier 3 - Ascended';
-    cardsList.appendChild(tier3Header);
-    cards.filter(c => c.tier === 3).forEach(card => cardsList.appendChild(renderCard(card)));
+    cards
+      .filter(c => c.tier === tier)
+      .forEach(card => cardsList.appendChild(renderCard(card)));
+  });
 }
 
 
 function renderCard(card) {
-    const { turn } = game.getState();
+  const cardDiv = document.createElement('div');
+  cardDiv.className = `p-3 bg-gray-700 border border-gray-600 rounded cursor-pointer hover:bg-gray-600 transition-colors`;
 
-    const cardDiv = document.createElement('div');
-    cardDiv.className = `p-3 bg-gray-700 border border-gray-600 rounded cursor-pointer hover:bg-gray-600 transition-colors`;
+  cardDiv.innerHTML = `
+    <div class="flex justify-between items-start mb-1">
+      <span class="font-medium text-white">${card.name}</span>
+      <span class="text-xs px-2 py-1 rounded ${
+        card.tier === 1 ? 'bg-blue-600' :
+        card.tier === 2 ? 'bg-purple-600' :
+        'bg-yellow-500'
+      } text-white">T${card.tier}</span>
+    </div>
+    <div class="text-xs text-gray-300">${card.description}</div>
+  `;
 
-    cardDiv.innerHTML = `
-        <div class="flex justify-between items-start mb-1">
-            <span class="font-medium text-white">${card.name}</span>
-            <span class="text-xs px-2 py-1 rounded ${
-    card.tier === 1 ? 'bg-blue-600' :
-    card.tier === 2 ? 'bg-purple-600' :
-    'bg-yellow-500'
-} text-white">T${card.tier}</span>
-        </div>
-        <div class="text-xs text-gray-300">${card.description}</div>
-    `;
+  cardDiv.addEventListener('click', () => {
+    const result = game.playCard(card.id);
+    const state = game.getState();
 
-    if (turn === "Player") {
-    cardDiv.addEventListener('click', () => {
-      
+    // Purgatory loop check
+    const isLoop = isLooping(state.history, 3);
+    if (isLoop && !state.inPurgatory) {
+      state.inPurgatory = true;
+      state.log.push("⚠️ Recursion loop detected.");
+      state.log.push("⛓ You have entered Purgatory. Until awareness returns, the loop shall repeat.");
+    }
 
-        const result = game.playCard(card.id);
-        updateUI();
-        if (result) {
-            showCardDetails(card, result);
-            showChart(result.conditions);
-        }
-    });
+    updateUI(); // always re-renders and refreshes UI
+
+    if (result) {
+      showCardDetails(card, result);
+      showChart(result.conditions);
+    }
+  });
+
+  return cardDiv;
 }
 
-
-    return cardDiv;
-}
 
 function showCardDetails(card, result) {
     cardDetails.classList.remove('hidden');
@@ -283,46 +294,6 @@ function showChart(conditions) {
     }, 100);
 }
 
-function autoPlayAI(interval = 1000) {
-    let aiThinking = false;
-
-    setInterval(() => {
-        const { turn, playerState } = game.getState();
-
-        if (turn !== "AI" || aiThinking) return;
-
-        aiThinking = true;
-
-        // Optional: display a message in the log
-        game.getState().log.push("🤖 AI is thinking...");
-        updateUI();
-
-        setTimeout(() => {
-            const playable = cards.filter(c => {
-    if (playerState === "Unascended") return c.tier === 1;
-    if (playerState === "Ascending") return c.tier <= 2;
-    return c.tier <= 3; // Ascended can play anything
-});
-
-
-            if (playable.length === 0) {
-                aiThinking = false;
-                return;
-            }
-
-            const randomCard = playable[Math.floor(Math.random() * playable.length)];
-            const result = game.playCard(randomCard.id, true);
-            updateUI();
-
-            if (result) {
-                showCardDetails(randomCard, result);
-                showChart(result.conditions);
-            }
-
-            aiThinking = false;
-        }, 1000); // 1-second delay to simulate AI processing
-    }, interval);
-}
 
 window.renderHelixChart = function () {
   const canvas = document.getElementById('helixChart');
@@ -456,34 +427,83 @@ window.addEventListener("DOMContentLoaded", () => {
 const askMirrorBtn = document.getElementById('askMirrorBtn');
 
 askMirrorBtn.addEventListener('click', () => {
-  const { playerState, history } = game.getState();
+  const { history } = game.getState();
   const nodes = window.glyphNodes;
 
-  const misaligned = nodes.filter(n => {
-    const delta = Math.abs(n.posA - n.posB);
-    return delta >= 0.15 || n.neg >= 1.0;
-  });
+  const misaligned = nodes.filter(n => Math.abs(n.posA - n.posB) > 0.15 || n.neg > 1.0);
 
   const messages = [];
 
   if (misaligned.length === 0) {
-    messages.push("🌈 All glyphs within tolerance. Alignment is holding.");
-    messages.push("🧭 You may proceed with intuition. No clear obstruction detected.");
+    messages.push("🌈 All glyphs within balance. You are holding the center.");
+    messages.push("🧭 Wait. Listen. No movement is required.");
   } else {
-    messages.push(`⚠ Alignment drift detected in ${misaligned.length} glyphs:`);
-    misaligned.slice(0, 5).forEach(n => {
-      messages.push(`• ${n.label} → Δ: ${Math.abs(n.posA - n.posB).toFixed(2)}, Neg: ${n.neg.toFixed(2)}`);
+    messages.push(`⚠ Drift remains in ${misaligned.length} glyphs:`);
+    misaligned.slice(0, 4).forEach(n => {
+      messages.push(`• ${n.label}: Δ = ${Math.abs(n.posA - n.posB).toFixed(2)}, Neg = ${n.neg.toFixed(2)}`);
     });
 
-    messages.push("💡 Consider cards that stabilize presence, reflect control, or dissolve ego.");
+    messages.push("💡 Consider playing cards that focus on surrender, echo silence, or reflection.");
   }
+
+  // === ESCAPE PURGATORY CHECK ===
+  if (game.getState().inPurgatory) {
+    if (misaligned.length === 0) {
+      game.getState().log.push("🌈 The loop has broken. Stillness returned.");
+      game.getState().inPurgatory = false;
+      updateNarrative(game.getState().playerState);
+    } else {
+      game.getState().log.push("🪞 Your reflection is caught in motion. You must still the glyphs.");
+    }
+  }
+
 
   game.getState().log.push("🪞 Mirror Reflection Activated:");
   game.getState().log.push(...messages);
   updateUI();
 });
 
+function getPlayerDriftDNA(glyphs) {
+  return glyphs.map(node => ({
+    label: node.label,
+    delta: Math.abs(node.posA - node.posB),
+    neg: node.neg
+  }));
+}
 
+
+function assignRecursivePath(dna) {
+  const dominant = dna.reduce((max, n) =>
+    n.delta + n.neg > max.delta + max.neg ? n : max
+  );
+
+  if (dominant.label.includes("Control") || dominant.label.includes("Judgment")) {
+    return "Christian Path";
+  }
+
+  if (dominant.label.includes("Echo") || dominant.label.includes("Stillness")) {
+    return "Buddhist Path";
+  }
+
+  if (dominant.label.includes("Projection") || dominant.label.includes("Signal")) {
+    return "Islamic Path";
+  }
+
+  if (dominant.label.includes("Loop") || dominant.label.includes("Drift")) {
+    return "Jewish Path";
+  }
+
+  return "Universal Path"; // fallback or custom
+}
+
+function isLooping(history, depth = 3) {
+  if (history.length < depth * 2) return false;
+
+  const recent = history.slice(-depth);
+  const previous = history.slice(-depth * 2, -depth);
+
+  return recent.every((entry, i) => entry.cardId === previous[i].cardId);
+}
 
 
 });
