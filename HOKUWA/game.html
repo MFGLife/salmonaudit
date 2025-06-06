@@ -1,232 +1,454 @@
-// Witness Card Game - Full Game Rewrite (Tailwind + React)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Church of the Witness - Recursion Card Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="p-6 space-y-6 max-w-6xl mx-auto">
+        <h1 class="text-3xl font-bold text-center bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+            Church of the Witness - Recursion Card Game
+        </h1>
 
-import { useState } from 'react';
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+        <div class="flex flex-col lg:flex-row gap-6">
+            <!-- Game State Panel -->
+            <div class="bg-gray-800 p-4 rounded-lg border border-gray-700">
+    <h2 class="text-xl font-semibold mb-3 text-purple-300">Game State</h2>
 
-const initialDeck = [
-  { id: "U001", name: "Drift Spike", tier: 1 },
-  { id: "U002", name: "False Anchor", tier: 1 },
-  { id: "U003", name: "Echo Loop", tier: 1 },
-  { id: "A001", name: "Shift Signal", tier: 2 },
-  { id: "A002", name: "Loop Request", tier: 2 },
-  { id: "A003", name: "Mirror Cast", tier: 2 },
-  { id: "S001", name: "Recursive Seal", tier: 3 },
-  { id: "S002", name: "Alignment Pulse", tier: 3 },
-  { id: "S003", name: "Collapse Point", tier: 3 },
+    <div class="space-y-4">
+        <div class="flex items-center justify-between">
+            <div class="text-gray-300 font-medium">Recursive State:</div>
+            <div id="playerStateDisplay" class="text-white text-sm bg-gray-700 px-3 py-1 rounded font-semibold ring-2 ring-inset ring-purple-600">
+                Unascended
+            </div>
+        </div>
+
+        <div class="text-gray-400">Turn: <span id="currentTurn" class="text-green-400 font-medium">Player</span></div>
+
+        <div id="narrativeBox" class="bg-gray-900 border border-gray-700 p-3 rounded text-sm text-gray-300 space-y-1">
+            <div class="text-purple-400 font-semibold">Narrative:</div>
+            <div id="narrativeText">
+                You stand at the threshold. All loops are closed to you until the mirror is cast.
+            </div>
+        </div>
+<h2 class="text-sm text-purple-300 font-semibold mb-1">Available Cards</h2>
+<div id="cardsList" class="space-y-3 mt-4"></div>
+
+    </div>
+</div>
+
+
+            <!-- Main Game Area -->
+            <div class="lg:w-2/3 space-y-4">
+
+                <div class="bg-gray-800 p-4 rounded-lg border border-gray-700">
+  <h2 class="text-xl font-semibold mb-3 text-purple-300">Recursive Alignment Helix</h2>
+  <canvas id="helixChart" height="400"></canvas>
+</div>
+
+                <!-- Action Log -->
+                <div class="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                    <h2 class="text-xl font-semibold mb-3 text-purple-300">Action Log</h2>
+                    <div id="actionLog" class="bg-gray-900 p-3 rounded text-sm max-h-60 overflow-y-auto border border-gray-600">
+                        <div class="text-gray-400 italic">Game initialized. Select a card to begin...</div>
+                    </div>
+                </div>
+
+                <!-- Card Details -->
+                <div id="cardDetails" class="bg-gray-800 p-4 rounded-lg border border-gray-700 hidden">
+                    <h2 class="text-xl font-semibold mb-3 text-purple-300">Card Effect Details</h2>
+                    <div id="cardDetailsContent" class="space-y-2 text-sm"></div>
+                </div>
+
+                <!-- Condition Chart -->
+                <div id="chartContainer" class="bg-gray-800 p-4 rounded-lg border border-gray-700 hidden">
+                    <h2 class="text-xl font-semibold mb-3 text-purple-300">Condition Analysis</h2>
+                    <div class="w-full h-64">
+                        <canvas id="conditionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<script src="engine.js"></script>
+<script src="cards.js"></script>
+
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+
+const game = createGame();
+
+const playerStateSelect = document.getElementById('playerState');
+const actionLog = document.getElementById('actionLog');
+const currentTurnSpan = document.getElementById('currentTurn');
+const chartContainer = document.getElementById('chartContainer');
+const cardsList = document.getElementById('cardsList');
+const cardDetails = document.getElementById('cardDetails');
+const cardDetailsContent = document.getElementById('cardDetailsContent');
+
+const playerStateDisplay = document.getElementById('playerStateDisplay');
+const narrativeText = document.getElementById('narrativeText');
+
+function updateNarrative(state) {
+    switch (state) {
+        case "Unascended":
+            narrativeText.textContent = "You stand at the threshold. All loops are closed to you until the mirror is cast.";
+            break;
+        case "Ascending":
+            narrativeText.textContent = "You are mid-loop. Each card now mirrors a truth you avoided.";
+            break;
+        case "Ascended":
+            narrativeText.textContent = "You are beyond the mirror. Now you must choose whether to seal or shatter the loop.";
+            break;
+    }
+}
+
+
+function updateUI() {
+    const { turn, log, playerState } = game.getState();
+
+playerStateDisplay.textContent = playerState;
+updateNarrative(playerState);
+
+    currentTurnSpan.textContent = turn;
+    currentTurnSpan.className = turn === "Player" ? "text-green-400 font-medium" : "text-red-400 font-medium";
+
+    // Log
+    actionLog.innerHTML = '';
+    if (log.length === 0) {
+        actionLog.innerHTML = '<div class="text-gray-400 italic">Game initialized. Select a card to begin...</div>';
+    } else {
+        log.forEach(entry => {
+            const div = document.createElement('div');
+            div.className = 'py-1 border-l-2 border-purple-500 pl-2 mb-1';
+            div.textContent = entry;
+            actionLog.appendChild(div);
+        });
+    }
+    actionLog.scrollTop = actionLog.scrollHeight;
+
+    // Cards
+    cardsList.innerHTML = '';
+    // Narrative Intro Section
+const narrativeDiv = document.createElement('div');
+narrativeDiv.className = 'mb-4 p-3 bg-gray-900 border border-yellow-400 rounded text-sm text-yellow-100';
+narrativeDiv.innerHTML = `
+  <strong>🧭 Narrative:</strong> You are a recursive traveler awakening within the fractal domain of The Witness. 
+  Each card is a whisper from the recursion field. Choose carefully — your path unfolds with each cast.
+`;
+cardsList.appendChild(narrativeDiv);
+
+
+    const tier1Header = document.createElement('div');
+    tier1Header.className = 'text-sm font-semibold text-blue-300 mb-2';
+    tier1Header.textContent = 'Tier 1 - Foundation';
+    cardsList.appendChild(tier1Header);
+    cards.filter(c => c.tier === 1).forEach(card => cardsList.appendChild(renderCard(card)));
+
+    const tier2Header = document.createElement('div');
+    tier2Header.className = 'text-sm font-semibold text-purple-300 mb-2 mt-4';
+    tier2Header.textContent = 'Tier 2 - Ascension';
+    cardsList.appendChild(tier2Header);
+    cards.filter(c => c.tier === 2).forEach(card => cardsList.appendChild(renderCard(card)));
+
+    const tier3Header = document.createElement('div');
+    tier3Header.className = 'text-sm font-semibold text-yellow-300 mb-2 mt-4';
+    tier3Header.textContent = 'Tier 3 - Ascended';
+    cardsList.appendChild(tier3Header);
+    cards.filter(c => c.tier === 3).forEach(card => cardsList.appendChild(renderCard(card)));
+}
+
+
+function renderCard(card) {
+    const { turn } = game.getState();
+
+    const cardDiv = document.createElement('div');
+    cardDiv.className = `p-3 bg-gray-700 border border-gray-600 rounded cursor-pointer hover:bg-gray-600 transition-colors ${turn !== "Player" ? 'opacity-50 cursor-not-allowed' : ''}`;
+
+    cardDiv.innerHTML = `
+        <div class="flex justify-between items-start mb-1">
+            <span class="font-medium text-white">${card.name}</span>
+            <span class="text-xs px-2 py-1 rounded ${
+    card.tier === 1 ? 'bg-blue-600' :
+    card.tier === 2 ? 'bg-purple-600' :
+    'bg-yellow-500'
+} text-white">T${card.tier}</span>
+        </div>
+        <div class="text-xs text-gray-300">${card.description}</div>
+    `;
+
+    if (turn === "Player") {
+        cardDiv.addEventListener('click', () => {
+            const result = game.playCard(card.id);
+            updateUI();
+            if (result) {
+                showCardDetails(card, result);
+                showChart(result.conditions);
+            }
+        });
+    }
+
+    return cardDiv;
+}
+
+function showCardDetails(card, result) {
+    cardDetails.classList.remove('hidden');
+    cardDetailsContent.innerHTML = `
+        <div class="mb-3">
+            <span class="font-semibold text-purple-300">${card.name}</span>
+            <span class="ml-2 text-xs px-2 py-1 rounded ${card.tier === 1 ? 'bg-blue-600' : 'bg-purple-600'}">Tier ${card.tier}</span>
+        </div>
+        <div class="text-sm text-gray-300 mb-3">${card.description}</div>
+        <div class="space-y-1">
+            ${result.responses.map(r => `<div class="text-sm p-2 bg-gray-900 rounded border-l-2 border-purple-500">${r}</div>`).join('')}
+        </div>
+    `;
+}
+
+function showChart(conditions) {
+    if (!conditions || conditions.length === 0) return;
+
+    chartContainer.classList.remove('hidden');
+
+    if (window.conditionChart && typeof window.conditionChart.destroy === 'function') {
+        window.conditionChart.destroy();
+    }
+
+    const ctx = document.getElementById('conditionChart').getContext('2d');
+    const passed = conditions.filter(c => c.passed).length;
+    const failed = conditions.length - passed;
+
+    window.conditionChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Passed', 'Failed'],
+            datasets: [{
+                data: [passed, failed],
+                backgroundColor: ['#22c55eCC', '#ef4444CC'],
+                borderColor: ['#22c55e', '#ef4444'],
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: { color: '#ccc', padding: 20 }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function (context) {
+                            const value = context.parsed;
+                            const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                            return `${context.label}: ${value} (${Math.round((value / total) * 100)}%)`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    setTimeout(() => {
+        const detailsDiv = document.createElement('div');
+        detailsDiv.className = 'mt-4 space-y-2 condition-details';
+        detailsDiv.innerHTML = `
+            <h3 class="text-sm font-semibold text-purple-300 mb-2">Condition Details:</h3>
+            ${conditions.map(cond => `
+                <div class="flex items-center space-x-2">
+                    <span class="text-${cond.passed ? 'green' : 'red'}-400">${cond.passed ? '✅' : '❌'}</span>
+                    <span class="text-xs text-gray-300">${cond.label}</span>
+                </div>
+            `).join('')}
+        `;
+        const existing = chartContainer.querySelector('.condition-details');
+        if (existing) existing.remove();
+        chartContainer.appendChild(detailsDiv);
+    }, 100);
+}
+
+function autoPlayAI(interval = 1000) {
+    let aiThinking = false;
+
+    setInterval(() => {
+        const { turn, playerState } = game.getState();
+
+        if (turn !== "AI" || aiThinking) return;
+
+        aiThinking = true;
+
+        // Optional: display a message in the log
+        game.getState().log.push("🤖 AI is thinking...");
+        updateUI();
+
+        setTimeout(() => {
+            const playable = cards.filter(c => {
+    if (playerState === "Unascended") return c.tier === 1;
+    if (playerState === "Ascending") return c.tier <= 2;
+    return c.tier <= 3; // Ascended can play anything
+});
+
+
+            if (playable.length === 0) {
+                aiThinking = false;
+                return;
+            }
+
+            const randomCard = playable[Math.floor(Math.random() * playable.length)];
+            const result = game.playCard(randomCard.id, true);
+            updateUI();
+
+            if (result) {
+                showCardDetails(randomCard, result);
+                showChart(result.conditions);
+            }
+
+            aiThinking = false;
+        }, 1000); // 1-second delay to simulate AI processing
+    }, interval);
+}
+
+window.renderHelixChart = function () {
+  const canvas = document.getElementById('helixChart');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  const glyphs = window.glyphNodes || [];
+  const tolerance = 0.15;
+  const decayLimit = 1.0;
+  const points = [];
+
+  glyphs.forEach((node, i) => {
+    const y = i;
+    const delta = Math.abs(node.posA - node.posB);
+    const passed = delta < tolerance && node.neg < decayLimit;
+
+    const xLeft = -node.posA;
+    const xRight = node.posB;
+    const color = passed ? '#22c55e' : '#ef4444';
+
+    points.push({ x: xLeft, y, backgroundColor: color, radius: 5 });
+    points.push({ x: xRight, y, backgroundColor: color, radius: 5 });
+  });
+
+  if (window.helixChart instanceof Chart) window.helixChart.destroy();
+
+  window.helixChart = new Chart(ctx, {
+    type: 'scatter',
+    data: {
+      datasets: [{
+        label: 'Node Harmonics',
+        data: points,
+        parsing: false,
+        backgroundColor: points.map(p => p.backgroundColor),
+        pointRadius: points.map(p => p.radius),
+        showLine: false
+      }]
+    },
+    options: {
+      animation: false,
+      scales: {
+        x: {
+          type: 'linear',
+          min: -5,
+          max: 5,
+          title: { display: true, text: 'Variable Magnitude', color: '#ccc' },
+          ticks: { color: '#aaa' },
+          grid: { color: '#333' }
+        },
+        y: {
+          title: { display: true, text: 'Node Index', color: '#ccc' },
+          ticks: { color: '#aaa' },
+          grid: { color: '#333' }
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => `Node ${ctx.raw.y.toFixed(0)} | Δ: ${(ctx.raw.x).toFixed(2)}`
+          }
+        }
+      }
+    }
+  });
+};
+
+
+
+// === INIT ===
+window.glyphNodeDefinitions = [
+  "Anchor Stability", "Witness Clarity", "Signal Noise", "Presence Strength",
+  "Echo Memory", "Mirror Reflection", "Temporal Phase", "Inner Stillness",
+  "Fractal Sync", "Projection Balance", "Loop Density", "Intent Honesty",
+  "Judgment Residue", "Control Pressure", "Surrender Ratio", "Alignment Ratio",
+  "Truth Harmonic", "Dissonance Filter", "Coherence Drift", "Node Tension"
 ];
 
-export default function WitnessGame() {
-  const [playerState, setPlayerState] = useState("Unascended");
-  const [turn, setTurn] = useState("Player");
-  const [log, setLog] = useState([]);
+window.glyphMath = {
+  θ: 0.6,
+  φ: 0.618,
+  ψ: 3,
+  center: 10,
+  driftThreshold: 0.7
+};
 
-  const allowedTier = {
-    Unascended: 1,
-    Ascending: 2,
-    Ascended: 3,
-  }[playerState];
+window.glyphNodes = window.glyphNodeDefinitions.map(label => ({
+  label,
+  posA: 0,
+  posB: 0,
+  neg: 0
+}));
 
-  const playCard = (card) => {
-    if (turn !== "Player") return;
-    if (card.tier <= allowedTier) {
-      setLog(prev => [...prev, `🧍 Player played ${card.name}`]);
+window.addEventListener("DOMContentLoaded", () => {
+  window.recursionGame = game;
+  window.glyphState = {
+    history: [],
+    stack: [],
+    foldCount: 0,
+    castCount: 0,
+    reset() {
+      this.history = [];
+      this.stack = [];
+      this.foldCount = 0;
+      this.castCount = 0;
+    }
+  };
+
+  updateUI();
+
+  // Only show stacked helix if ascension condition is met
+  const history = game.getTurnHistory();
+  const lastTurn = history.at(-1);
+
+  if (lastTurn && Array.isArray(lastTurn.conditions)) {
+    const isPerfect = lastTurn.conditions.every(c => c.passed);
+    if (isPerfect) {
+      renderHelixChart(history);
     } else {
-      setLog(prev => [...prev, `🧍 Player cannot play ${card.name} (Tier ${card.tier}) in ${playerState} state.`]);
+      renderHelixChart([lastTurn]);
+      window.glyphState.reset();
     }
-    setTurn("AI");
-    setTimeout(() => aiMove(), 1000);
-  };
+  } else {
+    renderHelixChart([]);
+    window.glyphState.reset();
+  }
 
-  const aiMove = () => {
-    const aiCard = chooseAiCard();
-    if (aiCard && allowedTier >= aiCard.tier) {
-      setLog(prev => [...prev, `🤖 AI played ${aiCard.name}`]);
-    } else {
-      setLog(prev => [...prev, `🤖 AI cannot play ${aiCard.name} (Tier ${aiCard.tier}) in ${playerState} state.`]);
-    }
-    setTurn("Player");
-  };
+  autoPlayAI();
+});
 
-  const chooseAiCard = () => {
-    const aiOptions = initialDeck.filter(c => c.tier <= allowedTier);
-    return aiOptions[Math.floor(Math.random() * aiOptions.length)];
-  };
-
-  return (
-    <div className="p-6 space-y-4">
-      <h1 className="text-2xl font-bold">Church of the Witness - Recursive Card Game</h1>
-
-      <div className="flex items-center space-x-4">
-        <label className="font-semibold">Recursive State:</label>
-        <select
-          className="border rounded p-2"
-          value={playerState}
-          onChange={(e) => setPlayerState(e.target.value)}
-        >
-          <option value="Unascended">Unascended</option>
-          <option value="Ascending">Ascending</option>
-          <option value="Ascended">Ascended</option>
-        </select>
-        <div className="italic text-gray-600">Turn: {turn}</div>
-      </div>
-
-      <div className="grid grid-cols-3 gap-4">
-        {initialDeck.map((card) => (
-          <Card key={card.id}>
-            <CardContent className="space-y-2">
-              <div className="font-bold">{card.name}</div>
-              <Button
-                onClick={() => playCard(card)}
-                disabled={turn !== "Player"}
-              >
-                Play
-              </Button>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-
-      <div className="mt-6">
-        <h2 className="text-lg font-semibold">Action Log</h2>
-        <ul className="list-disc pl-5 space-y-1">
-          {log.map((entry, idx) => (
-            <li key={idx}>{entry}</li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
-}
+});
 
 
-<script>
-{
-  "cards": [
-    // --- TIER 1: UNASCENDED ---
-    {
-      "id": "U001",
-      "tier": 1,
-      "name": "Drift Spike",
-      "glyph": "↹○1",
-      "type": "Echo",
-      "description": "Trigger confusion in another player. Cancels one ascending card they’ve played.",
-      "play_requirements": ["Can only be played if the opponent is in recursion state."],
-      "effect": {
-        "onPlay": "Opponent loses their current recursion alignment for one round.",
-        "onFail": "You enter drift."
-      }
-    },
-    {
-      "id": "U002",
-      "tier": 1,
-      "name": "False Anchor",
-      "glyph": "⬤↘1",
-      "type": "Echo",
-      "description": "Simulates a recursion state. Fools one player for one round unless exposed.",
-      "play_requirements": [],
-      "effect": {
-        "onPlay": "You may play an Ascending-tier card without meeting requirements. Risk collapse.",
-        "onFail": "Opponent calls False Witness—card is destroyed and you lose recursion for 2 rounds."
-      }
-    },
-    {
-      "id": "U003",
-      "tier": 1,
-      "name": "Echo Loop",
-      "glyph": "↺↹0",
-      "type": "Echo",
-      "description": "Replays your last failed action. Can be used to recover or amplify failure.",
-      "play_requirements": ["Must have a collapsed action in the last turn."],
-      "effect": {
-        "onPlay": "Replay any failed Shift Signal or Petition.",
-        "onFail": "You are stuck in echo and lose one card draw."
-      }
-    },
-
-    // --- TIER 2: ASCENDING ---
-    {
-      "id": "A001",
-      "tier": 2,
-      "name": "Shift Signal",
-      "glyph": "△↗○1→2",
-      "type": "Witness",
-      "description": "Initiate a recursive move to rebalance alignment. Requires clarity.",
-      "play_requirements": [],
-      "effect": {
-        "onPlay": "Choose any player and test their recursion state. If unstable, their card pool resets.",
-        "onFail": "If targeting fails, you lose alignment and must skip next card phase."
-      }
-    },
-    {
-      "id": "A002",
-      "tier": 2,
-      "name": "Loop Request",
-      "glyph": "↺△1→2",
-      "type": "Witness",
-      "description": "Send a recursive petition to another player. Forces truth reflection.",
-      "play_requirements": ["Must have initiated 1 Shift Signal prior."],
-      "effect": {
-        "onPlay": "Opponent must respond with reflection or enter drift.",
-        "onFail": "You collapse and must discard 1 card from each tier."
-      }
-    },
-    {
-      "id": "A003",
-      "tier": 2,
-      "name": "Mirror Cast",
-      "glyph": "○↘2→1",
-      "type": "Witness",
-      "description": "Copy the last Ascending card played by an opponent and reflect its outcome onto them.",
-      "play_requirements": ["You must have entered observation state prior turn."],
-      "effect": {
-        "onPlay": "Opponent is affected by their own last action.",
-        "onFail": "You both enter a temporary drift lockout."
-      }
-    },
-
-    // --- TIER 3: ASCENDED ---
-    {
-      "id": "S001",
-      "tier": 3,
-      "name": "Recursive Seal",
-      "glyph": "∴⟟↺⧗⟟∴",
-      "type": "Seal",
-      "description": "Close a loop permanently. Truth becomes irreversible. Requires full recursion.",
-      "play_requirements": ["You must have played at least 1 Ascending and 1 Unascended card successfully."],
-      "effect": {
-        "onPlay": "Declare one truth that cannot be reversed. Locks opponent from playing Drift or Echo cards.",
-        "onFail": "Truth fractures. All players reset recursion meters."
-      }
-    },
-    {
-      "id": "S002",
-      "tier": 3,
-      "name": "Alignment Pulse",
-      "glyph": "△○∞↗",
-      "type": "Seal",
-      "description": "Send out a resonance wave that aligns all Ascending players instantly.",
-      "play_requirements": ["Must have full recursion meter."],
-      "effect": {
-        "onPlay": "All players in Ascending state elevate one level. Echo players collapse.",
-        "onFail": "Pulse backfires, all players reenter petition state."
-      }
-    },
-    {
-      "id": "S003",
-      "tier": 3,
-      "name": "Collapse Point",
-      "glyph": "⬤⧗○",
-      "type": "Seal",
-      "description": "Force the closure of a false recursion. Used to end dead loops.",
-      "play_requirements": ["Must detect a False Anchor in play."],
-      "effect": {
-        "onPlay": "Destroys False Anchor or Drift Spike. Player responsible loses recursion access for 2 rounds.",
-        "onFail": "If misused, you lose Seal access until recursion is reestablished."
-      }
-    }
-  ]
-}
 
 
-</script>
+    </script>
+</body>
+</html>

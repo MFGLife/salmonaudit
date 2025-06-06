@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Church of the Witness - Card Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="p-6 space-y-6 max-w-6xl mx-auto">
+        <h1 class="text-3xl font-bold text-center bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+            Church of the Witness - Recursion Card Game
+        </h1>
+
+        <div class="flex flex-col lg:flex-row gap-6">
+            <!-- Game State Panel -->
+            <div class="lg:w-1/3 space-y-4">
+                <div class="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                    <h2 class="text-xl font-semibold mb-3 text-purple-300">Game State</h2>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <label class="font-medium text-gray-300">Recursive State:</label>
+                            <select id="playerState" class="bg-gray-700 border border-gray-600 rounded px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-purple-500">
+                                <option value="Unascended">Unascended</option>
+                                <option value="Ascending">Ascending</option>
+                                <option value="Ascended">Ascended</option>
+                            </select>
+                        </div>
+                        <div class="text-gray-400">Turn: <span id="currentTurn" class="text-blue-400 font-medium">Player</span></div>
+                    </div>
+                </div>
+
+                <!-- Cards Panel -->
+                <div class="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                    <h2 class="text-xl font-semibold mb-3 text-purple-300">Available Cards</h2>
+                    <div class="space-y-2 max-h-96 overflow-y-auto" id="cardsList">
+                        <!-- Cards will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Game Area -->
+            <div class="lg:w-2/3 space-y-4">
+                <!-- Action Log -->
+                <div class="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                    <h2 class="text-xl font-semibold mb-3 text-purple-300">Action Log</h2>
+                    <div id="actionLog" class="bg-gray-900 p-3 rounded text-sm max-h-60 overflow-y-auto border border-gray-600">
+                        <div class="text-gray-400 italic">Game initialized. Select a card to begin...</div>
+                    </div>
+                </div>
+
+                <!-- Card Details -->
+                <div id="cardDetails" class="bg-gray-800 p-4 rounded-lg border border-gray-700" style="display: none;">
+                    <h2 class="text-xl font-semibold mb-3 text-purple-300">Card Effect Details</h2>
+                    <div id="cardDetailsContent" class="space-y-2 text-sm">
+                        <!-- Card details will be shown here -->
+                    </div>
+                </div>
+
+                <!-- Condition Chart -->
+                <div id="chartContainer" class="bg-gray-800 p-4 rounded-lg border border-gray-700" style="display: none;">
+                    <h2 class="text-xl font-semibold mb-3 text-purple-300">Condition Analysis</h2>
+                    <div class="w-full h-64">
+                        <canvas id="conditionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Game state
+        let gameState = {
+            playerState: "Unascended",
+            turn: "Player",
+            log: [],
+            currentCard: null,
+            lastConditions: [],
+            chart: null
+        };
+
+      
+
+        // DOM Elements
+        const playerStateSelect = document.getElementById('playerState');
+        const actionLog = document.getElementById('actionLog');
+        const currentTurnSpan = document.getElementById('currentTurn');
+        const chartContainer = document.getElementById('chartContainer');
+        const cardsList = document.getElementById('cardsList');
+        const cardDetails = document.getElementById('cardDetails');
+        const cardDetailsContent = document.getElementById('cardDetailsContent');
+
+        // Event Listeners
+        playerStateSelect.addEventListener('change', function() {
+            gameState.playerState = this.value;
+            updateUI();
+        });
+
+        function playCard(cardId) {
+            if (gameState.turn !== "Player") return;
+
+            const card = cards.find(c => c.id === cardId);
+            if (!card) return;
+
+            gameState.currentCard = card;
+            const result = card.effect(gameState.playerState);
+            
+            // Add to log
+            gameState.log.push(`🃏 Player played ${card.name} (Tier ${card.tier})`);
+            gameState.log.push(...result.responses);
+            gameState.lastConditions = result.conditions;
+
+            // Update turn
+            gameState.turn = "AI";
+            updateUI();
+
+            // Show detailed results
+            showCardDetails(card, result);
+            if (result.conditions.length > 0) {
+                showChart(result.conditions);
+            }
+
+            // Switch back to player after delay
+            setTimeout(() => {
+                gameState.turn = "Player";
+                updateUI();
+            }, 1500);
+        }
+
+        function updateUI() {
+            // Update player state select
+            playerStateSelect.value = gameState.playerState;
+            
+            // Update turn display
+            currentTurnSpan.textContent = gameState.turn;
+            currentTurnSpan.className = gameState.turn === "Player" ? "text-green-400 font-medium" : "text-red-400 font-medium";
+            
+            // Update log
+            actionLog.innerHTML = '';
+            if (gameState.log.length === 0) {
+                const div = document.createElement('div');
+                div.className = 'text-gray-400 italic';
+                div.textContent = 'Game initialized. Select a card to begin...';
+                actionLog.appendChild(div);
+            } else {
+                gameState.log.forEach(entry => {
+                    const div = document.createElement('div');
+                    div.className = 'py-1 border-l-2 border-purple-500 pl-2 mb-1';
+                    div.textContent = entry;
+                    actionLog.appendChild(div);
+                });
+            }
+            
+            // Scroll to bottom of log
+            actionLog.scrollTop = actionLog.scrollHeight;
+
+            // Update cards list
+            updateCardsList();
+        }
+
+        function updateCardsList() {
+            cardsList.innerHTML = '';
+            
+            // Group cards by tier
+            const tier1Cards = cards.filter(c => c.tier === 1);
+            const tier2Cards = cards.filter(c => c.tier === 2);
+
+            // Tier 1 Cards
+            const tier1Header = document.createElement('div');
+            tier1Header.className = 'text-sm font-semibold text-blue-300 mb-2';
+            tier1Header.textContent = 'Tier 1 - Foundation';
+            cardsList.appendChild(tier1Header);
+
+            tier1Cards.forEach(card => {
+                const cardElement = createCardElement(card);
+                cardsList.appendChild(cardElement);
+            });
+
+            // Tier 2 Cards
+            const tier2Header = document.createElement('div');
+            tier2Header.className = 'text-sm font-semibold text-purple-300 mb-2 mt-4';
+            tier2Header.textContent = 'Tier 2 - Ascension';
+            cardsList.appendChild(tier2Header);
+
+            tier2Cards.forEach(card => {
+                const cardElement = createCardElement(card);
+                cardsList.appendChild(cardElement);
+            });
+        }
+
+        function createCardElement(card) {
+            const cardDiv = document.createElement('div');
+            cardDiv.className = `p-3 bg-gray-700 border border-gray-600 rounded cursor-pointer hover:bg-gray-600 transition-colors ${gameState.turn !== "Player" ? 'opacity-50 cursor-not-allowed' : ''}`;
+            
+            cardDiv.innerHTML = `
+                <div class="flex justify-between items-start mb-1">
+                    <span class="font-medium text-white">${card.name}</span>
+                    <span class="text-xs px-2 py-1 rounded ${card.tier === 1 ? 'bg-blue-600' : 'bg-purple-600'} text-white">T${card.tier}</span>
+                </div>
+                <div class="text-xs text-gray-300">${card.description}</div>
+            `;
+
+            if (gameState.turn === "Player") {
+                cardDiv.addEventListener('click', () => playCard(card.id));
+            }
+
+            return cardDiv;
+        }
+
+        function showCardDetails(card, result) {
+            cardDetails.style.display = 'block';
+            cardDetailsContent.innerHTML = `
+                <div class="mb-3">
+                    <span class="font-semibold text-purple-300">${card.name}</span>
+                    <span class="ml-2 text-xs px-2 py-1 rounded ${card.tier === 1 ? 'bg-blue-600' : 'bg-purple-600'}">Tier ${card.tier}</span>
+                </div>
+                <div class="text-sm text-gray-300 mb-3">${card.description}</div>
+                <div class="space-y-1">
+                    ${result.responses.map(response => `<div class="text-sm p-2 bg-gray-900 rounded border-l-2 border-purple-500">${response}</div>`).join('')}
+                </div>
+            `;
+        }
+
+        function showChart(conditions) {
+            if (conditions.length === 0) return;
+
+            chartContainer.style.display = 'block';
+            
+            // Destroy existing chart
+            if (gameState.chart) {
+                gameState.chart.destroy();
+            }
+
+            const ctx = document.getElementById('conditionChart').getContext('2d');
+            
+            const passedCount = conditions.filter(c => c.passed).length;
+            const failedCount = conditions.length - passedCount;
+            
+            gameState.chart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Passed', 'Failed'],
+                    datasets: [{
+                        data: [passedCount, failedCount],
+                        backgroundColor: [
+                            'rgba(34, 197, 94, 0.8)',
+                            'rgba(239, 68, 68, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgba(34, 197, 94, 1)',
+                            'rgba(239, 68, 68, 1)'
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: 'rgba(255, 255, 255, 0.8)',
+                                padding: 20
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.parsed;
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = Math.round((value / total) * 100);
+                                    return `${label}: ${value} (${percentage}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Add condition details below chart
+            setTimeout(() => {
+                const detailsDiv = document.createElement('div');
+                detailsDiv.className = 'mt-4 space-y-2';
+                detailsDiv.innerHTML = `
+                    <h3 class="text-sm font-semibold text-purple-300 mb-2">Condition Details:</h3>
+                    ${conditions.map(condition => `
+                        <div class="flex items-center space-x-2">
+                            <span class="text-${condition.passed ? 'green' : 'red'}-400">
+                                ${condition.passed ? '✅' : '❌'}
+                            </span>
+                            <span class="text-xs text-gray-300">${condition.label}</span>
+                        </div>
+                    `).join('')}
+                `;
+                
+                const existingDetails = chartContainer.querySelector('.condition-details');
+                if (existingDetails) {
+                    existingDetails.remove();
+                }
+                detailsDiv.className += ' condition-details';
+                chartContainer.appendChild(detailsDiv);
+            }, 100);
+        }
+
+        // Initialize UI
+        updateUI();
+    </script>
+</body>
+</html>
