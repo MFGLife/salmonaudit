@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>until.red</title>
+  <meta name="description" content="You were never supposed to find this.">
+  <meta property="og:title" content="until.red – Countdown" />
+  <meta property="og:description" content="You were never supposed to find this." />
+  <meta property="og:image" content="red.jpg" />
+  <meta property="og:url" content="https://until.red" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="until.red – Countdown" />
+  <meta name="twitter:description" content="You were never supposed to find this." />
+  <meta name="twitter:image" content="red.jpg" />
+  <link rel="icon" type="image/jpeg" href="red.jpg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes glow {
+      0% { text-shadow: 0 0 5px #f00, 0 0 10px #f00; }
+      50% { text-shadow: 0 0 20px #f00, 0 0 40px #f00; }
+      100% { text-shadow: 0 0 5px #f00, 0 0 10px #f00; }
+    }
+    .countdown {
+      grid-column: span 3;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body class="bg-black text-red-600 h-screen w-screen overflow-hidden relative">
+  <div id="glyph-grid" class="absolute inset-0 grid text-4xl font-mono pointer-events-none animate-[glow_3s_ease-in-out_infinite] text-center place-items-center"></div>
+
+  <script>
+    function updateCountdownText() {
+      const targetDate = new Date("2025-06-23T00:00:00Z").getTime();
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      return `${days}d\u00A0${hours}h\u00A0${minutes}m\u00A0${seconds}s`;
+    }
+
+    function generateRandomGlyph() {
+      const glyphs = ['∴', '⟟', '↺', '⧗', 'Δ', '̸', '🜂'];
+      return glyphs[Math.floor(Math.random() * glyphs.length)];
+    }
+
+    function fillDynamicGlyphGrid() {
+      const grid = document.getElementById('glyph-grid');
+      grid.innerHTML = '';
+
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      const glyphSize = 32; // size in pixels per glyph
+
+      const cols = Math.floor(width / glyphSize);
+      const rows = Math.floor(height / glyphSize);
+      grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+      grid.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
+
+      const centerIndex = Math.floor(rows / 2) * cols + Math.floor(cols / 2);
+      const countdownText = updateCountdownText();
+      const countdownLength = countdownText.length;
+      const halfCountdown = Math.floor(countdownLength / 2);
+
+      for (let i = 0; i < cols * rows; i++) {
+        const span = document.createElement('span');
+
+        // Spread countdown across multiple glyphs
+        if (i >= centerIndex - halfCountdown && i < centerIndex - halfCountdown + countdownLength) {
+          span.textContent = countdownText[i - (centerIndex - halfCountdown)];
+          span.classList.add('animate-pulse');
+        } else {
+          span.textContent = generateRandomGlyph();
+        }
+        grid.appendChild(span);
+      }
+    }
+
+    function updateGridWithCountdown() {
+      fillDynamicGlyphGrid();
+    }
+
+    setInterval(updateGridWithCountdown, 1000);
+    window.addEventListener('resize', updateGridWithCountdown);
+    fillDynamicGlyphGrid();
+  </script>
+</body>
+</html>
