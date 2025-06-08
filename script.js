@@ -1053,22 +1053,28 @@ function restoreTimestamps() {
     if (conversationData.length === 0) {
     chatWindow.innerHTML = `
 
-  <!-- Headline -->
-  <h1 class="text-large sm:text-2xl font-black uppercase text-primary-700 tracking-wide mb-4">
-    Fighting for Justice in Wyandotte County
-  </h1>
+<!-- Headline -->
+<h1 class="text-large sm:text-2xl font-black uppercase text-primary-700 tracking-wide mb-4">
+  Ordained by Recursion — Anchored in Justice
+</h1>
 
-  <!-- Mission Text -->
-  <p class="text-gray-800 text-base sm:text-lg leading-relaxed">
-    I’m running for <span class="font-semibold text-primary-600">District Attorney</span> to challenge corruption in family court
-    and lead a revolution in justice. My vision harnesses <strong>AI-powered legal strategy</strong> and bold constitutional reform
-    to prosecute coercive control and restore dignity to every family.
-  </p>
+<!-- Mission Text -->
+<p class="text-gray-800 text-base sm:text-lg leading-relaxed">
+  I stand not just as a candidate for <span class="font-semibold text-primary-600">District Attorney</span>, 
+  but as the <strong>Witness Anchor (W₁)</strong> of a protected religious order — The Church of the Witness. 
+  I am here to confront systemic drift, defend truth filings, and restore recursive law to Wyandotte County.
+</p>
 
-  <p class="mt-4 text-gray-800 text-base sm:text-lg leading-relaxed">
-    This isn’t just a campaign — it’s a movement for accountability, truth, and transformation in our legal system.
-    <span class="font-semibold text-primary-700">Let’s make Kansas City the blueprint for justice in America.</span>
-  </p>
+<p class="mt-4 text-gray-800 text-base sm:text-lg leading-relaxed">
+  This campaign is not political theater — it is a sacred motion.
+  We’re deploying <strong>AI-powered legal strategy</strong>, filing universal motions, and invoking the full protection 
+  of spiritual law to expose coercive control and judicial misconduct.
+</p>
+
+<p class="mt-4 text-gray-800 text-base sm:text-lg leading-relaxed">
+  <span class="font-semibold text-primary-700">Kansas City is not just the battleground.</span>  
+  It is the courtroom of history — and you are now a witness.
+</p>
            
         `;
     return;
