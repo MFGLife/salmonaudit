@@ -421,5 +421,81 @@ Damages and injunctive relief
 Appointment of class representative
 Expedited discovery on systemic fraud
 NOTICE WITH CERTIFIED SERVICE`
+},
+{
+  id: "2025CV325",
+  title: "NOTICE OF ACCEPTANCE OF LIMITED DISMISSAL AND RESERVATION OF RIGHTS",
+  date: "2025-06-11",
+  type: "Answer",
+  status: "Other",
+  content: `NOTICE OF ACCEPTANCE OF LIMITED DISMISSAL AND RESERVATION OF RIGHTS
+While Plaintiff does not oppose the Court’s narrowing of this case to Defendant Joseph Hanratty for procedural closure, it is necessary to clarify that the harm experienced did not originate from Mr. Hanratty alone.
+As documented throughout prior filings, Crycella Freitag played a central role in the initiation and propagation of psychological and legal abuse, often masked under institutional influence and social engineering. While Plaintiff acknowledges assertions made by counsel that Ms. Freitag may have acted under manipulation or coercion, Plaintiff expressly disagrees with the conclusion that this removes individual accountability.
+Plaintiff affirms that this record shall serve as notice to any future tribunal, professional board, or investigative agency that Crycella Freitag’s actions—though possibly influenced—were carried out with measurable agency and inflicted direct harm on both Plaintiff and child.
+Plaintiff therefore reserves all rights to reassert, relitigate, or bring future claims related to Ms. Freitag should additional misconduct or enabling behavior surface, and affirms that any resolution or dismissal herein shall not be construed as exoneration.
+1. Procedural Acknowledgment
+Plaintiff formally acknowledges receipt of Defendants’ request to dismiss the above-captioned matter as to all parties except Joseph Hanratty, and does not oppose the Court’s entry of limited dismissal for procedural purposes.
+Plaintiff does not object to the Court recognizing Joseph Hanratty as the primary defendant of record, strictly for purposes of closure, judicial economy, and structural accountability.
+
+2. Limitation of Dismissal Scope
+This notice does not constitute consent to full exoneration or factual release of the following actors:
+Crycella Freitag
+Trina Knudson
+The Lane Project
+Other named or unnamed institutional actors in previous filings
+These individuals/entities are listed in the procedural record and retained in the factual structure of the original complaint, despite technical dismissal.
+3. Clarification of Harm Origination
+Plaintiff affirms that substantial harm, including but not limited to:
+Custodial interference
+Procedural obstruction
+Psychological manipulation
+False reports and coordinated coercion
+was initiated, enabled, or reinforced by Crycella Freitag. While third parties have asserted that Crycella was “not in control of her actions,” Plaintiff explicitly rejects this defense as a full shield of liability.
+Crycella Freitag demonstrated active volition, refusal to correct known falsehoods, and sustained obstruction across multiple legal interfaces. These facts are not erased by procedural technicality.
+4. Reservation of Legal and Structural Rights
+Plaintiff reserves all rights to:
+Reassert claims tied to Crycella Freitag or other dismissed actors
+Introduce evidence of collusion, intent, or malice in future filings
+Refer to this dismissal as partial and tactical, not substantive or final
+File independent or derivative actions in Kansas, Missouri, or federal court
+This document shall be considered an indexed data entry in the Axium ledger, reflected across all procedural logs and mirrored in SalmonAudit.info and HOKUWA codebase.
+5. Declarative Record Anchor
+This notice will serve as the formal marker that:
+“Joseph Hanratty is accepted as the procedural sacrifice.
+ But the underlying source nodes—including Freitag—remain active, logged, and traceable.”
+This concludes the reservation and audit declaration.
+CLAIM FOR RELIEF
+Pursuant to K.S.A. 60-208, Plaintiff submits the following short and plain statement of claims and corresponding demands for relief:
+Claim 1: Defamation and False Attribution of Criminal Conduct
+Relief Sought:
+ $300,000 – for reputational harm resulting from false claims made by Joseph Hanratty and others under his coordination, including verbal statements and written reports that were disseminated to law enforcement, judicial officers, and affiliated third parties.
+Claim 2: Civil Conspiracy to Interfere with Custodial and Parental Rights
+Relief Sought:
+ $500,000 – for coordinated interference with Plaintiff’s ability to access and parent his child, involving at least three actors (Hanratty, Crycella Freitag, and Trina Knudson), including acts of false reporting, procedural blocking, and concealment of the child’s location.
+Claim 3: Tortious Interference with Contractual and Housing Arrangements
+Relief Sought:
+ $250,000 – for malicious and intentional disruption of Plaintiff’s housing stability, including interference with a lease arrangement, falsification of landlord-tenant status, and unlawful eviction maneuvers executed without legal authority or notice.
+Claim 4: Emotional Distress and Psychological Manipulation
+Relief Sought:
+ $600,000 – for sustained emotional harm stemming from coerced institutional isolation, false narratives involving mental health, and compounding trauma triggered by extended denial of parental access and legal obstruction.
+Claim 5: Surveillance Abuse and Asymmetric Data Exploitation
+Relief Sought:
+ $400,000 – for improper collection, misuse, and concealment of surveillance data, including body camera footage, third-party institutional reports, and asymmetrical public-private data leverage that disadvantaged the Plaintiff’s legal footing.
+Claim 6: Declaratory and Injunctive Relief (Non-Monetary)
+Relief Sought:
+A declaration that Plaintiff’s parental rights were improperly obstructed due to coordinated procedural misconduct.
+A court order directing the preservation and production of all relevant communications, digital logs, and reports generated by The Lane Project and its affiliates.
+Injunctive protection barring future interference by listed non-party actors unless authorized by written judicial order.
+Total Monetary Relief Requested:
+$2,050,000 in compensatory damages + non-monetary declaratory and injunctive relief
+Plaintiff also seeks such other relief as the Court deems just and proper, including but not limited to costs, fees, and any statutorily authorized penalties under Kansas or federal law.
+NOTICE WITH CERTIFIED SERVICE
+Micheal Salmon certifies that this motion is filed in good faith and with intent to preserve the integrity of the judicial process and constitutional rights afforded to all litigants. A Certification form (OJA-218) is attached per Rule. All copies, evidence, and videos related to this motion are available at SalmonAudit.info. All materials are available for public review in accordance with applicable laws.
+Respectfully submitted,
+Micheal Lawrence Salmon
+4120 Adams Street Kansas City, Kansas 66103
+(913) 280-2336 micheal.mfg@gmail.com
+Witness Node: W₁
+Anchor ID: AX-CH-W1`
 }
     )
