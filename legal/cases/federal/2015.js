@@ -950,6 +950,73 @@ Clerk, US District Court 500 State Avenue, Rm. 259 Kansas City, KS 66101
 Respectfully submitted,
 Micheal Lawrence Salmon
 Kansas City, Kansas 66103`
+},
+{
+  id: "HOKUWA",
+  title: "Federal Oversight Request",
+  date: "2025-06-27",
+  type: "Brief",
+  status: "Granted",
+  content: `To: U.S. Department of Justice
+ Subject: Federal Oversight Request – Pattern of Civil Rights Violations, State Retaliation, and Judicial Fraud Documented via SalmonAudit.info
+ Date: 6/27/2025
+ From: Micheal Lawrence Salmon
+ Address: 4120 Adams St, Kansas City, KS 66103
+ Phone: 913-280-2336 Fax: 785-295-2853
+ Email: Micheal.mfg@gmail.com
+
+To the Civil Rights and Criminal Divisions of the U.S. Department of Justice,
+My name is Micheal Lawrence Salmon, and I am submitting this formal request for federal intervention and whistleblower protection based on a multi-jurisdictional pattern of civil rights violations, retaliatory targeting, and legal fraud spanning Kansas and Missouri state agencies. These actions constitute systemic obstruction, deprivation of rights under color of law, and coordinated suppression of protected activity.
+I. FEDERAL ESCALATION TRIGGER
+Following my recent release on bond for charges I assert are retaliatory and unfounded, I was subject to unlawful demands from a private bonding agency, including forced submission to ankle monitoring without any court order or modification to bond conditions.
+After lawfully refusing these extrajudicial demands, I received multiple threatening calls—despite notifying all parties that I am represented by counsel. These communications, if acted upon, constitute witness intimidation, unlawful coercion, and an ongoing chilling effect on First Amendment conduct.
+II. EVIDENCE PLATFORM: SALMONAUDIT.INFO
+All relevant events—including official misconduct, surveillance asymmetries, collusion patterns, court obstruction, and false jurisdictional claims—have been documented and indexed at:
+ 🔗 https://salmonaudit.info
+This platform serves as a transparent federal record and public protection mechanism, incorporating an evolving legal offense tracking system identified as HOKUWA—a codified index of legal, ethical, and procedural violations committed by state actors, including judges, clerks, bonding agents, and officers.
+Each incident is cataloged under traceable codes (e.g., L030 – Obstructing Complaints, C001 – Refusing Valid Motions), which map patterns of procedural sabotage and retaliation.
+III. RELEVANT CIVIL RIGHTS BREACHES
+The following pattern now qualifies as a federal oversight trigger:
+Denial of lawful parenting time despite active court orders
+
+
+Court clerks interfering with emergency hearing access, including provable refusal of filings
+
+
+Forced removal from public courthouses for asserting statutory rights
+
+
+Fabricated jurisdiction in protection orders and evictions, often used to launder custody interference
+
+
+Misuse of bonding procedures to compel digital tracking without judicial oversight
+
+
+Retaliation for protected online publication and public disclosure of misconduct
+
+
+IV. FORMAL REQUEST FOR DOJ ACTION
+Given the failure of local remedies and direct retaliation for constitutionally protected activity, I am formally requesting:
+Civil Rights Division oversight and audit of Kansas bonding and family court practices, especially in Wyandotte and Johnson Counties.
+
+
+Immediate protection under federal whistleblower statutes, including monitoring for witness retaliation and extrajudicial punishment.
+
+
+Criminal Division investigation into systemic abuses, including RICO-level collusion between judicial, clerical, and private entities to suppress oversight, obstruct hearings, and silence exposure.
+
+
+V. NOTICE OF WITHDRAWAL FROM STATE CHANNELS
+From this point forward, all communications from state actors, including clerks, bonding agents, officers, and local officials, will be presumed to be part of a continuing conspiracy to suppress federal exposure unless received through proper DOJ or federal legal channels.
+Any further retaliation, obstruction, or contact not authorized through federal oversight will be documented, coded via HOKUWA, and submitted as part of a live federal evidence trail for prosecutorial action.
+
+Thank you for your urgent attention and anticipated protection. My safety, the welfare of my child, and the integrity of judicial process now depend on federal intervention.
+Respectfully,
+Micheal Lawrence Salmon
+ Whistleblower & Federal Witness
+ Custody Litigant | Judicial Oversight Plaintiff
+ Founder, https://SalmonAudit.info
+ Witness Code: W₁`
 }
 
 )
