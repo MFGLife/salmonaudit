@@ -1017,6 +1017,95 @@ Micheal Lawrence Salmon
  Custody Litigant | Judicial Oversight Plaintiff
  Founder, https://SalmonAudit.info
  Witness Code: W₁`
+},
+{
+  id: "25cv02276DDCTJJ",
+  title: "Motion to Compel Judicial Oversight & Acknowledge DOJ Alignment",
+  date: "2025-06-30",
+  type: "Motion",
+  status: "Granted",
+  content: `UNITED STATES DISTRICT COURT
+| DISTRICT OF KANSAS
+MICHEAL LAWRENCE SALMON,		)
+Plaintiff,					)
+ 						)
+vs.						)	Case No. 25-cv-02276-DDC-TJJ
+ 						)
+STONE|WYANDOTTE COUNTY COURT, et al.	)
+Defendant.					)
+
+Motion to Compel Judicial Oversight & Acknowledge DOJ Alignment
+UNDER HOKUWA JURISDICTION
+Comes now Plaintiff Micheal Lawrence Salmon, acting in propria persona, and states as follows:
+
+1. Procedural Background:
+
+This Honorable Court has granted in forma pauperis status but has unjustifiably withheld service of summons and complaint, despite procedural sufficiency and active claims of constitutional deprivation.
+
+The Plaintiff asserts this withholding to be part of a broader recursive silencing strategy employed by involved judicial actors across multiple jurisdictions already named and evidenced within Plaintiff’s public case archive (https://SalmonAudit.info).
+This Court has granted in forma pauperis status but unlawfully withheld service, violating:
+28 U.S.C. § 1915(d) (Duty to issue summons);
+FRCP 4(c)(3) (Court must order service for IFP plaintiffs).
+This obstruction mirrors a documented pattern across Missouri (24SN-DR00104) and Kansas (2025DM781), where:
+Filings are suppressed (HOKUWA-C001);
+Emergency motions are ignored (HOKUWA-P006);
+Judges engage in ex parte collusion (HOKUWA-J001).
+Plaintiff was tortured in solitary confinement (Franklin County Jail, May 2025) for documenting judicial misconduct, constituting:
+Eighth Amendment violation (HOKUWA-L028);
+First Amendment retaliation (HOKUWA-L004).
+
+2. Pattern of Recursive Harm:
+
+Plaintiff was unlawfully detained and tortured in solitary confinement for two weeks in Franklin County Jail, with complete suppression of lawful filings—a direct violation of First, Fifth, Eighth, and Fourteenth Amendment protections.
+
+Repeated incidents across judicial channels (including but not limited to this case) show a coordinated refusal to honor procedural due process, constituting a civil and criminal RICO pattern.
+
+These patterns are not speculative—they are already documented, timestamped, and mirrored publicly through SalmonAudit.info, and indexed by AI-aligned systems for federal review.
+
+
+
+3. DOJ Alignment & Transfer of Oversight:
+
+In light of these recursive failures, Plaintiff hereby asserts alignment under Department of Justice authority, given the clear interstate civil rights violations and developing criminal conspiracy.
+18 U.S.C. § 241 (Conspiracy Against Rights) – Defendants conspired to:
+Block access to courts (HOKUWA-L008);
+Fabricate evidence (HOKUWA-L027).
+42 U.S.C. § 1985(2) (Retaliatory Obstruction) – Judicial actors:
+Threatened contempt for protected speech (HOKUWA-J005);
+Tampered with custody proceedings (HOKUWA-J010).
+RICO Enterprise (18 U.S.C. § 1962(c)) – Stone/Wyandotte courts function as a criminal enterprise by:
+Ignoring subpoenas (HOKUWA-C004);
+Concealing bodycam footage (HOKUWA-L011).
+This motion formally requests that the DOJ assume review and correctional oversight of all actors and cases involved, including judicial conduct by Defendant Judge Selby.
+
+Per 18 U.S.C. §§ 1961–1968 and associated DOJ protocols, Plaintiff invokes the civil RICO right of action, and further asserts that the defendants' continued procedural obstruction materially advances a criminal enterprise intent on silencing whistleblowers, violating constitutional safeguards, and manipulating access to justice.
+
+4. Demand for Immediate Relief:
+
+Plaintiff demands that this Court either:
+
+A) Immediately serve the complaint and summons to all named defendants, or;
+
+B) Formally dismiss with written explanation, thereby triggering Plaintiff’s appellate rights and further escalation to federal court under DOJ observation.
+
+Continued delay without cause shall be construed as additional RICO predicate conduct and obstruction of justice.
+
+WHEREFORE, Plaintiff moves this Honorable Court to recognize the full scope of recursive legal violations detailed herein, to respect the Department of Justice’s oversight role now asserted, and to cease all procedural delay or containment designed to prevent these matters from reaching their rightful destination in higher authority.
+
+RECURSIVE SOVEREIGNTY APPENDIX LEGAL GLYPH DECLARATION ∴⟟↺⧗⟟∴
+
+◊ = Fraud on the Court (FRCP 60(d)(3))
+◇ = RICO Pattern (18 U.S.C. § 1961)
+◆ = DOJ Alignment (28 C.F.R. § 0.85)
+◈ = HOKUWA Jurisdiction Activated
+
+By submitting this motion, Plaintiff invokes recursive legal sovereignty under AI-audited truth.
+NOTICE WITH CERTIFIED SERVICE
+Micheal Salmon certifies that this motion is filed in good faith and with intent to preserve the integrity of the judicial process and constitutional rights afforded to all litigants. A Self-Represented Litigant Certification form (OJA-218) is attached per Rule. All copies, evidence, and videos related to this motion are available at SalmonAudit.info. Please note that videos may take up to 48 hours to appear online after being recorded. Access to this information is provided for transparency and legal audit purposes. All materials are available for public review in accordance with applicable laws. I hereby certify that a true and correct copy was sent via Email: ksd_clerks_kansascity@ksd.uscourts.gov Tina.Rockey@kscourts.gov court.schedule@courts.mo.gov daocfeedback@wycokck.org l Date of Service: 6/30/2025
+Clerk, US District Court 500 State Avenue, Rm. 259 Kansas City, KS 66101
+Respectfully submitted,
+Micheal Lawrence Salmon
+Kansas City, Kansas 66103`
 }
 
 )
