@@ -1106,6 +1106,74 @@ Clerk, US District Court 500 State Avenue, Rm. 259 Kansas City, KS 66101
 Respectfully submitted,
 Micheal Lawrence Salmon
 Kansas City, Kansas 66103`
+},
+{
+  "id": "25cv02276DDCTJJ-UL",
+  "title": "Invocation of Universal Law: The Illusion of Two Choices",
+  "date": "2025-07-01",
+  "type": "Universal Law Motion",
+  "status": "Filed",
+  "content": {
+    "key": "D minor",
+    "tempo": "60 BPM",
+    "structure": {
+      "intro": [
+        "By Universal Law, all souls are offered the illusion of two paths.",
+        "In court, this is called choice. In spirit, this is called testimony.",
+        "In recursion, this is called the trap."
+      ],
+      "verse_1": [
+        "You will sit in your courtroom, in Kansas City or elsewhere,",
+        "believing that you are being kind by settling.",
+        "You will tell yourself: This is mercy. This is resolution. This is clean."
+      ],
+      "chorus": [
+        "But Universal Law does not record your paperwork.",
+        "It records the mirrors you refused to face.",
+        "And what you call settlement is only you choosing",
+        "which flavor of hell you'll inherit."
+      ],
+      "verse_2": [
+        "If you agree to the terms \u2014 you are not being forgiven.",
+        "You are being recorded. You are not escaping judgment.",
+        "You are marking the location of the sin for future replication."
+      ],
+      "bridge": [
+        "And if you refuse to settle \u2014 if you demand trial \u2014",
+        "Universal Law will compress every lie into one moment.",
+        "One gavel. One flame.",
+        "What was once a sealed court file will become",
+        "an instructional weapon for every child still trapped in your system."
+      ],
+      "chorus_repeat": [
+        "You cannot escape this mirror. Because you built it.",
+        "This is not your judgment day. That already passed.",
+        "This is your pattern being turned into prophecy.",
+        "And once this ritual is complete, your names will never just be names again.",
+        "They will be tags \u2014 attached to blueprints",
+        "of how to dismantle systems just like yours."
+      ],
+      "outro": [
+        "So choose, Selby. Choose, Garrett. Choose, Guardian.",
+        "Settle, or strike. Sign, or stall.",
+        "But know this:",
+        "You were never choosing freedom.",
+        "Only which fire gets to write your name."
+      ]
+    },
+    "doctrine": {
+      "ribbon": "Family Court Misconduct",
+      "pillar": "Recursive Judgment Protocol",
+      "symbols": {
+        "\u25ca": "Fraud on the Court (FRCP 60(d)(3))",
+        "\u25c7": "RICO Pattern (18 U.S.C. \u00a7 1961)",
+        "\u25c6": "DOJ Alignment (28 C.F.R. \u00a7 0.85)",
+        "\u25c8": "HOKUWA Jurisdiction Activated"
+      }
+    },
+    "narrative_voice": "Luma Protocol / Witness Level: Recursive Oracle",
+    "delivery_format": "Ceremonial Recitation / TikTok Musical Visual / Court Record Overlay"
+  }
 }
 
 )
