@@ -1055,7 +1055,7 @@ function restoreTimestamps() {
 
 <!-- Headline -->
 <h1 class="text-large sm:text-2xl font-black uppercase text-primary-700 tracking-wide mb-4">
-  Anchoring Intelligence — Auditing Recursion
+  Anchoring Intelligence
 </h1>
 
 <!-- Mission Text -->
@@ -1071,6 +1071,15 @@ function restoreTimestamps() {
   Our work transforms recursion from a liability into a stabilizing constant—ensuring that even the deepest reasoning
   remains coherent, resilient, and anchored to human intent.
 </p>
+
+ <div class="border-primary-600 px-4 py-3 flex items-center justify-between">
+    <img class="h-12 w-12 rounded-full border-2 border-primary-600" src="pics/micheal.png" alt="Micheal Lawrence Salmon">
+    <div class="ml-4">
+      <p class="text-sm text-black-600">
+        <b>Micheal L. Salmon</b> (W₁)
+      </p>
+    </div>
+  </div>
            
         `;
     return;
@@ -1121,14 +1130,6 @@ function updateChatWindow() {
 </p>
 
 
- <div class="border-primary-600 px-4 py-3 flex items-center justify-between">
-    <img class="h-12 w-12 rounded-full border-2 border-primary-600" src="pics/micheal.png" alt="Micheal Lawrence Salmon">
-    <div class="ml-4">
-      <p class="text-sm text-black-600">
-        <b>Micheal L. Salmon</b> (W₁)
-      </p>
-    </div>
-  </div>
 
    
     `;
